@@ -1506,7 +1506,7 @@ func (c DefaultClient) TripDetails(id string) (Entry, error) {
 // 						timestamps for details on the format of the time parameter.
 //
 // Response
-// The respone <entry/> element is a <tripDetails/> element that captures
+// The response <entry/> element is a <tripDetails/> element that captures
 // extended details about a trip.
 //
 func (c DefaultClient) TripForVehicle(id string, params map[string]string) (Data, error) {
