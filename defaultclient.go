@@ -165,11 +165,11 @@ type VehicleStatus struct {
 
 //Agency container object
 type Agency struct {
-	TimeZone       string `xml:"timezone,omitempty"`
+	TimeZone       string `xml:"timezone"`
 	Lang           string `xml:"lang,omitempty"`
 	Phone          string `xml:"phone,omitempty"`
 	Disclaimer     string `xml:"disclaimer,omitempty"`
-	PrivateService string `xml:"privateService"`
+	PrivateService string `xml:"privateService,omitempty"`
 }
 
 type Block struct {
@@ -841,6 +841,43 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 	return nil
 }
 
+//RouteIdsForAgency - 	get a list of all route ids for an agency
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/route-ids-for-agency.html
+//
+// Method: route-ids-for-agency
+//  Retrieve the list of all route ids for a particular agency.
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/route-ids-for-agency/40.xml?key=TEST
+//
+// Sample Respsone
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithReferences">
+//     <references/>
+//     <list>
+//       <string>40_510</string>
+//       <string>40_511</string>
+//       <string>40_513</string>
+//       <string>...</string>
+//     </list>
+//     <limitExceeded>false</limitExceeded>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id - 	the id of the agency, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/route-ids-for-agency/[ID GOES HERE].xml?key=TEST
+//
+// Response
+// Returns a list of all route ids for routes served by the specified agency.
+// Note that <route/> elements for the referenced routes will NOT be included
+// in the <references/> section, since there are potentially a large number of
+// routes for an agency.
+//
 func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
 	u, err := c.buildRequestURL(reportPoblemWithTripEndPoint+id, nil)
 	if err != nil {
@@ -853,10 +890,97 @@ func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
 	return response.Data.List.Strings, nil
 }
 
+//Route - 	get details for a specific route
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/route.html
+//
+// Method: route
+//  Retrieve info for a specific route by id.
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/route/1_100224.xml?key=TEST
+//
+// Sample Response
+// <response>
+//     <version>2</version>
+//     <code>200</code>
+//     <currentTime>1461441898217</currentTime>
+//     <text>OK</text>
+//     <data class="entryWithReferences">
+//         <references>
+//             <agencies>
+//                 <agency>
+//                     <id>1</id>
+//                     <name>Metro Transit</name>
+//                     <url>http://metro.kingcounty.gov</url>
+//                     <timezone>America/Los_Angeles</timezone>
+//                     <lang>EN</lang>
+//                     <phone>206-553-3000</phone>
+//                     <privateService>false</privateService>
+//                 </agency>
+//             </agencies>
+//         </references>
+//         <entry class="route">
+//             <id>1_100224</id>
+//             <shortName>44</shortName>
+//             <description>Ballard - Montlake</description>
+//             <type>3</type>
+//             <url>http://metro.kingcounty.gov/schedules/044/n0.html</url>
+//             <agencyId>1</agencyId>
+//         </entry>
+//     </data>
+// </response>
+//
+// Request Parameters
+// id - 	the id of the route, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/route/[ID GOES HERE].xml
+//
+// Response
+// See details about the various properties of the <route/> element.
+//
 func (c DefaultClient) Route(id string) (Entry, error) {
 	return c.getEntry(routeEndPoint+id, "Route")
 }
 
+//RoutesForAgency - 	get a list of all routes for an agency
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/routes-for-agency.html
+//
+// Method: routes-for-agency
+//  Retrieve the list of all routes for a particular agency by id
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithReferences">
+//     <references/>
+//     <list>
+//       <route>
+//         <id>1_1</id>
+//         <shortName>1</shortName>
+//         <description>kinnear</description>
+//         <type>3</type>
+//         <url>http://metro.kingcounty.gov/tops/bus/schedules/s001_0_.html</url>
+//         <agencyId>1</agencyId>
+//       </route>
+//       ...
+//     </list>
+//     <limitExceeded>false</limitExceeded>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id - 	the id of the agency, encoded directly in the URL:
+//			http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/[ID GOES HERE].xml
+//
+// Response
+// Returns a list of all route ids for routes served by the specified agency.
+// See the full description for the <route/> element.
+//
 func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
 	u, err := c.buildRequestURL(routeForAgencyEndPoint+id, nil)
 	if err != nil {
@@ -869,18 +993,242 @@ func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
 	return response.Data.List.Routes, nil
 }
 
+//RoutesForLocation -	search for routes near a location, optionally by route name
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/routes-for-location.html
+//
+// Method: routes-for-location
+// 	Search for routes near a specific location, optionally by name
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/routes-for-location.xml?key=TEST&lat=47.653435&lon=-122.305641
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithReferences">
+//     <references>...</references>
+//     <list>
+//       <route>...</route>
+//       <!-- More routes -->
+//     </list>
+//     <limitExceeded>true</limitExceeded>
+//   </data>
+// </response>
+//
+// Request Parameters
+// lat - 				The latitude coordinate of the search center
+// lon - 				The longitude coordinate of the search center
+// radius - 			The search radius in meters (optional)
+// latSpan/lonSpan - 	An alternative to radius to set the search bounding
+// 						box (optional)
+// query - 				A specific route short name to search for (optional)
+// If you just specify a lat,lon search location, the routes-for-location method
+// will just return nearby routes. If you specify an optional query parameter,
+//  we’ll search for nearby routes with the specified route short name. This is
+// the primary method from going from a user-facing route name like “44” to the
+// actual underlying route id unique to a route for a particular transit agency.
+//
+// Response
+// The routes-for-location method returns a list result, so see additional
+// documentation on controlling the number of elements returned and interpreting
+// the results. The list contents are <route/> elements.
+//
 func (c DefaultClient) RoutesForLocation(params map[string]string) (Data, error) {
 	return c.getData(routeForLocationEndPoint, "Routes for Location", params)
 }
 
+//ScheduleForStop - 	get the full schedule for a stop on a particular day
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/schedule-for-stop.html
+//
+// Method: schedule-for-stop
+//  Retrieve the full schedule for a stop on a particular day
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="entryWithReferences">
+//     <references>...</references>
+//     <entry class="stopSchedule">
+//       <date>1270623339481</date>
+//       <stopId>1_75403</stopId>
+//       <stopRouteSchedules>
+//         <stopRouteSchedule>
+//           <routeId>1_31</routeId>
+//           <stopRouteDirectionSchedules>
+//             <stopRouteDirectionSchedule>
+//               <tripHeadsign>Central Magnolia</tripHeadsign>
+//               <scheduleStopTimes>
+//                 <scheduleStopTime>
+//                   <arrivalTime>1270559769000</arrivalTime>
+//                   <departureTime>1270559769000</departureTime>
+//                   <serviceId>1_114-WEEK</serviceId>
+//                   <tripId>1_11893408</tripId>
+//                 </scheduleStopTime>
+//                 <!-- More schduleStopTime entries... -->
+//               </scheduleStopTimes>
+//             </stopRouteDirectionSchedule>
+//           </stopRouteDirectionSchedules>
+//           <!-- More stopRouteDirectionSchedule entries -->
+//         </stopRouteSchedule>
+//         <!-- More stopRouteSchedule entries -->
+//       </stopRouteSchedules>
+//       <timeZone>America/Los_Angeles</timeZone>
+//       <stopCalendarDays>
+//         <stopCalendarDay>
+//           <date>1276239600000</date>
+//           <group>1</group>
+//           </stopCalendarDay>
+//         <!-- More stopCalendarDay entries -->
+//       </stopCalendarDays>
+//     </entry>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id - 	the stop id to request the schedule for, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/[ID GOES HERE].xml
+// date - 	The date for which you want to request a schedule of the format YYYY-MM-DD (optional, defaults to current date)
+//
+// Response
+// The response is pretty complex, so we’ll describe the details at a high-level
+// along with references to the various elements in the response.
+// The response can be considered in two parts. The first part lists specific
+// arrivals and departures at a stop on a given date (<stopRouteSchedules/>
+// section) while the second part lists which days the stop currently has
+// service defined (the <stopCalendarDays/> section). By convention, we refer
+// to the arrival and departure time details for a particular trip at a stop as
+// a stop time.
+//
+// We break up the stop time listings in a couple of ways. First, we split the
+// stop times by route (corresponds to each <stopRouteSchedule/> element). We
+// next split the stop times for each route by direction of travel along the
+// route (corresponds to each <stopRouteDirectionSchedule/> element). Most stops
+// will serve just one direction of a particular route, but some stops will
+// serve both directions, and it may be useful to present those listings
+// separately. Each <stopRouteDirectionSchedule/> element has a tripHeadsign
+// property that indicates the direction of travel.
+//
+// Finally we get down to the unit of a stop time, as represented by the
+// <scheduleStopTime/> element. Each element has the following set of properties:
+// arrivalTime - 	time in milliseconds since the Unix epoch that the transit
+// 					vehicle will arrive
+// departureTime - 	time in milliseconds since the Unix epoch that the transit
+// 					vehicle will depart
+// tripId - 		the id for the trip of the scheduled transit vehicle
+// serviceId - 		the serviceId for the schedule trip (see the GTFS spec for
+// 					more details
+// In addition to all the <scheduleStopTime/> elements, the response also
+// contains <stopCalendarDay/> elements which list out all the days that a
+// particular stop has service. This element has the following properties:
+// date - 	the date of service in milliseconds since the Unix epoch
+// group - 	we provide a group id that groups <stopCalendarDay/> into
+// 			collections of days with similar service. For example,
+// 			Monday-Friday might all have the same schedule and the same group
+// 			id as result, while Saturday and Sunday have a different weekend
+// 			schedule, so they’d get their own group id.
+// In addition to all the <scheduleStopTime/> elements, the main entry also has
+// the following properties:
+// date - 		the active date for the returned calendar
+// stopId - 	the stop id for the requested stop, which can be used to access
+// 				the <stop/> element in the <references/> section
+// timeZone - 	the time-zone the stop is located in
+//
 func (c DefaultClient) ScheduleForStop(id string) (Data, error) {
 	return c.getData(scheduleForStopEndPoint+id, "Schedule for Stop", nil)
 }
 
+//Shape -	get details for a specific shape (polyline drawn on a map)
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/shape.html
+//
+// Method: shape
+//  Retrieve a shape (the path traveled by a transit vehicle) by id
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/shape/1_40046045.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="entryWithReferences">
+//     <references/>
+//     <entry class="encodedPolyline">
+//       <points>ky`bHvwajVtDJ??|DL??fDH|@BnALVH??n@HhA\NF??DBZHzBhA??|@d@??nAl@fDdB??rBfAf@V??pCrA??
+// hEvBf@N??p@Lp@F??j@DfA?xA???|A?pB@lCDtDElB???`@MVUTe@??FSFQNm@BG??
+// DKHIRIfDgAbFwA|@_@x@q@b@a@j@}@??JQr@_B|AsDbA_CJWTs@??DQRgA????Ly@J_ABs@@u@?i@?YOwD??
+// g@mJG_@Kc@??IUmAeCgAwBGs@???iI??CmO???M?aO???sF???cI???q@???g@?kF???cE???oA???sG???gH???cG@_@?aF?M??
+// @{N???U???O??AeF@yH???oL???eN??rC???pC@??pC???D???jC???D???bC???`C???pC???pC???pCB??pCE??bCA??TFRR??
+// nBkB??rCmC??bA_A??xCsC??rAuA??bD_D??nDiD??nDiD??PO^]??zCyC???sE???kG???_B???wB???qE???G?mE???sE??@aD???
+// q@???sE???eFJm@??f@]fBcB??dAiA??x@y@??j@s@\a@??_@u@KUGQ??AeD???mACe@G_@Ka@??_@{@??a@}@cAcC??
+// eA{B??{@eBEKEI??kBaE??oCI??AQGe@UwBSuB??E]?wD??BwF???oF??@mF???oF??DuF??DoF??@mF??@mF??@oF???gF??
+// @uE???aC??@}A??@aF???qABuA?mA??AmC??^?pCDT????I?M?S?U@aA??@aF???YCi@Eg@CeA?a@??
+// PgAPs@BMH_@VaA`@y@Zs@Ra@XmABQ??Fm@@}@@I?Q?_@B}FMW??@mC???q@@a@@c@D]Fi@Ne@??HUpAwC??Y_@??
+// YS????WGkKQ??}B???m@A??{BC??eHC??iHG</points>
+//       <length>351</length>
+//     </entry>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id - 	the shape id, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/shape/[ID GOES HERE].xml
+//
+// Response
+// The path is returned as a <shape/> element with a points in the encoded
+// polyline format defined for Google Maps.
+//
 func (c DefaultClient) Shape(id string) (Entry, error) {
 	return c.getEntry(shapeEndPoint+id, "Shape")
 }
 
+//StipIDsForAgency - 	get a list of all stops for an agency
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stop-ids-for-agency.html
+//
+// Method: stops-ids-for-agency
+//  Retrieve the list of all stops for a particular agency by id
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/40.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithReferences">
+//     <references/>
+//     <list>
+//       <string>40_C_1303</string>
+//       <string>40_C_1305</string>
+//       <string>40_C_1366</string>
+//       <string>...</string>
+//     </list>
+//     <limitExceeded>false</limitExceeded>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id -  	the id of the agency, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/[ID GOES HERE].xml
+//
+// Response
+// Returns a list of all stop ids for stops served by the specified agency.
+// Note that <stop/> elements for the referenced stops will NOT be included in
+// the <references/> section, since there are potentially a large number of
+// stops for an agency.
+//
 func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
 	u, err := c.buildRequestURL(stopIDsForAgencyEndPoint+id, nil)
 	if err != nil {
@@ -893,38 +1241,458 @@ func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
 	return response.Data.List.Strings, nil
 }
 
+//Stop - 	get details for a specific stop
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stop.html
+//
+// Method: stop
+//  Retrieve info for a specific stop by id
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/stop/1_75403.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="entryWithReferences">
+//     <references>...</references>
+//     <entry class="stop">
+//       <id>1_75403</id>
+//       <lat>47.6543655</lat>
+//       <lon>-122.305206</lon>
+//       <direction>S</direction>
+//       <name>Stevens Way &amp; BENTON LANE</name>
+//       <code>75403</code>
+//       <locationType>0</locationType>
+//       <routeIds>
+//         <string>1_31</string>
+//         <string>...</string>
+//       </routeIds>
+//     </entry>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id -  	the id of the requested stop, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/stop/[ID GOES HERE].xml
+//
+// Response
+// See details about the various properties of the <stop/> element.
+//
 func (c DefaultClient) Stop(id string) (Entry, error) {
 	return c.getEntry(stopEndPoint+id, "Stop")
 }
 
+//StopsForLocation - 	search for stops near a location, optionally by stop code
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stops-for-location.html
+//
+// Method: stops-for-location
+//  Search for stops near a specific location, optionally by stop code
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml?key=TEST&lat=47.653435&lon=-122.305641
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithReferences">
+//     <references>...</references>
+//     <list>
+//       <stop>...</stop>
+//       <!-- More stops -->
+//     </list>
+//     <limitExceeded>true</limitExceeded>
+//     <outOfRange>false</outOfRange>
+//   </data>
+// </response>
+//
+// Request Parameters
+// lat - 				The latitude coordinate of the search center
+// lon - 				The longitude coordinate of the search center
+// radius - 			The search radius in meters (optional)
+// latSpan/lonSpan - 	An alternative to radius to set the search bounding box (optional)
+// query - 				A specific stop code to search for (optional)
+// If you just specify a lat,lon search location, the stops-for-location method
+// will just return nearby stops. If you specify an optional query parameter,
+// we’ll search for nearby stops with the specified code. This is the primary
+// method from going from a user-facing stop code like “75403” to the actual
+// underlying stop id unique to a stop for a particular transit agency.
+//
+// Response
+// The stops-for-location method returns a list result, so see additional
+// documentation on controlling the number of elements returned and interpreting
+// the results. The list contents are <stop/> elements, so see details about the
+// various properties of the <stop/> element.
+//
 func (c DefaultClient) StopsForLocation(params map[string]string) (Data, error) {
 	return c.getData(stopsForLocationEndPoint, "Stops for Location", params)
 }
 
+//StopsForRoute - 	get the set of stops and paths of travel for a particular route
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stops-for-route.html
+//
+// Method: stops-for-route
+//  Retrieve the set of stops serving a particular route, including groups by
+//  direction of travel. The stops-for-route method first and foremost provides
+//  a method for retrieving the set of stops that serve a particular route. In
+//  addition to the full set of stops, we provide various “stop groupings” that
+//  are used to group the stops into useful collections. Currently, the main
+//  grouping provided organizes the set of stops by direction of travel for the
+//  route. Finally, this method also returns a set of polylines that can be used
+//  to draw the path traveled by the route.
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/stops-for-route/1_100224.xml?key=TEST
+//
+// Sample Response
+// <response>
+//     <version>2</version>
+//     <code>200</code>
+//     <currentTime>1461443625722</currentTime>
+//     <text>OK</text>
+//     <data class="entryWithReferences">
+//          <references></references>
+//          <entry class="stopsForRoute">
+//               <routeId>1_100224</routeId>
+//               <stopIds>
+//                    <string>1_10911</string>
+//                    <string>...</string>
+//               </stopIds>
+//               <stopGroupings>
+//                   <stopGrouping>
+//                        <type>direction</type>
+//                        <ordered>true</ordered>
+//                        <stopGroups>
+//                            <stopGroup>
+//                                 <id>0</id>
+//                                 <name>
+//                                     <type>destination</type>
+//                                     <names>
+//                                         <string>BALLARD WALLINGFORD</string>
+//                                     </names>
+//                                 </name>
+//                                 <stopIds>
+//                                     <string>1_25240</string>
+//                                     <string>...</string>
+//                                 </stopIds>
+//                                 <polylines>...</polylines>
+//                            </stopGroup>
+//                        </stopGroups>
+//                   </stopGrouping>
+//               </stopGroupings>
+//               <polylines>...</polylines>
+//          </entry>
+//     </data>
+// </response>
+//
+// Request Parameters
+// id -  	The route id, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/stops-for-route/[ID GOES HERE].xml
+// includePolylines=true|false = Optional parameter that controls whether
+// 			polyline elements are included in the response. Defaults to true.
+//
+// Response
+//
 func (c DefaultClient) StopsForRoute(id string) (Entry, error) {
 	return c.getEntry(stopsForRouteEndPoint+id, "StopsForRoute")
 }
 
+//TripDetails - 	get extended details for a specific trip
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trip-details.html
+//
+// Method: trip-details
+//  Get extended details for a specific trip
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/trip-details/1_12540399.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="entryWithReferences">
+//     <references>...</references>
+//     <entry class="tripDetails">
+//       <tripId>1_12540399</tripId>
+//       <serviceDate>1271401200000</serviceDate>
+//       <frequency>...</frequency>
+//       <status>...</status>
+//       <schedule>...</schedule>
+//     </entry>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id -  				the id of the trip, encoded directly in the URL:
+// 						http://api.pugetsound.onebusaway.org/api/where/trip-details/[ID GOES HERE].xml
+// serviceDate - 		the service date for the trip as unix-time in ms (optional).
+// 						Used to disambiguate different versions of the same trip.
+// 						See [Glossary#ServiceDate the glossary entry for service date].
+// includeTrip - 		Can be true/false to determine whether full <trip/>
+// 						element is included in the <references/> section.
+// 						Defaults to true.
+// includeSchedule - 	Can be true/false to determine whether full <schedule/>
+// 						element is included in the <tripDetails/> section.
+// 						Defaults to true.
+// includeStatus - 		Can be true/false to determine whether the full <status/>
+// 						element is include in the <tripDetails/> section.
+// 						Defaults to true.
+// time - 				by default, the method returns the status of the system
+// 						right now. However, the system can also be queried at a
+// 						specific time. This can be useful for testing. See
+// 						timestamps for details on the format of the time parameter.
+//
+// Response
+// The response <entry/> element is a <tripDetails/> element that captures
+// extended details about a trip.
+//
 func (c DefaultClient) TripDetails(id string) (Entry, error) {
 	return c.getEntry(tripDetailsEndPoint+id, "TripDetails")
 }
 
-func (c DefaultClient) TripForVehicle(id string) (Data, error) {
-	return c.getData(tripForVehicleEndPoint+id, "TripDetails for Vehicle", nil)
+//TripForVehicle - 	get extended trip details for current trip of a specific
+// 					transit vehicle
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trip-for-vehicle.html
+//
+// Method: trip-for-vehicle
+//  Get extended trip details for a specific transit vehicle. That is, given a
+//  vehicle id for a transit vehicle currently operating in the field, return
+// 	extended trips details about the current trip for the vehicle.
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/trip-for-vehicle/1_4210.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="entryWithReferences">
+//     <references>...</references>
+//     <entry class="tripDetails">
+//       <tripId>1_12540399</tripId>
+//       <serviceDate>1271401200000</serviceDate>
+//       <frequency>...</frequency>
+//       <status>...</status>
+//       <schedule>...</schedule>
+//       <tripId>1_15456175</tripId>
+//     </entry>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id - 				the id of the vehicle, encoded directly in the URL:
+// 						http://api.pugetsound.onebusaway.org/api/where/trip-for-vehicle/[ID GOES HERE].xml
+// includeTrip - 		Can be true/false to determine whether full <trip/>
+// 						element is included in the <references/> section.
+// 						Defaults to false.
+// includeSchedule - 	Can be true/false to determine whether full <schedule/>
+// 						element is included in the <tripDetails/> section.
+// 						Defaults to fale.
+// includeStatus - 		Can be true/false to determine whether the full
+// 						<status/> element is include in the <tripDetails/>
+// 						section. Defaults to true.
+// time -				by default, the method returns the status of the system
+// 						right now. However, the system can also be queried at a
+// 						specific time. This can be useful for testing. See
+// 						timestamps for details on the format of the time parameter.
+//
+// Response
+// The respone <entry/> element is a <tripDetails/> element that captures
+// extended details about a trip.
+//
+func (c DefaultClient) TripForVehicle(id string, params map[string]string) (Data, error) {
+	return c.getData(tripForVehicleEndPoint+id, "TripDetails for Vehicle", params)
 }
 
+//Trip - 	get details for a specific trip
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trip.html
+//
+// Method: trip
+//  Get details of a specific trip by id
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/trip/1_12540399.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="entryWithReferences">
+//     <references>...</references>
+//     <entry class="trip">
+//       <id>1_12540399</id>
+//       <routeId>1_44</routeId>
+//       <tripShortName>LOCAL</tripShortName>
+//       <tripHeadsign>Downtown via University District</tripHeadsign>
+//       <serviceId>1_114-115-WEEK</serviceId>
+//       <shapeId>1_20044006</shapeId>
+//       <directionId>1</directionId>
+//     </entry>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id -  	the id of the trip, encoded directly in the URL:
+// 			http://api.pugetsound.onebusaway.org/api/where/trip/[ID GOES HERE].xml
+//
+// Response
+// See details about the various properties of the <trip/> element.
 func (c DefaultClient) Trip(id string) (Entry, error) {
 	return c.getEntry(tripEndPoint+id, "Trip")
 }
 
+//TripsForLocation - 	get active trips near a location
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trips-for-location.html
+//
+// Method: trips-for-location
+//  Search for active trips near a specific location.
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/trips-for-location.xml?key=TEST&lat=47.653&lon=-122.307&latSpan=0.008&lonSpan=0.008
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithReferences">
+//     <references>...</references>
+//     <list>
+//       <tripDetails>...</tripDetails>
+//       <tripDetails>...</tripDetails>
+//       ...
+//     </list>
+//     <limitExceeded>false</limitExceeded>
+//   </data>
+// </response>
+//
+// Request Parameters
+// lat - 				The latitude coordinate of the search center
+// lon - 				The longitude coordinate of the search center
+// latSpan/lonSpan - 	Set the limits of the search bounding box
+// includeTrip - 		Can be true/false to determine whether full <trip/>
+// 						elements are included in the <references/> section.
+// 						Defaults to false.
+// includeSchedule - 	Can be true/false to determine whether full <schedule/>
+// 						elements are included in the <tripDetails/> section.
+// 						Defaults to false.
+// time - 				by default, the method returns the status of the system
+// 						right now. However, the system can also be queried at a
+// 						specific time. This can be useful for testing. See
+// 						timestamps for details on the format of the time parameter.
+//
+// Response
+// The response is a list of <tripDetails/> element that captures extended
+// details about each active trip. Active trips are ones where the transit
+// vehicle is currently located within the search radius. We use real-time
+// arrival data to determine the position of transit vehicles when available,
+// otherwise we determine the location of vehicles from the static schedule.
+//
 func (c DefaultClient) TripsForLocation(params map[string]string) (Data, error) {
 	return c.getData(tripsForLocationEndPoint, "TripDetails for Location", params)
 }
 
+//TripsForRoute - 	get active trips for a route
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trips-for-route.html
+//
+// Method: trips-for-route
+//  Search for active trips for a specific route.
+//
+// Sample Request
+// http://api.pugetsound.onebusaway.org/api/where/trips-for-route/1_100224.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithReferences">
+//     <references>...</references>
+//     <list>
+//       <tripDetails>...</tripDetails>
+//       <tripDetails>...</tripDetails>
+//       ...
+//     </list>
+//     <limitExceeded>false</limitExceeded>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id - 				the id of the route, encoded directly in the URL:
+// 						http://api.pugetsound.onebusaway.org/api/where/trips-for-route/[ID GOES HERE].xml
+// includeStatus - 		Can be true/false to determine whether full <tripStatus/>
+// 						elements with full real-time information are included in
+// 						the <status/> section for each <tripDetails/> element.
+// 						Defaults to false.
+// includeSchedule - 	Can be true/false to determine whether full <schedule/>
+// 						elements are included in the <tripDetails/> element.
+// 						Defaults to false.
+// time - 				by default, the method returns the status of the system
+// 						right now. However, the system can also be queried at a
+// 						specific time. This can be useful for testing. See
+// 						timestamps for details on the format of the time parameter.
+//
+// Response
+// The response is a list of <tripDetails/> element that captures extended
+// details about each active trip. The set of active trips includes any trip
+// that serves that specified route that is currently active.
+//
 func (c DefaultClient) TripsForRoute(id string) (Data, error) {
 	return c.getData(tripsForRouteEndPoint+id, "TripDetails for Route", nil)
 }
 
+//VehiclesForAgency - 	get active vehicles for an agency
+// http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/vehicles-for-agency.html
+//
+// Method: vehicles-for-agency
+//  Search for active vehicles for a particular agency by id.
+//
+// Sample Request
+// http://api.onebusaway.org/api/where/vehicles-for-agency/1.xml?key=TEST
+//
+// Sample Response
+// <response>
+//   <version>2</version>
+//   <code>200</code>
+//   <text>OK</text>
+//   <currentTime>1270614730908</currentTime>
+//   <data class="listWithRangeAndReferences">
+//     <references>...</references>
+//     <list>
+//       <vehicleStatus>...</vehicleStatus>
+//       <vehicleStatus>...</vehicleStatus>
+//       <vehicleStatus>...</vehicleStatus>
+//       ...
+//     </list>
+//     <limitExceeded>false</limitExceeded>
+//     <outOfRange>false</outOfRange>
+//   </data>
+// </response>
+//
+// Request Parameters
+// id -  	the id of the agency, encoded directly in the URL:
+// 			http://api.onebusaway.org/api/where/vehicles-for-agency/[ID GOES HERE].xml
+// time -	by default, the method returns the status of the system right now.
+// 			However, the system can also be queried at a specific time. This can
+// 			be useful for testing. See timestamps for details on the format of
+// 			the time parameter.
+//
+// Response
+// The response is a list of <vehicleStatus/> elements that captures extended details about each active vehicle associated with the specified agency.
+//
 func (c DefaultClient) VehiclesForAgency(id string) (Data, error) {
 	return c.getData(vehiclesForAgencyEndPoint+id, "Vehicles for Agency", nil)
 }
