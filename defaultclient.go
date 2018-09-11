@@ -5,6 +5,7 @@ package oba
 import (
 	"encoding/xml"
 	"errors"
+	"fmt"
 	"net/url"
 )
 
@@ -462,7 +463,7 @@ func (c DefaultClient) AgenciesWithCoverage() (Data, error) {
 // for the <agency/> element.
 //
 func (c DefaultClient) Agency(id string) (Entry, error) {
-	return c.getEntry(agencyEndPoint+id, "Agency")
+	return c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
 }
 
 //ArrivalAndDepartureForStop - 	details about a specific arrival/departure at a
@@ -516,7 +517,7 @@ func (c DefaultClient) Agency(id string) (Entry, error) {
 // The method returns an <arrivalAndDeparture/> element as its content.
 //
 func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]string) (Data, error) {
-	return c.getData(arrivalAndDepartureForStopEndPoint+id, "Arrival and Departure for Stop", params)
+	return c.getData(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
 }
 
 //ArrivalsAndDeparturesForStop - 	get current arrivals and departures for a stop
@@ -570,7 +571,7 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 // (like across the street) for quick navigation.
 //
 func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (Data, error) {
-	return c.getData(arrivalsAndDeparturesForStopEndPoint+id, "Arrivals and Departures for Stop", params)
+	return c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
 }
 
 //Block - 	get block configuration for a specific block
@@ -606,7 +607,7 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 // See details about the various properties of the <blockConfiguration/> element.
 //
 func (c DefaultClient) Block(id string) (Entry, error) {
-	return c.getEntry(blockEndPoint+id, "Block")
+	return c.getEntry(fmt.Sprint(blockEndPoint, id), "Block")
 }
 
 //CancelAlarm -	cancel a registered alarm
@@ -636,7 +637,7 @@ func (c DefaultClient) Block(id string) (Entry, error) {
 // register-alarm-for-arrival-and-departure-at-stop API method.
 //
 func (c DefaultClient) CancelAlarm(id string) error {
-	u, err := c.buildRequestURL(cancelAlarmEndPoint+id, nil)
+	u, err := c.buildRequestURL(fmt.Sprint(cancelAlarmEndPoint, id), nil)
 	if err != nil {
 		return err
 	}
@@ -759,7 +760,7 @@ func (c DefaultClient) CurrentTime() (Time, error) {
 // argument.
 //
 func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (RegisteredAlarm, error) {
-	u, err := c.buildRequestURL(registerAlarmForArrivalAndDepartureAtStopEndPoint+id, params)
+	u, err := c.buildRequestURL(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), params)
 	if err != nil {
 		return RegisteredAlarm{}, err
 	}
@@ -879,7 +880,7 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 // routes for an agency.
 //
 func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
-	u, err := c.buildRequestURL(reportPoblemWithTripEndPoint+id, nil)
+	u, err := c.buildRequestURL(fmt.Sprint(reportPoblemWithTripEndPoint, id), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -938,7 +939,7 @@ func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
 // See details about the various properties of the <route/> element.
 //
 func (c DefaultClient) Route(id string) (Entry, error) {
-	return c.getEntry(routeEndPoint+id, "Route")
+	return c.getEntry(fmt.Sprint(routeEndPoint, id), "Route")
 }
 
 //RoutesForAgency - 	get a list of all routes for an agency
@@ -982,7 +983,7 @@ func (c DefaultClient) Route(id string) (Entry, error) {
 // See the full description for the <route/> element.
 //
 func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
-	u, err := c.buildRequestURL(routeForAgencyEndPoint+id, nil)
+	u, err := c.buildRequestURL(fmt.Sprint(routeForAgencyEndPoint, id), nil)
 	if err != nil {
 		return []Route{}, err
 	}
@@ -1143,7 +1144,7 @@ func (c DefaultClient) RoutesForLocation(params map[string]string) (Data, error)
 // timeZone - 	the time-zone the stop is located in
 //
 func (c DefaultClient) ScheduleForStop(id string) (Data, error) {
-	return c.getData(scheduleForStopEndPoint+id, "Schedule for Stop", nil)
+	return c.getData(fmt.Sprint(scheduleForStopEndPoint, id), "Schedule for Stop", nil)
 }
 
 //Shape -	get details for a specific shape (polyline drawn on a map)
@@ -1189,7 +1190,7 @@ func (c DefaultClient) ScheduleForStop(id string) (Data, error) {
 // polyline format defined for Google Maps.
 //
 func (c DefaultClient) Shape(id string) (Entry, error) {
-	return c.getEntry(shapeEndPoint+id, "Shape")
+	return c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape")
 }
 
 //StipIDsForAgency - 	get a list of all stops for an agency
@@ -1230,7 +1231,7 @@ func (c DefaultClient) Shape(id string) (Entry, error) {
 // stops for an agency.
 //
 func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
-	u, err := c.buildRequestURL(stopIDsForAgencyEndPoint+id, nil)
+	u, err := c.buildRequestURL(fmt.Sprint(stopIDsForAgencyEndPoint, id), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -1282,7 +1283,7 @@ func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
 // See details about the various properties of the <stop/> element.
 //
 func (c DefaultClient) Stop(id string) (Entry, error) {
-	return c.getEntry(stopEndPoint+id, "Stop")
+	return c.getEntry(fmt.Sprint(stopEndPoint, id), "Stop")
 }
 
 //StopsForLocation - 	search for stops near a location, optionally by stop code
@@ -1399,7 +1400,7 @@ func (c DefaultClient) StopsForLocation(params map[string]string) (Data, error) 
 // Response
 //
 func (c DefaultClient) StopsForRoute(id string) (Entry, error) {
-	return c.getEntry(stopsForRouteEndPoint+id, "StopsForRoute")
+	return c.getEntry(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute")
 }
 
 //TripDetails - 	get extended details for a specific trip
@@ -1454,7 +1455,7 @@ func (c DefaultClient) StopsForRoute(id string) (Entry, error) {
 // extended details about a trip.
 //
 func (c DefaultClient) TripDetails(id string) (Entry, error) {
-	return c.getEntry(tripDetailsEndPoint+id, "TripDetails")
+	return c.getEntry(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails")
 }
 
 //TripForVehicle - 	get extended trip details for current trip of a specific
@@ -1510,7 +1511,7 @@ func (c DefaultClient) TripDetails(id string) (Entry, error) {
 // extended details about a trip.
 //
 func (c DefaultClient) TripForVehicle(id string, params map[string]string) (Data, error) {
-	return c.getData(tripForVehicleEndPoint+id, "TripDetails for Vehicle", params)
+	return c.getData(fmt.Sprint(tripForVehicleEndPoint, id), "TripDetails for Vehicle", params)
 }
 
 //Trip - 	get details for a specific trip
@@ -1549,7 +1550,7 @@ func (c DefaultClient) TripForVehicle(id string, params map[string]string) (Data
 // Response
 // See details about the various properties of the <trip/> element.
 func (c DefaultClient) Trip(id string) (Entry, error) {
-	return c.getEntry(tripEndPoint+id, "Trip")
+	return c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip")
 }
 
 //TripsForLocation - 	get active trips near a location
@@ -1651,7 +1652,7 @@ func (c DefaultClient) TripsForLocation(params map[string]string) (Data, error) 
 // that serves that specified route that is currently active.
 //
 func (c DefaultClient) TripsForRoute(id string) (Data, error) {
-	return c.getData(tripsForRouteEndPoint+id, "TripDetails for Route", nil)
+	return c.getData(fmt.Sprint(tripsForRouteEndPoint, id), "TripDetails for Route", nil)
 }
 
 //VehiclesForAgency - 	get active vehicles for an agency
@@ -1694,7 +1695,7 @@ func (c DefaultClient) TripsForRoute(id string) (Data, error) {
 // The response is a list of <vehicleStatus/> elements that captures extended details about each active vehicle associated with the specified agency.
 //
 func (c DefaultClient) VehiclesForAgency(id string) (Data, error) {
-	return c.getData(vehiclesForAgencyEndPoint+id, "Vehicles for Agency", nil)
+	return c.getData(fmt.Sprint(vehiclesForAgencyEndPoint, id), "Vehicles for Agency", nil)
 }
 
 func (c DefaultClient) getEntry(requestString, requestType string) (Entry, error) {
@@ -1702,7 +1703,7 @@ func (c DefaultClient) getEntry(requestString, requestType string) (Entry, error
 	if err != nil {
 		return Entry{}, err
 	}
-	response, err := requestAndHandle(u.String(), "Failed to get "+requestType+": ")
+	response, err := requestAndHandle(u.String(), fmt.Sprintf("Failed to get %s: ", requestType))
 	if err != nil {
 		return Entry{}, err
 	}
@@ -1710,11 +1711,11 @@ func (c DefaultClient) getEntry(requestString, requestType string) (Entry, error
 }
 
 func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (Data, error) {
-	u, err := c.buildRequestURL(requestString+xmlPostFix, params)
+	u, err := c.buildRequestURL(fmt.Sprint(requestString, xmlPostFix), params)
 	if err != nil {
 		return Data{}, err
 	}
-	response, err := requestAndHandle(u.String(), "Failed to get "+errMessage+": ")
+	response, err := requestAndHandle(u.String(), fmt.Sprintf("Failed to get %s: ", errMessage))
 	if err != nil {
 		return Data{}, err
 	}
@@ -1722,10 +1723,10 @@ func (c DefaultClient) getData(requestString, errMessage string, params map[stri
 }
 
 func (c DefaultClient) buildRequestURL(endpoint string, params map[string]string) (*url.URL, error) {
-	requestURL := c.baseURL + endpoint
+	requestURL := fmt.Sprint(c.baseURL, endpoint)
 	u, err := url.Parse(requestURL)
 	if err != nil {
-		return nil, errors.New("Failed to parse URL: " + err.Error())
+		return nil, errors.New(fmt.Sprintf("Failed to parse URL: %s", err.Error()))
 	}
 	q := u.Query()
 	for k, v := range params {
