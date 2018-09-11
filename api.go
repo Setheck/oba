@@ -25,7 +25,7 @@ type Client interface {
 	StopsForLocation(params map[string]string) (Data, error)
 	StopsForRoute(id string) (Entry, error)
 	TripDetails(id string) (Entry, error)
-	TripForVehicle(id string) (Data, error)
+	TripForVehicle(id string, params map[string]string) (Data, error)
 	Trip(id string) (Entry, error)
 	TripsForLocation(params map[string]string) (Data, error)
 	TripsForRoute(id string) (Data, error)
