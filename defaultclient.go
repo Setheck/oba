@@ -24,7 +24,7 @@ import (
 type Response struct {
 	XMLName     xml.Name `xml:"response"`
 	Version     string   `xml:"version"`
-	Code        string   `xml:"code"`
+	Code        int      `xml:"code"`
 	CurrentTime string   `xml:"currentTime"`
 	Text        string   `xml:"text"`
 	Data        Data     `xml:"data"`
@@ -347,7 +347,6 @@ const (
 	currentTimeEndPoint                               = "current-time"
 	registerAlarmForArrivalAndDepartureAtStopEndPoint = "register-alarm-for-arrival-and-departure-at-stop/"
 	reportPoblemWithTripEndPoint                      = "report-problem-with-trip/"
-	routeIdsForAgencyEndPoint                         = "route-ids-for-agency/"
 	routeForAgencyEndPoint                            = "routes-for-agency/"
 	routeForLocationEndPoint                          = "routes-for-location"
 	scheduleForStopEndPoint                           = "schedule-for-stop/"
@@ -359,6 +358,7 @@ const (
 	tripsForLocationEndPoint                          = "trips-for-location"
 	tripsForRouteEndPoint                             = "trips-for-route/"
 	vehiclesForAgencyEndPoint                         = "vehicles-for-agency/"
+	//routeIdsForAgencyEndPoint                         = "route-ids-for-agency/"
 )
 
 type DefaultClient struct {
