@@ -1,0 +1,39 @@
+<response>
+  <version>2</version>
+  <code>200</code>
+  <currentTime>1531110880580</currentTime>
+  <text>OK</text>
+  <data class="listWithReferences">
+    <references/>
+    <list>
+      <string>40_560</string>
+      <string>40_566</string>
+      <string>40_567</string>
+      <string>40_574</string>
+      <string>40_577</string>
+      <string>40_578</string>
+      <string>40_SNDR_EV</string>
+      <string>40_580</string>
+      <string>40_586</string>
+      <string>40_590</string>
+      <string>40_592</string>
+      <string>40_594</string>
+      <string>40_595</string>
+      <string>40_596</string>
+      <string>40_TLINK</string>
+      <string>40_100511</string>
+      <string>40_AMTK</string>
+      <string>40_SNDR_TL</string>
+      <string>40_100232</string>
+      <string>40_100235</string>
+      <string>40_100236</string>
+      <string>40_100479</string>
+      <string>40_100240</string>
+      <string>40_100241</string>
+      <string>40_100239</string>
+      <string>40_100451</string>
+      <string>40_102640</string>
+    </list>
+    <limitExceeded>false</limitExceeded>
+  </data>
+</response>

@@ -1,0 +1,133 @@
+<response>
+  <version>2</version>
+  <code>200</code>
+  <currentTime>1531111066335</currentTime>
+  <text>OK</text>
+  <data class="listWithRangeAndReferences">
+    <references>
+      <agencies>
+        <agency>
+          <id>1</id>
+          <name>Metro Transit</name>
+          <url>http://metro.kingcounty.gov</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>EN</lang>
+          <phone>206-553-3000</phone>
+          <privateService>false</privateService>
+        </agency>
+        <agency>
+          <id>29</id>
+          <name>Community Transit</name>
+          <url>http://www.communitytransit.org/</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>en</lang>
+          <phone>(800) 562-1375</phone>
+          <email>riders@commtrans.org</email>
+          <privateService>false</privateService>
+        </agency>
+        <agency>
+          <id>40</id>
+          <name>Sound Transit</name>
+          <url>http://www.soundtransit.org</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>EN</lang>
+          <phone>1-888-889-6368</phone>
+          <privateService>false</privateService>
+        </agency>
+        <agency>
+          <id>98</id>
+          <name>Seattle Children&apos;s Hospital</name>
+          <url>http://www.csched.com</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>en</lang>
+          <privateService>false</privateService>
+        </agency>
+      </agencies>
+    </references>
+    <list>
+      <route>
+        <id>1_100162</id>
+        <shortName>271</shortName>
+        <description>Issaquah - University District</description>
+        <type>3</type>
+        <url>http://metro.kingcounty.gov/schedules/271/n0.html</url>
+        <agencyId>1</agencyId>
+      </route>
+      <route>
+        <id>1_100193</id>
+        <shortName>32</shortName>
+        <description>Univ District-Fremont-Interbay-Seattle Center West</description>
+        <type>3</type>
+        <url>http://metro.kingcounty.gov/schedules/032/n0.html</url>
+        <agencyId>1</agencyId>
+      </route>
+      <route>
+        <id>1_100223</id>
+        <shortName>43</shortName>
+        <description>Univ Dist-Montlake-Capitol Hill-Downtown Seattle</description>
+        <type>3</type>
+        <url>http://metro.kingcounty.gov/schedules/043/n0.html</url>
+        <agencyId>1</agencyId>
+      </route>
+      <route>
+        <id>1_100224</id>
+        <shortName>44</shortName>
+        <description>Ballard - Montlake</description>
+        <type>3</type>
+        <url>http://metro.kingcounty.gov/schedules/044/n0.html</url>
+        <agencyId>1</agencyId>
+      </route>
+      <route>
+        <id>1_100228</id>
+        <shortName>48</shortName>
+        <description>Mt Baker - University District</description>
+        <type>3</type>
+        <url>http://metro.kingcounty.gov/schedules/048/n0.html</url>
+        <agencyId>1</agencyId>
+      </route>
+      <route>
+        <id>1_100254</id>
+        <shortName>65</shortName>
+        <description>Lake City  - University District</description>
+        <type>3</type>
+        <url>http://metro.kingcounty.gov/schedules/065/n0.html</url>
+        <agencyId>1</agencyId>
+      </route>
+      <route>
+        <id>1_100447</id>
+        <shortName>49</shortName>
+        <description>Univ District - Broadway - Downtown Seattle</description>
+        <type>3</type>
+        <url>http://metro.kingcounty.gov/schedules/049/n0.html</url>
+        <agencyId>1</agencyId>
+      </route>
+      <route>
+        <id>29_821</id>
+        <shortName>821</shortName>
+        <longName>Marysville - University District</longName>
+        <type>3</type>
+        <color>0070c0</color>
+        <textColor>ffffff</textColor>
+        <agencyId>29</agencyId>
+      </route>
+      <route>
+        <id>40_100511</id>
+        <shortName>542</shortName>
+        <longName>Redmond - University District</longName>
+        <description>Redmond - University District</description>
+        <type>3</type>
+        <url>http://www.soundtransit.org/Schedules/ST-Express-Bus/542</url>
+        <agencyId>40</agencyId>
+      </route>
+      <route>
+        <id>98_869-16</id>
+        <shortName>Gold</shortName>
+        <longName>Gold</longName>
+        <type>3</type>
+        <agencyId>98</agencyId>
+      </route>
+    </list>
+    <limitExceeded>true</limitExceeded>
+    <outOfRange>false</outOfRange>
+  </data>
+</response>

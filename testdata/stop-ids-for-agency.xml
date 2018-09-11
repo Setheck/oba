@@ -1,0 +1,35 @@
+<response>
+  <version>2</version>
+  <code>200</code>
+  <currentTime>1531111185493</currentTime>
+  <text>OK</text>
+  <data class="listWithReferences">
+    <references/>
+    <list>
+      <string>40_S_KE_SB</string>
+      <string>40_S_KE_NB</string>
+      <string>40_S_TK_SB</string>
+      <string>40_S_TK_NB</string>
+      <string>40_TL_THD</string>
+      <string>40_S_SU_SB</string>
+      <string>40_S_SU_NB</string>
+      <string>40_S_ED</string>
+      <string>40_S_EV</string>
+      <string>40_S_KS</string>
+      <string>40_S_MU</string>
+      <string>40_S_LW</string>
+      <string>40_TL_25</string>
+      <string>40_S_ST</string>
+      <string>40_S_TD</string>
+      <string>40_TL_CC</string>
+      <string>40_TL_CS</string>
+      <string>40_TL_US</string>
+      <string>40_TL_TD</string>
+      <string>40_S_PU_NB</string>
+      <string>40_S_PU_SB</string>
+      <string>40_S_AU_NB</string>
+      <string>40_S_AU_SB</string>
+    </list>
+    <limitExceeded>false</limitExceeded>
+  </data>
+</response>
