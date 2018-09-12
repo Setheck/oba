@@ -4,6 +4,7 @@ package oba
 
 import (
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"net/url"
 )
@@ -23,9 +24,9 @@ import (
 // references see the discussion of references below
 type Response struct {
 	XMLName     xml.Name `xml:"response"`
-	Version     int      `xml:"version"`
+	Version     string   `xml:"version"`
 	Code        int      `xml:"code"`
-	CurrentTime int64    `xml:"currentTime"`
+	CurrentTime string   `xml:"currentTime"`
 	Text        string   `xml:"text"`
 	Data        Data     `xml:"data"`
 }
@@ -46,24 +47,24 @@ type Response struct {
 // you’ve pre-cached all the elements, then setting includeReferences=false can
 // be a good way to reduce the response size.
 type References struct {
-	Agencies      []*Agency    `xml:"agencies>agency,omitempty"`
-	Routes        []*Route     `xml:"routes>route,omitempty"`
-	Stops         []*Stop      `xml:"stops>stop,omitempty"`
-	Trips         []*Trip      `xml:"trips>trip,omitempty"`
-	Situations    []*Situation `xml:"situations>situation,omitempty"`
-	List          []*string    `xml:"list>string,omitempty"`
-	LimitExceeded bool         `xml:"limitExceeded,omitempty"`
+	Agencies      []Agency    `xml:"agencies>agency,omitempty"`
+	Routes        []Route     `xml:"routes>route,omitempty"`
+	Stops         []Stop      `xml:"stops>stop,omitempty"`
+	Trips         []Trip      `xml:"trips>trip,omitempty"`
+	Situations    []Situation `xml:"situations>situation,omitempty"`
+	List          []string    `xml:"list>string,omitempty"`
+	LimitExceeded string      `xml:"limitExceeded,omitempty"`
 }
 
 //Data container object
 type Data struct {
-	XMLName     xml.Name `xml:"data"`
-	Class       *string  `xml:"class,attr"`
-	*References `xml:"references"`
-	*Entry
-	*Time
-	*List
-	*StopsForRoute
+	XMLName       xml.Name   `xml:"data"`
+	Class         string     `xml:"class,attr"`
+	References    References `xml:"references"`
+	Entry         Entry
+	Time          Time
+	List          List
+	StopsForRoute StopsForRoute
 }
 
 type Time struct {
@@ -83,15 +84,15 @@ type Entry struct {
 	ID      string   `xml:"id"`
 	URL     string   `xml:"url"`
 	Name    string   `xml:"name"`
-	*Agency
-	*Block
-	*Route
-	*Shape
-	*Stop
-	*StopSchedule
-	*Trip
-	*TripDetails
-	*RegisteredAlarm
+	Agency
+	Block
+	Route
+	Shape
+	Stop
+	StopSchedule
+	Trip
+	TripDetails
+	RegisteredAlarm
 }
 
 type ArrivalAndDeparture struct {
@@ -145,12 +146,12 @@ type Frequency struct {
 }
 
 type List struct {
-	XMLName       xml.Name         `xml:"list"`
-	Routes        []*Route         `xml:"route"`
-	Stops         []*Stop          `xml:"stop"`
-	Strings       []*string        `xml:"string"`
-	TripDetails   []*TripDetails   `xml:"tripDetails"`
-	VehicleStatus []*VehicleStatus `xml:"vehicleStatus"`
+	XMLName       xml.Name        `xml:"list"`
+	Routes        []Route         `xml:"route"`
+	Stops         []Stop          `xml:"stop"`
+	Strings       []string        `xml:"string"`
+	TripDetails   []TripDetails   `xml:"tripDetails"`
+	VehicleStatus []VehicleStatus `xml:"vehicleStatus"`
 }
 
 type VehicleStatus struct {
@@ -362,23 +363,17 @@ const (
 )
 
 type DefaultClient struct {
-	base   *url.URL
-	apiKey string
+	baseURL string
+	apiKey  string
 }
 
 //NewDefaultClient - instantiate a new instance of a Client
 func NewDefaultClient(baseURL, apiKey string) *DefaultClient {
-	c := DefaultClient{apiKey: apiKey}
-	c.SetBaseURL(baseURL)
-	return &c
+	return &DefaultClient{baseURL, apiKey}
 }
 
 func (c *DefaultClient) SetBaseURL(b string) {
-	u, err := url.Parse(b)
-	if err != nil {
-		panic(err)
-	}
-	c.base = u
+	c.baseURL = b
 }
 
 func (c *DefaultClient) SetApiKey(a string) {
@@ -467,7 +462,7 @@ func (c DefaultClient) AgenciesWithCoverage() (Data, error) {
 // For more details on the fields returned for an agency, see the documentation
 // for the <agency/> element.
 //
-func (c DefaultClient) Agency(id string) (*Entry, error) {
+func (c DefaultClient) Agency(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
 }
 
@@ -611,7 +606,7 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 // Response
 // See details about the various properties of the <blockConfiguration/> element.
 //
-func (c DefaultClient) Block(id string) (*Entry, error) {
+func (c DefaultClient) Block(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(blockEndPoint, id), "Block")
 }
 
@@ -681,14 +676,14 @@ func (c DefaultClient) CancelAlarm(id string) error {
 // time - 			current system time as milliseconds since the Unix epoch
 // readableTime - 	current system time in ISO 8601 format
 //
-func (c DefaultClient) CurrentTime() (*Time, error) {
+func (c DefaultClient) CurrentTime() (Time, error) {
 	u, err := c.buildRequestURL(currentTimeEndPoint, nil)
 	if err != nil {
-		return &Time{}, err
+		return Time{}, err
 	}
 	response, err := requestAndHandle(u.String(), "Failed to get Current Time: ")
 	if err != nil {
-		return &Time{}, err
+		return Time{}, err
 	}
 	return response.Data.Time, nil
 }
@@ -764,14 +759,14 @@ func (c DefaultClient) CurrentTime() (*Time, error) {
 // Also see the cancel-alarm API method, which also accepts the alarm id as an
 // argument.
 //
-func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (*RegisteredAlarm, error) {
+func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (RegisteredAlarm, error) {
 	u, err := c.buildRequestURL(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), params)
 	if err != nil {
-		return &RegisteredAlarm{}, err
+		return RegisteredAlarm{}, err
 	}
 	response, err := requestAndHandle(u.String(), "Failed to Register Alarm for Arrival and Departure at Stop: ")
 	if err != nil {
-		return &RegisteredAlarm{}, err
+		return RegisteredAlarm{}, err
 	}
 	return response.Data.Entry.RegisteredAlarm, nil
 }
@@ -884,7 +879,7 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 // in the <references/> section, since there are potentially a large number of
 // routes for an agency.
 //
-func (c DefaultClient) RouteIdsForAgency(id string) ([]*string, error) {
+func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
 	u, err := c.buildRequestURL(fmt.Sprint(reportPoblemWithTripEndPoint, id), nil)
 	if err != nil {
 		return nil, err
@@ -943,7 +938,7 @@ func (c DefaultClient) RouteIdsForAgency(id string) ([]*string, error) {
 // Response
 // See details about the various properties of the <route/> element.
 //
-func (c DefaultClient) Route(id string) (*Entry, error) {
+func (c DefaultClient) Route(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(routeEndPoint, id), "Route")
 }
 
@@ -987,14 +982,14 @@ func (c DefaultClient) Route(id string) (*Entry, error) {
 // Returns a list of all route ids for routes served by the specified agency.
 // See the full description for the <route/> element.
 //
-func (c DefaultClient) RoutesForAgency(id string) ([]*Route, error) {
+func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
 	u, err := c.buildRequestURL(fmt.Sprint(routeForAgencyEndPoint, id), nil)
 	if err != nil {
-		return []*Route{}, err
+		return []Route{}, err
 	}
 	response, err := requestAndHandle(u.String(), "Failed to get Routes for Agency: ")
 	if err != nil {
-		return []*Route{}, err
+		return []Route{}, err
 	}
 	return response.Data.List.Routes, nil
 }
@@ -1194,7 +1189,7 @@ func (c DefaultClient) ScheduleForStop(id string) (Data, error) {
 // The path is returned as a <shape/> element with a points in the encoded
 // polyline format defined for Google Maps.
 //
-func (c DefaultClient) Shape(id string) (*Entry, error) {
+func (c DefaultClient) Shape(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape")
 }
 
@@ -1235,7 +1230,7 @@ func (c DefaultClient) Shape(id string) (*Entry, error) {
 // the <references/> section, since there are potentially a large number of
 // stops for an agency.
 //
-func (c DefaultClient) StopIDsForAgency(id string) ([]*string, error) {
+func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
 	u, err := c.buildRequestURL(fmt.Sprint(stopIDsForAgencyEndPoint, id), nil)
 	if err != nil {
 		return nil, err
@@ -1287,7 +1282,7 @@ func (c DefaultClient) StopIDsForAgency(id string) ([]*string, error) {
 // Response
 // See details about the various properties of the <stop/> element.
 //
-func (c DefaultClient) Stop(id string) (*Entry, error) {
+func (c DefaultClient) Stop(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(stopEndPoint, id), "Stop")
 }
 
@@ -1404,7 +1399,7 @@ func (c DefaultClient) StopsForLocation(params map[string]string) (Data, error) 
 //
 // Response
 //
-func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
+func (c DefaultClient) StopsForRoute(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute")
 }
 
@@ -1459,7 +1454,7 @@ func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
 // The response <entry/> element is a <tripDetails/> element that captures
 // extended details about a trip.
 //
-func (c DefaultClient) TripDetails(id string) (*Entry, error) {
+func (c DefaultClient) TripDetails(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails")
 }
 
@@ -1554,7 +1549,7 @@ func (c DefaultClient) TripForVehicle(id string, params map[string]string) (Data
 //
 // Response
 // See details about the various properties of the <trip/> element.
-func (c DefaultClient) Trip(id string) (*Entry, error) {
+func (c DefaultClient) Trip(id string) (Entry, error) {
 	return c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip")
 }
 
@@ -1703,14 +1698,14 @@ func (c DefaultClient) VehiclesForAgency(id string) (Data, error) {
 	return c.getData(fmt.Sprint(vehiclesForAgencyEndPoint, id), "Vehicles for Agency", nil)
 }
 
-func (c DefaultClient) getEntry(requestString, requestType string) (*Entry, error) {
+func (c DefaultClient) getEntry(requestString, requestType string) (Entry, error) {
 	u, err := c.buildRequestURL(requestString+xmlPostFix, nil)
 	if err != nil {
-		return &Entry{}, err
+		return Entry{}, err
 	}
 	response, err := requestAndHandle(u.String(), fmt.Sprintf("Failed to get %s: ", requestType))
 	if err != nil {
-		return &Entry{}, err
+		return Entry{}, err
 	}
 	return response.Data.Entry, nil
 }
@@ -1728,13 +1723,16 @@ func (c DefaultClient) getData(requestString, errMessage string, params map[stri
 }
 
 func (c DefaultClient) buildRequestURL(endpoint string, params map[string]string) (*url.URL, error) {
-	u := *c.base
-	u.Path = fmt.Sprint(u.Path, endpoint)
+	requestURL := fmt.Sprint(c.baseURL, endpoint)
+	u, err := url.Parse(requestURL)
+	if err != nil {
+		return nil, errors.New(fmt.Sprintf("Failed to parse URL: %s", err.Error()))
+	}
 	q := u.Query()
 	for k, v := range params {
 		q.Set(k, v)
 	}
 	q.Set("key", c.apiKey)
 	u.RawQuery = q.Encode()
-	return &u, nil
+	return u, nil
 }
