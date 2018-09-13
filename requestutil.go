@@ -42,7 +42,7 @@ func unmarshalResponse(data []byte) Response {
 
 func requestAndHandle(u, errmsg string) (Response, error) {
 	body, err := makeGetRequest(u)
-	log.Printf(string(body))
+	//log.Printf(string(body))
 	if err != nil {
 		return Response{}, errors.New(errmsg + err.Error())
 	}
