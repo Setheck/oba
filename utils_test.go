@@ -37,6 +37,10 @@ func ReadFile(t *testing.T, file string) []byte {
 }
 
 func ConvertToFilename(s string) string {
+	if strings.Contains(s, "_") {
+		split := strings.Split(s, "_")
+		s = split[len(split)-1]
+	}
 	if strings.HasPrefix(s, "Test") {
 		s = strings.TrimPrefix(s, "Test")
 	}
