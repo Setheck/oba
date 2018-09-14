@@ -159,10 +159,10 @@
     </references>
     <entry class="stop">
       <id>1_75403</id>
+      <name>Stevens Way &amp; Benton Ln</name>
       <lat>47.654365</lat>
       <lon>-122.305214</lon>
       <direction>S</direction>
-      <name>Stevens Way &amp; Benton Ln</name>
       <code>75403</code>
       <locationType>0</locationType>
       <wheelchairBoarding>UNKNOWN</wheelchairBoarding>

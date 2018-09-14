@@ -1,10 +1,10 @@
 <response>
   <version>2</version>
   <code>200</code>
-  <text>OK</text>
   <currentTime>1270614730908</currentTime>
+  <text>OK</text>
   <data class="entryWithReferences">
-    <references>...</references>
+    <references/>
     <entry class="trip">
       <id>1_12540399</id>
       <routeId>1_44</routeId>

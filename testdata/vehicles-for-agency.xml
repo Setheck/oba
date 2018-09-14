@@ -28904,7 +28904,7 @@
         </location>
       </vehicleStatus>
     </list>
-    <limitExceeded>false</limitExceeded>
-    <outOfRange>false</outOfRange>
+    <limitExceeded>true</limitExceeded>
+    <outOfRange>true</outOfRange>
   </data>
 </response>

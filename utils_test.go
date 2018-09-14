@@ -84,6 +84,8 @@ func VerifyMarshalling(t *testing.T, data []byte) {
 
 func FixXml(b []byte) []byte {
 	// Crazy issue with Golang Xml parsing, no way to force use of
+	b = bytes.Replace(b, []byte("<references></references>"), []byte("<references/>"), -1)
+	b = bytes.Replace(b, []byte("<data></data>"), []byte("<data/>"), -1)
 	b = bytes.Replace(b, []byte("&#34;"), []byte("&qout;"), -1)
 	return bytes.Replace(b, []byte("&#39;"), []byte("&apos;"), -1)
 }

@@ -19,10 +19,10 @@
     </references>
     <entry class="route">
       <id>1_100224</id>
+      <url>http://metro.kingcounty.gov/schedules/044/n0.html</url>
       <shortName>44</shortName>
       <description>Ballard - Montlake</description>
       <type>3</type>
-      <url>http://metro.kingcounty.gov/schedules/044/n0.html</url>
       <agencyId>1</agencyId>
     </entry>
   </data>

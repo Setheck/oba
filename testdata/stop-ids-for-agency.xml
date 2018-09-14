@@ -30,6 +30,6 @@
       <string>40_S_AU_NB</string>
       <string>40_S_AU_SB</string>
     </list>
-    <limitExceeded>false</limitExceeded>
+    <limitExceeded>true</limitExceeded>
   </data>
 </response>
