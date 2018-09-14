@@ -1,0 +1,187 @@
+<response>
+  <version>2</version>
+  <code>200</code>
+  <currentTime>1531111223474</currentTime>
+  <text>OK</text>
+  <data class="entryWithReferences">
+    <references>
+      <agencies>
+        <agency>
+          <id>1</id>
+          <name>Metro Transit</name>
+          <url>http://metro.kingcounty.gov</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>EN</lang>
+          <phone>206-553-3000</phone>
+          <privateService>false</privateService>
+        </agency>
+        <agency>
+          <id>40</id>
+          <name>Sound Transit</name>
+          <url>http://www.soundtransit.org</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>EN</lang>
+          <phone>1-888-889-6368</phone>
+          <privateService>false</privateService>
+        </agency>
+        <agency>
+          <id>29</id>
+          <name>Community Transit</name>
+          <url>http://www.communitytransit.org/</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>en</lang>
+          <phone>(800) 562-1375</phone>
+          <email>riders@commtrans.org</email>
+          <privateService>false</privateService>
+        </agency>
+      </agencies>
+      <routes>
+        <route>
+          <id>1_100184</id>
+          <shortName>31</shortName>
+          <description>Univ District - Fremont - Central Magnolia</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/031/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100193</id>
+          <shortName>32</shortName>
+          <description>Univ District-Fremont-Interbay-Seattle Center West</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/032/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100259</id>
+          <shortName>67</shortName>
+          <description>Northgate - Roosevelt - University District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/067/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100269</id>
+          <shortName>75</shortName>
+          <description>Northgate - Lake City - Sand Point - Univ District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/075/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100273</id>
+          <shortName>78</shortName>
+          <description>Laurelhurst - University District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/078/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100168</id>
+          <shortName>277</shortName>
+          <description>Juanita - University District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/277/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100214</id>
+          <shortName>372</shortName>
+          <description>UW/Cascadia College - University District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/372/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>40_100235</id>
+          <shortName>540</shortName>
+          <longName>Kirkland - University District</longName>
+          <description>Kirkland - University District</description>
+          <type>3</type>
+          <url>http://www.soundtransit.org/Schedules/ST-Express-Bus/540</url>
+          <agencyId>40</agencyId>
+        </route>
+        <route>
+          <id>29_810</id>
+          <shortName>810</shortName>
+          <longName>McCollum Park - University District</longName>
+          <type>3</type>
+          <color>0070c0</color>
+          <textColor>ffffff</textColor>
+          <agencyId>29</agencyId>
+        </route>
+        <route>
+          <id>29_821</id>
+          <shortName>821</shortName>
+          <longName>Marysville - University District</longName>
+          <type>3</type>
+          <color>0070c0</color>
+          <textColor>ffffff</textColor>
+          <agencyId>29</agencyId>
+        </route>
+        <route>
+          <id>29_855</id>
+          <shortName>855</shortName>
+          <longName>Lynnwood - University District</longName>
+          <type>3</type>
+          <color>0070c0</color>
+          <textColor>ffffff</textColor>
+          <agencyId>29</agencyId>
+        </route>
+        <route>
+          <id>29_860</id>
+          <shortName>860</shortName>
+          <longName>McCollum Park - University District</longName>
+          <type>3</type>
+          <color>0070c0</color>
+          <textColor>ffffff</textColor>
+          <agencyId>29</agencyId>
+        </route>
+        <route>
+          <id>29_871</id>
+          <shortName>871</shortName>
+          <longName>Edmonds P&amp;R - University District</longName>
+          <type>3</type>
+          <color>0070c0</color>
+          <textColor>ffffff</textColor>
+          <agencyId>29</agencyId>
+        </route>
+        <route>
+          <id>29_880</id>
+          <shortName>880</shortName>
+          <longName>Mukilteo - University District</longName>
+          <type>3</type>
+          <color>0070c0</color>
+          <textColor>ffffff</textColor>
+          <agencyId>29</agencyId>
+        </route>
+      </routes>
+    </references>
+    <entry class="stop">
+      <id>1_75403</id>
+      <name>Stevens Way &amp; Benton Ln</name>
+      <lat>47.654365</lat>
+      <lon>-122.305214</lon>
+      <direction>S</direction>
+      <code>75403</code>
+      <locationType>0</locationType>
+      <wheelchairBoarding>UNKNOWN</wheelchairBoarding>
+      <routeIds>
+        <string>1_100184</string>
+        <string>1_100193</string>
+        <string>1_100259</string>
+        <string>1_100269</string>
+        <string>1_100273</string>
+        <string>1_100168</string>
+        <string>1_100214</string>
+        <string>40_100235</string>
+        <string>29_810</string>
+        <string>29_821</string>
+        <string>29_855</string>
+        <string>29_860</string>
+        <string>29_871</string>
+        <string>29_880</string>
+      </routeIds>
+    </entry>
+  </data>
+</response>

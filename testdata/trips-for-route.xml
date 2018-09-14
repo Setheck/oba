@@ -1,0 +1,121 @@
+<response>
+  <version>2</version>
+  <code>200</code>
+  <currentTime>1531111454192</currentTime>
+  <text>OK</text>
+  <data class="listWithRangeAndReferences">
+    <references>
+      <agencies>
+        <agency>
+          <id>1</id>
+          <name>Metro Transit</name>
+          <url>http://metro.kingcounty.gov</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>EN</lang>
+          <phone>206-553-3000</phone>
+          <privateService>false</privateService>
+        </agency>
+      </agencies>
+      <routes>
+        <route>
+          <id>1_100224</id>
+          <shortName>44</shortName>
+          <description>Ballard - Montlake</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/044/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+      </routes>
+      <trips>
+        <trip>
+          <id>1_39480093</id>
+          <routeId>1_100224</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>University Of Washington Medical Center Wallingford</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_20044004</shapeId>
+          <directionId>1</directionId>
+          <blockId>1_5009537</blockId>
+        </trip>
+        <trip>
+          <id>1_39480068</id>
+          <routeId>1_100224</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>University Of Washington Medical Center Wallingford</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_20044004</shapeId>
+          <directionId>1</directionId>
+          <blockId>1_5009535</blockId>
+        </trip>
+        <trip>
+          <id>1_39479994</id>
+          <routeId>1_100224</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>Ballard Wallingford</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_11044012</shapeId>
+          <directionId>0</directionId>
+          <blockId>1_5009536</blockId>
+        </trip>
+        <trip>
+          <id>1_39480069</id>
+          <routeId>1_100224</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>University Of Washington Medical Center Wallingford</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_20044004</shapeId>
+          <directionId>1</directionId>
+          <blockId>1_5009538</blockId>
+        </trip>
+        <trip>
+          <id>1_39480012</id>
+          <routeId>1_100224</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>Ballard Wallingford</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_11044012</shapeId>
+          <directionId>0</directionId>
+          <blockId>1_5009534</blockId>
+        </trip>
+        <trip>
+          <id>1_39479993</id>
+          <routeId>1_100224</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>Ballard Wallingford</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_11044012</shapeId>
+          <directionId>0</directionId>
+          <blockId>1_5009539</blockId>
+        </trip>
+      </trips>
+    </references>
+    <list>
+      <tripDetails>
+        <tripId>1_39480093</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39480068</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39479994</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39480069</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39480012</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39479993</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+    </list>
+    <limitExceeded>true</limitExceeded>
+    <outOfRange>true</outOfRange>
+  </data>
+</response>

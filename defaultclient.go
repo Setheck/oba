@@ -4,8 +4,10 @@ package oba
 
 import (
 	"encoding/xml"
-	"errors"
+	"fmt"
+	"log"
 	"net/url"
+	"path"
 )
 
 //Response Element - All responses are wrapped in a response element.
@@ -24,10 +26,10 @@ import (
 type Response struct {
 	XMLName     xml.Name `xml:"response"`
 	Version     string   `xml:"version"`
-	Code        string   `xml:"code"`
+	Code        int      `xml:"code"`
 	CurrentTime string   `xml:"currentTime"`
 	Text        string   `xml:"text"`
-	Data        Data     `xml:"data"`
+	Data        *Data    `xml:"data,omitempty"`
 }
 
 //References - The <references/> element contains a dictionary of objects
@@ -46,30 +48,38 @@ type Response struct {
 // you’ve pre-cached all the elements, then setting includeReferences=false can
 // be a good way to reduce the response size.
 type References struct {
-	Agencies      []Agency    `xml:"agencies>agency,omitempty"`
-	Routes        []Route     `xml:"routes>route,omitempty"`
-	Stops         []Stop      `xml:"stops>stop,omitempty"`
-	Trips         []Trip      `xml:"trips>trip,omitempty"`
-	Situations    []Situation `xml:"situations>situation,omitempty"`
-	List          []string    `xml:"list>string,omitempty"`
-	LimitExceeded string      `xml:"limitExceeded,omitempty"`
+	Agencies   *Agencies   `xml:"agencies>agency,omitempty"`
+	Routes     *Routes     `xml:"routes>route,omitempty"`
+	Stops      *Stops      `xml:"stops>stop,omitempty"`
+	Trips      *Trips      `xml:"trips>trip,omitempty"`
+	Situations *Situations `xml:"situations>situation,omitempty"`
+	List       *Lists      `xml:"list>string,omitempty"`
 }
+type Agencies []*Agency
+type Routes []*Route
+type Stops []*Stop
+type Trips []*Trip
+type Situations []*Situation
+type Lists []*string
+type ArrivalAndDepartures []*ArrivalAndDeparture
 
 //Data container object
 type Data struct {
-	XMLName       xml.Name   `xml:"data"`
-	Class         string     `xml:"class,attr"`
-	References    References `xml:"references"`
-	Entry         Entry
-	Time          Time
-	List          List
-	StopsForRoute StopsForRoute
+	XMLName       xml.Name    `xml:"data"`
+	Class         string      `xml:"class,attr,omitempty"`
+	References    *References `xml:"references"` // self closing tag workaround
+	Entry         *Entry
+	Time          *Time
+	List          *List `xml:"list"`
+	StopsForRoute *StopsForRoute
+	LimitExceeded bool `xml:"limitExceeded,omitempty"`
+	OutOfRange    bool `xml:"outOfRange,omitempty"`
 }
 
 type Time struct {
-	XMLName      xml.Name `xml:"time"`
-	Time         string   `xml:"time"`
-	ReadableTime string   `xml:"readableTime"`
+	XMLName      xml.Name `xml:"time,omitempty"`
+	Time         string   `xml:"time,omitempty"`
+	ReadableTime string   `xml:"readableTime,omitempty"`
 }
 
 type RegisteredAlarm struct {
@@ -80,41 +90,51 @@ type RegisteredAlarm struct {
 type Entry struct {
 	XMLName xml.Name `xml:"entry"`
 	Class   string   `xml:"class,attr"`
-	ID      string   `xml:"id"`
-	URL     string   `xml:"url"`
-	Name    string   `xml:"name"`
+	ID      string   `xml:"id,omitempty"`
+	Name    string   `xml:"name,omitempty"`
+	URL     string   `xml:"url,omitempty"`
+	Time
 	Agency
 	Block
 	Route
 	Shape
 	Stop
 	StopSchedule
+	ArrivalAndDepartures *ArrivalAndDepartures `xml:"arrivalsAndDepartures>arrivalAndDeparture,omitempty"`
+	NearbyStopIds        *Lists                `xml:"nearbyStopIds>string,omitempty"`
+	*StopsForRoute
+	//StopIds              *Lists                `xml:"stopIds>string,omitempty"`
 	Trip
 	TripDetails
 	RegisteredAlarm
 }
 
 type ArrivalAndDeparture struct {
-	RouteID                string `xml:"routeId"`
-	TripID                 string `xml:"tripId"`
-	ServiceDate            string `xml:"serviceDate"`
-	StopID                 string `xml:"stopId"`
-	StopSequance           string `xml:"stopSequence"`
-	BlockTripSequence      string `xml:"blockTripSequence"`
-	RouteShortName         string `xml:"routeShortName"`
-	RouteLongName          string `xml:"routeLongName"`
-	TripHeadSign           string `zml:"tripHeadsign"`
-	ArrivalEnabled         string `xml:"arrivalEnabled"`
-	DepartureEnabled       string `xml:"departureEnabled"`
-	ScheduledArrivalTime   string `xml:"scheduledArrivalTime"`
-	ScheduledDepartureTime string `xml:"scheduledDepartureTime"`
-	Frequency              string `xml:"frequency"`
-	Predicted              string `xml:"predicted"`
-	PredictedArrivalTime   string `xml:"predictedArrivalTime"`
-	PredictedDepartureTime string `xml:"predictedDepartureTime"`
-	DistanceFromStop       string `xml:"distanceFromStop"`
-	NumberOfStopsAway      string `xml:"numberOfStopsAway"`
-	TripStatus             string `xml:"tripStatus"`
+	XMLName                xml.Name   `xml:"arrivalAndDeparture,omitempty"`
+	RouteID                string     `xml:"routeId,omitempty"`
+	TripID                 string     `xml:"tripId,omitempty"`
+	ServiceDate            string     `xml:"serviceDate,omitempty"`
+	VehicleID              string     `xml:"vehicleId,omitempty"`
+	StopID                 string     `xml:"stopId,omitempty"`
+	StopSequence           string     `xml:"stopSequence,omitempty"`
+	BlockTripSequence      string     `xml:"blockTripSequence,omitempty"`
+	RouteShortName         string     `xml:"routeShortName,omitempty"`
+	RouteLongName          string     `xml:"routeLongName,omitempty"`
+	TripHeadSign           string     `xml:"tripHeadsign,omitempty"`
+	DepartureEnabled       bool       `xml:"departureEnabled,omitempty"`
+	ScheduledDepartureTime string     `xml:"scheduledDepartureTime,omitempty"`
+	PredictedDepartureTime string     `xml:"predictedDepartureTime,omitempty"`
+	ArrivalEnabled         bool       `xml:"arrivalEnabled,omitempty"`
+	ScheduledArrivalTime   string     `xml:"scheduledArrivalTime,omitempty"`
+	Status                 string     `xml:"status,omitempty"`
+	Predicted              string     `xml:"predicted,omitempty"`
+	LastUpdateTime         string     `xml:"lastUpdateTime,omitempty"`
+	PredictedArrivalTime   string     `xml:"predictedArrivalTime,omitempty"`
+	DistanceFromStop       string     `xml:"distanceFromStop,omitempty"`
+	Frequency              string     `xml:"frequency,omitempty"`
+	NumberOfStopsAway      string     `xml:"numberOfStopsAway,omitempty"`
+	TripStatus             TripStatus `xml:"tripStatus,omitempty"`
+	TotalStopsInTrip       string     `xml:"totalStopsInTrip,omitempty"`
 }
 
 type BlockConfiguration struct {
@@ -145,35 +165,41 @@ type Frequency struct {
 }
 
 type List struct {
-	XMLName       xml.Name        `xml:"list"`
-	Routes        []Route         `xml:"route"`
-	Stops         []Stop          `xml:"stop"`
-	Strings       []string        `xml:"string"`
-	TripDetails   []TripDetails   `xml:"tripDetails"`
-	VehicleStatus []VehicleStatus `xml:"vehicleStatus"`
+	XMLName             xml.Name              `xml:"list"`
+	Routes              []*Route              `xml:"route"`
+	Stops               []*Stop               `xml:"stop"`
+	Strings             []*string             `xml:"string"`
+	TripDetails         []*TripDetails        `xml:"tripDetails"`
+	VehicleStatus       []*VehicleStatus      `xml:"vehicleStatus"`
+	AgencyWithCoverages []*AgencyWithCoverage `xml:"agencyWithCoverage"`
 }
 
 type VehicleStatus struct {
-	VehicleID              string `xml:"vehicleId"`
-	LastUpdateTime         string `xml:"lastUpdateTime"`
-	LastLocationUpdateTime string `xml:"lastLocationUpdateTime"`
-	LocationLat            string `xml:"location>lat"`
-	LocationLon            string `xml:"location>lon"`
-	TripID                 string `xml:"tripId"`
-	TripStatus             string `xml:"tripStatus"`
+	VehicleID              string      `xml:"vehicleId"`
+	LastUpdateTime         string      `xml:"lastUpdateTime"`
+	LastLocationUpdateTime string      `xml:"lastLocationUpdateTime"`
+	LocationLat            string      `xml:"location>lat"`
+	LocationLon            string      `xml:"location>lon"`
+	TripID                 string      `xml:"tripId"`
+	TripStatus             *TripStatus `xml:"tripStatus,omitempty"`
 }
 
 //Agency container object
 type Agency struct {
-	TimeZone       string `xml:"timezone"`
+	ID             string `xml:"id,omitempty"`
+	Name           string `xml:"name,omitempty"`
+	URL            string `xml:"url,omitempty"`
+	TimeZone       string `xml:"timezone,omitempty"`
 	Lang           string `xml:"lang,omitempty"`
 	Phone          string `xml:"phone,omitempty"`
+	Email          string `xml:"email,omitempty"`
 	Disclaimer     string `xml:"disclaimer,omitempty"`
 	PrivateService string `xml:"privateService,omitempty"`
 }
 
 type Block struct {
-	Configurations []BlockConfiguration `xml:"configurations>blockConfiguration"`
+	XMLName        xml.Name             `xml:"configurations"`
+	Configurations []BlockConfiguration `xml:"blockConfiguration,omitempty"`
 }
 
 type AgencyWithCoverage struct {
@@ -186,10 +212,15 @@ type AgencyWithCoverage struct {
 
 //Route object
 type Route struct {
-	ShortName   string `xml:"shortName"`
-	Description string `xml:"description"`
-	Type        string `xml:"type"`
-	AgencyID    string `xml:"agencyId"`
+	ID          string `xml:"id,omitempty"`
+	ShortName   string `xml:"shortName,omitempty"`
+	LongName    string `xml:"longName,omitempty"`
+	Description string `xml:"description,omitempty"`
+	Type        string `xml:"type,omitempty"`
+	Color       string `xml:"color,omitempty"`
+	TextColor   string `xml:"textColor,omitempty"`
+	URL         string `xml:"url,omitempty"`
+	AgencyID    string `xml:"agencyId,omitempty"`
 }
 
 type Situation struct {
@@ -215,26 +246,29 @@ type VehicleJourney struct {
 }
 
 type Shape struct {
-	Points string `xml:"points"`
-	Length string `xml:"length"`
+	Points string `xml:"points,omitempty"`
+	Length string `xml:"length,omitempty"`
 }
 
 type Stop struct {
-	Lat          string   `xml:"lat"`
-	Lon          string   `xml:"lon"`
-	Direction    string   `xml:"direction"`
-	Code         string   `xml:"code"`
-	LocationType string   `xml:"locationType"`
-	RouteIDs     []string `xml:"routeIds>string"`
+	ID string `xml:"id,omitempty"`
+	Location
+	Direction          string `xml:"direction,omitempty"`
+	Name               string `xml:"name,omitempty"`
+	Code               string `xml:"code,omitempty"`
+	LocationType       string `xml:"locationType,omitempty"`
+	WheelChairBoarding string `xml:"wheelchairBoarding,omitempty"`
+	RouteIDs           *Lists `xml:"routeIds>string,omitempty"`
 }
 
 type StopSchedule struct {
-	Date               string              `xml:"date"`
-	StopID             string              `xml:"stopId"`
-	StopRouteSchedules []StopRouteSchedule `xml:"stopRouteSchedules>stopRouteSchedule"`
-	TimeZone           string              `xml:"timeZone"`
-	StopCalendarDays   []StopCalendarDay   `xml:"stopCalendarDays>stopCalendarDay"`
+	Date                string `xml:"date,omitempty"`
+	StopID              string `xml:"stopId,omitempty"`
+	*StopRouteSchedules `xml:"stopRouteSchedules>stopRouteSchedule,omitempty"`
+	TimeZone            string            `xml:"timeZone,omitempty"`
+	StopCalendarDays    []StopCalendarDay `xml:"stopCalendarDays,omitempty"`
 }
+type StopRouteSchedules []*StopRouteSchedule
 
 type StopCalendarDay struct {
 	Date  string `xml:"date"`
@@ -242,94 +276,110 @@ type StopCalendarDay struct {
 }
 
 type StopRouteSchedule struct {
-	RouteID                     string              `xml:"routeId"`
-	StopRouteDirectionSchedules []StopRouteSchedule `xml:"stopRouteDirectionSchedules>stopRouteDIrectionSchedule"`
+	RouteID                      string `xml:"routeId,omitempty"`
+	*StopRouteDirectionSchedules `xml:"stopRouteDirectionSchedules>stopRouteDirectionSchedule,omitempty"`
 }
+type StopRouteDirectionSchedules []*StopRouteDirectionSchedule
 
-type StopRouteDIrectionSchedule struct {
+type StopRouteDirectionSchedule struct {
 	TripHeadsign      string             `xml:"tripHeadsign"`
 	ScheduleStopTimes []ScheduleStopTime `xml:"scheduleStopTimes>scheduleStopTime"`
 }
 
 type StopsForRoute struct {
-	RouteID       string         `xml:"routeId"`
-	StopIDs       []string       `xml:"stopIds>string"`
-	StopGroupings []StopGrouping `xml:"stopGroupings>stopGrouping"`
+	StopIDs        *Lists `xml:"stopIds>string,omitempty"`
+	*StopGroupings `xml:"stopGroupings>stopGrouping,omitempty"`
 }
+type StopGroupings []*StopGrouping
 
 type StopGrouping struct {
-	Type       string      `xml:"type"`
-	Ordered    string      `xml:"ordered"`
-	StopGroups []StopGroup `xml:"stopGroups>stopGroup"`
+	Type       string      `xml:"type,omitempty"`
+	Ordered    string      `xml:"ordered,omitempty"`
+	StopGroups []StopGroup `xml:"stopGroups>stopGroup,omitempty"`
 }
 
 type StopGroup struct {
-	ID        string   `xml:"id"`
-	NameType  string   `xml:"name>type"`
-	Names     []string `xml:"name>names>string"`
-	PolyLines string   `xml:"polylines"`
+	ID        string             `xml:"id,omitempty"`
+	NameType  string             `xml:"name>type,omitempty"`
+	Names     []string           `xml:"name>names>string,omitempty"`
+	StopIDs   *Lists             `xml:"stopIds>string,omitempty"`
+	PolyLines []*EncodedPolyLine `xml:"polylines,omitempty"`
+}
+
+type EncodedPolyLine struct {
+	XMLName xml.Name `xml:"encodedPolyline"`
+	*Shape
 }
 
 type ScheduleStopTime struct {
-	ArrivalTime   string `xml:"arrivalTime"`
-	DepartureTime string `xml:"departureTime"`
-	ServiceID     string `xml:"serviceId"`
-	TripID        string `xml:"tripId"`
+	ArrivalEnabled   bool   `xml:"arrivalEnabled,omitempty"`
+	ArrivalTime      string `xml:"arrivalTime"`
+	DepartureEnabled bool   `xml:"departureEnabled,omitempty"`
+	DepartureTime    string `xml:"departureTime"`
+	ServiceID        string `xml:"serviceId"`
+	TripID           string `xml:"tripId"`
 }
 
 type Trip struct {
-	RouteID       string `xml:"routeId"`
-	TripShortName string `xml:"tripShortName"`
-	TripHeadsign  string `xml:"tripHeadsign"`
-	ServiceID     string `xml:"serviceId"`
-	ShapeID       string `xml:"shapeId"`
-	DirectionID   string `xml:"directionId"`
+	ID             string `xml:"id"`
+	RouteID        string `xml:"routeId,omitempty"`
+	RouteShortName string `xml:"routeShortName,omitempty"`
+	TripShortName  string `xml:"tripShortName,omitempty"`
+	TripHeadsign   string `xml:"tripHeadsign,omitempty"`
+	ServiceID      string `xml:"serviceId,omitempty"`
+	ShapeID        string `xml:"shapeId,omitempty"`
+	DirectionID    string `xml:"directionId,omitempty"`
+	BlockID        string `xml:"blockId,omitempty"`
 }
 
 type TripDetails struct {
-	TripID                 string     `xml:"tripId"`
-	ServiceDate            string     `xml:"serviceDate"`
-	Frequency              string     `xml:"frequency"`
-	Status                 string     `xml:"status"`
-	ScheduleTimeZone       string     `xml:"schedule>timeZone"`
-	ScheduleStopTimes      []StopTime `xml:"schedule>StopTimes>tripStopTime"`
-	SchedulePreviousTripID []string   `xml:"schedule>previousTripId"`
-	ScheduleNextTripID     []string   `xml:"schedule>nextTripId"`
-	SituationIDs           []string   `xml:"sitouationIds>string"`
+	TripID      string `xml:"tripId,omitempty"`
+	ServiceDate string `xml:"serviceDate,omitempty"`
+	Frequency   string `xml:"frequency,omitempty"`
+	Status      string `xml:"status,omitempty"`
+	//ScheduleTimeZone string `xml:"schedule>timeZone,omitempty"`
+	//ScheduleStopTimes      []StopTime `xml:"schedule>StopTimes>tripStopTime,omitempty"`
+	//SchedulePreviousTripID []string   `xml:"schedule>previousTripId,omitempty"`
+	//ScheduleNextTripID []string `xml:"schedule>nextTripId,omitempty"`
+	SituationIDs []string `xml:"situationIds,omitempty"`
 }
 
 type TripStatus struct {
-	XMLName                    xml.Name `xml:"status"`
-	ActiveTripID               string   `xml:"activeTripId"`
-	BlockTripSequence          string   `xml:"blockTripSequence"`
-	ServiceDate                string   `xml:"serviceDate"`
-	ScheduledDistanceAlongTrip string   `xml:"scheduledDistanceAlongTrip"`
-	TotalDistanceAlongTrip     string   `xml:"totalDistanceAlongTrip"`
-	PositionLat                string   `xml:"position>lat"`
-	PositionLon                string   `xml:"position>lon"`
-	Orientation                string   `xml:"orientation"`
-	ClosestStop                string   `xml:"closestStop"`
-	ClosestStopTimeOffset      string   `xml:"closestStopTimeOffset"`
-	NextStop                   string   `xml:"nextStop"`
-	NextStopTimeOffset         string   `xml:"nextStopTimeOffset"`
-	Phase                      string   `xml:"phase"`
-	Status                     string   `xml:"status"`
-	Predicted                  string   `xml:"predicted"`
-	LastUpdateTime             string   `xml:"lastUpdateTime"`
-	LastLocationUpdateTime     string   `xml:"lastLocationUpdateTime"`
-	LastKnownLocationLat       string   `xml:"lastKnownLocation>lat"`
-	LastKnownLocationLon       string   `xml:"lastKnownLocation>lon"`
-	LastKnownOrientation       string   `xml:"lastKnownOrientation"`
-	DistanceAlongTrip          string   `xml:"distanceAlongTrip"`
-	ScheduleDeviation          string   `xml:"scheduleDeviation"`
-	VehicleID                  string   `xml:"vehicleId"`
-	SituationIDs               []string `xml:"situationIds>string"`
+	XMLName                    xml.Name  `xml:"tripStatus"`
+	ActiveTripID               string    `xml:"activeTripId,omitempty"`
+	BlockTripSequence          string    `xml:"blockTripSequence,omitempty"`
+	ServiceDate                string    `xml:"serviceDate,omitempty"`
+	ScheduledDistanceAlongTrip string    `xml:"scheduledDistanceAlongTrip,omitempty"`
+	TotalDistanceAlongTrip     string    `xml:"totalDistanceAlongTrip,omitempty"`
+	PositionLat                string    `xml:"position>lat,omitempty"`
+	PositionLon                string    `xml:"position>lon,omitempty"`
+	Orientation                string    `xml:"orientation,omitempty"`
+	ClosestStop                string    `xml:"closestStop,omitempty"`
+	ClosestStopTimeOffset      string    `xml:"closestStopTimeOffset,omitempty"`
+	NextStop                   string    `xml:"nextStop,omitempty"`
+	NextStopTimeOffset         string    `xml:"nextStopTimeOffset,omitempty"`
+	Phase                      string    `xml:"phase,omitempty"`
+	Status                     string    `xml:"status,omitempty"`
+	Predicted                  string    `xml:"predicted,omitempty"`
+	LastUpdateTime             string    `xml:"lastUpdateTime,omitempty"`
+	LastLocationUpdateTime     string    `xml:"lastLocationUpdateTime,omitempty"`
+	LastKnownLocation          *Location `xml:"lastKnownLocation,omitempty"`
+	LastKnownOrientation       string    `xml:"lastKnownOrientation,omitempty"`
+	ScheduleDeviation          string    `xml:"scheduleDeviation,omitempty"`
+	DistanceAlongTrip          string    `xml:"distanceAlongTrip,omitempty"`
+	VehicleID                  string    `xml:"vehicleId,omitempty"`
+	SituationIDs               *Lists    `xml:"situationIds>string,omitempty"`
+}
+
+type Location struct {
+	Lat string `xml:"lat,omitempty"`
+	Lon string `xml:"lon,omitempty"`
 }
 
 type StopWithArrivalsAndDepartures struct {
-	StipID                string                `xml:"stopId"`
-	ArrivalsAndDepartures []ArrivalAndDeparture `xml:"arrivalsAndDepartures"`
-	NearByStopIDs         []string              `xml:"nearbyStopIds>string"`
+	StopID                string                `xml:"stopId,omitempty"`
+	ArrivalsAndDepartures []ArrivalAndDeparture `xml:"arrivalsAndDepartures,omitempty"`
+	NearByStopIDs         *Lists                `xml:"nearbyStopIds>string,omitempty"`
 }
 
 const (
@@ -347,7 +397,6 @@ const (
 	currentTimeEndPoint                               = "current-time"
 	registerAlarmForArrivalAndDepartureAtStopEndPoint = "register-alarm-for-arrival-and-departure-at-stop/"
 	reportPoblemWithTripEndPoint                      = "report-problem-with-trip/"
-	routeIdsForAgencyEndPoint                         = "route-ids-for-agency/"
 	routeForAgencyEndPoint                            = "routes-for-agency/"
 	routeForLocationEndPoint                          = "routes-for-location"
 	scheduleForStopEndPoint                           = "schedule-for-stop/"
@@ -359,20 +408,25 @@ const (
 	tripsForLocationEndPoint                          = "trips-for-location"
 	tripsForRouteEndPoint                             = "trips-for-route/"
 	vehiclesForAgencyEndPoint                         = "vehicles-for-agency/"
+	//routeIdsForAgencyEndPoint                         = "route-ids-for-agency/"
 )
 
 type DefaultClient struct {
-	baseURL string
+	baseURL *url.URL
 	apiKey  string
 }
 
 //NewDefaultClient - instantiate a new instance of a Client
-func NewDefaultClient(baseURL, apiKey string) *DefaultClient {
-	return &DefaultClient{baseURL, apiKey}
+func NewDefaultClient(u *url.URL, apiKey string) *DefaultClient {
+	return &DefaultClient{baseURL: u, apiKey: apiKey}
 }
 
 func (c *DefaultClient) SetBaseURL(b string) {
-	c.baseURL = b
+	u, e := url.Parse(b)
+	if e != nil {
+		log.Fatal(e)
+	}
+	c.baseURL = u
 }
 
 func (c *DefaultClient) SetApiKey(a string) {
@@ -420,7 +474,7 @@ func (c *DefaultClient) SetApiKey(a string) {
 // lat and lon - 			indicates the center of the agency’s coverage area
 // latSpan and lonSpan - 	indicate the height (lat) and width (lon) of the
 // 							coverage bounding box for the agency.
-func (c DefaultClient) AgenciesWithCoverage() (Data, error) {
+func (c DefaultClient) AgenciesWithCoverage() (*Data, error) {
 	return c.getData(agencyWithCoverageEndPoint, "Agencies with Coverage", nil)
 }
 
@@ -461,8 +515,8 @@ func (c DefaultClient) AgenciesWithCoverage() (Data, error) {
 // For more details on the fields returned for an agency, see the documentation
 // for the <agency/> element.
 //
-func (c DefaultClient) Agency(id string) (Entry, error) {
-	return c.getEntry(agencyEndPoint+id, "Agency")
+func (c DefaultClient) Agency(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
 }
 
 //ArrivalAndDepartureForStop - 	details about a specific arrival/departure at a
@@ -515,8 +569,8 @@ func (c DefaultClient) Agency(id string) (Entry, error) {
 // Response
 // The method returns an <arrivalAndDeparture/> element as its content.
 //
-func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]string) (Data, error) {
-	return c.getData(arrivalAndDepartureForStopEndPoint+id, "Arrival and Departure for Stop", params)
+func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]string) (*Data, error) {
+	return c.getData(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
 }
 
 //ArrivalsAndDeparturesForStop - 	get current arrivals and departures for a stop
@@ -569,8 +623,8 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 // The nearby stop list is designed to capture stops that are very close by
 // (like across the street) for quick navigation.
 //
-func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (Data, error) {
-	return c.getData(arrivalsAndDeparturesForStopEndPoint+id, "Arrivals and Departures for Stop", params)
+func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (*Data, error) {
+	return c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
 }
 
 //Block - 	get block configuration for a specific block
@@ -605,8 +659,8 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 // Response
 // See details about the various properties of the <blockConfiguration/> element.
 //
-func (c DefaultClient) Block(id string) (Entry, error) {
-	return c.getEntry(blockEndPoint+id, "Block")
+func (c DefaultClient) Block(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(blockEndPoint, id), "Block")
 }
 
 //CancelAlarm -	cancel a registered alarm
@@ -636,15 +690,9 @@ func (c DefaultClient) Block(id string) (Entry, error) {
 // register-alarm-for-arrival-and-departure-at-stop API method.
 //
 func (c DefaultClient) CancelAlarm(id string) error {
-	u, err := c.buildRequestURL(cancelAlarmEndPoint+id, nil)
-	if err != nil {
-		return err
-	}
-	_, err = requestAndHandle(u.String(), "Failed to Cancel Alarm for ID: ")
-	if err != nil {
-		return err
-	}
-	return nil
+	u := c.buildRequestURL(fmt.Sprint(cancelAlarmEndPoint, id), nil)
+	_, err := requestAndHandle(u, "Failed to Cancel Alarm for ID: ")
+	return err
 }
 
 //CurrentTime -	retrieve the current system time
@@ -675,14 +723,11 @@ func (c DefaultClient) CancelAlarm(id string) error {
 // time - 			current system time as milliseconds since the Unix epoch
 // readableTime - 	current system time in ISO 8601 format
 //
-func (c DefaultClient) CurrentTime() (Time, error) {
-	u, err := c.buildRequestURL(currentTimeEndPoint, nil)
+func (c DefaultClient) CurrentTime() (*Time, error) {
+	u := c.buildRequestURL(currentTimeEndPoint, nil)
+	response, err := requestAndHandle(u, "Failed to get Current Time: ")
 	if err != nil {
-		return Time{}, err
-	}
-	response, err := requestAndHandle(u.String(), "Failed to get Current Time: ")
-	if err != nil {
-		return Time{}, err
+		return &Time{}, err
 	}
 	return response.Data.Time, nil
 }
@@ -758,16 +803,13 @@ func (c DefaultClient) CurrentTime() (Time, error) {
 // Also see the cancel-alarm API method, which also accepts the alarm id as an
 // argument.
 //
-func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (RegisteredAlarm, error) {
-	u, err := c.buildRequestURL(registerAlarmForArrivalAndDepartureAtStopEndPoint+id, params)
+func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (*RegisteredAlarm, error) {
+	u := c.buildRequestURL(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), params)
+	response, err := requestAndHandle(u, "Failed to Register Alarm for Arrival and Departure at Stop: ")
 	if err != nil {
-		return RegisteredAlarm{}, err
+		return nil, err
 	}
-	response, err := requestAndHandle(u.String(), "Failed to Register Alarm for Arrival and Departure at Stop: ")
-	if err != nil {
-		return RegisteredAlarm{}, err
-	}
-	return response.Data.Entry.RegisteredAlarm, nil
+	return &response.Data.Entry.RegisteredAlarm, nil
 }
 
 //ReportProblemWithTrip -	submit a user-generated problem for a trip
@@ -830,15 +872,9 @@ func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, para
 // point in the future.
 //
 func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string) error {
-	u, err := c.buildRequestURL(reportPoblemWithTripEndPoint, params)
-	if err != nil {
-		return err
-	}
-	_, err = requestAndHandle(u.String(), "Failed to Report Problem with Trip: ")
-	if err != nil {
-		return err
-	}
-	return nil
+	u := c.buildRequestURL(reportPoblemWithTripEndPoint, params)
+	_, err := requestAndHandle(u, "Failed to Report Problem with Trip: ")
+	return err
 }
 
 //RouteIdsForAgency - 	get a list of all route ids for an agency
@@ -878,12 +914,9 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 // in the <references/> section, since there are potentially a large number of
 // routes for an agency.
 //
-func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
-	u, err := c.buildRequestURL(reportPoblemWithTripEndPoint+id, nil)
-	if err != nil {
-		return nil, err
-	}
-	response, err := requestAndHandle(u.String(), "Failed to get Route IDs for Agency: ")
+func (c DefaultClient) RouteIdsForAgency(id string) ([]*string, error) {
+	u := c.buildRequestURL(fmt.Sprint(reportPoblemWithTripEndPoint, id), nil)
+	response, err := requestAndHandle(u, "Failed to get Route IDs for Agency: ")
 	if err != nil {
 		return nil, err
 	}
@@ -937,8 +970,8 @@ func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
 // Response
 // See details about the various properties of the <route/> element.
 //
-func (c DefaultClient) Route(id string) (Entry, error) {
-	return c.getEntry(routeEndPoint+id, "Route")
+func (c DefaultClient) Route(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(routeEndPoint, id), "Route")
 }
 
 //RoutesForAgency - 	get a list of all routes for an agency
@@ -981,14 +1014,11 @@ func (c DefaultClient) Route(id string) (Entry, error) {
 // Returns a list of all route ids for routes served by the specified agency.
 // See the full description for the <route/> element.
 //
-func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
-	u, err := c.buildRequestURL(routeForAgencyEndPoint+id, nil)
+func (c DefaultClient) RoutesForAgency(id string) ([]*Route, error) {
+	u := c.buildRequestURL(fmt.Sprint(routeForAgencyEndPoint, id), nil)
+	response, err := requestAndHandle(u, "Failed to get Routes for Agency: ")
 	if err != nil {
-		return []Route{}, err
-	}
-	response, err := requestAndHandle(u.String(), "Failed to get Routes for Agency: ")
-	if err != nil {
-		return []Route{}, err
+		return []*Route{}, err
 	}
 	return response.Data.List.Routes, nil
 }
@@ -1036,7 +1066,7 @@ func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
 // documentation on controlling the number of elements returned and interpreting
 // the results. The list contents are <route/> elements.
 //
-func (c DefaultClient) RoutesForLocation(params map[string]string) (Data, error) {
+func (c DefaultClient) RoutesForLocation(params map[string]string) (*Data, error) {
 	return c.getData(routeForLocationEndPoint, "Routes for Location", params)
 }
 
@@ -1142,8 +1172,8 @@ func (c DefaultClient) RoutesForLocation(params map[string]string) (Data, error)
 // 				the <stop/> element in the <references/> section
 // timeZone - 	the time-zone the stop is located in
 //
-func (c DefaultClient) ScheduleForStop(id string) (Data, error) {
-	return c.getData(scheduleForStopEndPoint+id, "Schedule for Stop", nil)
+func (c DefaultClient) ScheduleForStop(id string) (*Data, error) {
+	return c.getData(fmt.Sprint(scheduleForStopEndPoint, id), "Schedule for Stop", nil)
 }
 
 //Shape -	get details for a specific shape (polyline drawn on a map)
@@ -1188,8 +1218,8 @@ func (c DefaultClient) ScheduleForStop(id string) (Data, error) {
 // The path is returned as a <shape/> element with a points in the encoded
 // polyline format defined for Google Maps.
 //
-func (c DefaultClient) Shape(id string) (Entry, error) {
-	return c.getEntry(shapeEndPoint+id, "Shape")
+func (c DefaultClient) Shape(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape")
 }
 
 //StipIDsForAgency - 	get a list of all stops for an agency
@@ -1229,12 +1259,9 @@ func (c DefaultClient) Shape(id string) (Entry, error) {
 // the <references/> section, since there are potentially a large number of
 // stops for an agency.
 //
-func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
-	u, err := c.buildRequestURL(stopIDsForAgencyEndPoint+id, nil)
-	if err != nil {
-		return nil, err
-	}
-	response, err := requestAndHandle(u.String(), "Failed to get Stop IDs for Agency: ")
+func (c DefaultClient) StopIDsForAgency(id string) ([]*string, error) {
+	u := c.buildRequestURL(fmt.Sprint(stopIDsForAgencyEndPoint, id), nil)
+	response, err := requestAndHandle(u, "Failed to get Stop IDs for Agency: ")
 	if err != nil {
 		return nil, err
 	}
@@ -1281,8 +1308,8 @@ func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
 // Response
 // See details about the various properties of the <stop/> element.
 //
-func (c DefaultClient) Stop(id string) (Entry, error) {
-	return c.getEntry(stopEndPoint+id, "Stop")
+func (c DefaultClient) Stop(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(stopEndPoint, id), "Stop")
 }
 
 //StopsForLocation - 	search for stops near a location, optionally by stop code
@@ -1329,7 +1356,7 @@ func (c DefaultClient) Stop(id string) (Entry, error) {
 // the results. The list contents are <stop/> elements, so see details about the
 // various properties of the <stop/> element.
 //
-func (c DefaultClient) StopsForLocation(params map[string]string) (Data, error) {
+func (c DefaultClient) StopsForLocation(params map[string]string) (*Data, error) {
 	return c.getData(stopsForLocationEndPoint, "Stops for Location", params)
 }
 
@@ -1398,8 +1425,8 @@ func (c DefaultClient) StopsForLocation(params map[string]string) (Data, error) 
 //
 // Response
 //
-func (c DefaultClient) StopsForRoute(id string) (Entry, error) {
-	return c.getEntry(stopsForRouteEndPoint+id, "StopsForRoute")
+func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute")
 }
 
 //TripDetails - 	get extended details for a specific trip
@@ -1453,8 +1480,8 @@ func (c DefaultClient) StopsForRoute(id string) (Entry, error) {
 // The response <entry/> element is a <tripDetails/> element that captures
 // extended details about a trip.
 //
-func (c DefaultClient) TripDetails(id string) (Entry, error) {
-	return c.getEntry(tripDetailsEndPoint+id, "TripDetails")
+func (c DefaultClient) TripDetails(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails")
 }
 
 //TripForVehicle - 	get extended trip details for current trip of a specific
@@ -1496,7 +1523,7 @@ func (c DefaultClient) TripDetails(id string) (Entry, error) {
 // 						Defaults to false.
 // includeSchedule - 	Can be true/false to determine whether full <schedule/>
 // 						element is included in the <tripDetails/> section.
-// 						Defaults to fale.
+// 						Defaults to false.
 // includeStatus - 		Can be true/false to determine whether the full
 // 						<status/> element is include in the <tripDetails/>
 // 						section. Defaults to true.
@@ -1509,8 +1536,8 @@ func (c DefaultClient) TripDetails(id string) (Entry, error) {
 // The response <entry/> element is a <tripDetails/> element that captures
 // extended details about a trip.
 //
-func (c DefaultClient) TripForVehicle(id string, params map[string]string) (Data, error) {
-	return c.getData(tripForVehicleEndPoint+id, "TripDetails for Vehicle", params)
+func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*Data, error) {
+	return c.getData(fmt.Sprint(tripForVehicleEndPoint, id), "TripDetails for Vehicle", params)
 }
 
 //Trip - 	get details for a specific trip
@@ -1548,8 +1575,8 @@ func (c DefaultClient) TripForVehicle(id string, params map[string]string) (Data
 //
 // Response
 // See details about the various properties of the <trip/> element.
-func (c DefaultClient) Trip(id string) (Entry, error) {
-	return c.getEntry(tripEndPoint+id, "Trip")
+func (c DefaultClient) Trip(id string) (*Entry, error) {
+	return c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip")
 }
 
 //TripsForLocation - 	get active trips near a location
@@ -1600,7 +1627,7 @@ func (c DefaultClient) Trip(id string) (Entry, error) {
 // arrival data to determine the position of transit vehicles when available,
 // otherwise we determine the location of vehicles from the static schedule.
 //
-func (c DefaultClient) TripsForLocation(params map[string]string) (Data, error) {
+func (c DefaultClient) TripsForLocation(params map[string]string) (*Data, error) {
 	return c.getData(tripsForLocationEndPoint, "TripDetails for Location", params)
 }
 
@@ -1650,8 +1677,8 @@ func (c DefaultClient) TripsForLocation(params map[string]string) (Data, error) 
 // details about each active trip. The set of active trips includes any trip
 // that serves that specified route that is currently active.
 //
-func (c DefaultClient) TripsForRoute(id string) (Data, error) {
-	return c.getData(tripsForRouteEndPoint+id, "TripDetails for Route", nil)
+func (c DefaultClient) TripsForRoute(id string) (*Data, error) {
+	return c.getData(fmt.Sprint(tripsForRouteEndPoint, id), "TripDetails for Route", nil)
 }
 
 //VehiclesForAgency - 	get active vehicles for an agency
@@ -1693,45 +1720,36 @@ func (c DefaultClient) TripsForRoute(id string) (Data, error) {
 // Response
 // The response is a list of <vehicleStatus/> elements that captures extended details about each active vehicle associated with the specified agency.
 //
-func (c DefaultClient) VehiclesForAgency(id string) (Data, error) {
-	return c.getData(vehiclesForAgencyEndPoint+id, "Vehicles for Agency", nil)
+func (c DefaultClient) VehiclesForAgency(id string) (*Data, error) {
+	return c.getData(fmt.Sprint(vehiclesForAgencyEndPoint, id), "Vehicles for Agency", nil)
 }
 
-func (c DefaultClient) getEntry(requestString, requestType string) (Entry, error) {
-	u, err := c.buildRequestURL(requestString+xmlPostFix, nil)
+func (c DefaultClient) getEntry(requestString, requestType string) (*Entry, error) {
+	u := c.buildRequestURL(requestString+xmlPostFix, nil)
+	response, err := requestAndHandle(u, fmt.Sprintf("Failed to get %s: ", requestType))
 	if err != nil {
-		return Entry{}, err
-	}
-	response, err := requestAndHandle(u.String(), "Failed to get "+requestType+": ")
-	if err != nil {
-		return Entry{}, err
+		return nil, err
 	}
 	return response.Data.Entry, nil
 }
 
-func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (Data, error) {
-	u, err := c.buildRequestURL(requestString+xmlPostFix, params)
+func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (*Data, error) {
+	u := c.buildRequestURL(fmt.Sprint(requestString, xmlPostFix), params)
+	response, err := requestAndHandle(u, fmt.Sprintf("Failed to get %s: ", errMessage))
 	if err != nil {
-		return Data{}, err
-	}
-	response, err := requestAndHandle(u.String(), "Failed to get "+errMessage+": ")
-	if err != nil {
-		return Data{}, err
+		return nil, err
 	}
 	return response.Data, nil
 }
 
-func (c DefaultClient) buildRequestURL(endpoint string, params map[string]string) (*url.URL, error) {
-	requestURL := c.baseURL + endpoint
-	u, err := url.Parse(requestURL)
-	if err != nil {
-		return nil, errors.New("Failed to parse URL: " + err.Error())
-	}
+func (c DefaultClient) buildRequestURL(endpoint string, params map[string]string) string {
+	u := *c.baseURL
+	u.Path = path.Join(u.Path, endpoint)
 	q := u.Query()
 	for k, v := range params {
 		q.Set(k, v)
 	}
 	q.Set("key", c.apiKey)
 	u.RawQuery = q.Encode()
-	return u, nil
+	return u.String()
 }

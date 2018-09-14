@@ -1,0 +1,13 @@
+<response>
+  <version>2</version>
+  <code>200</code>
+  <currentTime>1531110670224</currentTime>
+  <text>OK</text>
+  <data class="entryWithReferences">
+    <references/>
+    <entry class="time">
+      <time>1531110670224</time>
+      <readableTime>2018-07-08T21:31:10-07:00</readableTime>
+    </entry>
+  </data>
+</response>

@@ -1,0 +1,149 @@
+<response>
+  <version>2</version>
+  <code>200</code>
+  <currentTime>1531111421361</currentTime>
+  <text>OK</text>
+  <data class="listWithRangeAndReferences">
+    <references>
+      <agencies>
+        <agency>
+          <id>1</id>
+          <name>Metro Transit</name>
+          <url>http://metro.kingcounty.gov</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>EN</lang>
+          <phone>206-553-3000</phone>
+          <privateService>false</privateService>
+        </agency>
+        <agency>
+          <id>40</id>
+          <name>Sound Transit</name>
+          <url>http://www.soundtransit.org</url>
+          <timezone>America/Los_Angeles</timezone>
+          <lang>EN</lang>
+          <phone>1-888-889-6368</phone>
+          <privateService>false</privateService>
+        </agency>
+      </agencies>
+      <routes>
+        <route>
+          <id>1_100228</id>
+          <shortName>48</shortName>
+          <description>Mt Baker - University District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/048/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100225</id>
+          <shortName>45</shortName>
+          <description>Loyal Heights - University District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/045/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>40_100479</id>
+          <shortName>Link light rail</shortName>
+          <description>LINK: SeaTac - Downtown Seattle - UW/Husky Stadium</description>
+          <type>0</type>
+          <url>http://www.soundtransit.org/Schedules/ST-Express-Bus/599</url>
+          <agencyId>40</agencyId>
+        </route>
+        <route>
+          <id>1_100214</id>
+          <shortName>372</shortName>
+          <description>UW/Cascadia College - University District</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/372/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+        <route>
+          <id>1_100224</id>
+          <shortName>44</shortName>
+          <description>Ballard - Montlake</description>
+          <type>3</type>
+          <url>http://metro.kingcounty.gov/schedules/044/n0.html</url>
+          <agencyId>1</agencyId>
+        </route>
+      </routes>
+      <trips>
+        <trip>
+          <id>1_39435776</id>
+          <routeId>1_100228</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>Mount Baker Transit Center Central District</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_20048616</shapeId>
+          <directionId>1</directionId>
+          <blockId>1_5006399</blockId>
+        </trip>
+        <trip>
+          <id>1_39436403</id>
+          <routeId>1_100225</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>Loyal Heights Greenwood</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_31045010</shapeId>
+          <directionId>0</directionId>
+          <blockId>1_5006380</blockId>
+        </trip>
+        <trip>
+          <id>40_39472001</id>
+          <routeId>40_100479</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>University Of Washington Station</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_10599018</shapeId>
+          <directionId>1</directionId>
+          <blockId>40_5009159</blockId>
+        </trip>
+        <trip>
+          <id>1_39499926</id>
+          <routeId>1_100214</routeId>
+          <routeShortName>372E</routeShortName>
+          <tripShortName>EXPRESS</tripShortName>
+          <tripHeadsign>Lake City Ravenna</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_11372004</shapeId>
+          <directionId>0</directionId>
+          <blockId>1_5010628</blockId>
+        </trip>
+        <trip>
+          <id>1_39480068</id>
+          <routeId>1_100224</routeId>
+          <tripShortName>LOCAL</tripShortName>
+          <tripHeadsign>University Of Washington Medical Center Wallingford</tripHeadsign>
+          <serviceId>1_15048</serviceId>
+          <shapeId>1_20044004</shapeId>
+          <directionId>1</directionId>
+          <blockId>1_5009535</blockId>
+        </trip>
+      </trips>
+    </references>
+    <list>
+      <tripDetails>
+        <tripId>1_39435776</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39436403</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>40_39472001</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39499926</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+      <tripDetails>
+        <tripId>1_39480068</tripId>
+        <serviceDate>1531033200000</serviceDate>
+      </tripDetails>
+    </list>
+    <limitExceeded>true</limitExceeded>
+    <outOfRange>true</outOfRange>
+  </data>
+</response>
