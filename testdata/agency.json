@@ -1,0 +1,27 @@
+{
+  "code": 200,
+  "currentTime": 1537415952440,
+  "data": {
+    "entry": {
+      "disclaimer": "",
+      "email": "",
+      "fareUrl": "",
+      "id": "1",
+      "lang": "EN",
+      "name": "Metro Transit",
+      "phone": "206-553-3000",
+      "privateService": false,
+      "timezone": "America/Los_Angeles",
+      "url": "http://metro.kingcounty.gov"
+    },
+    "references": {
+      "agencies": [],
+      "routes": [],
+      "situations": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

@@ -3,7 +3,7 @@
 package oba
 
 import (
-	"encoding/xml"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -33,7 +33,7 @@ func handleResponse(r Response) error {
 
 func unmarshalResponse(data []byte) Response {
 	response := Response{}
-	err := xml.Unmarshal(data, &response)
+	err := json.Unmarshal(data, &response)
 	if err != nil {
 		log.Fatal("error unmarshaling ", err)
 	}

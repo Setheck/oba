@@ -8,12 +8,12 @@ import (
 )
 
 const (
-	DEBUG    = 0
+	DEBUG    = 1
 	testdata = "testdata/"
 )
 
 func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
-	contents := RetrieveTestXmlFileContent(t)
+	contents := RetrieveTestJsonFileContent(t)
 
 	server := FakeServer(t, contents)
 	defer server.Close()
@@ -28,19 +28,19 @@ func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
 	// TODO: add tests to validate retrieval of objects
 }
 
-func TestDefaultClient_Agency(t *testing.T) {
-	contents := RetrieveTestXmlFileContent(t)
-	VerifyMarshalling(t, contents)
-
-	server := FakeServer(t, contents)
-	defer server.Close()
-
-	client := oba.NewDefaultClient(nil, "key")
-	client.SetBaseURL(server.URL)
-	_, e := client.Agency("1")
-	if e != nil {
-		t.Error(e)
-	}
-
-	// TODO: add tests to validate retrieval of objects
-}
+//func TestDefaultClient_Agency(t *testing.T) {
+//	contents := RetrieveTestJsonFileContent(t)
+//	VerifyMarshalling(t, contents)
+//
+//	server := FakeServer(t, contents)
+//	defer server.Close()
+//
+//	client := oba.NewDefaultClient(nil, "key")
+//	client.SetBaseURL(server.URL)
+//	_, e := client.Agency("1")
+//	if e != nil {
+//		t.Error(e)
+//	}
+//
+//	// TODO: add tests to validate retrieval of objects
+//}
