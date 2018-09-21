@@ -1,0 +1,15 @@
+{
+  "code": 200,
+  "currentTime": 1537411151008,
+  "data": {
+    "references": {
+      "agencies": [],
+      "routes": [],
+      "situations": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

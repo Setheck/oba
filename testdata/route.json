@@ -1,0 +1,39 @@
+{
+  "code": 200,
+  "currentTime": 1537499653641,
+  "data": {
+    "entry": {
+      "agencyId": "1",
+      "color": "",
+      "description": "Ballard - Montlake",
+      "id": "1_100224",
+      "longName": "",
+      "shortName": "44",
+      "textColor": "",
+      "type": 3,
+      "url": "http://metro.kingcounty.gov/schedules/044/n0.html"
+    },
+    "references": {
+      "agencies": [
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "1",
+          "lang": "EN",
+          "name": "Metro Transit",
+          "phone": "206-553-3000",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://metro.kingcounty.gov"
+        }
+      ],
+      "routes": [],
+      "situations": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

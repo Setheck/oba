@@ -46,11 +46,11 @@ type Response struct {
 // you’ve pre-cached all the elements, then setting includeReferences=false can
 // be a good way to reduce the response size.
 type References struct {
-	Agencies   []*Agency    `json:"agencies"`
-	Routes     []*Route     `json:"routes"`
-	Situations []*Situation `json:"situations"`
-	Stops      []*Stop      `json:"stops"`
-	Trips      []*Trip      `json:"trips"`
+	Agencies   []Agency    `json:"agencies"`
+	Routes     []Route     `json:"routes"`
+	Situations []Situation `json:"situations"`
+	Stops      []Stop      `json:"stops"`
+	Trips      []Trip      `json:"trips"`
 }
 type Agencies []*Agency
 type Routes []*Route
@@ -65,15 +65,15 @@ type Data struct {
 	LimitExceeded *bool       `json:"limitExceeded,omitempty"`
 	List          []*List     `json:"list,omitempty"`
 	Entry         *Entry      `json:"entry,omitempty"`
+	OutOfRange    *bool       `json:"outOfRange,omitempty"`
 	References    *References `json:"references"`
 	//Time          *Time
 	//StopsForRoute *StopsForRoute
-	//OutOfRange    bool `json:"outOfRange,omitempty"`
 }
 
 type Time struct {
-	Time         string `json:"time,omitempty"`
-	ReadableTime string `json:"readableTime,omitempty"`
+	ReadableTime *string `json:"readableTime,omitempty"`
+	Time         *int    `json:"time,omitempty"`
 }
 
 type RegisteredAlarm struct {
@@ -82,20 +82,45 @@ type RegisteredAlarm struct {
 
 //Entry container object
 type Entry struct {
-	*Agency              `json:",omitempty"`
+	AgencyID             *string                `json:"agencyId,omitempty"`
 	ArrivalAndDepartures []*ArrivalAndDeparture `json:"arrivalsAndDepartures,omitempty"`
+	Code                 *string                `json:"code,omitempty"`
+	Color                *string                `json:"color,omitempty"`
+	Date                 *int                   `json:"date,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Direction            *string                `json:"direction,omitempty"`
+	Disclaimer           *string                `json:"disclaimer,omitempty"`
+	Email                *string                `json:"email,omitempty"`
+	FareURL              *string                `json:"fareUrl,omitempty"`
+	ID                   *string                `json:"id,omitempty"`
+	Lang                 *string                `json:"lang,omitempty"`
+	Lat                  *float64               `json:"lat,omitempty"`
+	LocationType         *int                   `json:"locationType,omitempty"`
+	Lon                  *float64               `json:"lon,omitempty"`
+	LongName             *string                `json:"longName,omitempty"`
+	Name                 *string                `json:"name,omitempty"`
+	NearbyStopIds        []*string              `json:"nearbyStopIds,omitempty"`
+	Phone                *string                `json:"phone,omitempty"`
+	PrivateService       *bool                  `json:"privateService,omitempty"`
+	ReadableTime         *string                `json:"readableTime,omitempty"`
+	RouteIDs             []*string              `json:"routeIds,omitempty"`
+	ShortName            *string                `json:"shortName,omitempty"`
+	SituationIDs         []*string              `json:"situationIds,omitempty"`
+	StopCalendarDays     []*StopCalendarDay     `json:"stopCalendarDays,omitempty"`
+	StopID               *string                `json:"stopId,omitempty,omitempty"`
+	StopRouteSchedules   []*StopRouteSchedule   `json:"stopRouteSchedules,omitempty"`
+	TextColor            *string                `json:"textColor,omitempty"`
+	Time                 *int                   `json:"time,omitempty"`
+	TimeZone             *string                `json:"timezone,omitempty"`
+	Type                 *int                   `json:"type,omitempty"`
+	URL                  *string                `json:"url,omitempty"`
+	WheelChairBoarding   *string                `json:"wheelchairBoarding,omitempty"`
 	//ID   string `json:"id,omitempty"`
 	//Name string `json:"name,omitempty"`
 	//URL  string `json:"url,omitempty"`
-	//Time
 	//Block
 	//Shape
-	//Stop
-	//StopSchedule
-	NearbyStopIds []*string `json:"nearbyStopIds,omitempty"`
-	SituationIDs  []*string `json:"situationIds,omitempty"`
-	StopId        *string   `json:"stopId,omitempty"`
-	//Route
+	//StopId        *string   `json:"stopId,omitempty"`
 	//*StopsForRoute
 	//Trip
 	//TripDetails
@@ -162,11 +187,37 @@ type Frequency struct {
 }
 
 type List struct {
-	*AgencyWithCoverage
-	//*Route
-	//*Stop
-	//*string             `json:"string"`
-	//*TripDetails
+	AgencyID           *string   `json:"agencyId,omitempty"`
+	Code               *string   `json:"code,omitempty"`
+	Color              *string   `json:"color,omitempty"`
+	Description        *string   `json:"description,omitempty"`
+	Direction          *string   `json:"direction,omitempty"`
+	Disclaimer         *string   `json:"disclaimer,omitempty"`
+	Email              *string   `json:"email,omitempty"`
+	FareURL            *string   `json:"fareUrl,omitempty"`
+	Frequency          *string   `json:"frequency,omitempty"`
+	ID                 *string   `json:"id,omitempty"`
+	Lang               *string   `json:"lang,omitempty"`
+	Lat                *float64  `json:"lat,omitempty"`
+	LatSpan            *float64  `json:"latSpan,omitempty"`
+	LocationType       *int      `json:"locationType,omitempty"`
+	Lon                *float64  `json:"lon,omitempty"`
+	LongName           *string   `json:"longName,omitempty"`
+	LonSpan            *float64  `json:"lonSpan,omitempty"`
+	Name               *string   `json:"name,omitempty"`
+	Phone              *string   `json:"phone,omitempty"`
+	PrivateService     *bool     `json:"privateService,omitempty"`
+	RouteIDs           []*string `json:"routeIds,omitempty"`
+	ServiceDate        *int      `json:"serviceDate,omitempty"`
+	ShortName          *string   `json:"shortName,omitempty"`
+	SituationIDs       []*string `json:"situationIds,omitempty"`
+	Status             *string   `json:"status,omitempty"`
+	TextColor          *string   `json:"textColor,omitempty"`
+	TimeZone           *string   `json:"timezone,omitempty"`
+	TripID             *string   `json:"tripId,omitempty"`
+	Type               *int      `json:"type,omitempty"`
+	URL                *string   `json:"url,omitempty"`
+	WheelChairBoarding *string   `json:"wheelchairBoarding,omitempty"`
 	//*VehicleStatus
 }
 
@@ -199,11 +250,19 @@ type Block struct {
 }
 
 type AgencyWithCoverage struct {
-	AgencyID string  `json:"agencyId"`
-	Lat      float64 `json:"lat"`
-	LatSpan  float64 `json:"latSpan"`
-	Lon      float64 `json:"lon"`
-	LonSpan  float64 `json:"lonSpan"`
+	AgencyID *string  `json:"agencyId"`
+	Lat      *float64 `json:"lat"`
+	LatSpan  *float64 `json:"latSpan"`
+	Lon      *float64 `json:"lon"`
+	LonSpan  *float64 `json:"lonSpan"`
+}
+
+type Coverage struct {
+	AgencyID *string  `json:"agencyId"`
+	Lat      *float64 `json:"lat"`
+	LatSpan  *float64 `json:"latSpan"`
+	Lon      *float64 `json:"lon"`
+	LonSpan  *float64 `json:"lonSpan"`
 }
 
 //Route object
@@ -259,13 +318,12 @@ type Stop struct {
 }
 
 type StopSchedule struct {
-	Date                string `json:"date,omitempty"`
-	StopID              string `json:"stopId,omitempty"`
-	*StopRouteSchedules `json:"stopRouteSchedules>stopRouteSchedule,omitempty"`
-	TimeZone            string            `json:"timeZone,omitempty"`
-	StopCalendarDays    []StopCalendarDay `json:"stopCalendarDays,omitempty"`
+	Date               *int                 `json:"date,omitempty"`
+	StopID             *string              `json:"stopId,omitempty"`
+	StopRouteSchedules []*StopRouteSchedule `json:"stopRouteSchedules,omitempty"`
+	TimeZone           *string              `json:"timeZone,omitempty"`
+	StopCalendarDays   []*StopCalendarDay   `json:"stopCalendarDays,omitempty"`
 }
-type StopRouteSchedules []*StopRouteSchedule
 
 type StopCalendarDay struct {
 	Date  string `json:"date"`
@@ -273,14 +331,18 @@ type StopCalendarDay struct {
 }
 
 type StopRouteSchedule struct {
-	RouteID                      string `json:"routeId,omitempty"`
-	*StopRouteDirectionSchedules `json:"stopRouteDirectionSchedules>stopRouteDirectionSchedule,omitempty"`
+	RouteID                     string                        `json:"routeId,omitempty"`
+	StopRouteDirectionSchedules []*StopRouteDirectionSchedule `json:"stopRouteDirectionSchedules,omitempty"`
 }
-type StopRouteDirectionSchedules []*StopRouteDirectionSchedule
 
 type StopRouteDirectionSchedule struct {
-	TripHeadsign      string             `json:"tripHeadsign"`
-	ScheduleStopTimes []ScheduleStopTime `json:"scheduleStopTimes>scheduleStopTime"`
+	ScheduleFrequencies []*ScheduleFrequency `json:"scheduleFrequencies"`
+	ScheduleStopTimes   []*ScheduleStopTime  `json:"scheduleStopTimes,omitempty"`
+	TripHeadsign        *string              `json:"tripHeadsign,omitempty"`
+}
+
+type ScheduleFrequency struct {
+	*Frequency
 }
 
 type StopsForRoute struct {
@@ -308,12 +370,13 @@ type EncodedPolyLine struct {
 }
 
 type ScheduleStopTime struct {
-	ArrivalEnabled   bool   `json:"arrivalEnabled,omitempty"`
-	ArrivalTime      string `json:"arrivalTime"`
-	DepartureEnabled bool   `json:"departureEnabled,omitempty"`
-	DepartureTime    string `json:"departureTime"`
-	ServiceID        string `json:"serviceId"`
-	TripID           string `json:"tripId"`
+	ArrivalEnabled   *bool   `json:"arrivalEnabled,omitempty"`
+	ArrivalTime      *int    `json:"arrivalTime,omitempty"`
+	DepartureEnabled *bool   `json:"departureEnabled,omitempty"`
+	DepartureTime    *int    `json:"departureTime,omitempty"`
+	ServiceID        *string `json:"serviceId,omitempty"`
+	StopHeadsign     *string `json:"stopHeadsign,omitempty"`
+	TripID           *string `json:"tripId,omitempty"`
 }
 
 type Trip struct {

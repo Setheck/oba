@@ -1,0 +1,195 @@
+{
+  "code": 200,
+  "currentTime": 1537505273586,
+  "data": {
+    "limitExceeded": false,
+    "list": [
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39477624"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39477690"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39485365"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39477668"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39477762"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39477724"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39477699"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39513032"
+      }
+    ],
+    "outOfRange": false,
+    "references": {
+      "agencies": [
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "1",
+          "lang": "EN",
+          "name": "Metro Transit",
+          "phone": "206-553-3000",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://metro.kingcounty.gov"
+        }
+      ],
+      "routes": [
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Ballard - Montlake",
+          "id": "1_100224",
+          "longName": "",
+          "shortName": "44",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/044/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Jackson Park - Univ District - Downtown Seattle",
+          "id": "1_100267",
+          "longName": "",
+          "shortName": "73",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/073/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Wedgwood - University District - Downtown Seattle",
+          "id": "1_100265",
+          "longName": "",
+          "shortName": "71",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/071/n0.html"
+        }
+      ],
+      "situations": [],
+      "stops": [],
+      "trips": [
+        {
+          "blockId": "1_5089006",
+          "directionId": "1",
+          "id": "1_39477624",
+          "routeId": "1_100224",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_20044004",
+          "timeZone": "",
+          "tripHeadsign": "University Of Washington Medical Center Wallingford",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5089012",
+          "directionId": "0",
+          "id": "1_39477690",
+          "routeId": "1_100224",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_11044012",
+          "timeZone": "",
+          "tripHeadsign": "Ballard Wallingford",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5088470",
+          "directionId": "0",
+          "id": "1_39485365",
+          "routeId": "1_100267",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_11073344",
+          "timeZone": "",
+          "tripHeadsign": "Jackson Park Maple Leaf",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5089011",
+          "directionId": "0",
+          "id": "1_39477668",
+          "routeId": "1_100224",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_11044012",
+          "timeZone": "",
+          "tripHeadsign": "Ballard Wallingford",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5089019",
+          "directionId": "1",
+          "id": "1_39477762",
+          "routeId": "1_100224",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_20044004",
+          "timeZone": "",
+          "tripHeadsign": "University Of Washington Medical Center Wallingford",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5089014",
+          "directionId": "1",
+          "id": "1_39477724",
+          "routeId": "1_100224",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_20044004",
+          "timeZone": "",
+          "tripHeadsign": "University Of Washington Medical Center Wallingford",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5089017",
+          "directionId": "0",
+          "id": "1_39477699",
+          "routeId": "1_100224",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_11044012",
+          "timeZone": "",
+          "tripHeadsign": "Ballard Wallingford",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5092484",
+          "directionId": "0",
+          "id": "1_39513032",
+          "routeId": "1_100265",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_11071651",
+          "timeZone": "",
+          "tripHeadsign": "Wedgwood Ravenna",
+          "tripShortName": "LOCAL"
+        }
+      ]
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

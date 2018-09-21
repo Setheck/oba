@@ -1,0 +1,224 @@
+{
+  "code": 200,
+  "currentTime": 1537504806280,
+  "data": {
+    "limitExceeded": false,
+    "list": [
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39485674"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39430446"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39430531"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39493916"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39487328"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "1_39485355"
+      },
+      {
+        "serviceDate": 1537426800000,
+        "tripId": "40_39472364"
+      }
+    ],
+    "outOfRange": false,
+    "references": {
+      "agencies": [
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "1",
+          "lang": "EN",
+          "name": "Metro Transit",
+          "phone": "206-553-3000",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://metro.kingcounty.gov"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "40",
+          "lang": "EN",
+          "name": "Sound Transit",
+          "phone": "1-888-889-6368",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.soundtransit.org"
+        }
+      ],
+      "routes": [
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Northgate - Roosevelt - University District",
+          "id": "1_100259",
+          "longName": "",
+          "shortName": "67",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/067/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Loyal Heights - University District",
+          "id": "1_100225",
+          "longName": "",
+          "shortName": "45",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/045/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Issaquah - University District",
+          "id": "1_100162",
+          "longName": "",
+          "shortName": "271",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/271/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Univ District-Fremont-Interbay-Seattle Center West",
+          "id": "1_100193",
+          "longName": "",
+          "shortName": "32",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/032/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Lake City  - University District",
+          "id": "1_100254",
+          "longName": "",
+          "shortName": "65",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/065/n0.html"
+        },
+        {
+          "agencyId": "40",
+          "color": "",
+          "description": "LINK: SeaTac - Downtown Seattle - UW/Husky Stadium",
+          "id": "40_100479",
+          "longName": "",
+          "shortName": "Link light rail",
+          "textColor": "",
+          "type": 0,
+          "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/599"
+        }
+      ],
+      "situations": [],
+      "stops": [],
+      "trips": [
+        {
+          "blockId": "1_5088484",
+          "directionId": "0",
+          "id": "1_39485674",
+          "routeId": "1_100259",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_11067077",
+          "timeZone": "",
+          "tripHeadsign": "Northgate Roosevelt",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5090288",
+          "directionId": "0",
+          "id": "1_39430446",
+          "routeId": "1_100225",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_31045010",
+          "timeZone": "",
+          "tripHeadsign": "Loyal Heights Greenwood",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5090295",
+          "directionId": "0",
+          "id": "1_39430531",
+          "routeId": "1_100225",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_31045010",
+          "timeZone": "",
+          "tripHeadsign": "Loyal Heights Greenwood",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5088176",
+          "directionId": "1",
+          "id": "1_39493916",
+          "routeId": "1_100162",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_30271171",
+          "timeZone": "",
+          "tripHeadsign": "University District Bellevue",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5088675",
+          "directionId": "0",
+          "id": "1_39487328",
+          "routeId": "1_100193",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_31032125",
+          "timeZone": "",
+          "tripHeadsign": "Seattle Center Fremont",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "1_5088485",
+          "directionId": "0",
+          "id": "1_39485355",
+          "routeId": "1_100254",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_11065088",
+          "timeZone": "",
+          "tripHeadsign": "Jackson Park Wedgwood",
+          "tripShortName": "LOCAL"
+        },
+        {
+          "blockId": "40_5096885",
+          "directionId": "0",
+          "id": "40_39472364",
+          "routeId": "40_100479",
+          "routeShortName": "",
+          "serviceId": "1_28099",
+          "shapeId": "1_21599015",
+          "timeZone": "",
+          "tripHeadsign": "Angle Lake Station",
+          "tripShortName": "LOCAL"
+        }
+      ]
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

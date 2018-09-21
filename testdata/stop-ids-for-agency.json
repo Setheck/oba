@@ -1,0 +1,41 @@
+{
+  "code": 200,
+  "currentTime": 1537503735242,
+  "data": {
+    "limitExceeded": false,
+    "list": [
+      "40_S_KE_SB",
+      "40_S_KE_NB",
+      "40_S_TK_SB",
+      "40_S_TK_NB",
+      "40_TL_THD",
+      "40_S_SU_SB",
+      "40_S_SU_NB",
+      "40_S_ED",
+      "40_S_EV",
+      "40_S_KS",
+      "40_S_MU",
+      "40_S_LW",
+      "40_TL_25",
+      "40_S_ST",
+      "40_S_TD",
+      "40_TL_CC",
+      "40_TL_CS",
+      "40_TL_US",
+      "40_TL_TD",
+      "40_S_PU_NB",
+      "40_S_PU_SB",
+      "40_S_AU_NB",
+      "40_S_AU_SB"
+    ],
+    "references": {
+      "agencies": [],
+      "routes": [],
+      "situations": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

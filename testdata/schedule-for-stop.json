@@ -1,0 +1,3916 @@
+{
+  "code": 200,
+  "currentTime": 1537502266608,
+  "data": {
+    "entry": {
+      "date": 1537502266601,
+      "stopId": "1_75403",
+      "stopRouteSchedules": [
+        {
+          "routeId": "1_100184",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451820000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487344"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487346"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485933"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487239"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457760000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457760000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487299"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537459260000,
+                  "departureEnabled": true,
+                  "departureTime": 1537459260000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487226"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460820000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487265"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537462620000,
+                  "departureEnabled": true,
+                  "departureTime": 1537462620000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487419"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537464420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537464420000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487251"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537466220000,
+                  "departureEnabled": true,
+                  "departureTime": 1537466220000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487372"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537468020000,
+                  "departureEnabled": true,
+                  "departureTime": 1537468020000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487241"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537469820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537469820000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487292"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537471620000,
+                  "departureEnabled": true,
+                  "departureTime": 1537471620000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487248"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537473420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537473420000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487268"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537475220000,
+                  "departureEnabled": true,
+                  "departureTime": 1537475220000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487422"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537477020000,
+                  "departureEnabled": true,
+                  "departureTime": 1537477020000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487266"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537478820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537478820000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487374"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537480620000,
+                  "departureEnabled": true,
+                  "departureTime": 1537480620000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487264"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482120000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482120000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487296"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483740000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483740000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487269"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484940000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484940000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487401"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486140000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486140000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487485"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487340000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487340000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487505"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488660000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488660000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487433"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489860000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489860000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487293"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537491600000,
+                  "departureEnabled": true,
+                  "departureTime": 1537491600000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487375"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537493400000,
+                  "departureEnabled": true,
+                  "departureTime": 1537493400000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487308"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537495020000,
+                  "departureEnabled": true,
+                  "departureTime": 1537495020000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487479"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537496880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537496880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39488224"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537498680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537498680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39488225"
+                }
+              ],
+              "tripHeadsign": "Central Magnolia Fremont"
+            }
+          ]
+        },
+        {
+          "routeId": "1_100193",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537447680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537447680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487222"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487281"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537450680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537450680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487220"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537452780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537452780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487257"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487382"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487400"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487330"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458360000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458360000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487445"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460100000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487403"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537461720000,
+                  "departureEnabled": true,
+                  "departureTime": 1537461720000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487238"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537463520000,
+                  "departureEnabled": true,
+                  "departureTime": 1537463520000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487446"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537465320000,
+                  "departureEnabled": true,
+                  "departureTime": 1537465320000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487354"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537467180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537467180000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487389"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537468920000,
+                  "departureEnabled": true,
+                  "departureTime": 1537468920000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487326"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537470720000,
+                  "departureEnabled": true,
+                  "departureTime": 1537470720000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487447"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537472520000,
+                  "departureEnabled": true,
+                  "departureTime": 1537472520000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487404"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537474320000,
+                  "departureEnabled": true,
+                  "departureTime": 1537474320000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487255"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537476120000,
+                  "departureEnabled": true,
+                  "departureTime": 1537476120000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487448"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537477920000,
+                  "departureEnabled": true,
+                  "departureTime": 1537477920000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487355"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537479780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537479780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487388"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481520000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481520000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487327"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482900000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482900000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487453"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484340000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484340000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487482"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485540000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485540000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487280"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486740000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486740000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487282"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487940000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487940000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487425"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489260000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489260000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487508"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537490820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537490820000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487356"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537492500000,
+                  "departureEnabled": true,
+                  "departureTime": 1537492500000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487390"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537494240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537494240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487329"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537495980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537495980000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487451"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537497900000,
+                  "departureEnabled": true,
+                  "departureTime": 1537497900000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487414"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537499700000,
+                  "departureEnabled": true,
+                  "departureTime": 1537499700000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487491"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537500900000,
+                  "departureEnabled": true,
+                  "departureTime": 1537500900000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487449"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537502700000,
+                  "departureEnabled": true,
+                  "departureTime": 1537502700000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487357"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537504440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537504440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487328"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537506240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537506240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487342"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537508040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537508040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487473"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537509780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537509780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487490"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537511580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537511580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487452"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537513320000,
+                  "departureEnabled": true,
+                  "departureTime": 1537513320000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487358"
+                }
+              ],
+              "tripHeadsign": "Seattle Center Fremont"
+            }
+          ]
+        },
+        {
+          "routeId": "1_100259",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537446960000,
+                  "departureEnabled": true,
+                  "departureTime": 1537446960000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485301"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537448760000,
+                  "departureEnabled": true,
+                  "departureTime": 1537448760000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485379"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449360000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449360000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485230"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449960000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449960000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485465"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537450560000,
+                  "departureEnabled": true,
+                  "departureTime": 1537450560000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485577"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451160000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485318"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451760000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451760000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485615"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537452360000,
+                  "departureEnabled": true,
+                  "departureTime": 1537452360000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485667"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485462"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485468"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485767"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485537"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485619"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485304"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485672"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485714"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485380"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485244"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537459080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537459080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485237"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537459680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537459680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485466"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460100000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485805"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485571"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537461240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537461240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485300"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537461840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537461840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485637"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537462440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537462440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485670"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537463040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537463040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485414"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537463640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537463640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485490"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537464240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537464240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485798"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537464840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537464840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485515"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537465440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537465440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485639"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537466040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537466040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485303"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537466640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537466640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485669"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537467240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537467240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485736"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537467840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537467840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485381"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537468500000,
+                  "departureEnabled": true,
+                  "departureTime": 1537468500000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485242"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537469100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537469100000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485252"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537469700000,
+                  "departureEnabled": true,
+                  "departureTime": 1537469700000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485464"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537470300000,
+                  "departureEnabled": true,
+                  "departureTime": 1537470300000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485769"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537470900000,
+                  "departureEnabled": true,
+                  "departureTime": 1537470900000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485640"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537471500000,
+                  "departureEnabled": true,
+                  "departureTime": 1537471500000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485305"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537472100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537472100000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485578"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537472700000,
+                  "departureEnabled": true,
+                  "departureTime": 1537472700000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485737"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537473300000,
+                  "departureEnabled": true,
+                  "departureTime": 1537473300000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485467"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537473840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537473840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485418"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537474440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537474440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485816"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537475040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537475040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485536"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537475640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537475640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485573"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537476240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537476240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485321"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537476840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537476840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485715"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537477440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537477440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485671"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537478040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537478040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485392"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537478640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537478640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485302"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537479240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537479240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485270"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537479840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537479840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485317"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537480440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537480440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485463"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537480980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537480980000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485818"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485575"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482180000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485307"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485625"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485675"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485415"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485802"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485539"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485850"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485626"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485286"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485673"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485721"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485358"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485835"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537490040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537490040000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485309"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537490640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537490640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485306"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537491240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537491240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485285"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537491840000,
+                  "departureEnabled": true,
+                  "departureTime": 1537491840000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485419"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537492320000,
+                  "departureEnabled": true,
+                  "departureTime": 1537492320000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485806"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537492920000,
+                  "departureEnabled": true,
+                  "departureTime": 1537492920000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485617"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537493580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537493580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485391"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537494240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537494240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485576"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537494900000,
+                  "departureEnabled": true,
+                  "departureTime": 1537494900000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485716"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537495560000,
+                  "departureEnabled": true,
+                  "departureTime": 1537495560000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485492"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537496160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537496160000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485518"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537496820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537496820000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485540"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537497480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537497480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485579"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537498380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537498380000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485712"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537499280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537499280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485382"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537500180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537500180000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485347"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537501080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537501080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485383"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537501980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537501980000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485417"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537502880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537502880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485624"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537503780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537503780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485674"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537504680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537504680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485477"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537505580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537505580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485520"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537507200000,
+                  "departureEnabled": true,
+                  "departureTime": 1537507200000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485620"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537509000000,
+                  "departureEnabled": true,
+                  "departureTime": 1537509000000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485470"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537510740000,
+                  "departureEnabled": true,
+                  "departureTime": 1537510740000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485469"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537512540000,
+                  "departureEnabled": true,
+                  "departureTime": 1537512540000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485717"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537514340000,
+                  "departureEnabled": true,
+                  "departureTime": 1537514340000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485538"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537516800000,
+                  "departureEnabled": true,
+                  "departureTime": 1537516800000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485471"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537521480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537521480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485550"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537525080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537525080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485545"
+                }
+              ],
+              "tripHeadsign": "Northgate Roosevelt"
+            }
+          ]
+        },
+        {
+          "routeId": "1_100269",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487232"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537515000000,
+                  "departureEnabled": true,
+                  "departureTime": 1537515000000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487359"
+                }
+              ],
+              "tripHeadsign": "University District Lake City"
+            }
+          ]
+        },
+        {
+          "routeId": "1_100273",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449420000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487542"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451220000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451220000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487544"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453440000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453440000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487546"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455600000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455600000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487548"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458000000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458000000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487550"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460100000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487552"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537462800000,
+                  "departureEnabled": true,
+                  "departureTime": 1537462800000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487554"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537464900000,
+                  "departureEnabled": true,
+                  "departureTime": 1537464900000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487556"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537467300000,
+                  "departureEnabled": true,
+                  "departureTime": 1537467300000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487558"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537469400000,
+                  "departureEnabled": true,
+                  "departureTime": 1537469400000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487560"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537472100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537472100000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487562"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537474200000,
+                  "departureEnabled": true,
+                  "departureTime": 1537474200000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487564"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537476600000,
+                  "departureEnabled": true,
+                  "departureTime": 1537476600000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487565"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537478700000,
+                  "departureEnabled": true,
+                  "departureTime": 1537478700000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487568"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481400000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481400000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487570"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483920000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483920000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487571"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486320000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486320000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487574"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488720000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488720000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487576"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537491720000,
+                  "departureEnabled": true,
+                  "departureTime": 1537491720000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487578"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537493940000,
+                  "departureEnabled": true,
+                  "departureTime": 1537493940000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487580"
+                }
+              ],
+              "tripHeadsign": "Laurelhurst University Village"
+            }
+          ]
+        },
+        {
+          "routeId": "1_100168",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483020000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483020000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494237"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485420000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494240"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487340000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487340000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494233"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489140000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489140000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494238"
+                }
+              ],
+              "tripHeadsign": "Juanita Houghton P\u0026R"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537450260000,
+                  "departureEnabled": true,
+                  "departureTime": 1537450260000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494235"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537452120000,
+                  "departureEnabled": true,
+                  "departureTime": 1537452120000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494239"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454340000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454340000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494234"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456560000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456560000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39494236"
+                }
+              ],
+              "tripHeadsign": "University District Houghton P\u0026R"
+            }
+          ]
+        },
+        {
+          "routeId": "1_100214",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537447740000,
+                  "departureEnabled": true,
+                  "departureTime": 1537447740000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486923"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449540000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449540000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486927"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537450680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537450680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486943"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486946"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537452480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537452480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486950"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453560000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453560000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486959"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454400000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454400000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486965"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454820000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39485888"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455180000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486976"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455960000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455960000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486924"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456500000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456500000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486704"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456800000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456800000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486934"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486926"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458120000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458120000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487019"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458660000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458660000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487010"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537459380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537459380000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487024"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460100000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487038"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460640000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486299"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537461000000,
+                  "departureEnabled": true,
+                  "departureTime": 1537461000000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486951"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537461900000,
+                  "departureEnabled": true,
+                  "departureTime": 1537461900000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486960"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537462380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537462380000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486992"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537463220000,
+                  "departureEnabled": true,
+                  "departureTime": 1537463220000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486964"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537464060000,
+                  "departureEnabled": true,
+                  "departureTime": 1537464060000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486982"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537464780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537464780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486981"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537465680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537465680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486936"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537466580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537466580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487002"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537467480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537467480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487013"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537468380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537468380000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487025"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537469280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537469280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486953"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537470120000,
+                  "departureEnabled": true,
+                  "departureTime": 1537470120000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487039"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537471020000,
+                  "departureEnabled": true,
+                  "departureTime": 1537471020000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486993"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537471980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537471980000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486967"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537472880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537472880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486978"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537473780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537473780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486979"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537474680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537474680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486935"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537475580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537475580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487003"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537476480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537476480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487011"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537477380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537477380000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487026"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537478280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537478280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486952"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537479180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537479180000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487040"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537480080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537480080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486994"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537480980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537480980000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486966"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486980"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486977"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486937"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487004"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487012"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486380000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487051"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487029"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488180000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486954"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487042"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489980000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486995"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537490880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537490880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487058"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537491780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537491780000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486983"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537492680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537492680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487063"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537493580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537493580000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486938"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537494480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537494480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487069"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537495380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537495380000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487017"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537496280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537496280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487027"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537497240000,
+                  "departureEnabled": true,
+                  "departureTime": 1537497240000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486971"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537498140000,
+                  "departureEnabled": true,
+                  "departureTime": 1537498140000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487041"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537499880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537499880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487057"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537501680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537501680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486939"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537503480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537503480000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487070"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537505280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537505280000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487028"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537507080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537507080000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487044"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537508880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537508880000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487059"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537510680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537510680000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39486941"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537512300000,
+                  "departureEnabled": true,
+                  "departureTime": 1537512300000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487071"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537515000000,
+                  "departureEnabled": true,
+                  "departureTime": 1537515000000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "1_39487043"
+                }
+              ],
+              "tripHeadsign": "University District Lake City"
+            }
+          ]
+        },
+        {
+          "routeId": "40_100235",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537450166000,
+                  "departureEnabled": true,
+                  "departureTime": 1537450166000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497232"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537452206000,
+                  "departureEnabled": true,
+                  "departureTime": 1537452206000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497239"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453526000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453526000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497244"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455324000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455324000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497234"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456644000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456644000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497229"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457964000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457964000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497236"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537459284000,
+                  "departureEnabled": true,
+                  "departureTime": 1537459284000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497242"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537479055000,
+                  "departureEnabled": true,
+                  "departureTime": 1537479055000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497248"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537480855000,
+                  "departureEnabled": true,
+                  "departureTime": 1537480855000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497253"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482655000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482655000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497257"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483975000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483975000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497247"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485324000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485324000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497259"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486644000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486644000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497252"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487904000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487904000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497256"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489284000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489284000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497251"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537491204000,
+                  "departureEnabled": true,
+                  "departureTime": 1537491204000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497261"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537492764000,
+                  "departureEnabled": true,
+                  "departureTime": 1537492764000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497262"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537494504000,
+                  "departureEnabled": true,
+                  "departureTime": 1537494504000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497263"
+                }
+              ],
+              "tripHeadsign": "Kirkland"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460844000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460844000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497235"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537462104000,
+                  "departureEnabled": true,
+                  "departureTime": 1537462104000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497230"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537463455000,
+                  "departureEnabled": true,
+                  "departureTime": 1537463455000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497237"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537464715000,
+                  "departureEnabled": true,
+                  "departureTime": 1537464715000,
+                  "serviceId": "1_28099",
+                  "stopHeadsign": "",
+                  "tripId": "40_39497241"
+                }
+              ],
+              "tripHeadsign": "University District"
+            }
+          ]
+        },
+        {
+          "routeId": "29_810",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537491780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537491780000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639730__MCOB-DO:121:0:Weekday:4:18MAR:61061:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537492980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537492980000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638323__MCOB-DO:121:0:Weekday:4:18MAR:61072:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537494420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537494420000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638322__MCOB-DO:121:0:Weekday:4:18MAR:61073:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537496220000,
+                  "departureEnabled": true,
+                  "departureTime": 1537496220000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639215__MCOB-DO:121:0:Weekday:4:18MAR:61089:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537499820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537499820000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639750__MCOB-DO:121:0:Weekday:4:18MAR:61093:12345"
+                }
+              ],
+              "tripHeadsign": "McCollum Park"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537462020000,
+                  "departureEnabled": true,
+                  "departureTime": 1537462020000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639213__MCOB-DO:121:0:Weekday:4:18MAR:61003:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537463880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537463880000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638324__MCOB-DO:121:0:Weekday:4:18MAR:61011:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537465620000,
+                  "departureEnabled": true,
+                  "departureTime": 1537465620000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639214__MCOB-DO:121:0:Weekday:4:18MAR:61031:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537467000000,
+                  "departureEnabled": true,
+                  "departureTime": 1537467000000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638325__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537468800000,
+                  "departureEnabled": true,
+                  "departureTime": 1537468800000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639749__MCOB-DO:121:0:Weekday:4:18MAR:61045:12345"
+                }
+              ],
+              "tripHeadsign": "University"
+            }
+          ]
+        },
+        {
+          "routeId": "29_821",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483380000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638520__MCOB-DO:121:0:Weekday:4:18MAR:61063:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486980000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638524__MCOB-DO:121:0:Weekday:4:18MAR:61079:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488780000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638525__MCOB-DO:121:0:Weekday:4:18MAR:61090:12345"
+                }
+              ],
+              "tripHeadsign": "Marysville"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449480000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449480000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638519__MCOB-DO:121:0:Weekday:4:18MAR:61006:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454100000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638521__MCOB-DO:121:0:Weekday:4:18MAR:61025:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455360000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455360000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638522__MCOB-DO:121:0:Weekday:4:18MAR:61032:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456920000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456920000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638523__MCOB-DO:121:0:Weekday:4:18MAR:61037:12345"
+                }
+              ],
+              "tripHeadsign": "University"
+            }
+          ]
+        },
+        {
+          "routeId": "29_855",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537472040000,
+                  "departureEnabled": true,
+                  "departureTime": 1537472040000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638335__MCOB-DO:121:0:Weekday:4:18MAR:61046:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537475580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537475580000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638336__MCOB-DO:121:0:Weekday:4:18MAR:61049:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537478880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537478880000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638337__MCOB-DO:121:0:Weekday:4:18MAR:61047:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481280000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639217__MCOB-DO:121:0:Weekday:4:18MAR:61049:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482660000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482660000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638338__MCOB-DO:121:0:Weekday:4:18MAR:61046:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484280000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638532__MCOB-DO:121:0:Weekday:4:18MAR:61066:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486080000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638339__MCOB-DO:121:0:Weekday:4:18MAR:61072:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487580000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639218__MCOB-DO:121:0:Weekday:4:18MAR:61081:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537489980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537489980000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638441__MCOB-DO:121:0:Weekday:4:18MAR:61066:12345"
+                }
+              ],
+              "tripHeadsign": "Lynnwood TC"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537447740000,
+                  "departureEnabled": true,
+                  "departureTime": 1537447740000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639751__MCOB-DO:121:0:Weekday:4:18MAR:61008:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449420000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639216__MCOB-DO:121:0:Weekday:4:18MAR:61017:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451160000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638341__MCOB-DO:121:0:Weekday:4:18MAR:61002:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537452420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537452420000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638342__MCOB-DO:121:0:Weekday:4:18MAR:61031:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454220000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454220000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638340__MCOB-DO:121:0:Weekday:4:18MAR:61003:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455660000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455660000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638343__MCOB-DO:121:0:Weekday:4:18MAR:61006:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457100000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638344__MCOB-DO:121:0:Weekday:4:18MAR:61011:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458720000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458720000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638345__MCOB-DO:121:0:Weekday:4:18MAR:61031:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460340000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460340000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638346__MCOB-DO:121:0:Weekday:4:18MAR:61006:12345"
+                }
+              ],
+              "tripHeadsign": "University"
+            }
+          ]
+        },
+        {
+          "routeId": "29_860",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537471980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537471980000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638347__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537475880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537475880000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638348__MCOB-DO:121:0:Weekday:4:18MAR:61046:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537479180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537479180000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638349__MCOB-DO:121:0:Weekday:4:18MAR:61050:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481160000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639326__MCOB-DO:121:0:Weekday:4:18MAR:61053:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483080000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483080000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639220__MCOB-DO:121:0:Weekday:4:18MAR:61061:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483980000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638350__MCOB-DO:121:0:Weekday:4:18MAR:61047:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485180000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485180000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638529__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486140000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486140000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638530__MCOB-DO:121:0:Weekday:4:18MAR:61073:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487160000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638351__MCOB-DO:121:0:Weekday:4:18MAR:61049:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488540000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488540000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638352__MCOB-DO:121:0:Weekday:4:18MAR:61089:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537490460000,
+                  "departureEnabled": true,
+                  "departureTime": 1537490460000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638353__MCOB-DO:121:0:Weekday:4:18MAR:61052:12345"
+                }
+              ],
+              "tripHeadsign": "McCollum Park"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537450380000,
+                  "departureEnabled": true,
+                  "departureTime": 1537450380000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639490__MCOB-DO:121:0:Weekday:4:18MAR:61016:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451640000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638354__MCOB-DO:121:0:Weekday:4:18MAR:61022:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453260000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453260000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638526__MCOB-DO:121:0:Weekday:4:18MAR:61030:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454400000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454400000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638355__MCOB-DO:121:0:Weekday:4:18MAR:61036:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455540000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455540000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638527__MCOB-DO:121:0:Weekday:4:18MAR:61040:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456560000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456560000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638528__MCOB-DO:121:0:Weekday:4:18MAR:61013:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457700000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457700000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639219__MCOB-DO:121:0:Weekday:4:18MAR:61007:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458660000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458660000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639059__MCOB-DO:121:0:Weekday:4:18MAR:61019:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460340000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460340000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638356__MCOB-DO:121:0:Weekday:4:18MAR:61030:12345"
+                }
+              ],
+              "tripHeadsign": "University"
+            }
+          ]
+        },
+        {
+          "routeId": "29_871",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537472100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537472100000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638326__MCOB-DO:121:0:Weekday:4:18MAR:61047:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537475580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537475580000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638327__MCOB-DO:121:0:Weekday:4:18MAR:61048:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537479060000,
+                  "departureEnabled": true,
+                  "departureTime": 1537479060000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638328__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481460000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481460000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639754__MCOB-DO:121:0:Weekday:4:18MAR:61055:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537483260000,
+                  "departureEnabled": true,
+                  "departureTime": 1537483260000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638329__MCOB-DO:121:0:Weekday:4:18MAR:61062:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484580000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638531__MCOB-DO:121:0:Weekday:4:18MAR:61067:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537485780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537485780000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638357__MCOB-DO:121:0:Weekday:4:18MAR:61071:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486860000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486860000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638330__MCOB-DO:121:0:Weekday:4:18MAR:61078:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487880000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638358__MCOB-DO:121:0:Weekday:4:18MAR:61086:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488780000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638445__MCOB-DO:121:0:Weekday:4:18MAR:61091:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537490160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537490160000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638533__MCOB-DO:121:0:Weekday:4:18MAR:61062:12345"
+                }
+              ],
+              "tripHeadsign": "Edmonds P\u0026R"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449420000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639752__MCOB-DO:121:0:Weekday:4:18MAR:61014:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537450980000,
+                  "departureEnabled": true,
+                  "departureTime": 1537450980000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638332__MCOB-DO:121:0:Weekday:4:18MAR:61021:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537452360000,
+                  "departureEnabled": true,
+                  "departureTime": 1537452360000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639491__MCOB-DO:121:0:Weekday:4:18MAR:61026:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453620000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453620000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638387__MCOB-DO:121:0:Weekday:4:18MAR:61008:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454820000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454820000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638384__MCOB-DO:121:0:Weekday:4:18MAR:61004:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537455720000,
+                  "departureEnabled": true,
+                  "departureTime": 1537455720000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638331__MCOB-DO:121:0:Weekday:4:18MAR:61041:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456740000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456740000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638385__MCOB-DO:121:0:Weekday:4:18MAR:61012:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537458000000,
+                  "departureEnabled": true,
+                  "departureTime": 1537458000000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638333__MCOB-DO:121:0:Weekday:4:18MAR:61022:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537459200000,
+                  "departureEnabled": true,
+                  "departureTime": 1537459200000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638386__MCOB-DO:121:0:Weekday:4:18MAR:61023:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460160000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638334__MCOB-DO:121:0:Weekday:4:18MAR:61001:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537463460000,
+                  "departureEnabled": true,
+                  "departureTime": 1537463460000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638388__MCOB-DO:121:0:Weekday:4:18MAR:61042:12345"
+                }
+              ],
+              "tripHeadsign": "University"
+            }
+          ]
+        },
+        {
+          "routeId": "29_880",
+          "stopRouteDirectionSchedules": [
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537481280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537481280000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638534__MCOB-DO:121:0:Weekday:4:18MAR:61054:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537482780000,
+                  "departureEnabled": true,
+                  "departureTime": 1537482780000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638359__MCOB-DO:121:0:Weekday:4:18MAR:61048:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537484880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537484880000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638360__MCOB-DO:121:0:Weekday:4:18MAR:61069:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537486680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537486680000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638361__MCOB-DO:121:0:Weekday:4:18MAR:61077:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537487580000,
+                  "departureEnabled": true,
+                  "departureTime": 1537487580000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638538__MCOB-DO:121:0:Weekday:4:18MAR:61083:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537488420000,
+                  "departureEnabled": true,
+                  "departureTime": 1537488420000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638362__MCOB-DO:121:0:Weekday:4:18MAR:61053:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537490280000,
+                  "departureEnabled": true,
+                  "departureTime": 1537490280000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638696__MCOB-DO:121:0:Weekday:4:18MAR:61054:12345"
+                }
+              ],
+              "tripHeadsign": "Mukilteo"
+            },
+            {
+              "scheduleFrequencies": [],
+              "scheduleStopTimes": [
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537448160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537448160000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7639753__MCOB-DO:121:0:Weekday:4:18MAR:61003:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537449660000,
+                  "departureEnabled": true,
+                  "departureTime": 1537449660000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638542__MCOB-DO:121:0:Weekday:4:18MAR:61010:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537451640000,
+                  "departureEnabled": true,
+                  "departureTime": 1537451640000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638363__MCOB-DO:121:0:Weekday:4:18MAR:61019:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537453680000,
+                  "departureEnabled": true,
+                  "departureTime": 1537453680000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638364__MCOB-DO:121:0:Weekday:4:18MAR:61001:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537454880000,
+                  "departureEnabled": true,
+                  "departureTime": 1537454880000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638536__MCOB-DO:121:0:Weekday:4:18MAR:61034:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537456260000,
+                  "departureEnabled": true,
+                  "departureTime": 1537456260000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638365__MCOB-DO:121:0:Weekday:4:18MAR:61038:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457100000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457100000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638537__MCOB-DO:121:0:Weekday:4:18MAR:61042:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537457940000,
+                  "departureEnabled": true,
+                  "departureTime": 1537457940000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638366__MCOB-DO:121:0:Weekday:4:18MAR:61009:12345"
+                },
+                {
+                  "arrivalEnabled": true,
+                  "arrivalTime": 1537460160000,
+                  "departureEnabled": true,
+                  "departureTime": 1537460160000,
+                  "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
+                  "stopHeadsign": "",
+                  "tripId": "29_7638539__MCOB-DO:121:0:Weekday:4:18MAR:61021:12345"
+                }
+              ],
+              "tripHeadsign": "University"
+            }
+          ]
+        }
+      ]
+    },
+    "references": {
+      "agencies": [
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "1",
+          "lang": "EN",
+          "name": "Metro Transit",
+          "phone": "206-553-3000",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://metro.kingcounty.gov"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "40",
+          "lang": "EN",
+          "name": "Sound Transit",
+          "phone": "1-888-889-6368",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.soundtransit.org"
+        },
+        {
+          "disclaimer": "",
+          "email": "riders@commtrans.org",
+          "fareUrl": "",
+          "id": "29",
+          "lang": "en",
+          "name": "Community Transit",
+          "phone": "(800) 562-1375",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.communitytransit.org/"
+        }
+      ],
+      "routes": [
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Univ District - Fremont - Central Magnolia",
+          "id": "1_100184",
+          "longName": "",
+          "shortName": "31",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/031/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Univ District-Fremont-Interbay-Seattle Center West",
+          "id": "1_100193",
+          "longName": "",
+          "shortName": "32",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/032/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Northgate - Roosevelt - University District",
+          "id": "1_100259",
+          "longName": "",
+          "shortName": "67",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/067/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Northgate - Lake City - Sand Point - Univ District",
+          "id": "1_100269",
+          "longName": "",
+          "shortName": "75",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/075/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Laurelhurst - University District",
+          "id": "1_100273",
+          "longName": "",
+          "shortName": "78",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/078/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Juanita - University District",
+          "id": "1_100168",
+          "longName": "",
+          "shortName": "277",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/277/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "UW/Cascadia College - University District",
+          "id": "1_100214",
+          "longName": "",
+          "shortName": "372",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/372/n0.html"
+        },
+        {
+          "agencyId": "40",
+          "color": "",
+          "description": "Kirkland - University District",
+          "id": "40_100235",
+          "longName": "Kirkland - University District",
+          "shortName": "540",
+          "textColor": "",
+          "type": 3,
+          "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/540"
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_810",
+          "longName": "McCollum Park - University District",
+          "shortName": "810",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_821",
+          "longName": "Marysville - University District",
+          "shortName": "821",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_855",
+          "longName": "Lynnwood - University District",
+          "shortName": "855",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_860",
+          "longName": "McCollum Park - University District",
+          "shortName": "860",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_871",
+          "longName": "Edmonds P\u0026R - University District",
+          "shortName": "871",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_880",
+          "longName": "Mukilteo - University District",
+          "shortName": "880",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        }
+      ],
+      "situations": [],
+      "stops": [
+        {
+          "code": "75403",
+          "direction": "S",
+          "id": "1_75403",
+          "lat": 47.654365,
+          "locationType": 0,
+          "lon": -122.305214,
+          "name": "Stevens Way \u0026 Benton Ln",
+          "routeIds": [
+            "1_100184",
+            "1_100193",
+            "1_100259",
+            "1_100269",
+            "1_100273",
+            "1_100168",
+            "1_100214",
+            "40_100235",
+            "29_810",
+            "29_821",
+            "29_855",
+            "29_860",
+            "29_871",
+            "29_880"
+          ],
+          "wheelchairBoarding": "UNKNOWN"
+        }
+      ],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}
