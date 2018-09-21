@@ -116,8 +116,6 @@ func TestStopsForRoute(t *testing.T) {
 }
 
 func TestTrip(t *testing.T) {
-	t.SkipNow()
-	// TODO
 	contents := RetrieveTestJsonFileContent(t)
 	VerifyMarshalling(t, contents)
 }

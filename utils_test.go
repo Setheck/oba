@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"github.com/Setheck/oba"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/http/httptest"
 	"regexp"
@@ -76,14 +75,9 @@ func VerifyMarshalling(t *testing.T, data []byte) {
 	m = bytes.TrimSpace(m)
 	o := bytes.TrimSpace(data)
 
-	if DEBUG == 1 {
-		fmt.Println(string(m))
-		//fmt.Println(string(o))
-	}
-
 	if bytes.Compare(o, m) != 0 {
-		log.Println("VerifyMarshalling Failed!")
-		t.Fail()
+		t.Error("VerifyMarshalling Failed")
+		fmt.Println(string(m))
 	}
 }
 
