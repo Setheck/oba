@@ -2,11 +2,10 @@ package oba_test
 
 import (
 	"bytes"
-	"encoding/xml"
+	"encoding/json"
 	"fmt"
 	"github.com/Setheck/oba"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/http/httptest"
 	"regexp"
@@ -22,7 +21,7 @@ func FakeServer(t *testing.T, body []byte) *httptest.Server {
 	return httptest.NewServer(handler)
 }
 
-func RetrieveTestXmlFileContent(t *testing.T) []byte {
+func RetrieveTestJsonFileContent(t *testing.T) []byte {
 	file := ConvertToFilename(t.Name())
 	return ReadFile(t, file)
 }
@@ -54,35 +53,31 @@ func ConvertToFilename(s string) string {
 			slider++
 		}
 	}
-	return strings.ToLower(s) + ".xml"
+	return strings.ToLower(s) + ".json"
 }
 
 func VerifyMarshalling(t *testing.T, data []byte) {
 	t.Helper()
 
 	var resp oba.Response
-	if err := xml.Unmarshal(data, &resp); err != nil {
+	if err := json.Unmarshal(data, &resp); err != nil {
 		t.Error(err)
 	}
 
-	m, err := xml.MarshalIndent(resp, "", "  ")
+	m, err := json.MarshalIndent(resp, "", "  ")
 	if err != nil {
 		t.Error(err)
 	}
 
-	m = FixXml(m) // Go doesn't like &quot; or &apos; because they are too long
+	m = FixJSON(m) // TODO SetEscapeHTML(false) see https://golang.org/pkg/encoding/json/
+	//m = FixXml(m) // Go doesn't like &quot; or &apos; because they are too long
 
 	m = bytes.TrimSpace(m)
 	o := bytes.TrimSpace(data)
 
-	if DEBUG == 1 {
-		fmt.Println(string(m))
-		fmt.Println(string(o))
-	}
-
 	if bytes.Compare(o, m) != 0 {
-		log.Println("VerifyMarshalling Failed!")
-		t.Fail()
+		t.Error("VerifyMarshalling Failed")
+		fmt.Println(string(m))
 	}
 }
 
@@ -92,4 +87,8 @@ func FixXml(b []byte) []byte {
 	b = bytes.Replace(b, []byte("<data></data>"), []byte("<data/>"), -1)
 	b = bytes.Replace(b, []byte("&#34;"), []byte("&qout;"), -1)
 	return bytes.Replace(b, []byte("&#39;"), []byte("&apos;"), -1)
+}
+
+func FixJSON(b []byte) []byte {
+	return bytes.Replace(b, []byte("\u0026"), []byte("&"), -1)
 }

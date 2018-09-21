@@ -13,7 +13,7 @@ const (
 )
 
 func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
-	contents := RetrieveTestXmlFileContent(t)
+	contents := RetrieveTestJsonFileContent(t)
 
 	server := FakeServer(t, contents)
 	defer server.Close()
@@ -29,7 +29,7 @@ func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
 }
 
 func TestDefaultClient_Agency(t *testing.T) {
-	contents := RetrieveTestXmlFileContent(t)
+	contents := RetrieveTestJsonFileContent(t)
 	VerifyMarshalling(t, contents)
 
 	server := FakeServer(t, contents)
@@ -43,4 +43,64 @@ func TestDefaultClient_Agency(t *testing.T) {
 	}
 
 	// TODO: add tests to validate retrieval of objects
+}
+
+func TestDefaultClient_CurrentTime(t *testing.T) {
+	contents := RetrieveTestJsonFileContent(t)
+	VerifyMarshalling(t, contents)
+
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, "key")
+	client.SetBaseURL(server.URL)
+	_, e := client.CurrentTime()
+	if e != nil {
+		t.Error(e)
+	}
+}
+
+func TestDefaultClient_CancelAlarm(t *testing.T) {
+	contents := RetrieveTestJsonFileContent(t)
+	VerifyMarshalling(t, contents)
+
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, "key")
+	client.SetBaseURL(server.URL)
+	e := client.CancelAlarm("1")
+	if e != nil {
+		t.Error(e)
+	}
+}
+
+func TestDefaultClient_TripsForRoute(t *testing.T) {
+	contents := RetrieveTestJsonFileContent(t)
+	VerifyMarshalling(t, contents)
+
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, "key")
+	client.SetBaseURL(server.URL)
+	_, e := client.TripsForRoute("1")
+	if e != nil {
+		t.Error(e)
+	}
+}
+
+func TestDefaultClient_Trip(t *testing.T) {
+	contents := RetrieveTestJsonFileContent(t)
+	VerifyMarshalling(t, contents)
+
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, "key")
+	client.SetBaseURL(server.URL)
+	_, e := client.Trip("1")
+	if e != nil {
+		t.Error(e)
+	}
 }

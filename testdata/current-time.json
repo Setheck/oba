@@ -1,0 +1,19 @@
+{
+  "code": 200,
+  "currentTime": 1537499147405,
+  "data": {
+    "entry": {
+      "readableTime": "2018-09-20T20:05:47-07:00",
+      "time": 1537499147396
+    },
+    "references": {
+      "agencies": [],
+      "routes": [],
+      "situations": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

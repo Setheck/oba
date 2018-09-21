@@ -1,0 +1,233 @@
+{
+  "code": 200,
+  "currentTime": 1537503290312,
+  "data": {
+    "entry": {
+      "code": "75403",
+      "direction": "S",
+      "id": "1_75403",
+      "lat": 47.654365,
+      "locationType": 0,
+      "lon": -122.305214,
+      "name": "Stevens Way \u0026 Benton Ln",
+      "routeIds": [
+        "1_100184",
+        "1_100193",
+        "1_100259",
+        "1_100269",
+        "1_100273",
+        "1_100168",
+        "1_100214",
+        "40_100235",
+        "29_810",
+        "29_821",
+        "29_855",
+        "29_860",
+        "29_871",
+        "29_880"
+      ],
+      "wheelchairBoarding": "UNKNOWN"
+    },
+    "references": {
+      "agencies": [
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "1",
+          "lang": "EN",
+          "name": "Metro Transit",
+          "phone": "206-553-3000",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://metro.kingcounty.gov"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "40",
+          "lang": "EN",
+          "name": "Sound Transit",
+          "phone": "1-888-889-6368",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.soundtransit.org"
+        },
+        {
+          "disclaimer": "",
+          "email": "riders@commtrans.org",
+          "fareUrl": "",
+          "id": "29",
+          "lang": "en",
+          "name": "Community Transit",
+          "phone": "(800) 562-1375",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.communitytransit.org/"
+        }
+      ],
+      "routes": [
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Univ District - Fremont - Central Magnolia",
+          "id": "1_100184",
+          "longName": "",
+          "shortName": "31",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/031/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Univ District-Fremont-Interbay-Seattle Center West",
+          "id": "1_100193",
+          "longName": "",
+          "shortName": "32",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/032/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Northgate - Roosevelt - University District",
+          "id": "1_100259",
+          "longName": "",
+          "shortName": "67",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/067/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Northgate - Lake City - Sand Point - Univ District",
+          "id": "1_100269",
+          "longName": "",
+          "shortName": "75",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/075/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Laurelhurst - University District",
+          "id": "1_100273",
+          "longName": "",
+          "shortName": "78",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/078/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "Juanita - University District",
+          "id": "1_100168",
+          "longName": "",
+          "shortName": "277",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/277/n0.html"
+        },
+        {
+          "agencyId": "1",
+          "color": "",
+          "description": "UW/Cascadia College - University District",
+          "id": "1_100214",
+          "longName": "",
+          "shortName": "372",
+          "textColor": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/372/n0.html"
+        },
+        {
+          "agencyId": "40",
+          "color": "",
+          "description": "Kirkland - University District",
+          "id": "40_100235",
+          "longName": "Kirkland - University District",
+          "shortName": "540",
+          "textColor": "",
+          "type": 3,
+          "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/540"
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_810",
+          "longName": "McCollum Park - University District",
+          "shortName": "810",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_821",
+          "longName": "Marysville - University District",
+          "shortName": "821",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_855",
+          "longName": "Lynnwood - University District",
+          "shortName": "855",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_860",
+          "longName": "McCollum Park - University District",
+          "shortName": "860",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_871",
+          "longName": "Edmonds P\u0026R - University District",
+          "shortName": "871",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        },
+        {
+          "agencyId": "29",
+          "color": "0070c0",
+          "description": "",
+          "id": "29_880",
+          "longName": "Mukilteo - University District",
+          "shortName": "880",
+          "textColor": "ffffff",
+          "type": 3,
+          "url": ""
+        }
+      ],
+      "situations": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

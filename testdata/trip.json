@@ -1,0 +1,18 @@
+{
+  "code": 200,
+  "currentTime": 1537505273586,
+  "data": {
+    "entry": {
+      "directionId": 1,
+      "id": "1_12540399",
+      "routeId": "1_44",
+      "serviceId": "1_114-115-WEEK",
+      "shapeId": "1_20044006",
+      "tripHeadsign": "Downtown via University District",
+      "tripShortName": "LOCAL"
+    },
+    "references": null
+  },
+  "text": "OK",
+  "version": 2
+}

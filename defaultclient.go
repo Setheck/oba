@@ -3,7 +3,6 @@
 package oba
 
 import (
-	"encoding/xml"
 	"fmt"
 	"log"
 	"net/url"
@@ -24,12 +23,16 @@ import (
 // data - the response payload
 // references see the discussion of references below
 type Response struct {
-	XMLName     xml.Name `xml:"response"`
-	Version     string   `xml:"version"`
-	Code        int      `xml:"code"`
-	CurrentTime string   `xml:"currentTime"`
-	Text        string   `xml:"text"`
-	Data        *Data    `xml:"data,omitempty"`
+	Code        int    `json:"code"`
+	CurrentTime int    `json:"currentTime"`
+	Data        *Data  `json:"data,omitempty"`
+	Text        string `json:"text"`
+	Version     int    `json:"version"`
+}
+
+func (r Response) String() string {
+	return fmt.Sprintf("Code: %d\nCurrentTime: %d\nData: %s\nText: %s\nVersion: %d\n",
+		r.Code, r.CurrentTime, r.Data.String(), r.Text, r.Version)
 }
 
 //References - The <references/> element contains a dictionary of objects
@@ -48,342 +51,416 @@ type Response struct {
 // you’ve pre-cached all the elements, then setting includeReferences=false can
 // be a good way to reduce the response size.
 type References struct {
-	Agencies   *Agencies   `xml:"agencies>agency,omitempty"`
-	Routes     *Routes     `xml:"routes>route,omitempty"`
-	Stops      *Stops      `xml:"stops>stop,omitempty"`
-	Trips      *Trips      `xml:"trips>trip,omitempty"`
-	Situations *Situations `xml:"situations>situation,omitempty"`
-	List       *Lists      `xml:"list>string,omitempty"`
+	Agencies   []Agency    `json:"agencies"`
+	Routes     []Route     `json:"routes"`
+	Situations []Situation `json:"situations"`
+	Stops      []Stop      `json:"stops"`
+	Trips      []Trip      `json:"trips"`
 }
-type Agencies []*Agency
-type Routes []*Route
-type Stops []*Stop
-type Trips []*Trip
-type Situations []*Situation
-type Lists []*string
-type ArrivalAndDepartures []*ArrivalAndDeparture
 
 //Data container object
 type Data struct {
-	XMLName       xml.Name    `xml:"data"`
-	Class         string      `xml:"class,attr,omitempty"`
-	References    *References `xml:"references"` // self closing tag workaround
-	Entry         *Entry
-	Time          *Time
-	List          *List `xml:"list"`
-	StopsForRoute *StopsForRoute
-	LimitExceeded bool `xml:"limitExceeded,omitempty"`
-	OutOfRange    bool `xml:"outOfRange,omitempty"`
+	LimitExceeded *bool       `json:"limitExceeded,omitempty"`
+	List          []*List     `json:"list,omitempty"`
+	Entry         *Entry      `json:"entry,omitempty"`
+	OutOfRange    *bool       `json:"outOfRange,omitempty"`
+	References    *References `json:"references"`
+	Time          *Time       `json:",omitempty"`
+	//StopsForRoute *StopsForRoute
+}
+
+func (d Data) String() string {
+	return ""
+	// TODO:
+	//return fmt.Sprintf("LimitExceeded: %b\nList: %s\nEntry: %s\nOutOfRange: %b\nReference: %s\nTime: %s",
+	//	d.LimitExceeded, d.List.String(), d.Entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
 }
 
 type Time struct {
-	XMLName      xml.Name `xml:"time,omitempty"`
-	Time         string   `xml:"time,omitempty"`
-	ReadableTime string   `xml:"readableTime,omitempty"`
+	ReadableTime *string `json:"readableTime,omitempty"`
+	Time         *int    `json:"time,omitempty"`
+}
+
+func (t Time) String() string {
+	return fmt.Sprintf("ReadableTime: %s\nTime: %d", *t.ReadableTime, t.Time)
 }
 
 type RegisteredAlarm struct {
-	AlarmID string `xml:"alarmId,omitempty"`
+	AlarmID string `json:"alarmId,omitempty"`
 }
 
 //Entry container object
 type Entry struct {
-	XMLName xml.Name `xml:"entry"`
-	Class   string   `xml:"class,attr"`
-	ID      string   `xml:"id,omitempty"`
-	Name    string   `xml:"name,omitempty"`
-	URL     string   `xml:"url,omitempty"`
-	Time
-	Agency
-	Block
-	Route
-	Shape
-	Stop
-	StopSchedule
-	ArrivalAndDepartures *ArrivalAndDepartures `xml:"arrivalsAndDepartures>arrivalAndDeparture,omitempty"`
-	NearbyStopIds        *Lists                `xml:"nearbyStopIds>string,omitempty"`
-	*StopsForRoute
-	//StopIds              *Lists                `xml:"stopIds>string,omitempty"`
-	Trip
-	TripDetails
-	RegisteredAlarm
+	AgencyID             *string                `json:"agencyId,omitempty"`
+	ArrivalAndDepartures []*ArrivalAndDeparture `json:"arrivalsAndDepartures,omitempty"`
+	BlockID              *string                `json:"blockId,omitempty"`
+	Code                 *string                `json:"code,omitempty"`
+	Color                *string                `json:"color,omitempty"`
+	Date                 *int                   `json:"date,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Direction            *string                `json:"direction,omitempty"`
+	DirectionID          *int                   `json:"directionId,omitempty"`
+	Disclaimer           *string                `json:"disclaimer,omitempty"`
+	Email                *string                `json:"email,omitempty"`
+	FareURL              *string                `json:"fareUrl,omitempty"`
+	ID                   *string                `json:"id,omitempty"`
+	Lang                 *string                `json:"lang,omitempty"`
+	Lat                  *float64               `json:"lat,omitempty"`
+	LocationType         *int                   `json:"locationType,omitempty"`
+	Lon                  *float64               `json:"lon,omitempty"`
+	LongName             *string                `json:"longName,omitempty"`
+	Name                 *string                `json:"name,omitempty"`
+	NearbyStopIds        []*string              `json:"nearbyStopIds,omitempty"`
+	Phone                *string                `json:"phone,omitempty"`
+	PrivateService       *bool                  `json:"privateService,omitempty"`
+	ReadableTime         *string                `json:"readableTime,omitempty"`
+	RouteID              *string                `json:"routeId,omitempty"`
+	RouteIDs             []*string              `json:"routeIds,omitempty"`
+	RouteShortName       *string                `json:"routeShortName,omitempty"`
+	ServiceID            *string                `json:"serviceId,omitempty"`
+	ShapeID              *string                `json:"shapeId,omitempty"`
+	ShortName            *string                `json:"shortName,omitempty"`
+	SituationIDs         []*string              `json:"situationIds,omitempty"`
+	StopCalendarDays     []*StopCalendarDay     `json:"stopCalendarDays,omitempty"`
+	StopID               *string                `json:"stopId,omitempty,omitempty"`
+	StopRouteSchedules   []*StopRouteSchedule   `json:"stopRouteSchedules,omitempty"`
+	TextColor            *string                `json:"textColor,omitempty"`
+	Time                 *int                   `json:"time,omitempty"`
+	TimeZone             *string                `json:"timezone,omitempty"`
+	TripHeadsign         *string                `json:"tripHeadsign,omitempty"`
+	TripShortName        *string                `json:"tripShortName,omitempty"`
+	Type                 *int                   `json:"type,omitempty"`
+	URL                  *string                `json:"url,omitempty"`
+	WheelChairBoarding   *string                `json:"wheelchairBoarding,omitempty"`
+	//ID   string `json:"id,omitempty"`
+	//Name string `json:"name,omitempty"`
+	//URL  string `json:"url,omitempty"`
+	//Block
+	//Shape
+	//StopId        *string   `json:"stopId,omitempty"`
+	//*StopsForRoute
+	//TripDetails
+	//RegisteredAlarm
 }
 
 type ArrivalAndDeparture struct {
-	XMLName                xml.Name   `xml:"arrivalAndDeparture,omitempty"`
-	RouteID                string     `xml:"routeId,omitempty"`
-	TripID                 string     `xml:"tripId,omitempty"`
-	ServiceDate            string     `xml:"serviceDate,omitempty"`
-	VehicleID              string     `xml:"vehicleId,omitempty"`
-	StopID                 string     `xml:"stopId,omitempty"`
-	StopSequence           string     `xml:"stopSequence,omitempty"`
-	BlockTripSequence      string     `xml:"blockTripSequence,omitempty"`
-	RouteShortName         string     `xml:"routeShortName,omitempty"`
-	RouteLongName          string     `xml:"routeLongName,omitempty"`
-	TripHeadSign           string     `xml:"tripHeadsign,omitempty"`
-	DepartureEnabled       bool       `xml:"departureEnabled,omitempty"`
-	ScheduledDepartureTime string     `xml:"scheduledDepartureTime,omitempty"`
-	PredictedDepartureTime string     `xml:"predictedDepartureTime,omitempty"`
-	ArrivalEnabled         bool       `xml:"arrivalEnabled,omitempty"`
-	ScheduledArrivalTime   string     `xml:"scheduledArrivalTime,omitempty"`
-	Status                 string     `xml:"status,omitempty"`
-	Predicted              string     `xml:"predicted,omitempty"`
-	LastUpdateTime         string     `xml:"lastUpdateTime,omitempty"`
-	PredictedArrivalTime   string     `xml:"predictedArrivalTime,omitempty"`
-	DistanceFromStop       string     `xml:"distanceFromStop,omitempty"`
-	Frequency              string     `xml:"frequency,omitempty"`
-	NumberOfStopsAway      string     `xml:"numberOfStopsAway,omitempty"`
-	TripStatus             TripStatus `xml:"tripStatus,omitempty"`
-	TotalStopsInTrip       string     `xml:"totalStopsInTrip,omitempty"`
+	ArrivalEnabled             *bool       `json:"arrivalEnabled"`
+	BlockTripSequence          *int        `json:"blockTripSequence"`
+	DepartureEnabled           *bool       `json:"departureEnabled"`
+	DistanceFromStop           *float64    `json:"distanceFromStop"`
+	Frequency                  *string     `json:"frequency"`
+	LastUpdateTime             *int        `json:"lastUpdateTime"`
+	NumberOfStopsAway          *int        `json:"numberOfStopsAway"`
+	Predicted                  *bool       `json:"predicted"`
+	PredictedArrivalInterval   *int        `json:"predictedArrivalInterval"`
+	PredictedArrivalTime       *int        `json:"predictedArrivalTime"`
+	PredictedDepartureInterval *int        `json:"predictedDepartureInterval"`
+	PredictedDepartureTime     *int        `json:"predictedDepartureTime"`
+	RouteID                    *string     `json:"routeId"`
+	RouteLongName              *string     `json:"routeLongName"`
+	RouteShortName             *string     `json:"routeShortName"`
+	ScheduledArrivalInterval   *int        `json:"scheduledArrivalInterval"`
+	ScheduledArrivalTime       *int        `json:"scheduledArrivalTime"`
+	ScheduledDepartureInterval *int        `json:"scheduledDepartureInterval"`
+	ScheduledDepartureTime     *int        `json:"scheduledDepartureTime"`
+	ServiceDate                *int        `json:"serviceDate"`
+	SituationIDs               []*int      `json:"situationIds"`
+	Status                     *string     `json:"status"`
+	StopID                     *string     `json:"stopId"`
+	StopSequence               *int        `json:"stopSequence"`
+	TotalStopsInTrip           *int        `json:"totalStopsInTrip"`
+	TripHeadSign               *string     `json:"tripHeadsign"`
+	TripID                     *string     `json:"tripId"`
+	TripStatus                 *TripStatus `json:"tripStatus"`
+	VehicleID                  *string     `json:"vehicleId"`
 }
 
 type BlockConfiguration struct {
-	ActiveServiceIDs   []string    `xml:"activeServiceIds>string"`
-	InactiveServiceIDs []string    `xml:"inactiveServiceIds>string"`
-	Trips              []BlockTrip `xml:"trips"`
+	ActiveServiceIDs   []string    `json:"activeServiceIds>string"`
+	InactiveServiceIDs []string    `json:"inactiveServiceIds>string"`
+	Trips              []BlockTrip `json:"trips"`
 }
 
 type BlockTrip struct {
-	TripID               string     `xml:"tripId"`
-	BlockStopTimes       []StopTime `xml:"blockStopTimes"`
-	AccumulatedSlackTime string     `xml:"accumulatedSlackTime"`
-	DistanceAlongBlock   string     `xml:"distanceAlongBlock"`
+	TripID               string     `json:"tripId"`
+	BlockStopTimes       []StopTime `json:"blockStopTimes"`
+	AccumulatedSlackTime string     `json:"accumulatedSlackTime"`
+	DistanceAlongBlock   string     `json:"distanceAlongBlock"`
 }
 
 type StopTime struct {
-	StopID        string `xml:"stopId"`
-	ArrivalTime   string `xml:"arrivalTime"`
-	DepartureTime string `xml:"departureTime"`
-	PickupType    string `xml:"pickupType"`
-	DropOffType   string `xml:"droppOffType"`
+	StopID        string `json:"stopId"`
+	ArrivalTime   string `json:"arrivalTime"`
+	DepartureTime string `json:"departureTime"`
+	PickupType    string `json:"pickupType"`
+	DropOffType   string `json:"droppOffType"`
 }
 
 type Frequency struct {
-	StartTime string `xml:"startTime"`
-	EndTime   string `xml:"endTime"`
-	Headway   string `xml:"headway"`
+	StartTime string `json:"startTime"`
+	EndTime   string `json:"endTime"`
+	Headway   string `json:"headway"`
 }
 
 type List struct {
-	XMLName             xml.Name              `xml:"list"`
-	Routes              []*Route              `xml:"route"`
-	Stops               []*Stop               `xml:"stop"`
-	Strings             []*string             `xml:"string"`
-	TripDetails         []*TripDetails        `xml:"tripDetails"`
-	VehicleStatus       []*VehicleStatus      `xml:"vehicleStatus"`
-	AgencyWithCoverages []*AgencyWithCoverage `xml:"agencyWithCoverage"`
+	AgencyID           *string   `json:"agencyId,omitempty"`
+	Code               *string   `json:"code,omitempty"`
+	Color              *string   `json:"color,omitempty"`
+	Description        *string   `json:"description,omitempty"`
+	Direction          *string   `json:"direction,omitempty"`
+	Disclaimer         *string   `json:"disclaimer,omitempty"`
+	Email              *string   `json:"email,omitempty"`
+	FareURL            *string   `json:"fareUrl,omitempty"`
+	Frequency          *string   `json:"frequency,omitempty"`
+	ID                 *string   `json:"id,omitempty"`
+	Lang               *string   `json:"lang,omitempty"`
+	Lat                *float64  `json:"lat,omitempty"`
+	LatSpan            *float64  `json:"latSpan,omitempty"`
+	LocationType       *int      `json:"locationType,omitempty"`
+	Lon                *float64  `json:"lon,omitempty"`
+	LongName           *string   `json:"longName,omitempty"`
+	LonSpan            *float64  `json:"lonSpan,omitempty"`
+	Name               *string   `json:"name,omitempty"`
+	Phone              *string   `json:"phone,omitempty"`
+	PrivateService     *bool     `json:"privateService,omitempty"`
+	RouteIDs           []*string `json:"routeIds,omitempty"`
+	ServiceDate        *int      `json:"serviceDate,omitempty"`
+	ShortName          *string   `json:"shortName,omitempty"`
+	SituationIDs       []*string `json:"situationIds,omitempty"`
+	Status             *string   `json:"status,omitempty"`
+	TextColor          *string   `json:"textColor,omitempty"`
+	TimeZone           *string   `json:"timezone,omitempty"`
+	TripID             *string   `json:"tripId,omitempty"`
+	Type               *int      `json:"type,omitempty"`
+	URL                *string   `json:"url,omitempty"`
+	WheelChairBoarding *string   `json:"wheelchairBoarding,omitempty"`
+	//*VehicleStatus
 }
 
 type VehicleStatus struct {
-	VehicleID              string      `xml:"vehicleId"`
-	LastUpdateTime         string      `xml:"lastUpdateTime"`
-	LastLocationUpdateTime string      `xml:"lastLocationUpdateTime"`
-	LocationLat            string      `xml:"location>lat"`
-	LocationLon            string      `xml:"location>lon"`
-	TripID                 string      `xml:"tripId"`
-	TripStatus             *TripStatus `xml:"tripStatus,omitempty"`
+	VehicleID              string      `json:"vehicleId"`
+	LastUpdateTime         string      `json:"lastUpdateTime"`
+	LastLocationUpdateTime string      `json:"lastLocationUpdateTime"`
+	LocationLat            string      `json:"location>lat"`
+	LocationLon            string      `json:"location>lon"`
+	TripID                 string      `json:"tripId"`
+	TripStatus             *TripStatus `json:"tripStatus,omitempty"`
 }
 
 //Agency container object
 type Agency struct {
-	ID             string `xml:"id,omitempty"`
-	Name           string `xml:"name,omitempty"`
-	URL            string `xml:"url,omitempty"`
-	TimeZone       string `xml:"timezone,omitempty"`
-	Lang           string `xml:"lang,omitempty"`
-	Phone          string `xml:"phone,omitempty"`
-	Email          string `xml:"email,omitempty"`
-	Disclaimer     string `xml:"disclaimer,omitempty"`
-	PrivateService string `xml:"privateService,omitempty"`
+	Disclaimer     string `json:"disclaimer"`
+	Email          string `json:"email"`
+	FareURL        string `json:"fareUrl"`
+	ID             string `json:"id"`
+	Lang           string `json:"lang"`
+	Name           string `json:"name"`
+	Phone          string `json:"phone"`
+	PrivateService bool   `json:"privateService"`
+	TimeZone       string `json:"timezone"`
+	URL            string `json:"url"`
 }
 
 type Block struct {
-	XMLName        xml.Name             `xml:"configurations"`
-	Configurations []BlockConfiguration `xml:"blockConfiguration,omitempty"`
+	Configurations []BlockConfiguration `json:"blockConfiguration,omitempty"`
 }
 
 type AgencyWithCoverage struct {
-	AgencyID string `xml:"agencyId"`
-	Lat      string `xml:"lat"`
-	Lon      string `xml:"lon"`
-	LatSpan  string `xml:"latSpan"`
-	LonSpan  string `xml:"lonSpan"`
+	AgencyID *string  `json:"agencyId"`
+	Lat      *float64 `json:"lat"`
+	LatSpan  *float64 `json:"latSpan"`
+	Lon      *float64 `json:"lon"`
+	LonSpan  *float64 `json:"lonSpan"`
+}
+
+type Coverage struct {
+	AgencyID *string  `json:"agencyId"`
+	Lat      *float64 `json:"lat"`
+	LatSpan  *float64 `json:"latSpan"`
+	Lon      *float64 `json:"lon"`
+	LonSpan  *float64 `json:"lonSpan"`
 }
 
 //Route object
 type Route struct {
-	ID          string `xml:"id,omitempty"`
-	ShortName   string `xml:"shortName,omitempty"`
-	LongName    string `xml:"longName,omitempty"`
-	Description string `xml:"description,omitempty"`
-	Type        string `xml:"type,omitempty"`
-	Color       string `xml:"color,omitempty"`
-	TextColor   string `xml:"textColor,omitempty"`
-	URL         string `xml:"url,omitempty"`
-	AgencyID    string `xml:"agencyId,omitempty"`
+	AgencyID    *string `json:"agencyId"`
+	Color       *string `json:"color"`
+	Description *string `json:"description"`
+	ID          *string `json:"id,omitempty"`
+	LongName    *string `json:"longName"`
+	ShortName   *string `json:"shortName"`
+	TextColor   *string `json:"textColor"`
+	Type        *int    `json:"type"`
+	URL         *string `json:"url"`
+}
+
+func (r Route) String() string {
+	return fmt.Sprintf("AgencyID: %s\nColor: %s\nDescription: %s\nID: %s\nLongName: %s\nShortName: %s\nTextColor: %s\nType: %d\nURL: %s",
+		*r.AgencyID, *r.Color, *r.Description, *r.ID, *r.LongName, *r.ShortName, *r.TextColor, *r.Type, *r.URL)
 }
 
 type Situation struct {
-	ID                string           `xml:"id"`
-	CreationTime      string           `xml:"creationTime"`
-	EnvironmentReason string           `xml:"environmentReason"`
-	Summary           []string         `xml:"summary>value"`
-	Description       []string         `xml:"description>value"`
-	Affects           []VehicleJourney `xml:"vehicleJourneys>vehicleJourney"`
-	Consequences      []Consequence    `xml:"consequences>consequence"`
+	ID                string           `json:"id"`
+	CreationTime      string           `json:"creationTime"`
+	EnvironmentReason string           `json:"environmentReason"`
+	Summary           []string         `json:"summary>value"`
+	Description       []string         `json:"description>value"`
+	Affects           []VehicleJourney `json:"vehicleJourneys>vehicleJourney"`
+	Consequences      []Consequence    `json:"consequences>consequence"`
 }
 
 type Consequence struct {
-	Condition                          string   `xml:"condition"`
-	ConditionDetailDiversionPathPoints []string `xml:"conditionDetails>diversionPath>points"`
-	ConditionDetailDiversionStopIDs    []string `xml:"conditionDetails>diversionStopIds>string"`
+	Condition                          string   `json:"condition"`
+	ConditionDetailDiversionPathPoints []string `json:"conditionDetails>diversionPath>points"`
+	ConditionDetailDiversionStopIDs    []string `json:"conditionDetails>diversionStopIds>string"`
 }
 
 type VehicleJourney struct {
-	LineID      string   `xml:"lineId"`
-	Direction   string   `xml:"direction"`
-	CallStopIDs []string `xml:"calls>call>stopId"`
+	LineID      string   `json:"lineId"`
+	Direction   string   `json:"direction"`
+	CallStopIDs []string `json:"calls>call>stopId"`
 }
 
 type Shape struct {
-	Points string `xml:"points,omitempty"`
-	Length string `xml:"length,omitempty"`
+	Points string `json:"points,omitempty"`
+	Length string `json:"length,omitempty"`
 }
 
 type Stop struct {
-	ID string `xml:"id,omitempty"`
-	Location
-	Direction          string `xml:"direction,omitempty"`
-	Name               string `xml:"name,omitempty"`
-	Code               string `xml:"code,omitempty"`
-	LocationType       string `xml:"locationType,omitempty"`
-	WheelChairBoarding string `xml:"wheelchairBoarding,omitempty"`
-	RouteIDs           *Lists `xml:"routeIds>string,omitempty"`
+	Code               *string   `json:"code"`
+	Direction          *string   `json:"direction"`
+	ID                 *string   `json:"id"`
+	Lat                *float64  `json:"lat"`
+	LocationType       *int      `json:"locationType"`
+	Lon                *float64  `json:"lon"`
+	Name               *string   `json:"name"`
+	RouteIDs           []*string `json:"routeIds"`
+	WheelChairBoarding *string   `json:"wheelchairBoarding"`
 }
 
 type StopSchedule struct {
-	Date                string `xml:"date,omitempty"`
-	StopID              string `xml:"stopId,omitempty"`
-	*StopRouteSchedules `xml:"stopRouteSchedules>stopRouteSchedule,omitempty"`
-	TimeZone            string            `xml:"timeZone,omitempty"`
-	StopCalendarDays    []StopCalendarDay `xml:"stopCalendarDays,omitempty"`
+	Date               *int                 `json:"date,omitempty"`
+	StopID             *string              `json:"stopId,omitempty"`
+	StopRouteSchedules []*StopRouteSchedule `json:"stopRouteSchedules,omitempty"`
+	TimeZone           *string              `json:"timeZone,omitempty"`
+	StopCalendarDays   []*StopCalendarDay   `json:"stopCalendarDays,omitempty"`
 }
-type StopRouteSchedules []*StopRouteSchedule
 
 type StopCalendarDay struct {
-	Date  string `xml:"date"`
-	Group string `xml:"group"`
+	Date  string `json:"date"`
+	Group string `json:"group"`
 }
 
 type StopRouteSchedule struct {
-	RouteID                      string `xml:"routeId,omitempty"`
-	*StopRouteDirectionSchedules `xml:"stopRouteDirectionSchedules>stopRouteDirectionSchedule,omitempty"`
+	RouteID                     string                        `json:"routeId,omitempty"`
+	StopRouteDirectionSchedules []*StopRouteDirectionSchedule `json:"stopRouteDirectionSchedules,omitempty"`
 }
-type StopRouteDirectionSchedules []*StopRouteDirectionSchedule
 
 type StopRouteDirectionSchedule struct {
-	TripHeadsign      string             `xml:"tripHeadsign"`
-	ScheduleStopTimes []ScheduleStopTime `xml:"scheduleStopTimes>scheduleStopTime"`
+	ScheduleFrequencies []*ScheduleFrequency `json:"scheduleFrequencies"`
+	ScheduleStopTimes   []*ScheduleStopTime  `json:"scheduleStopTimes,omitempty"`
+	TripHeadsign        *string              `json:"tripHeadsign,omitempty"`
+}
+
+type ScheduleFrequency struct {
+	*Frequency
 }
 
 type StopsForRoute struct {
-	StopIDs        *Lists `xml:"stopIds>string,omitempty"`
-	*StopGroupings `xml:"stopGroupings>stopGrouping,omitempty"`
+	StopIDs        []*string `json:"stopIds,omitempty"`
+	*StopGroupings `json:"stopGroupings>stopGrouping,omitempty"`
 }
 type StopGroupings []*StopGrouping
 
 type StopGrouping struct {
-	Type       string      `xml:"type,omitempty"`
-	Ordered    string      `xml:"ordered,omitempty"`
-	StopGroups []StopGroup `xml:"stopGroups>stopGroup,omitempty"`
+	Type       string      `json:"type,omitempty"`
+	Ordered    string      `json:"ordered,omitempty"`
+	StopGroups []StopGroup `json:"stopGroups>stopGroup,omitempty"`
 }
 
 type StopGroup struct {
-	ID        string             `xml:"id,omitempty"`
-	NameType  string             `xml:"name>type,omitempty"`
-	Names     []string           `xml:"name>names>string,omitempty"`
-	StopIDs   *Lists             `xml:"stopIds>string,omitempty"`
-	PolyLines []*EncodedPolyLine `xml:"polylines,omitempty"`
+	ID        string             `json:"id,omitempty"`
+	NameType  string             `json:"type,omitempty"`
+	Names     []string           `json:"names,omitempty"`
+	StopIDs   []*string          `json:"stopIds,omitempty"`
+	PolyLines []*EncodedPolyLine `json:"polylines,omitempty"`
 }
 
 type EncodedPolyLine struct {
-	XMLName xml.Name `xml:"encodedPolyline"`
 	*Shape
 }
 
 type ScheduleStopTime struct {
-	ArrivalEnabled   bool   `xml:"arrivalEnabled,omitempty"`
-	ArrivalTime      string `xml:"arrivalTime"`
-	DepartureEnabled bool   `xml:"departureEnabled,omitempty"`
-	DepartureTime    string `xml:"departureTime"`
-	ServiceID        string `xml:"serviceId"`
-	TripID           string `xml:"tripId"`
+	ArrivalEnabled   *bool   `json:"arrivalEnabled,omitempty"`
+	ArrivalTime      *int    `json:"arrivalTime,omitempty"`
+	DepartureEnabled *bool   `json:"departureEnabled,omitempty"`
+	DepartureTime    *int    `json:"departureTime,omitempty"`
+	ServiceID        *string `json:"serviceId,omitempty"`
+	StopHeadsign     *string `json:"stopHeadsign,omitempty"`
+	TripID           *string `json:"tripId,omitempty"`
 }
 
 type Trip struct {
-	ID             string `xml:"id"`
-	RouteID        string `xml:"routeId,omitempty"`
-	RouteShortName string `xml:"routeShortName,omitempty"`
-	TripShortName  string `xml:"tripShortName,omitempty"`
-	TripHeadsign   string `xml:"tripHeadsign,omitempty"`
-	ServiceID      string `xml:"serviceId,omitempty"`
-	ShapeID        string `xml:"shapeId,omitempty"`
-	DirectionID    string `xml:"directionId,omitempty"`
-	BlockID        string `xml:"blockId,omitempty"`
+	BlockID        *string `json:"blockId"`
+	DirectionID    *string `json:"directionId"`
+	ID             *string `json:"id"`
+	RouteID        *string `json:"routeId"`
+	RouteShortName *string `json:"routeShortName"`
+	ServiceID      *string `json:"serviceId"`
+	ShapeID        *string `json:"shapeId"`
+	TimeZone       *string `json:"timeZone"`
+	TripHeadsign   *string `json:"tripHeadsign"`
+	TripShortName  *string `json:"tripShortName"`
 }
 
 type TripDetails struct {
-	TripID      string `xml:"tripId,omitempty"`
-	ServiceDate string `xml:"serviceDate,omitempty"`
-	Frequency   string `xml:"frequency,omitempty"`
-	Status      string `xml:"status,omitempty"`
-	//ScheduleTimeZone string `xml:"schedule>timeZone,omitempty"`
-	//ScheduleStopTimes      []StopTime `xml:"schedule>StopTimes>tripStopTime,omitempty"`
-	//SchedulePreviousTripID []string   `xml:"schedule>previousTripId,omitempty"`
-	//ScheduleNextTripID []string `xml:"schedule>nextTripId,omitempty"`
-	SituationIDs []string `xml:"situationIds,omitempty"`
+	TripID       string   `json:"tripId,omitempty"`
+	ServiceDate  string   `json:"serviceDate,omitempty"`
+	Frequency    string   `json:"frequency,omitempty"`
+	Status       string   `json:"status,omitempty"`
+	SituationIDs []string `json:"situationIds,omitempty"`
 }
 
 type TripStatus struct {
-	XMLName                    xml.Name  `xml:"tripStatus"`
-	ActiveTripID               string    `xml:"activeTripId,omitempty"`
-	BlockTripSequence          string    `xml:"blockTripSequence,omitempty"`
-	ServiceDate                string    `xml:"serviceDate,omitempty"`
-	ScheduledDistanceAlongTrip string    `xml:"scheduledDistanceAlongTrip,omitempty"`
-	TotalDistanceAlongTrip     string    `xml:"totalDistanceAlongTrip,omitempty"`
-	PositionLat                string    `xml:"position>lat,omitempty"`
-	PositionLon                string    `xml:"position>lon,omitempty"`
-	Orientation                string    `xml:"orientation,omitempty"`
-	ClosestStop                string    `xml:"closestStop,omitempty"`
-	ClosestStopTimeOffset      string    `xml:"closestStopTimeOffset,omitempty"`
-	NextStop                   string    `xml:"nextStop,omitempty"`
-	NextStopTimeOffset         string    `xml:"nextStopTimeOffset,omitempty"`
-	Phase                      string    `xml:"phase,omitempty"`
-	Status                     string    `xml:"status,omitempty"`
-	Predicted                  string    `xml:"predicted,omitempty"`
-	LastUpdateTime             string    `xml:"lastUpdateTime,omitempty"`
-	LastLocationUpdateTime     string    `xml:"lastLocationUpdateTime,omitempty"`
-	LastKnownLocation          *Location `xml:"lastKnownLocation,omitempty"`
-	LastKnownOrientation       string    `xml:"lastKnownOrientation,omitempty"`
-	ScheduleDeviation          string    `xml:"scheduleDeviation,omitempty"`
-	DistanceAlongTrip          string    `xml:"distanceAlongTrip,omitempty"`
-	VehicleID                  string    `xml:"vehicleId,omitempty"`
-	SituationIDs               *Lists    `xml:"situationIds>string,omitempty"`
+	ActiveTripID               *string   `json:"activeTripId"`
+	BlockTripSequence          *int      `json:"blockTripSequence"`
+	ClosestStop                *string   `json:"closestStop"`
+	ClosestStopTimeOffset      *int      `json:"closestStopTimeOffset"`
+	DistanceAlongTrip          *float64  `json:"distanceAlongTrip"`
+	Frequency                  *string   `json:"frequency"`
+	LastKnownDistanceAlongTrip *int      `json:"lastKnownDistanceAlongTrip"`
+	LastKnownLocation          *Location `json:"lastKnownLocation"`
+	LastKnownOrientation       *int      `json:"lastKnownOrientation"`
+	LastLocationUpdateTime     *int      `json:"lastLocationUpdateTime"`
+	LastUpdateTime             *int      `json:"lastUpdateTime"`
+	NextStop                   *string   `json:"nextStop"`
+	NextStopTimeOffset         *int      `json:"nextStopTimeOffset"`
+	Orientation                *float64  `json:"orientation"`
+	Phase                      *string   `json:"phase"`
+	Position                   *Location `json:"position"`
+	Predicted                  *bool     `json:"predicted"`
+	ScheduleDeviation          *int      `json:"scheduleDeviation"`
+	ScheduledDistanceAlongTrip *float64  `json:"scheduledDistanceAlongTrip"`
+	ServiceDate                *int      `json:"serviceDate"`
+	SituationIDs               []*string `json:"situationIds"`
+	Status                     *string   `json:"status"`
+	TotalDistanceAlongTrip     *float64  `json:"totalDistanceAlongTrip"`
+	VehicleID                  *string   `json:"vehicleId"`
 }
 
 type Location struct {
-	Lat string `xml:"lat,omitempty"`
-	Lon string `xml:"lon,omitempty"`
+	Lat *float64 `json:"lat,omitempty"`
+	Lon *float64 `json:"lon,omitempty"`
 }
 
 type StopWithArrivalsAndDepartures struct {
-	StopID                string                `xml:"stopId,omitempty"`
-	ArrivalsAndDepartures []ArrivalAndDeparture `xml:"arrivalsAndDepartures,omitempty"`
-	NearByStopIDs         *Lists                `xml:"nearbyStopIds>string,omitempty"`
+	StopID                string                `json:"stopId,omitempty"`
+	ArrivalsAndDepartures []ArrivalAndDeparture `json:"arrivalsAndDepartures,omitempty"`
+	NearByStopIDs         []*string             `json:"nearbyStopIds,omitempty"`
 }
 
 const (
-	xmlPostFix                                        = ".xml"
+	jsonPostFix                                       = ".json"
 	agencyEndPoint                                    = "agency/"
 	blockEndPoint                                     = "block/"
 	routeEndPoint                                     = "route/"
@@ -515,6 +592,7 @@ func (c DefaultClient) AgenciesWithCoverage() (*Data, error) {
 // For more details on the fields returned for an agency, see the documentation
 // for the <agency/> element.
 //
+
 func (c DefaultClient) Agency(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
 }
@@ -659,6 +737,7 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 // Response
 // See details about the various properties of the <blockConfiguration/> element.
 //
+
 func (c DefaultClient) Block(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(blockEndPoint, id), "Block")
 }
@@ -723,6 +802,7 @@ func (c DefaultClient) CancelAlarm(id string) error {
 // time - 			current system time as milliseconds since the Unix epoch
 // readableTime - 	current system time in ISO 8601 format
 //
+
 func (c DefaultClient) CurrentTime() (*Time, error) {
 	u := c.buildRequestURL(currentTimeEndPoint, nil)
 	response, err := requestAndHandle(u, "Failed to get Current Time: ")
@@ -803,14 +883,15 @@ func (c DefaultClient) CurrentTime() (*Time, error) {
 // Also see the cancel-alarm API method, which also accepts the alarm id as an
 // argument.
 //
-func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (*RegisteredAlarm, error) {
-	u := c.buildRequestURL(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), params)
-	response, err := requestAndHandle(u, "Failed to Register Alarm for Arrival and Departure at Stop: ")
-	if err != nil {
-		return nil, err
-	}
-	return &response.Data.Entry.RegisteredAlarm, nil
-}
+// TODO
+//func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (*RegisteredAlarm, error) {
+//	u := c.buildRequestURL(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), params)
+//	response, err := requestAndHandle(u, "Failed to Register Alarm for Arrival and Departure at Stop: ")
+//	if err != nil {
+//		return nil, err
+//	}
+//	return &response.Data.Entry.RegisteredAlarm, nil
+//}
 
 //ReportProblemWithTrip -	submit a user-generated problem for a trip
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/report-problem-with-trip.html
@@ -914,14 +995,15 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 // in the <references/> section, since there are potentially a large number of
 // routes for an agency.
 //
-func (c DefaultClient) RouteIdsForAgency(id string) ([]*string, error) {
-	u := c.buildRequestURL(fmt.Sprint(reportPoblemWithTripEndPoint, id), nil)
-	response, err := requestAndHandle(u, "Failed to get Route IDs for Agency: ")
-	if err != nil {
-		return nil, err
-	}
-	return response.Data.List.Strings, nil
-}
+// TODO
+//func (c DefaultClient) RouteIdsForAgency(id string) ([]*string, error) {
+//	u := c.buildRequestURL(fmt.Sprint(reportPoblemWithTripEndPoint, id), nil)
+//	response, err := requestAndHandle(u, "Failed to get Route IDs for Agency: ")
+//	if err != nil {
+//		return nil, err
+//	}
+//	return response.Data.List.Strings, nil
+//}
 
 //Route - 	get details for a specific route
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/route.html
@@ -970,6 +1052,7 @@ func (c DefaultClient) RouteIdsForAgency(id string) ([]*string, error) {
 // Response
 // See details about the various properties of the <route/> element.
 //
+
 func (c DefaultClient) Route(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(routeEndPoint, id), "Route")
 }
@@ -1014,14 +1097,15 @@ func (c DefaultClient) Route(id string) (*Entry, error) {
 // Returns a list of all route ids for routes served by the specified agency.
 // See the full description for the <route/> element.
 //
-func (c DefaultClient) RoutesForAgency(id string) ([]*Route, error) {
-	u := c.buildRequestURL(fmt.Sprint(routeForAgencyEndPoint, id), nil)
-	response, err := requestAndHandle(u, "Failed to get Routes for Agency: ")
-	if err != nil {
-		return []*Route{}, err
-	}
-	return response.Data.List.Routes, nil
-}
+// TODO
+//func (c DefaultClient) RoutesForAgency(id string) ([]*Route, error) {
+//	u := c.buildRequestURL(fmt.Sprint(routeForAgencyEndPoint, id), nil)
+//	response, err := requestAndHandle(u, "Failed to get Routes for Agency: ")
+//	if err != nil {
+//		return []*Route{}, err
+//	}
+//	return response.Data.List.Routes, nil
+//}
 
 //RoutesForLocation -	search for routes near a location, optionally by route name
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/routes-for-location.html
@@ -1218,6 +1302,7 @@ func (c DefaultClient) ScheduleForStop(id string) (*Data, error) {
 // The path is returned as a <shape/> element with a points in the encoded
 // polyline format defined for Google Maps.
 //
+
 func (c DefaultClient) Shape(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape")
 }
@@ -1259,14 +1344,15 @@ func (c DefaultClient) Shape(id string) (*Entry, error) {
 // the <references/> section, since there are potentially a large number of
 // stops for an agency.
 //
-func (c DefaultClient) StopIDsForAgency(id string) ([]*string, error) {
-	u := c.buildRequestURL(fmt.Sprint(stopIDsForAgencyEndPoint, id), nil)
-	response, err := requestAndHandle(u, "Failed to get Stop IDs for Agency: ")
-	if err != nil {
-		return nil, err
-	}
-	return response.Data.List.Strings, nil
-}
+// TODO
+//func (c DefaultClient) StopIDsForAgency(id string) ([]*string, error) {
+//	u := c.buildRequestURL(fmt.Sprint(stopIDsForAgencyEndPoint, id), nil)
+//	response, err := requestAndHandle(u, "Failed to get Stop IDs for Agency: ")
+//	if err != nil {
+//		return nil, err
+//	}
+//	return response.Data.List.Strings, nil
+//}
 
 //Stop - 	get details for a specific stop
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stop.html
@@ -1308,6 +1394,7 @@ func (c DefaultClient) StopIDsForAgency(id string) ([]*string, error) {
 // Response
 // See details about the various properties of the <stop/> element.
 //
+
 func (c DefaultClient) Stop(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(stopEndPoint, id), "Stop")
 }
@@ -1425,6 +1512,7 @@ func (c DefaultClient) StopsForLocation(params map[string]string) (*Data, error)
 //
 // Response
 //
+
 func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute")
 }
@@ -1480,6 +1568,7 @@ func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
 // The response <entry/> element is a <tripDetails/> element that captures
 // extended details about a trip.
 //
+
 func (c DefaultClient) TripDetails(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails")
 }
@@ -1535,7 +1624,7 @@ func (c DefaultClient) TripDetails(id string) (*Entry, error) {
 // Response
 // The response <entry/> element is a <tripDetails/> element that captures
 // extended details about a trip.
-//
+
 func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*Data, error) {
 	return c.getData(fmt.Sprint(tripForVehicleEndPoint, id), "TripDetails for Vehicle", params)
 }
@@ -1575,6 +1664,7 @@ func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*Dat
 //
 // Response
 // See details about the various properties of the <trip/> element.
+
 func (c DefaultClient) Trip(id string) (*Entry, error) {
 	return c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip")
 }
@@ -1725,7 +1815,7 @@ func (c DefaultClient) VehiclesForAgency(id string) (*Data, error) {
 }
 
 func (c DefaultClient) getEntry(requestString, requestType string) (*Entry, error) {
-	u := c.buildRequestURL(requestString+xmlPostFix, nil)
+	u := c.buildRequestURL(requestString+jsonPostFix, nil)
 	response, err := requestAndHandle(u, fmt.Sprintf("Failed to get %s: ", requestType))
 	if err != nil {
 		return nil, err
@@ -1734,7 +1824,7 @@ func (c DefaultClient) getEntry(requestString, requestType string) (*Entry, erro
 }
 
 func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (*Data, error) {
-	u := c.buildRequestURL(fmt.Sprint(requestString, xmlPostFix), params)
+	u := c.buildRequestURL(fmt.Sprint(requestString, jsonPostFix), params)
 	response, err := requestAndHandle(u, fmt.Sprintf("Failed to get %s: ", errMessage))
 	if err != nil {
 		return nil, err
