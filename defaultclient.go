@@ -30,6 +30,11 @@ type Response struct {
 	Version     int    `json:"version"`
 }
 
+func (r Response) String() string {
+	return fmt.Sprintf("Code: %d\nCurrentTime: %d\nData: %s\nText: %s\nVersion: %d\n",
+		r.Code, r.CurrentTime, r.Data.String(), r.Text, r.Version)
+}
+
 //References - The <references/> element contains a dictionary of objects
 // referenced by the main result payload. For elements that are
 // often repeated in the result payload, the elements are instead
@@ -64,9 +69,20 @@ type Data struct {
 	//StopsForRoute *StopsForRoute
 }
 
+func (d Data) String() string {
+	return ""
+	// TODO:
+	//return fmt.Sprintf("LimitExceeded: %b\nList: %s\nEntry: %s\nOutOfRange: %b\nReference: %s\nTime: %s",
+	//	d.LimitExceeded, d.List.String(), d.Entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
+}
+
 type Time struct {
 	ReadableTime *string `json:"readableTime,omitempty"`
 	Time         *int    `json:"time,omitempty"`
+}
+
+func (t Time) String() string {
+	return fmt.Sprintf("ReadableTime: %s\nTime: %d", *t.ReadableTime, t.Time)
 }
 
 type RegisteredAlarm struct {
@@ -276,6 +292,11 @@ type Route struct {
 	TextColor   *string `json:"textColor"`
 	Type        *int    `json:"type"`
 	URL         *string `json:"url"`
+}
+
+func (r Route) String() string {
+	return fmt.Sprintf("AgencyID: %s\nColor: %s\nDescription: %s\nID: %s\nLongName: %s\nShortName: %s\nTextColor: %s\nType: %d\nURL: %s",
+		*r.AgencyID, *r.Color, *r.Description, *r.ID, *r.LongName, *r.ShortName, *r.TextColor, *r.Type, *r.URL)
 }
 
 type Situation struct {
