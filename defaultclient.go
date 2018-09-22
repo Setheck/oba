@@ -91,7 +91,7 @@ type RegisteredAlarm struct {
 
 //Entry container object
 type Entry struct {
-	AgencyID             *string                `json:"agencyId,omitempty"`
+	AgencyID             string                 `json:"agencyId,omitempty"`
 	ArrivalAndDepartures []*ArrivalAndDeparture `json:"arrivalsAndDepartures,omitempty"`
 	BlockID              *string                `json:"blockId,omitempty"`
 	Code                 *string                `json:"code,omitempty"`
@@ -100,18 +100,18 @@ type Entry struct {
 	Description          *string                `json:"description,omitempty"`
 	Direction            *string                `json:"direction,omitempty"`
 	DirectionID          *int                   `json:"directionId,omitempty"`
-	Disclaimer           *string                `json:"disclaimer,omitempty"`
-	Email                *string                `json:"email,omitempty"`
-	FareURL              *string                `json:"fareUrl,omitempty"`
-	ID                   *string                `json:"id,omitempty"`
-	Lang                 *string                `json:"lang,omitempty"`
-	Lat                  *float64               `json:"lat,omitempty"`
+	Disclaimer           string                 `json:"disclaimer,omitempty"`
+	Email                string                 `json:"email,omitempty"`
+	FareURL              string                 `json:"fareUrl,omitempty"`
+	ID                   string                 `json:"id,omitempty"`
+	Lang                 string                 `json:"lang,omitempty"`
+	Lat                  float64                `json:"lat,omitempty"`
 	LocationType         *int                   `json:"locationType,omitempty"`
-	Lon                  *float64               `json:"lon,omitempty"`
-	LongName             *string                `json:"longName,omitempty"`
-	Name                 *string                `json:"name,omitempty"`
+	Lon                  float64                `json:"lon,omitempty"`
+	LongName             string                 `json:"longName,omitempty"`
+	Name                 string                 `json:"name,omitempty"`
 	NearbyStopIds        []*string              `json:"nearbyStopIds,omitempty"`
-	Phone                *string                `json:"phone,omitempty"`
+	Phone                string                 `json:"phone,omitempty"`
 	PrivateService       *bool                  `json:"privateService,omitempty"`
 	ReadableTime         *string                `json:"readableTime,omitempty"`
 	RouteID              *string                `json:"routeId,omitempty"`
@@ -126,11 +126,11 @@ type Entry struct {
 	StopRouteSchedules   []*StopRouteSchedule   `json:"stopRouteSchedules,omitempty"`
 	TextColor            *string                `json:"textColor,omitempty"`
 	Time                 *int                   `json:"time,omitempty"`
-	TimeZone             *string                `json:"timezone,omitempty"`
+	TimeZone             string                 `json:"timezone,omitempty"`
 	TripHeadsign         *string                `json:"tripHeadsign,omitempty"`
 	TripShortName        *string                `json:"tripShortName,omitempty"`
 	Type                 *int                   `json:"type,omitempty"`
-	URL                  *string                `json:"url,omitempty"`
+	URL                  string                 `json:"url,omitempty"`
 	WheelChairBoarding   *string                `json:"wheelchairBoarding,omitempty"`
 	//ID   string `json:"id,omitempty"`
 	//Name string `json:"name,omitempty"`
@@ -144,35 +144,43 @@ type Entry struct {
 }
 
 type ArrivalAndDeparture struct {
-	ArrivalEnabled             *bool       `json:"arrivalEnabled"`
-	BlockTripSequence          *int        `json:"blockTripSequence"`
-	DepartureEnabled           *bool       `json:"departureEnabled"`
-	DistanceFromStop           *float64    `json:"distanceFromStop"`
-	Frequency                  *string     `json:"frequency"`
-	LastUpdateTime             *int        `json:"lastUpdateTime"`
-	NumberOfStopsAway          *int        `json:"numberOfStopsAway"`
-	Predicted                  *bool       `json:"predicted"`
-	PredictedArrivalInterval   *int        `json:"predictedArrivalInterval"`
-	PredictedArrivalTime       *int        `json:"predictedArrivalTime"`
-	PredictedDepartureInterval *int        `json:"predictedDepartureInterval"`
-	PredictedDepartureTime     *int        `json:"predictedDepartureTime"`
-	RouteID                    *string     `json:"routeId"`
-	RouteLongName              *string     `json:"routeLongName"`
-	RouteShortName             *string     `json:"routeShortName"`
-	ScheduledArrivalInterval   *int        `json:"scheduledArrivalInterval"`
-	ScheduledArrivalTime       *int        `json:"scheduledArrivalTime"`
-	ScheduledDepartureInterval *int        `json:"scheduledDepartureInterval"`
-	ScheduledDepartureTime     *int        `json:"scheduledDepartureTime"`
-	ServiceDate                *int        `json:"serviceDate"`
-	SituationIDs               []*int      `json:"situationIds"`
-	Status                     *string     `json:"status"`
-	StopID                     *string     `json:"stopId"`
-	StopSequence               *int        `json:"stopSequence"`
-	TotalStopsInTrip           *int        `json:"totalStopsInTrip"`
-	TripHeadSign               *string     `json:"tripHeadsign"`
-	TripID                     *string     `json:"tripId"`
-	TripStatus                 *TripStatus `json:"tripStatus"`
-	VehicleID                  *string     `json:"vehicleId"`
+	ArrivalEnabled               *bool       `json:"arrivalEnabled"`
+	BlockTripSequence            int         `json:"blockTripSequence"`
+	DepartureEnabled             *bool       `json:"departureEnabled"`
+	DistanceFromStop             float64     `json:"distanceFromStop"`
+	Frequency                    string      `json:"frequency"`
+	LastUpdateTime               int         `json:"lastUpdateTime"`
+	NumberOfStopsAway            int         `json:"numberOfStopsAway"`
+	Predicted                    *bool       `json:"predicted"`
+	PredictedArrivalInterval     int         `json:"predictedArrivalInterval"`
+	PredictedArrivalTime         int         `json:"predictedArrivalTime"`
+	PredictedDepartureInterval   int         `json:"predictedDepartureInterval"`
+	PredictedDepartureTime       int         `json:"predictedDepartureTime"`
+	ScheduleDeviationHistogramID string      `json:"scheduleDeviationHistogramId"`
+	RouteID                      string      `json:"routeId"`
+	RouteLongName                string      `json:"routeLongName"`
+	RouteShortName               string      `json:"routeShortName"`
+	ScheduledArrivalInterval     int         `json:"scheduledArrivalInterval"`
+	ScheduledArrivalTime         int         `json:"scheduledArrivalTime"`
+	ScheduledDepartureInterval   int         `json:"scheduledDepartureInterval"`
+	ScheduledDepartureTime       int         `json:"scheduledDepartureTime"`
+	ServiceDate                  int         `json:"serviceDate"`
+	SituationIDs                 []int       `json:"situationIds"`
+	Status                       string      `json:"status"`
+	StopID                       string      `json:"stopId"`
+	StopSequence                 int         `json:"stopSequence"`
+	TotalStopsInTrip             int         `json:"totalStopsInTrip"`
+	TripHeadSign                 string      `json:"tripHeadsign"`
+	TripID                       string      `json:"tripId"`
+	TripStatus                   *TripStatus `json:"tripStatus"`
+	VehicleID                    string      `json:"vehicleId"`
+}
+
+type Histogram struct {
+	Counts   []int     `json:"counts"`
+	Labels   []string  `json:"labels"`
+	MaxCount int       `json:"maxCount"`
+	Values   []float64 `json:"values"`
 }
 
 type BlockConfiguration struct {
@@ -203,47 +211,54 @@ type Frequency struct {
 }
 
 type List struct {
-	AgencyID           *string   `json:"agencyId,omitempty"`
-	Code               *string   `json:"code,omitempty"`
-	Color              *string   `json:"color,omitempty"`
-	Description        *string   `json:"description,omitempty"`
-	Direction          *string   `json:"direction,omitempty"`
-	Disclaimer         *string   `json:"disclaimer,omitempty"`
-	Email              *string   `json:"email,omitempty"`
-	FareURL            *string   `json:"fareUrl,omitempty"`
-	Frequency          *string   `json:"frequency,omitempty"`
-	ID                 *string   `json:"id,omitempty"`
-	Lang               *string   `json:"lang,omitempty"`
-	Lat                *float64  `json:"lat,omitempty"`
-	LatSpan            *float64  `json:"latSpan,omitempty"`
-	LocationType       *int      `json:"locationType,omitempty"`
-	Lon                *float64  `json:"lon,omitempty"`
-	LongName           *string   `json:"longName,omitempty"`
-	LonSpan            *float64  `json:"lonSpan,omitempty"`
-	Name               *string   `json:"name,omitempty"`
-	Phone              *string   `json:"phone,omitempty"`
-	PrivateService     *bool     `json:"privateService,omitempty"`
-	RouteIDs           []*string `json:"routeIds,omitempty"`
-	ServiceDate        *int      `json:"serviceDate,omitempty"`
-	ShortName          *string   `json:"shortName,omitempty"`
-	SituationIDs       []*string `json:"situationIds,omitempty"`
-	Status             *string   `json:"status,omitempty"`
-	TextColor          *string   `json:"textColor,omitempty"`
-	TimeZone           *string   `json:"timezone,omitempty"`
-	TripID             *string   `json:"tripId,omitempty"`
-	Type               *int      `json:"type,omitempty"`
-	URL                *string   `json:"url,omitempty"`
-	WheelChairBoarding *string   `json:"wheelchairBoarding,omitempty"`
+	AgencyID           string   `json:"agencyId,omitempty"`
+	ArrivalEnabled     *bool    `json:"arrivalEnabled,omitempty"`
+	Code               string   `json:"code,omitempty"`
+	Color              string   `json:"color,omitempty"`
+	Description        string   `json:"description,omitempty"`
+	Direction          string   `json:"direction,omitempty"`
+	Disclaimer         string   `json:"disclaimer,omitempty"`
+	Email              string   `json:"email,omitempty"`
+	FareURL            string   `json:"fareUrl,omitempty"`
+	Frequency          string   `json:"frequency,omitempty"`
+	ID                 string   `json:"id,omitempty"`
+	Lang               string   `json:"lang,omitempty"`
+	Lat                float64  `json:"lat,omitempty"`
+	LatSpan            float64  `json:"latSpan,omitempty"`
+	LocationType       int      `json:"locationType,omitempty"`
+	Lon                float64  `json:"lon,omitempty"`
+	LongName           string   `json:"longName,omitempty"`
+	LonSpan            float64  `json:"lonSpan,omitempty"`
+	Name               string   `json:"name,omitempty"`
+	Phone              string   `json:"phone,omitempty"`
+	PrivateService     bool     `json:"privateService,omitempty"`
+	RouteIDs           []string `json:"routeIds,omitempty"`
+	ServiceDate        int      `json:"serviceDate,omitempty"`
+	ShortName          string   `json:"shortName,omitempty"`
+	SituationIDs       []string `json:"situationIds,omitempty"`
+	Status             string   `json:"status,omitempty"`
+	TextColor          string   `json:"textColor,omitempty"`
+	TimeZone           string   `json:"timezone,omitempty"`
+	TripID             string   `json:"tripId,omitempty"`
+	Type               int      `json:"type,omitempty"`
+	URL                string   `json:"url,omitempty"`
+	WheelChairBoarding string   `json:"wheelchairBoarding,omitempty"`
 	//*VehicleStatus
 }
 
-func (l List) AgencyWithCoverage() AgencyWithCoverage {
-	return AgencyWithCoverage{
-		AgencyID: *l.AgencyID,
-		Lat:      *l.Lat,
-		Lon:      *l.Lon,
-		LatSpan:  *l.LatSpan,
-		LonSpan:  *l.LonSpan,
+func (l List) Coverage() Coverage {
+	return Coverage{
+		Lat:     l.Lat,
+		Lon:     l.Lon,
+		LatSpan: l.LatSpan,
+		LonSpan: l.LonSpan,
+	}
+}
+
+func (l List) ArrivalAndDeparture() ArrivalAndDeparture {
+	return ArrivalAndDeparture{
+		ArrivalEnabled: l.ArrivalEnabled,
+		//TODO
 	}
 }
 
@@ -259,16 +274,20 @@ type VehicleStatus struct {
 
 //Agency container object
 type Agency struct {
-	Disclaimer     string `json:"disclaimer"`
-	Email          string `json:"email"`
-	FareURL        string `json:"fareUrl"`
-	ID             string `json:"id"`
-	Lang           string `json:"lang"`
-	Name           string `json:"name"`
-	Phone          string `json:"phone"`
-	PrivateService bool   `json:"privateService"`
-	TimeZone       string `json:"timezone"`
-	URL            string `json:"url"`
+	Disclaimer     string
+	Email          string
+	FareURL        string
+	ID             string
+	Lang           string
+	Name           string
+	Phone          string
+	PrivateService bool
+	TimeZone       string
+	URL            string
+}
+
+func (a Agency) String() string {
+	return "" // TODO
 }
 
 type Block struct {
@@ -276,24 +295,24 @@ type Block struct {
 }
 
 type AgencyWithCoverage struct {
-	AgencyID string  `json:"agencyId"`
-	Lat      float64 `json:"lat"`
-	LatSpan  float64 `json:"latSpan"`
-	Lon      float64 `json:"lon"`
-	LonSpan  float64 `json:"lonSpan"`
+	Agency  Agency
+	Lat     float64
+	LatSpan float64
+	Lon     float64
+	LonSpan float64
 }
 
 func (a AgencyWithCoverage) String() string {
-	return fmt.Sprintf("AgencyID: %s\nLat: %f\nLatSpan: %f\nLon: %f\nLonSpan: %f\n",
-		a.AgencyID, a.Lat, a.LatSpan, a.Lon, a.LonSpan)
+	return fmt.Sprintf("Agency: %s\nLat: %f\nLatSpan: %f\nLon: %f\nLonSpan: %f\n",
+		a.Agency.String(), a.Lat, a.LatSpan, a.Lon, a.LonSpan)
 }
 
 type Coverage struct {
-	AgencyID *string  `json:"agencyId"`
-	Lat      *float64 `json:"lat"`
-	LatSpan  *float64 `json:"latSpan"`
-	Lon      *float64 `json:"lon"`
-	LonSpan  *float64 `json:"lonSpan"`
+	AgencyID string
+	Lat      float64
+	LatSpan  float64
+	Lon      float64
+	LonSpan  float64
 }
 
 //Route object
@@ -571,9 +590,23 @@ func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	ras := make(map[string]Agency)
+	for _, ag := range retrieved.References.Agencies {
+		ras[ag.ID] = ag
+	}
+
 	results := make([]AgencyWithCoverage, 0)
 	for _, awc := range retrieved.List {
-		results = append(results, awc.AgencyWithCoverage())
+		if a, ok := ras[awc.AgencyID]; ok {
+			results = append(results, AgencyWithCoverage{
+				Agency:  a,
+				Lat:     awc.Lat,
+				LatSpan: awc.LatSpan,
+				Lon:     awc.Lon,
+				LonSpan: awc.LonSpan,
+			})
+		}
 	}
 	return results, nil
 }
@@ -616,8 +649,25 @@ func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
 // for the <agency/> element.
 //
 
-func (c DefaultClient) Agency(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
+func (c DefaultClient) Agency(id string) (*Agency, error) {
+
+	retrieved, err := c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
+	if err != nil {
+		return nil, err
+	}
+	agency := &Agency{
+		Disclaimer:     retrieved.Disclaimer,
+		Email:          retrieved.Email,
+		FareURL:        retrieved.FareURL,
+		ID:             retrieved.ID,
+		Lang:           retrieved.Lang,
+		Name:           retrieved.Name,
+		URL:            retrieved.URL,
+		Phone:          retrieved.Phone,
+		PrivateService: *retrieved.PrivateService,
+		TimeZone:       retrieved.TimeZone,
+	}
+	return agency, nil
 }
 
 //ArrivalAndDepartureForStop - 	details about a specific arrival/departure at a
@@ -724,8 +774,17 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 // The nearby stop list is designed to capture stops that are very close by
 // (like across the street) for quick navigation.
 //
-func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (*Data, error) {
-	return c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
+func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) ([]ArrivalAndDeparture, error) {
+	data, err := c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
+	if err != nil {
+		return nil, err
+	}
+
+	aads := make([]ArrivalAndDeparture, 0)
+	for _, l := range data.List {
+		aads = append(aads, l.ArrivalAndDeparture())
+	}
+	return aads, nil
 }
 
 //Block - 	get block configuration for a specific block
