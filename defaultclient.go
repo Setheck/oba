@@ -237,6 +237,16 @@ type List struct {
 	//*VehicleStatus
 }
 
+func (l List) AgencyWithCoverage() AgencyWithCoverage {
+	return AgencyWithCoverage{
+		AgencyID: *l.AgencyID,
+		Lat:      *l.Lat,
+		Lon:      *l.Lon,
+		LatSpan:  *l.LatSpan,
+		LonSpan:  *l.LonSpan,
+	}
+}
+
 type VehicleStatus struct {
 	VehicleID              string      `json:"vehicleId"`
 	LastUpdateTime         string      `json:"lastUpdateTime"`
@@ -266,11 +276,16 @@ type Block struct {
 }
 
 type AgencyWithCoverage struct {
-	AgencyID *string  `json:"agencyId"`
-	Lat      *float64 `json:"lat"`
-	LatSpan  *float64 `json:"latSpan"`
-	Lon      *float64 `json:"lon"`
-	LonSpan  *float64 `json:"lonSpan"`
+	AgencyID string  `json:"agencyId"`
+	Lat      float64 `json:"lat"`
+	LatSpan  float64 `json:"latSpan"`
+	Lon      float64 `json:"lon"`
+	LonSpan  float64 `json:"lonSpan"`
+}
+
+func (a AgencyWithCoverage) String() string {
+	return fmt.Sprintf("AgencyID: %s\nLat: %f\nLatSpan: %f\nLon: %f\nLonSpan: %f\n",
+		a.AgencyID, a.Lat, a.LatSpan, a.Lon, a.LonSpan)
 }
 
 type Coverage struct {
@@ -551,8 +566,16 @@ func (c *DefaultClient) SetApiKey(a string) {
 // lat and lon - 			indicates the center of the agency’s coverage area
 // latSpan and lonSpan - 	indicate the height (lat) and width (lon) of the
 // 							coverage bounding box for the agency.
-func (c DefaultClient) AgenciesWithCoverage() (*Data, error) {
-	return c.getData(agencyWithCoverageEndPoint, "Agencies with Coverage", nil)
+func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
+	retrieved, err := c.getData(agencyWithCoverageEndPoint, "Agencies with Coverage", nil)
+	if err != nil {
+		return nil, err
+	}
+	results := make([]AgencyWithCoverage, 0)
+	for _, awc := range retrieved.List {
+		results = append(results, awc.AgencyWithCoverage())
+	}
+	return results, nil
 }
 
 //Agency - 		get details for a specific agency

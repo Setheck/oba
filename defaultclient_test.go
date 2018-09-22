@@ -4,6 +4,7 @@ package oba_test
 
 import (
 	"github.com/Setheck/oba"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -14,9 +15,18 @@ func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
 
 	client := oba.NewDefaultClient(nil, "key")
 	client.SetBaseURL(server.URL)
-	_, e := client.AgenciesWithCoverage()
+	awcs, e := client.AgenciesWithCoverage()
 	if e != nil {
 		t.Error(e)
+	}
+
+	for _, awc := range awcs {
+		//fmt.Println(awc)
+		assert.NotEmpty(t, awc.AgencyID)
+		assert.NotZero(t, awc.Lat)
+		assert.NotZero(t, awc.LatSpan)
+		assert.NotZero(t, awc.Lon)
+		assert.NotZero(t, awc.LonSpan)
 	}
 
 	// TODO: add tests to validate retrieval of objects
