@@ -13,6 +13,10 @@ import (
 	"testing"
 )
 
+const (
+	TestDataPath = "testdata/"
+)
+
 func FakeServer(t *testing.T, body []byte) *httptest.Server {
 	t.Helper()
 	handler := http.HandlerFunc(func(r http.ResponseWriter, req *http.Request) {
@@ -22,13 +26,14 @@ func FakeServer(t *testing.T, body []byte) *httptest.Server {
 }
 
 func RetrieveTestJsonFileContent(t *testing.T) []byte {
+	t.Helper()
 	file := ConvertToFilename(t.Name())
 	return ReadFile(t, file)
 }
 
 func ReadFile(t *testing.T, file string) []byte {
 	t.Helper()
-	buf, e := ioutil.ReadFile(fmt.Sprint(testdata, file))
+	buf, e := ioutil.ReadFile(fmt.Sprint(TestDataPath, file))
 	if e != nil {
 		t.Error(e)
 	}
@@ -70,7 +75,6 @@ func VerifyMarshalling(t *testing.T, data []byte) {
 	}
 
 	m = FixJSON(m) // TODO SetEscapeHTML(false) see https://golang.org/pkg/encoding/json/
-	//m = FixXml(m) // Go doesn't like &quot; or &apos; because they are too long
 
 	m = bytes.TrimSpace(m)
 	o := bytes.TrimSpace(data)
@@ -79,14 +83,6 @@ func VerifyMarshalling(t *testing.T, data []byte) {
 		t.Error("VerifyMarshalling Failed")
 		fmt.Println(string(m))
 	}
-}
-
-func FixXml(b []byte) []byte {
-	// Crazy issue with Golang Xml parsing, no way to force use of
-	b = bytes.Replace(b, []byte("<references></references>"), []byte("<references/>"), -1)
-	b = bytes.Replace(b, []byte("<data></data>"), []byte("<data/>"), -1)
-	b = bytes.Replace(b, []byte("&#34;"), []byte("&qout;"), -1)
-	return bytes.Replace(b, []byte("&#39;"), []byte("&apos;"), -1)
 }
 
 func FixJSON(b []byte) []byte {

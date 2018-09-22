@@ -7,14 +7,8 @@ import (
 	"testing"
 )
 
-const (
-	DEBUG    = 0
-	testdata = "testdata/"
-)
-
 func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
 	contents := RetrieveTestJsonFileContent(t)
-
 	server := FakeServer(t, contents)
 	defer server.Close()
 
@@ -30,8 +24,6 @@ func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
 
 func TestDefaultClient_Agency(t *testing.T) {
 	contents := RetrieveTestJsonFileContent(t)
-	VerifyMarshalling(t, contents)
-
 	server := FakeServer(t, contents)
 	defer server.Close()
 
@@ -47,8 +39,6 @@ func TestDefaultClient_Agency(t *testing.T) {
 
 func TestDefaultClient_CurrentTime(t *testing.T) {
 	contents := RetrieveTestJsonFileContent(t)
-	VerifyMarshalling(t, contents)
-
 	server := FakeServer(t, contents)
 	defer server.Close()
 
@@ -62,8 +52,6 @@ func TestDefaultClient_CurrentTime(t *testing.T) {
 
 func TestDefaultClient_CancelAlarm(t *testing.T) {
 	contents := RetrieveTestJsonFileContent(t)
-	VerifyMarshalling(t, contents)
-
 	server := FakeServer(t, contents)
 	defer server.Close()
 
@@ -77,8 +65,6 @@ func TestDefaultClient_CancelAlarm(t *testing.T) {
 
 func TestDefaultClient_TripsForRoute(t *testing.T) {
 	contents := RetrieveTestJsonFileContent(t)
-	VerifyMarshalling(t, contents)
-
 	server := FakeServer(t, contents)
 	defer server.Close()
 
@@ -92,8 +78,6 @@ func TestDefaultClient_TripsForRoute(t *testing.T) {
 
 func TestDefaultClient_Trip(t *testing.T) {
 	contents := RetrieveTestJsonFileContent(t)
-	VerifyMarshalling(t, contents)
-
 	server := FakeServer(t, contents)
 	defer server.Close()
 
