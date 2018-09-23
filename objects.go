@@ -156,6 +156,10 @@ func (r Route) String() string {
 		r.Agency.String(), r.Color, r.Description, r.ID, r.LongName, r.ShortName, r.TextColor, r.Type, r.URL)
 }
 
+type RegisteredAlarm struct {
+	AlarmID string
+}
+
 type Situation struct {
 	ID                string
 	CreationTime      string
