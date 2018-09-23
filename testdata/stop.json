@@ -31,9 +31,9 @@
     "references": {
       "agencies": [
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "1",
           "lang": "EN",
           "name": "Metro Transit",
@@ -43,9 +43,9 @@
           "url": "http://metro.kingcounty.gov"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "40",
           "lang": "EN",
           "name": "Sound Transit",
@@ -55,9 +55,9 @@
           "url": "http://www.soundtransit.org"
         },
         {
-          "disclaimer": "",
+          "disclaimer": "somevalue",
           "email": "riders@commtrans.org",
-          "fareUrl": "",
+          "fareUrl": "somevalue",
           "id": "29",
           "lang": "en",
           "name": "Community Transit",
@@ -70,157 +70,157 @@
       "routes": [
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Univ District - Fremont - Central Magnolia",
           "id": "1_100184",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "31",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/031/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Univ District-Fremont-Interbay-Seattle Center West",
           "id": "1_100193",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "32",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/032/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Northgate - Roosevelt - University District",
           "id": "1_100259",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "67",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/067/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Northgate - Lake City - Sand Point - Univ District",
           "id": "1_100269",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "75",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/075/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Laurelhurst - University District",
           "id": "1_100273",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "78",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/078/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Juanita - University District",
           "id": "1_100168",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "277",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/277/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "UW/Cascadia College - University District",
           "id": "1_100214",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "372",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/372/n0.html"
         },
         {
           "agencyId": "40",
-          "color": "",
+          "color": "somevalue",
           "description": "Kirkland - University District",
           "id": "40_100235",
           "longName": "Kirkland - University District",
           "shortName": "540",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/540"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_810",
           "longName": "McCollum Park - University District",
           "shortName": "810",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_821",
           "longName": "Marysville - University District",
           "shortName": "821",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_855",
           "longName": "Lynnwood - University District",
           "shortName": "855",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_860",
           "longName": "McCollum Park - University District",
           "shortName": "860",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_871",
           "longName": "Edmonds P\u0026R - University District",
           "shortName": "871",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_880",
           "longName": "Mukilteo - University District",
           "shortName": "880",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         }
       ],
       "situations": [],

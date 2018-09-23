@@ -265,11 +265,33 @@ func TestDefaultClient_StopIdsForAgency(t *testing.T) {
 }
 
 func TestDefaultClient_Stop(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	stop, e := client.Stop(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyStop(t, stop)
 }
 
 func TestDefaultClient_StopsForLocation(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	stops, e := client.StopsForLocation(TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
+
+	assert.NotEmpty(t, stops, "Stops")
 }
 
 func TestDefaultClient_StopsForRoute(t *testing.T) {

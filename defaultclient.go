@@ -1093,8 +1093,31 @@ func (c DefaultClient) Shape(id string) (*Entry, error) {
 // See details about the various properties of the <stop/> element.
 //
 
-func (c DefaultClient) Stop(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(stopEndPoint, id), "Stop")
+func (c DefaultClient) Stop(id string) (*Stop, error) {
+	data, err := c.getData(fmt.Sprint(stopEndPoint, id), "Stop", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	agencies := make(map[string]Agency)
+	for _, a := range data.References.Agencies {
+		agency := *a.AgencyFromEntry()
+		agencies[agency.ID] = agency
+	}
+
+	routes := make([]Route, 0, len(data.References.Routes))
+	for _, r := range data.References.Routes {
+		route := *r.RouteFromEntry()
+		if a, ok := agencies[r.AgencyID]; ok {
+			route.Agency = a
+		}
+		routes = append(routes, route)
+	}
+
+	stop := data.Entry.StopFromEntry()
+	stop.Routes = routes
+
+	return stop, nil
 }
 
 //StopsForLocation - 	search for stops near a location, optionally by stop code
@@ -1141,8 +1164,17 @@ func (c DefaultClient) Stop(id string) (*Entry, error) {
 // the results. The list contents are <stop/> elements, so see details about the
 // various properties of the <stop/> element.
 //
-func (c DefaultClient) StopsForLocation(params map[string]string) (*Data, error) {
-	return c.getData(stopsForLocationEndPoint, "Stops for Location", params)
+func (c DefaultClient) StopsForLocation(params map[string]string) ([]Stop, error) {
+	data, err := c.getData(stopsForLocationEndPoint, "Stops for Location", params)
+	if err != nil {
+		return nil, err
+	}
+
+	stops := make([]Stop, 0, len(*data.List))
+	for _, ent := range *data.List {
+		stops = append(stops, *ent.StopFromEntry())
+	}
+	return stops, nil
 }
 
 //StopsForRoute - 	get the set of stops and paths of travel for a particular route

@@ -73,9 +73,9 @@ type StopTime struct {
 }
 
 type Frequency struct {
-	StartTime string `json:"startTime"`
-	EndTime   string `json:"endTime"`
-	Headway   string `json:"headway"`
+	StartTime int
+	EndTime   int
+	Headway   int
 }
 
 type VehicleStatus struct {
@@ -191,7 +191,7 @@ type Stop struct {
 	LocationType       int
 	Lon                float64
 	Name               string
-	RouteIDs           []string
+	Routes             []Route
 	WheelChairBoarding string
 }
 
@@ -258,16 +258,16 @@ type ScheduleStopTime struct {
 }
 
 type Trip struct {
-	BlockID        *string `json:"blockId"`
-	DirectionID    *string `json:"directionId"`
-	ID             *string `json:"id"`
-	RouteID        *string `json:"routeId"`
-	RouteShortName *string `json:"routeShortName"`
-	ServiceID      *string `json:"serviceId"`
-	ShapeID        *string `json:"shapeId"`
-	TimeZone       *string `json:"timeZone"`
-	TripHeadsign   *string `json:"tripHeadsign"`
-	TripShortName  *string `json:"tripShortName"`
+	BlockID        string
+	DirectionID    string
+	ID             string
+	RouteID        string
+	RouteShortName string
+	ServiceID      string
+	ShapeID        string
+	TimeZone       string
+	TripHeadsign   string
+	TripShortName  string
 }
 
 type TripDetails struct {

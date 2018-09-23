@@ -44,11 +44,11 @@ func (r Response) String() string {
 // you’ve pre-cached all the elements, then setting includeReferences=false can
 // be a good way to reduce the response size.
 type References struct {
-	Agencies   List        `json:"agencies"`
-	Routes     []Route     `json:"routes"`
-	Situations []Situation `json:"situations"`
-	Stops      []Stop      `json:"stops"`
-	Trips      []Trip      `json:"trips"`
+	Agencies   List `json:"agencies"`
+	Routes     List `json:"routes"`
+	Situations List `json:"situations"`
+	Stops      List `json:"stops"`
+	Trips      List `json:"trips"`
 }
 
 //Data container object
@@ -107,15 +107,17 @@ type Entry struct {
 	DepartureTime                int      `json:"departureTime,omitempty"`
 	Description                  string   `json:"description,omitempty"`
 	Direction                    string   `json:"direction,omitempty"`
-	DirectionID                  int      `json:"directionId,omitempty"`
+	DirectionID                  string   `json:"directionId,omitempty"`
 	Disclaimer                   string   `json:"disclaimer,omitempty"`
 	DistanceAlongBlock           float64  `json:"distanceAlongBlock,omitempty"`
 	DistanceAlongTrip            float64  `json:"distanceAlongTrip,omitempty"`
 	DistanceFromStop             float64  `json:"distanceFromStop,omitempty"`
 	DropOffTime                  int      `json:"dropOffTime,omitempty"`
 	Email                        string   `json:"email,omitempty"`
+	EndTime                      int      `json:"entTime,omitempty"`
 	FareURL                      string   `json:"fareUrl,omitempty"`
 	Frequency                    string   `json:"frequency,omitempty"`
+	Headway                      int      `json:"headway,omitempty"`
 	ID                           string   `json:"id,omitempty"`
 	Lang                         string   `json:"lang,omitempty"`
 	LastKnownDistanceAlongTrip   int      `json:"lastKnownDistanceAlongTrip,omitempty"`
@@ -162,6 +164,7 @@ type Entry struct {
 	ShapeID                      string   `json:"shapeId,omitempty"`
 	ShortName                    string   `json:"shortName,omitempty"`
 	SituationIDs                 []string `json:"situationIds,omitempty"`
+	StartTime                    int      `json:"startTime,omitempty"`
 	Status                       string   `json:"status,omitempty"`
 	StopCalendarDays             List     `json:"stopCalendarDays,omitempty"`
 	StopID                       string   `json:"stopId,omitempty"`
@@ -181,15 +184,6 @@ type Entry struct {
 	URL                          string   `json:"url,omitempty"`
 	VehicleID                    string   `json:"vehicleId,omitempty"`
 	WheelChairBoarding           string   `json:"wheelchairBoarding,omitempty"`
-	//ID   string `json:"id,omitempty"`
-	//Name string `json:"name,omitempty"`
-	//URL  string `json:"url,omitempty"`
-	//Block
-	//Shape
-	//StopId        *string   `json:"stopId,omitempty"`
-	//*StopsForRoute
-	//TripDetails
-	//RegisteredAlarm
 }
 
 func (e Entry) AgencyFromEntry() *Agency {
@@ -295,6 +289,21 @@ func (e Entry) BlockTripFromEntry() *BlockTrip {
 	}
 }
 
+func (e Entry) FrequencyFromEntry() *Frequency {
+	return &Frequency{
+		StartTime: e.StartTime,
+		EndTime:   e.EndTime,
+		Headway:   e.Headway,
+	}
+}
+
+func (e Entry) LocationFromEntry() *Location {
+	return &Location{
+		Lat: e.Lat,
+		Lon: e.Lon,
+	}
+}
+
 func (e Entry) RegisteredAlarmFromEntry() *RegisteredAlarm {
 	return &RegisteredAlarm{
 		AlarmID: e.AlarmID,
@@ -314,13 +323,41 @@ func (e Entry) RouteFromEntry() *Route {
 	}
 }
 
+func (e Entry) StopFromEntry() *Stop {
+	return &Stop{
+		Code:               e.Code,
+		Direction:          e.Direction,
+		ID:                 e.ID,
+		Lat:                e.Lat,
+		LocationType:       e.LocationType,
+		Lon:                e.Lon,
+		Name:               e.Name,
+		WheelChairBoarding: e.WheelChairBoarding,
+	}
+}
+
 func (e Entry) StopTimeFromEntry() *StopTime {
 	return &StopTime{
-		StopID:        e.StopID,
 		ArrivalTime:   e.ArrivalTime,
 		DepartureTime: e.DepartureTime,
-		PickupType:    e.PickupType,
 		DropOffType:   e.DropOffTime,
+		PickupType:    e.PickupType,
+		StopID:        e.StopID,
+	}
+}
+
+func (e Entry) TripFromEntry() *Trip {
+	return &Trip{
+		BlockID:        e.BlockID,
+		DirectionID:    e.DirectionID,
+		ID:             e.ID,
+		RouteID:        e.RouteID,
+		RouteShortName: e.RouteShortName,
+		ServiceID:      e.ServiceID,
+		ShapeID:        e.ShapeID,
+		TimeZone:       e.TimeZone,
+		TripHeadsign:   e.TripHeadSign,
+		TripShortName:  e.TripShortName,
 	}
 }
 
@@ -350,26 +387,5 @@ func (e Entry) TripStatusFromEntry() *TripStatus {
 		Status:                     e.Status,
 		TotalDistanceAlongTrip:     e.TotalDistanceAlongTrip,
 		VehicleID:                  e.VehicleID,
-	}
-}
-
-func (e Entry) LocationFromEntry() *Location {
-	return &Location{
-		Lat: e.Lat,
-		Lon: e.Lon,
-	}
-}
-
-func (e Entry) StopFromEntry() *Stop {
-	return &Stop{
-		Code:               e.Code,
-		Direction:          e.Direction,
-		ID:                 e.ID,
-		Lat:                e.Lat,
-		LocationType:       e.LocationType,
-		Lon:                e.Lon,
-		Name:               e.Name,
-		RouteIDs:           e.RouteIDs,
-		WheelChairBoarding: e.WheelChairBoarding,
 	}
 }

@@ -62,7 +62,7 @@ func ConvertToFilename(s string) string {
 	return strings.ToLower(s) + ".json"
 }
 
-func VerifyMarshalling(t *testing.T, data []byte) {
+func VerifyUnMarshalling(t *testing.T, data []byte) {
 	t.Helper()
 
 	var resp oba.Response
@@ -70,20 +70,20 @@ func VerifyMarshalling(t *testing.T, data []byte) {
 		t.Error(err)
 	}
 
-	m, err := json.MarshalIndent(resp, "", "  ")
-	if err != nil {
-		t.Error(err)
-	}
-
-	m = FixJSON(m) // TODO SetEscapeHTML(false) see https://golang.org/pkg/encoding/json/
-
-	m = bytes.TrimSpace(m)
-	o := bytes.TrimSpace(data)
-
-	if bytes.Compare(o, m) != 0 {
-		t.Error("VerifyMarshalling Failed")
-		fmt.Println(string(m))
-	}
+	//m, err := json.MarshalIndent(resp, "", "  ")
+	//if err != nil {
+	//	t.Error(err)
+	//}
+	//
+	//m = FixJSON(m) // TODO SetEscapeHTML(false) see https://golang.org/pkg/encoding/json/
+	//
+	//m = bytes.TrimSpace(m)
+	//o := bytes.TrimSpace(data)
+	//
+	//if bytes.Compare(o, m) != 0 {
+	//	t.Error("VerifyMarshalling Failed")
+	//	fmt.Println(string(m))
+	//}
 }
 
 func FixJSON(b []byte) []byte {
@@ -115,4 +115,21 @@ func VerifyRoute(t *testing.T, r *oba.Route) {
 	assert.NotEmpty(t, r.TextColor, "TextColor")
 	assert.NotZero(t, r.Type, "Type")
 	VerifyAgency(t, &r.Agency)
+}
+
+func VerifyStop(t *testing.T, s *oba.Stop) {
+	t.Helper()
+	assert.NotNil(t, s, "Stop")
+	assert.NotNil(t, s.Code, "Code")
+	assert.NotNil(t, s.Direction, "Direction")
+	assert.NotNil(t, s.ID, "ID")
+	assert.NotNil(t, s.Lat, "Lat")
+	assert.NotNil(t, s.LocationType, "LocationType")
+	assert.NotNil(t, s.Lon, "Lon")
+	assert.NotNil(t, s.Name, "Name")
+	assert.NotNil(t, s.WheelChairBoarding, "WheelChairBoarding")
+
+	for _, r := range s.Routes {
+		VerifyRoute(t, &r)
+	}
 }
