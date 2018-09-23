@@ -3,9 +3,10 @@
 package oba_test
 
 import (
+	"testing"
+
 	"github.com/Setheck/oba"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 const (
@@ -282,7 +283,18 @@ func TestDefaultClient_ScheduleForStop(t *testing.T) {
 }
 
 func TestDefaultClient_Shape(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	shape, e := client.Shape(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyShape(t, shape)
 }
 
 func TestDefaultClient_StopIdsForAgency(t *testing.T) {
@@ -324,7 +336,18 @@ func TestDefaultClient_StopsForRoute(t *testing.T) {
 }
 
 func TestDefaultClient_TripDetails(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	td, e := client.TripDetails(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyTripDetails(t, td)
 }
 
 func TestDefaultClient_TripForVehicle(t *testing.T) {
@@ -338,10 +361,12 @@ func TestDefaultClient_Trip(t *testing.T) {
 
 	client := oba.NewDefaultClient(nil, "key")
 	client.SetBaseURL(server.URL)
-	_, e := client.Trip("1")
+	trip, e := client.Trip("1")
 	if e != nil {
 		t.Error(e)
 	}
+
+	VerifyTrip(t, trip)
 }
 
 func TestDefaultClient_TripsForLocation(t *testing.T) {

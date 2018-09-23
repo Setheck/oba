@@ -9,7 +9,10 @@
       "serviceId": "1_114-115-WEEK",
       "shapeId": "1_20044006",
       "tripHeadsign": "Downtown via University District",
-      "tripShortName": "LOCAL"
+      "tripShortName": "LOCAL",
+      "blockId": "testid",
+      "routeShortName": "somevalue",
+      "timeZone": "sometimezone"
     },
     "references": null
   },

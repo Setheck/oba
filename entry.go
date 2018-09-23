@@ -47,6 +47,7 @@ type Entry struct {
 	LastUpdateTime               int              `json:"lastUpdateTime,omitempty"`
 	Lat                          float64          `json:"lat,omitempty"`
 	LatSpan                      float64          `json:"latSpan,omitempty"`
+	Length                       int              `json:"length,omitempty"`
 	LocationType                 int              `json:"locationType,omitempty"`
 	Lon                          float64          `json:"lon,omitempty"`
 	LongName                     string           `json:"longName,omitempty"`
@@ -60,6 +61,7 @@ type Entry struct {
 	Phase                        string           `json:"phase,omitempty"`
 	Phone                        string           `json:"phone,omitempty"`
 	PickupType                   int              `json:"pickupType,omitempty"`
+	Points                       string           `json:"points,omitempty"`
 	Position                     Location         `json:"position"`
 	Predicted                    *bool            `json:"predicted,omitempty"`
 	PredictedArrivalInterval     int              `json:"predictedArrivalInterval,omitempty"`
@@ -272,6 +274,13 @@ func (e Entry) ScheduleStopTimeFromEntry() *ScheduleStopTime {
 	}
 }
 
+func (e Entry) ShapeFromEntry() *Shape {
+	return &Shape{
+		Points: e.Points,
+		Length: e.Length,
+	}
+}
+
 func (e Entry) SituationFromEntry() *Situation {
 	return &Situation{
 		//TODO: []horseshit -> Description:       e.Description,
@@ -361,6 +370,22 @@ func (e Entry) TripFromEntry() *Trip {
 		TimeZone:       e.TimeZone,
 		TripHeadsign:   e.TripHeadSign,
 		TripShortName:  e.TripShortName,
+	}
+}
+
+func (e Entry) TripDetailsFromEntry(ts []Trip, ss []Situation) *TripDetails {
+	var trip Trip
+	for _, t := range ts {
+		if t.ID == e.TripID {
+			trip = t
+		}
+	}
+	return &TripDetails{
+		Frequency:   e.Frequency,
+		ServiceDate: e.ServiceDate,
+		Situations:  ss,
+		Status:      e.Status,
+		Trip:        trip,
 	}
 }
 

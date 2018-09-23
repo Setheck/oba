@@ -183,8 +183,8 @@ type VehicleJourney struct {
 }
 
 type Shape struct {
-	Points string `json:"points,omitempty"`
-	Length string `json:"length,omitempty"`
+	Points string
+	Length int
 }
 
 type Stop struct {
@@ -282,11 +282,11 @@ type Trip struct {
 }
 
 type TripDetails struct {
-	TripID       string   `json:"tripId,omitempty"`
-	ServiceDate  string   `json:"serviceDate,omitempty"`
-	Frequency    string   `json:"frequency,omitempty"`
-	Status       string   `json:"status,omitempty"`
-	SituationIDs []string `json:"situationIds,omitempty"`
+	Trip        Trip
+	ServiceDate int
+	Frequency   string
+	Status      string
+	Situations  []Situation
 }
 
 type TripStatus Entry

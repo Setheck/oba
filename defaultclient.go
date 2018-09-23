@@ -928,8 +928,13 @@ func (c DefaultClient) ScheduleForStop(id string) (*StopSchedule, error) {
 // polyline format defined for Google Maps.
 //
 
-func (c DefaultClient) Shape(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape", nil)
+func (c DefaultClient) Shape(id string) (*Shape, error) {
+	entry, err := c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape", nil)
+	if err != nil {
+		return nil, err
+	}
+	shape := entry.ShapeFromEntry()
+	return shape, nil
 }
 
 //StipIDsForAgency - 	get a list of all stops for an agency
@@ -1213,8 +1218,15 @@ func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
 // extended details about a trip.
 //
 
-func (c DefaultClient) TripDetails(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails", nil)
+func (c DefaultClient) TripDetails(id string) (*TripDetails, error) {
+	data, err := c.getData(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails", nil)
+	if err != nil {
+		return nil, err
+	}
+	trips := data.References.Trips.toTrips()
+	situations := data.References.Situations.toSituations()
+	td := data.Entry.TripDetailsFromEntry(trips, situations)
+	return td, nil
 }
 
 //TripForVehicle - 	get extended trip details for current trip of a specific
@@ -1309,8 +1321,13 @@ func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*Dat
 // Response
 // See details about the various properties of the <trip/> element.
 
-func (c DefaultClient) Trip(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip", nil)
+func (c DefaultClient) Trip(id string) (*Trip, error) {
+	entry, err := c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip", nil)
+	if err != nil {
+		return nil, err
+	}
+	trip := entry.TripFromEntry()
+	return trip, nil
 }
 
 //TripsForLocation - 	get active trips near a location
