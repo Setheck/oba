@@ -92,21 +92,21 @@
     "references": {
       "agencies": [
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "98",
           "lang": "en",
           "name": "Seattle Children's Hospital",
-          "phone": "",
+          "phone": "somevalue",
           "privateService": false,
           "timezone": "America/Los_Angeles",
           "url": "https://www.luum.com/commute/content/shuttles"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "3",
           "lang": "EN",
           "name": "Pierce Transit",
@@ -116,21 +116,21 @@
           "url": "http://www.piercetransit.org"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "97",
           "lang": "en",
           "name": "Everett Transit",
-          "phone": "",
+          "phone": "somevalue",
           "privateService": false,
           "timezone": "America/Los_Angeles",
           "url": "http://www.everetttransit.org/"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "96",
           "lang": "EN",
           "name": "SeattleCenterMonorail",
@@ -140,9 +140,9 @@
           "url": "http://www.seattlemonorail.com"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "1",
           "lang": "EN",
           "name": "Metro Transit",
@@ -152,21 +152,21 @@
           "url": "http://metro.kingcounty.gov"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "95",
           "lang": "en",
           "name": "Washington State Ferries",
-          "phone": "",
+          "phone": "somevalue",
           "privateService": false,
           "timezone": "America/Los_Angeles",
           "url": "http://www.wsdot.wa.gov/ferries/"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "KMD",
           "lang": "EN",
           "name": "Kingcounty Marine Divison",
@@ -176,9 +176,9 @@
           "url": "http://www.kingcounty.gov/transportation/kcdot/Marine.aspx"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "19",
           "lang": "en",
           "name": "Intercity Transit",
@@ -188,9 +188,9 @@
           "url": "http://www.Intercitytransit.com"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "40",
           "lang": "EN",
           "name": "Sound Transit",
@@ -200,9 +200,9 @@
           "url": "http://www.soundtransit.org"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "23",
           "lang": "EN",
           "name": "City of Seattle",
@@ -212,9 +212,9 @@
           "url": "http://www.seattle.gov"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "99",
           "lang": "EN",
           "name": "GO Transit",
@@ -224,9 +224,9 @@
           "url": "http://GOLewisMcChord.com"
         },
         {
-          "disclaimer": "",
+          "disclaimer": "somevalue",
           "email": "riders@commtrans.org",
-          "fareUrl": "",
+          "fareUrl": "somevalue",
           "id": "29",
           "lang": "en",
           "name": "Community Transit",

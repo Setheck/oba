@@ -1,0 +1,37 @@
+{
+  "code": 200,
+  "currentTime": 1537415952440,
+  "data": {
+    "entry": {
+        "routeId": "1_65",
+        "tripId":"1_15551341",
+        "serviceDate": 1291536000000,
+        "stopId":"1_75403",
+        "stopSequence":42,
+        "blockTripSequence":2,
+        "routeShortName": "65",
+        "routeLongName": "...",
+        "tripHeadsign": "UNIVERSITY DISTRICT",
+        "arrivalEnabled": true,
+        "departureEnabled": true,
+        "scheduledArrivalTime": 1291581547000,
+        "scheduledDepartureTime": 1291581547000,
+        "frequency": "...",
+        "predicted": true,
+        "predictedArrivalTime": 1291581546000,
+        "predictedDepartureTime": 1291581546000,
+        "distanceFromStop": 7982.740408789774,
+        "numberOfStopsAway": 31,
+        "tripStatus": null
+      },
+    "references": {
+      "agencies": [],
+      "routes": [],
+      "situations": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

@@ -3,9 +3,9 @@
   "currentTime": 1537415952440,
   "data": {
     "entry": {
-      "disclaimer": "",
-      "email": "",
-      "fareUrl": "",
+      "disclaimer": "Test Disclaimer",
+      "email": "someone@test.com",
+      "fareUrl": "http://fare.test.com",
       "id": "1",
       "lang": "EN",
       "name": "Metro Transit",

@@ -9,456 +9,6 @@ import (
 	"path"
 )
 
-//Response Element - All responses are wrapped in a response element.
-//The response element carries the following fields:
-// version - response version information
-// code - a machine-readable response code with the following semantics:
-// 200 - Success
-// 400 - The request could not be understood due to an invalid request parameter or some other error
-// 401 - The application key is either missing or invalid
-// 404 - The specified resource was not found
-// 500 - A service exception or error occurred while processing the request
-// text - a human-readable version of the response code
-// currentTime - current system time on the api server as milliseconds since the unix epoch
-// data - the response payload
-// references see the discussion of references below
-type Response struct {
-	Code        int    `json:"code"`
-	CurrentTime int    `json:"currentTime"`
-	Data        *Data  `json:"data,omitempty"`
-	Text        string `json:"text"`
-	Version     int    `json:"version"`
-}
-
-func (r Response) String() string {
-	return fmt.Sprintf("Code: %d\nCurrentTime: %d\nData: %s\nText: %s\nVersion: %d\n",
-		r.Code, r.CurrentTime, r.Data.String(), r.Text, r.Version)
-}
-
-//References - The <references/> element contains a dictionary of objects
-// referenced by the main result payload. For elements that are
-// often repeated in the result payload, the elements are instead
-// included in the <references/> section and the payload will refer
-// to elements by and object id that can be used to lookup the
-// object in the <references/> dictionary.
-// They will always appear in that order, since stops and trips reference routes
-// and routes reference agencies. If you are processing the result stream in
-// order, you should always be able to assume that an referenced entity would
-// already have been included in the references section.
-// Every API method supports an optional includeReferences=true|false parameter
-// that determines if the <references/> section is included in a response. If
-// you don’t need the contents of the <references/> section, perhaps because
-// you’ve pre-cached all the elements, then setting includeReferences=false can
-// be a good way to reduce the response size.
-type References struct {
-	Agencies   []Agency    `json:"agencies"`
-	Routes     []Route     `json:"routes"`
-	Situations []Situation `json:"situations"`
-	Stops      []Stop      `json:"stops"`
-	Trips      []Trip      `json:"trips"`
-}
-
-//Data container object
-type Data struct {
-	LimitExceeded *bool       `json:"limitExceeded,omitempty"`
-	List          []*List     `json:"list,omitempty"`
-	Entry         *Entry      `json:"entry,omitempty"`
-	OutOfRange    *bool       `json:"outOfRange,omitempty"`
-	References    *References `json:"references"`
-	Time          *Time       `json:",omitempty"`
-	//StopsForRoute *StopsForRoute
-}
-
-func (d Data) String() string {
-	return ""
-	// TODO:
-	//return fmt.Sprintf("LimitExceeded: %b\nList: %s\nEntry: %s\nOutOfRange: %b\nReference: %s\nTime: %s",
-	//	d.LimitExceeded, d.List.String(), d.Entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
-}
-
-type Time struct {
-	ReadableTime *string `json:"readableTime,omitempty"`
-	Time         *int    `json:"time,omitempty"`
-}
-
-func (t Time) String() string {
-	return fmt.Sprintf("ReadableTime: %s\nTime: %d", *t.ReadableTime, t.Time)
-}
-
-type RegisteredAlarm struct {
-	AlarmID string `json:"alarmId,omitempty"`
-}
-
-//Entry container object
-type Entry struct {
-	AgencyID             *string                `json:"agencyId,omitempty"`
-	ArrivalAndDepartures []*ArrivalAndDeparture `json:"arrivalsAndDepartures,omitempty"`
-	BlockID              *string                `json:"blockId,omitempty"`
-	Code                 *string                `json:"code,omitempty"`
-	Color                *string                `json:"color,omitempty"`
-	Date                 *int                   `json:"date,omitempty"`
-	Description          *string                `json:"description,omitempty"`
-	Direction            *string                `json:"direction,omitempty"`
-	DirectionID          *int                   `json:"directionId,omitempty"`
-	Disclaimer           *string                `json:"disclaimer,omitempty"`
-	Email                *string                `json:"email,omitempty"`
-	FareURL              *string                `json:"fareUrl,omitempty"`
-	ID                   *string                `json:"id,omitempty"`
-	Lang                 *string                `json:"lang,omitempty"`
-	Lat                  *float64               `json:"lat,omitempty"`
-	LocationType         *int                   `json:"locationType,omitempty"`
-	Lon                  *float64               `json:"lon,omitempty"`
-	LongName             *string                `json:"longName,omitempty"`
-	Name                 *string                `json:"name,omitempty"`
-	NearbyStopIds        []*string              `json:"nearbyStopIds,omitempty"`
-	Phone                *string                `json:"phone,omitempty"`
-	PrivateService       *bool                  `json:"privateService,omitempty"`
-	ReadableTime         *string                `json:"readableTime,omitempty"`
-	RouteID              *string                `json:"routeId,omitempty"`
-	RouteIDs             []*string              `json:"routeIds,omitempty"`
-	RouteShortName       *string                `json:"routeShortName,omitempty"`
-	ServiceID            *string                `json:"serviceId,omitempty"`
-	ShapeID              *string                `json:"shapeId,omitempty"`
-	ShortName            *string                `json:"shortName,omitempty"`
-	SituationIDs         []*string              `json:"situationIds,omitempty"`
-	StopCalendarDays     []*StopCalendarDay     `json:"stopCalendarDays,omitempty"`
-	StopID               *string                `json:"stopId,omitempty,omitempty"`
-	StopRouteSchedules   []*StopRouteSchedule   `json:"stopRouteSchedules,omitempty"`
-	TextColor            *string                `json:"textColor,omitempty"`
-	Time                 *int                   `json:"time,omitempty"`
-	TimeZone             *string                `json:"timezone,omitempty"`
-	TripHeadsign         *string                `json:"tripHeadsign,omitempty"`
-	TripShortName        *string                `json:"tripShortName,omitempty"`
-	Type                 *int                   `json:"type,omitempty"`
-	URL                  *string                `json:"url,omitempty"`
-	WheelChairBoarding   *string                `json:"wheelchairBoarding,omitempty"`
-	//ID   string `json:"id,omitempty"`
-	//Name string `json:"name,omitempty"`
-	//URL  string `json:"url,omitempty"`
-	//Block
-	//Shape
-	//StopId        *string   `json:"stopId,omitempty"`
-	//*StopsForRoute
-	//TripDetails
-	//RegisteredAlarm
-}
-
-type ArrivalAndDeparture struct {
-	ArrivalEnabled             *bool       `json:"arrivalEnabled"`
-	BlockTripSequence          *int        `json:"blockTripSequence"`
-	DepartureEnabled           *bool       `json:"departureEnabled"`
-	DistanceFromStop           *float64    `json:"distanceFromStop"`
-	Frequency                  *string     `json:"frequency"`
-	LastUpdateTime             *int        `json:"lastUpdateTime"`
-	NumberOfStopsAway          *int        `json:"numberOfStopsAway"`
-	Predicted                  *bool       `json:"predicted"`
-	PredictedArrivalInterval   *int        `json:"predictedArrivalInterval"`
-	PredictedArrivalTime       *int        `json:"predictedArrivalTime"`
-	PredictedDepartureInterval *int        `json:"predictedDepartureInterval"`
-	PredictedDepartureTime     *int        `json:"predictedDepartureTime"`
-	RouteID                    *string     `json:"routeId"`
-	RouteLongName              *string     `json:"routeLongName"`
-	RouteShortName             *string     `json:"routeShortName"`
-	ScheduledArrivalInterval   *int        `json:"scheduledArrivalInterval"`
-	ScheduledArrivalTime       *int        `json:"scheduledArrivalTime"`
-	ScheduledDepartureInterval *int        `json:"scheduledDepartureInterval"`
-	ScheduledDepartureTime     *int        `json:"scheduledDepartureTime"`
-	ServiceDate                *int        `json:"serviceDate"`
-	SituationIDs               []*int      `json:"situationIds"`
-	Status                     *string     `json:"status"`
-	StopID                     *string     `json:"stopId"`
-	StopSequence               *int        `json:"stopSequence"`
-	TotalStopsInTrip           *int        `json:"totalStopsInTrip"`
-	TripHeadSign               *string     `json:"tripHeadsign"`
-	TripID                     *string     `json:"tripId"`
-	TripStatus                 *TripStatus `json:"tripStatus"`
-	VehicleID                  *string     `json:"vehicleId"`
-}
-
-type BlockConfiguration struct {
-	ActiveServiceIDs   []string    `json:"activeServiceIds>string"`
-	InactiveServiceIDs []string    `json:"inactiveServiceIds>string"`
-	Trips              []BlockTrip `json:"trips"`
-}
-
-type BlockTrip struct {
-	TripID               string     `json:"tripId"`
-	BlockStopTimes       []StopTime `json:"blockStopTimes"`
-	AccumulatedSlackTime string     `json:"accumulatedSlackTime"`
-	DistanceAlongBlock   string     `json:"distanceAlongBlock"`
-}
-
-type StopTime struct {
-	StopID        string `json:"stopId"`
-	ArrivalTime   string `json:"arrivalTime"`
-	DepartureTime string `json:"departureTime"`
-	PickupType    string `json:"pickupType"`
-	DropOffType   string `json:"droppOffType"`
-}
-
-type Frequency struct {
-	StartTime string `json:"startTime"`
-	EndTime   string `json:"endTime"`
-	Headway   string `json:"headway"`
-}
-
-type List struct {
-	AgencyID           *string   `json:"agencyId,omitempty"`
-	Code               *string   `json:"code,omitempty"`
-	Color              *string   `json:"color,omitempty"`
-	Description        *string   `json:"description,omitempty"`
-	Direction          *string   `json:"direction,omitempty"`
-	Disclaimer         *string   `json:"disclaimer,omitempty"`
-	Email              *string   `json:"email,omitempty"`
-	FareURL            *string   `json:"fareUrl,omitempty"`
-	Frequency          *string   `json:"frequency,omitempty"`
-	ID                 *string   `json:"id,omitempty"`
-	Lang               *string   `json:"lang,omitempty"`
-	Lat                *float64  `json:"lat,omitempty"`
-	LatSpan            *float64  `json:"latSpan,omitempty"`
-	LocationType       *int      `json:"locationType,omitempty"`
-	Lon                *float64  `json:"lon,omitempty"`
-	LongName           *string   `json:"longName,omitempty"`
-	LonSpan            *float64  `json:"lonSpan,omitempty"`
-	Name               *string   `json:"name,omitempty"`
-	Phone              *string   `json:"phone,omitempty"`
-	PrivateService     *bool     `json:"privateService,omitempty"`
-	RouteIDs           []*string `json:"routeIds,omitempty"`
-	ServiceDate        *int      `json:"serviceDate,omitempty"`
-	ShortName          *string   `json:"shortName,omitempty"`
-	SituationIDs       []*string `json:"situationIds,omitempty"`
-	Status             *string   `json:"status,omitempty"`
-	TextColor          *string   `json:"textColor,omitempty"`
-	TimeZone           *string   `json:"timezone,omitempty"`
-	TripID             *string   `json:"tripId,omitempty"`
-	Type               *int      `json:"type,omitempty"`
-	URL                *string   `json:"url,omitempty"`
-	WheelChairBoarding *string   `json:"wheelchairBoarding,omitempty"`
-	//*VehicleStatus
-}
-
-type VehicleStatus struct {
-	VehicleID              string      `json:"vehicleId"`
-	LastUpdateTime         string      `json:"lastUpdateTime"`
-	LastLocationUpdateTime string      `json:"lastLocationUpdateTime"`
-	LocationLat            string      `json:"location>lat"`
-	LocationLon            string      `json:"location>lon"`
-	TripID                 string      `json:"tripId"`
-	TripStatus             *TripStatus `json:"tripStatus,omitempty"`
-}
-
-//Agency container object
-type Agency struct {
-	Disclaimer     string `json:"disclaimer"`
-	Email          string `json:"email"`
-	FareURL        string `json:"fareUrl"`
-	ID             string `json:"id"`
-	Lang           string `json:"lang"`
-	Name           string `json:"name"`
-	Phone          string `json:"phone"`
-	PrivateService bool   `json:"privateService"`
-	TimeZone       string `json:"timezone"`
-	URL            string `json:"url"`
-}
-
-type Block struct {
-	Configurations []BlockConfiguration `json:"blockConfiguration,omitempty"`
-}
-
-type AgencyWithCoverage struct {
-	AgencyID *string  `json:"agencyId"`
-	Lat      *float64 `json:"lat"`
-	LatSpan  *float64 `json:"latSpan"`
-	Lon      *float64 `json:"lon"`
-	LonSpan  *float64 `json:"lonSpan"`
-}
-
-type Coverage struct {
-	AgencyID *string  `json:"agencyId"`
-	Lat      *float64 `json:"lat"`
-	LatSpan  *float64 `json:"latSpan"`
-	Lon      *float64 `json:"lon"`
-	LonSpan  *float64 `json:"lonSpan"`
-}
-
-//Route object
-type Route struct {
-	AgencyID    *string `json:"agencyId"`
-	Color       *string `json:"color"`
-	Description *string `json:"description"`
-	ID          *string `json:"id,omitempty"`
-	LongName    *string `json:"longName"`
-	ShortName   *string `json:"shortName"`
-	TextColor   *string `json:"textColor"`
-	Type        *int    `json:"type"`
-	URL         *string `json:"url"`
-}
-
-func (r Route) String() string {
-	return fmt.Sprintf("AgencyID: %s\nColor: %s\nDescription: %s\nID: %s\nLongName: %s\nShortName: %s\nTextColor: %s\nType: %d\nURL: %s",
-		*r.AgencyID, *r.Color, *r.Description, *r.ID, *r.LongName, *r.ShortName, *r.TextColor, *r.Type, *r.URL)
-}
-
-type Situation struct {
-	ID                string           `json:"id"`
-	CreationTime      string           `json:"creationTime"`
-	EnvironmentReason string           `json:"environmentReason"`
-	Summary           []string         `json:"summary>value"`
-	Description       []string         `json:"description>value"`
-	Affects           []VehicleJourney `json:"vehicleJourneys>vehicleJourney"`
-	Consequences      []Consequence    `json:"consequences>consequence"`
-}
-
-type Consequence struct {
-	Condition                          string   `json:"condition"`
-	ConditionDetailDiversionPathPoints []string `json:"conditionDetails>diversionPath>points"`
-	ConditionDetailDiversionStopIDs    []string `json:"conditionDetails>diversionStopIds>string"`
-}
-
-type VehicleJourney struct {
-	LineID      string   `json:"lineId"`
-	Direction   string   `json:"direction"`
-	CallStopIDs []string `json:"calls>call>stopId"`
-}
-
-type Shape struct {
-	Points string `json:"points,omitempty"`
-	Length string `json:"length,omitempty"`
-}
-
-type Stop struct {
-	Code               *string   `json:"code"`
-	Direction          *string   `json:"direction"`
-	ID                 *string   `json:"id"`
-	Lat                *float64  `json:"lat"`
-	LocationType       *int      `json:"locationType"`
-	Lon                *float64  `json:"lon"`
-	Name               *string   `json:"name"`
-	RouteIDs           []*string `json:"routeIds"`
-	WheelChairBoarding *string   `json:"wheelchairBoarding"`
-}
-
-type StopSchedule struct {
-	Date               *int                 `json:"date,omitempty"`
-	StopID             *string              `json:"stopId,omitempty"`
-	StopRouteSchedules []*StopRouteSchedule `json:"stopRouteSchedules,omitempty"`
-	TimeZone           *string              `json:"timeZone,omitempty"`
-	StopCalendarDays   []*StopCalendarDay   `json:"stopCalendarDays,omitempty"`
-}
-
-type StopCalendarDay struct {
-	Date  string `json:"date"`
-	Group string `json:"group"`
-}
-
-type StopRouteSchedule struct {
-	RouteID                     string                        `json:"routeId,omitempty"`
-	StopRouteDirectionSchedules []*StopRouteDirectionSchedule `json:"stopRouteDirectionSchedules,omitempty"`
-}
-
-type StopRouteDirectionSchedule struct {
-	ScheduleFrequencies []*ScheduleFrequency `json:"scheduleFrequencies"`
-	ScheduleStopTimes   []*ScheduleStopTime  `json:"scheduleStopTimes,omitempty"`
-	TripHeadsign        *string              `json:"tripHeadsign,omitempty"`
-}
-
-type ScheduleFrequency struct {
-	*Frequency
-}
-
-type StopsForRoute struct {
-	StopIDs        []*string `json:"stopIds,omitempty"`
-	*StopGroupings `json:"stopGroupings>stopGrouping,omitempty"`
-}
-type StopGroupings []*StopGrouping
-
-type StopGrouping struct {
-	Type       string      `json:"type,omitempty"`
-	Ordered    string      `json:"ordered,omitempty"`
-	StopGroups []StopGroup `json:"stopGroups>stopGroup,omitempty"`
-}
-
-type StopGroup struct {
-	ID        string             `json:"id,omitempty"`
-	NameType  string             `json:"type,omitempty"`
-	Names     []string           `json:"names,omitempty"`
-	StopIDs   []*string          `json:"stopIds,omitempty"`
-	PolyLines []*EncodedPolyLine `json:"polylines,omitempty"`
-}
-
-type EncodedPolyLine struct {
-	*Shape
-}
-
-type ScheduleStopTime struct {
-	ArrivalEnabled   *bool   `json:"arrivalEnabled,omitempty"`
-	ArrivalTime      *int    `json:"arrivalTime,omitempty"`
-	DepartureEnabled *bool   `json:"departureEnabled,omitempty"`
-	DepartureTime    *int    `json:"departureTime,omitempty"`
-	ServiceID        *string `json:"serviceId,omitempty"`
-	StopHeadsign     *string `json:"stopHeadsign,omitempty"`
-	TripID           *string `json:"tripId,omitempty"`
-}
-
-type Trip struct {
-	BlockID        *string `json:"blockId"`
-	DirectionID    *string `json:"directionId"`
-	ID             *string `json:"id"`
-	RouteID        *string `json:"routeId"`
-	RouteShortName *string `json:"routeShortName"`
-	ServiceID      *string `json:"serviceId"`
-	ShapeID        *string `json:"shapeId"`
-	TimeZone       *string `json:"timeZone"`
-	TripHeadsign   *string `json:"tripHeadsign"`
-	TripShortName  *string `json:"tripShortName"`
-}
-
-type TripDetails struct {
-	TripID       string   `json:"tripId,omitempty"`
-	ServiceDate  string   `json:"serviceDate,omitempty"`
-	Frequency    string   `json:"frequency,omitempty"`
-	Status       string   `json:"status,omitempty"`
-	SituationIDs []string `json:"situationIds,omitempty"`
-}
-
-type TripStatus struct {
-	ActiveTripID               *string   `json:"activeTripId"`
-	BlockTripSequence          *int      `json:"blockTripSequence"`
-	ClosestStop                *string   `json:"closestStop"`
-	ClosestStopTimeOffset      *int      `json:"closestStopTimeOffset"`
-	DistanceAlongTrip          *float64  `json:"distanceAlongTrip"`
-	Frequency                  *string   `json:"frequency"`
-	LastKnownDistanceAlongTrip *int      `json:"lastKnownDistanceAlongTrip"`
-	LastKnownLocation          *Location `json:"lastKnownLocation"`
-	LastKnownOrientation       *int      `json:"lastKnownOrientation"`
-	LastLocationUpdateTime     *int      `json:"lastLocationUpdateTime"`
-	LastUpdateTime             *int      `json:"lastUpdateTime"`
-	NextStop                   *string   `json:"nextStop"`
-	NextStopTimeOffset         *int      `json:"nextStopTimeOffset"`
-	Orientation                *float64  `json:"orientation"`
-	Phase                      *string   `json:"phase"`
-	Position                   *Location `json:"position"`
-	Predicted                  *bool     `json:"predicted"`
-	ScheduleDeviation          *int      `json:"scheduleDeviation"`
-	ScheduledDistanceAlongTrip *float64  `json:"scheduledDistanceAlongTrip"`
-	ServiceDate                *int      `json:"serviceDate"`
-	SituationIDs               []*string `json:"situationIds"`
-	Status                     *string   `json:"status"`
-	TotalDistanceAlongTrip     *float64  `json:"totalDistanceAlongTrip"`
-	VehicleID                  *string   `json:"vehicleId"`
-}
-
-type Location struct {
-	Lat *float64 `json:"lat,omitempty"`
-	Lon *float64 `json:"lon,omitempty"`
-}
-
-type StopWithArrivalsAndDepartures struct {
-	StopID                string                `json:"stopId,omitempty"`
-	ArrivalsAndDepartures []ArrivalAndDeparture `json:"arrivalsAndDepartures,omitempty"`
-	NearByStopIDs         []*string             `json:"nearbyStopIds,omitempty"`
-}
-
 const (
 	jsonPostFix                                       = ".json"
 	agencyEndPoint                                    = "agency/"
@@ -473,6 +23,7 @@ const (
 	cancelAlarmEndPoint                               = "cancel_alarm/"
 	currentTimeEndPoint                               = "current-time"
 	registerAlarmForArrivalAndDepartureAtStopEndPoint = "register-alarm-for-arrival-and-departure-at-stop/"
+	reportPoblemWithStopEndPoint                      = "report-problem-with-stop/"
 	reportPoblemWithTripEndPoint                      = "report-problem-with-trip/"
 	routeForAgencyEndPoint                            = "routes-for-agency/"
 	routeForLocationEndPoint                          = "routes-for-location"
@@ -485,7 +36,7 @@ const (
 	tripsForLocationEndPoint                          = "trips-for-location"
 	tripsForRouteEndPoint                             = "trips-for-route/"
 	vehiclesForAgencyEndPoint                         = "vehicles-for-agency/"
-	//routeIdsForAgencyEndPoint                         = "route-ids-for-agency/"
+	routeIdsForAgencyEndPoint                         = "route-ids-for-agency/"
 )
 
 type DefaultClient struct {
@@ -551,8 +102,30 @@ func (c *DefaultClient) SetApiKey(a string) {
 // lat and lon - 			indicates the center of the agency’s coverage area
 // latSpan and lonSpan - 	indicate the height (lat) and width (lon) of the
 // 							coverage bounding box for the agency.
-func (c DefaultClient) AgenciesWithCoverage() (*Data, error) {
-	return c.getData(agencyWithCoverageEndPoint, "Agencies with Coverage", nil)
+func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
+	retrieved, err := c.getData(agencyWithCoverageEndPoint, "Agencies with Coverage", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	ras := make(map[string]Agency)
+	for _, ag := range retrieved.References.Agencies {
+		ras[ag.ID] = *ag.AgencyFromEntry()
+	}
+
+	results := make([]AgencyWithCoverage, 0)
+	for _, awc := range *retrieved.List {
+		if a, ok := ras[awc.AgencyID]; ok {
+			results = append(results, AgencyWithCoverage{
+				Agency:  a,
+				Lat:     awc.Lat,
+				LatSpan: awc.LatSpan,
+				Lon:     awc.Lon,
+				LonSpan: awc.LonSpan,
+			})
+		}
+	}
+	return results, nil
 }
 
 //Agency - 		get details for a specific agency
@@ -593,8 +166,25 @@ func (c DefaultClient) AgenciesWithCoverage() (*Data, error) {
 // for the <agency/> element.
 //
 
-func (c DefaultClient) Agency(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
+func (c DefaultClient) Agency(id string) (*Agency, error) {
+
+	retrieved, err := c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
+	if err != nil {
+		return nil, err
+	}
+	agency := &Agency{
+		Disclaimer:     retrieved.Disclaimer,
+		Email:          retrieved.Email,
+		FareURL:        retrieved.FareURL,
+		ID:             retrieved.ID,
+		Lang:           retrieved.Lang,
+		Name:           retrieved.Name,
+		URL:            retrieved.URL,
+		Phone:          retrieved.Phone,
+		PrivateService: retrieved.PrivateService,
+		TimeZone:       retrieved.TimeZone,
+	}
+	return agency, nil
 }
 
 //ArrivalAndDepartureForStop - 	details about a specific arrival/departure at a
@@ -647,8 +237,46 @@ func (c DefaultClient) Agency(id string) (*Entry, error) {
 // Response
 // The method returns an <arrivalAndDeparture/> element as its content.
 //
-func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]string) (*Data, error) {
-	return c.getData(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
+func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]string) (*ArrivalAndDeparture, error) {
+	data, err := c.getData(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
+	if err != nil {
+		return nil, err
+	}
+
+	//TODO: no examples for what comes back as data.References
+	entry := data.Entry
+	aad := &ArrivalAndDeparture{
+		ArrivalEnabled:               entry.ArrivalEnabled,
+		BlockTripSequence:            entry.BlockTripSequence,
+		DepartureEnabled:             entry.DepartureEnabled,
+		DistanceFromStop:             entry.DistanceFromStop,
+		Frequency:                    entry.Frequency,
+		LastUpdateTime:               entry.LastUpdateTime,
+		NumberOfStopsAway:            entry.NumberOfStopsAway,
+		Predicted:                    entry.Predicted,
+		PredictedArrivalInterval:     entry.PredictedArrivalInterval,
+		PredictedArrivalTime:         entry.PredictedArrivalTime,
+		PredictedDepartureInterval:   entry.PredictedDepartureInterval,
+		PredictedDepartureTime:       entry.PredictedDepartureTime,
+		RouteID:                      entry.RouteID,
+		RouteShortName:               entry.RouteShortName,
+		RouteLongName:                entry.RouteLongName,
+		ScheduledArrivalInterval:     entry.ScheduledArrivalInterval,
+		ScheduledArrivalTime:         entry.ScheduledArrivalTime,
+		ScheduledDepartureInterval:   entry.ScheduledDepartureInterval,
+		ScheduledDepartureTime:       entry.ScheduledDepartureTime,
+		ScheduleDeviationHistogramID: entry.ScheduleDeviationHistogramID,
+		ServiceDate:                  entry.ServiceDate,
+		SituationIDs:                 entry.SituationIDs,
+		Status:                       entry.Status,
+		StopID:                       entry.StopID,
+		StopSequence:                 entry.StopSequence,
+		TripID:                       entry.TripID,
+		TripHeadSign:                 entry.TripHeadSign,
+		TripStatus:                   entry.TripStatusFromEntry(),
+		VehicleID:                    entry.VehicleID,
+	}
+	return aad, nil
 }
 
 //ArrivalsAndDeparturesForStop - 	get current arrivals and departures for a stop
@@ -701,8 +329,23 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 // The nearby stop list is designed to capture stops that are very close by
 // (like across the street) for quick navigation.
 //
-func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (*Data, error) {
-	return c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
+func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (*StopWithArrivalsAndDepartures, error) {
+	data, err := c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
+	if err != nil {
+		return nil, err
+	}
+
+	entry := data.Entry
+	aads := make([]ArrivalAndDeparture, 0)
+	for _, aad := range entry.ArrivalsAndDepartures {
+		aads = append(aads, *aad.ArrivalAndDepartureFromEntry())
+	}
+	swaad := &StopWithArrivalsAndDepartures{
+		StopID:                entry.StopID,
+		ArrivalsAndDepartures: aads,
+		NearByStopIDs:         entry.NearbyStopIds,
+	}
+	return swaad, nil
 }
 
 //Block - 	get block configuration for a specific block
@@ -738,8 +381,12 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 // See details about the various properties of the <blockConfiguration/> element.
 //
 
-func (c DefaultClient) Block(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(blockEndPoint, id), "Block")
+func (c DefaultClient) Block(id string) (*Block, error) {
+	entry, err := c.getEntry(fmt.Sprint(blockEndPoint, id), "Block")
+	if err != nil {
+		return nil, err
+	}
+	return entry.BlockFromEntry(), nil
 }
 
 //CancelAlarm -	cancel a registered alarm
@@ -803,13 +450,12 @@ func (c DefaultClient) CancelAlarm(id string) error {
 // readableTime - 	current system time in ISO 8601 format
 //
 
-func (c DefaultClient) CurrentTime() (*Time, error) {
-	u := c.buildRequestURL(currentTimeEndPoint, nil)
-	response, err := requestAndHandle(u, "Failed to get Current Time: ")
+func (c DefaultClient) CurrentTime() (*CurrentTime, error) {
+	entry, err := c.getEntry(currentTimeEndPoint, "CurrentTime")
 	if err != nil {
-		return &Time{}, err
+		return nil, err
 	}
-	return response.Data.Time, nil
+	return entry.CurrentTimeFromEntry(), nil
 }
 
 //RegisterAlarmForArrivalAndDepartureAtStop -	register an alarm for an
@@ -883,15 +529,21 @@ func (c DefaultClient) CurrentTime() (*Time, error) {
 // Also see the cancel-alarm API method, which also accepts the alarm id as an
 // argument.
 //
-// TODO
-//func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (*RegisteredAlarm, error) {
-//	u := c.buildRequestURL(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), params)
-//	response, err := requestAndHandle(u, "Failed to Register Alarm for Arrival and Departure at Stop: ")
-//	if err != nil {
-//		return nil, err
-//	}
-//	return &response.Data.Entry.RegisteredAlarm, nil
-//}
+
+func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (*RegisteredAlarm, error) {
+	entry, err := c.getEntry(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), "RegisterAlarmForArrivalAndDepartureAtStop")
+	if err != nil {
+		return nil, err
+	}
+	return entry.RegisteredAlarmFromEntry(), nil
+}
+
+// ReportProblemWithStop - submit a user-generated problem for a stop
+// This is an assumption
+func (c DefaultClient) ReportProblemWithStop(id string, params map[string]string) error {
+	_, err := c.getResponse(fmt.Sprint(reportPoblemWithStopEndPoint, id), params)
+	return err
+}
 
 //ReportProblemWithTrip -	submit a user-generated problem for a trip
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/report-problem-with-trip.html
@@ -953,8 +605,7 @@ func (c DefaultClient) CurrentTime() (*Time, error) {
 // point in the future.
 //
 func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string) error {
-	u := c.buildRequestURL(reportPoblemWithTripEndPoint, params)
-	_, err := requestAndHandle(u, "Failed to Report Problem with Trip: ")
+	_, err := c.getResponse(fmt.Sprint(reportPoblemWithTripEndPoint, id), params)
 	return err
 }
 
@@ -995,14 +646,17 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 // in the <references/> section, since there are potentially a large number of
 // routes for an agency.
 //
-// TODO
-//func (c DefaultClient) RouteIdsForAgency(id string) ([]*string, error) {
-//	u := c.buildRequestURL(fmt.Sprint(reportPoblemWithTripEndPoint, id), nil)
-//	response, err := requestAndHandle(u, "Failed to get Route IDs for Agency: ")
+// TODO: this is broken because some asshat went against the existing data.list format
+//func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
+//	data, err := c.getData(fmt.Sprint(routeIdsForAgencyEndPoint, id), "RouteIdsForAgency", nil)
 //	if err != nil {
 //		return nil, err
 //	}
-//	return response.Data.List.Strings, nil
+//	routes := make([]string, 0)
+//	for _, ent := range *data.List {
+//		routes = append(routes, ent)
+//	}
+//	return routes, nil
 //}
 
 //Route - 	get details for a specific route
@@ -1053,8 +707,34 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 // See details about the various properties of the <route/> element.
 //
 
-func (c DefaultClient) Route(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(routeEndPoint, id), "Route")
+func (c DefaultClient) Route(id string) (*Route, error) {
+	data, err := c.getData(fmt.Sprint(routeEndPoint, id), "Route", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	entry := data.Entry
+	agency := func(id string) *Agency {
+		for _, a := range data.References.Agencies {
+			if a.ID == id {
+				return a.AgencyFromEntry()
+			}
+		}
+		return nil
+	}(entry.AgencyID)
+
+	route := &Route{
+		Agency:      *agency,
+		Color:       entry.Color,
+		Description: entry.Description,
+		ID:          entry.Description,
+		LongName:    entry.LongName,
+		ShortName:   entry.ShortName,
+		TextColor:   entry.TextColor,
+		Type:        entry.Type,
+		URL:         entry.URL,
+	}
+	return route, nil
 }
 
 //RoutesForAgency - 	get a list of all routes for an agency
@@ -1097,15 +777,16 @@ func (c DefaultClient) Route(id string) (*Entry, error) {
 // Returns a list of all route ids for routes served by the specified agency.
 // See the full description for the <route/> element.
 //
-// TODO
-//func (c DefaultClient) RoutesForAgency(id string) ([]*Route, error) {
-//	u := c.buildRequestURL(fmt.Sprint(routeForAgencyEndPoint, id), nil)
-//	response, err := requestAndHandle(u, "Failed to get Routes for Agency: ")
-//	if err != nil {
-//		return []*Route{}, err
-//	}
-//	return response.Data.List.Routes, nil
-//}
+
+func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
+	data, err := c.getData(fmt.Sprint(routeForAgencyEndPoint, id), "RoutesForAgency", nil)
+	if err != nil {
+		return nil, err
+	}
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.List.toRoutes(agencies)
+	return routes, nil
+}
 
 //RoutesForLocation -	search for routes near a location, optionally by route name
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/routes-for-location.html
@@ -1150,8 +831,14 @@ func (c DefaultClient) Route(id string) (*Entry, error) {
 // documentation on controlling the number of elements returned and interpreting
 // the results. The list contents are <route/> elements.
 //
-func (c DefaultClient) RoutesForLocation(params map[string]string) (*Data, error) {
-	return c.getData(routeForLocationEndPoint, "Routes for Location", params)
+func (c DefaultClient) RoutesForLocation(params map[string]string) ([]Route, error) {
+	data, err := c.getData(routeForLocationEndPoint, "Routes for Location", params)
+	if err != nil {
+		return nil, err
+	}
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	return routes, nil
 }
 
 //ScheduleForStop - 	get the full schedule for a stop on a particular day
@@ -1256,8 +943,20 @@ func (c DefaultClient) RoutesForLocation(params map[string]string) (*Data, error
 // 				the <stop/> element in the <references/> section
 // timeZone - 	the time-zone the stop is located in
 //
-func (c DefaultClient) ScheduleForStop(id string) (*Data, error) {
-	return c.getData(fmt.Sprint(scheduleForStopEndPoint, id), "Schedule for Stop", nil)
+func (c DefaultClient) ScheduleForStop(id string) (*StopSchedule, error) {
+	data, err := c.getData(fmt.Sprint(scheduleForStopEndPoint, id), "Schedule for Stop", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	stops := data.References.Stops.toStops(routes)
+
+	ss := data.Entry.StopScheduleFromEntry(stops)
+	ss.StopRouteSchedules = data.Entry.StopRouteSchedules.toStopRouteSchedules(routes)
+
+	return ss, nil
 }
 
 //Shape -	get details for a specific shape (polyline drawn on a map)
@@ -1395,8 +1094,31 @@ func (c DefaultClient) Shape(id string) (*Entry, error) {
 // See details about the various properties of the <stop/> element.
 //
 
-func (c DefaultClient) Stop(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(stopEndPoint, id), "Stop")
+func (c DefaultClient) Stop(id string) (*Stop, error) {
+	data, err := c.getData(fmt.Sprint(stopEndPoint, id), "Stop", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	agencies := make(map[string]Agency)
+	for _, a := range data.References.Agencies {
+		agency := *a.AgencyFromEntry()
+		agencies[agency.ID] = agency
+	}
+
+	routes := make([]Route, 0, len(data.References.Routes))
+	for _, r := range data.References.Routes {
+		route := *r.RouteFromEntry()
+		if a, ok := agencies[r.AgencyID]; ok {
+			route.Agency = a
+		}
+		routes = append(routes, route)
+	}
+
+	stop := data.Entry.StopFromEntry()
+	stop.Routes = routes
+
+	return stop, nil
 }
 
 //StopsForLocation - 	search for stops near a location, optionally by stop code
@@ -1443,8 +1165,17 @@ func (c DefaultClient) Stop(id string) (*Entry, error) {
 // the results. The list contents are <stop/> elements, so see details about the
 // various properties of the <stop/> element.
 //
-func (c DefaultClient) StopsForLocation(params map[string]string) (*Data, error) {
-	return c.getData(stopsForLocationEndPoint, "Stops for Location", params)
+func (c DefaultClient) StopsForLocation(params map[string]string) ([]Stop, error) {
+	data, err := c.getData(stopsForLocationEndPoint, "Stops for Location", params)
+	if err != nil {
+		return nil, err
+	}
+
+	stops := make([]Stop, 0, len(*data.List))
+	for _, ent := range *data.List {
+		stops = append(stops, *ent.StopFromEntry())
+	}
+	return stops, nil
 }
 
 //StopsForRoute - 	get the set of stops and paths of travel for a particular route
@@ -1814,22 +1545,31 @@ func (c DefaultClient) VehiclesForAgency(id string) (*Data, error) {
 	return c.getData(fmt.Sprint(vehiclesForAgencyEndPoint, id), "Vehicles for Agency", nil)
 }
 
+func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (*Data, error) {
+	u := c.buildRequestURL(fmt.Sprint(requestString, jsonPostFix), params)
+	response, err := requestAndHandle(u, fmt.Sprintf("failed to get %s: ", errMessage))
+	if err != nil {
+		return nil, err
+	}
+	return response.Data, nil
+}
+
 func (c DefaultClient) getEntry(requestString, requestType string) (*Entry, error) {
 	u := c.buildRequestURL(requestString+jsonPostFix, nil)
-	response, err := requestAndHandle(u, fmt.Sprintf("Failed to get %s: ", requestType))
+	response, err := requestAndHandle(u, fmt.Sprintf("failed to get %s: ", requestType))
 	if err != nil {
 		return nil, err
 	}
 	return response.Data.Entry, nil
 }
 
-func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (*Data, error) {
+func (c DefaultClient) getResponse(requestString string, params map[string]string) (*Response, error) {
 	u := c.buildRequestURL(fmt.Sprint(requestString, jsonPostFix), params)
-	response, err := requestAndHandle(u, fmt.Sprintf("Failed to get %s: ", errMessage))
+	response, err := requestAndHandle(u, "")
 	if err != nil {
 		return nil, err
 	}
-	return response.Data, nil
+	return response, nil
 }
 
 func (c DefaultClient) buildRequestURL(endpoint string, params map[string]string) string {
