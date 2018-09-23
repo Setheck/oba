@@ -92,18 +92,34 @@ func (l List) toAgencies() []Agency {
 	return agencies
 }
 
-func (l List) toRoutes(a []Agency) []Route {
-	var agencies map[string]Agency
-	routes := make([]Route, 0, len(l))
-	if a != nil {
-		agencies = make(map[string]Agency)
-		for _, agency := range a {
-			agencies[agency.ID] = agency
+func (l List) toAgenciesWithCoverage(agencies []Agency) []AgencyWithCoverage {
+	agmap := make(map[string]Agency)
+	for _, a := range agencies {
+		agmap[a.ID] = a
+	}
+
+	awcs := make([]AgencyWithCoverage, 0, len(l))
+	for _, entry := range l {
+		if v, ok := agmap[entry.AgencyID]; ok {
+			awc := *entry.AgencyWithCoverageFromEntry(v)
+			awcs = append(awcs, awc)
 		}
 	}
+	return awcs
+}
+
+func (l List) toArrivalAndDepartures() []ArrivalAndDeparture {
+	aads := make([]ArrivalAndDeparture, 0)
 	for _, entry := range l {
-		route := *entry.RouteFromEntry()
-		route.Agency = agencies[entry.AgencyID]
+		aads = append(aads, *entry.ArrivalAndDepartureFromEntry())
+	}
+	return aads
+}
+
+func (l List) toRoutes(a []Agency) []Route {
+	routes := make([]Route, 0, len(l))
+	for _, entry := range l {
+		route := *entry.RouteFromEntry(a)
 		routes = append(routes, route)
 	}
 	return routes
@@ -275,6 +291,16 @@ func (e Entry) AgencyFromEntry() *Agency {
 	}
 }
 
+func (e Entry) AgencyWithCoverageFromEntry(a Agency) *AgencyWithCoverage {
+	return &AgencyWithCoverage{
+		Agency:  a,
+		Lat:     e.Lat,
+		LatSpan: e.LatSpan,
+		Lon:     e.Lon,
+		LonSpan: e.LonSpan,
+	}
+}
+
 func (e Entry) ArrivalAndDepartureFromEntry() *ArrivalAndDeparture {
 	return &ArrivalAndDeparture{
 		ArrivalEnabled:               e.ArrivalEnabled,
@@ -384,8 +410,16 @@ func (e Entry) RegisteredAlarmFromEntry() *RegisteredAlarm {
 	}
 }
 
-func (e Entry) RouteFromEntry() *Route {
+func (e Entry) RouteFromEntry(agencies []Agency) *Route {
+	var agency Agency
+	for _, a := range agencies {
+		if e.AgencyID == a.ID {
+			agency = a
+		}
+	}
+
 	return &Route{
+		Agency:      agency,
 		Color:       e.Color,
 		Description: e.Description,
 		ID:          e.ID,
@@ -439,6 +473,14 @@ func (e Entry) StopFromEntry() *Stop {
 		Lon:                e.Lon,
 		Name:               e.Name,
 		WheelChairBoarding: e.WheelChairBoarding,
+	}
+}
+
+func (e Entry) StopWithArrivalsAndDeparturesFromEntry(a ArrivalsAndDepartures) *StopWithArrivalsAndDepartures {
+	return &StopWithArrivalsAndDepartures{
+		StopID:                e.StopID,
+		ArrivalsAndDepartures: a,
+		NearByStopIDs:         e.NearbyStopIds,
 	}
 }
 

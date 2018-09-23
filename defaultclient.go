@@ -103,29 +103,15 @@ func (c *DefaultClient) SetApiKey(a string) {
 // latSpan and lonSpan - 	indicate the height (lat) and width (lon) of the
 // 							coverage bounding box for the agency.
 func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
-	retrieved, err := c.getData(agencyWithCoverageEndPoint, "Agencies with Coverage", nil)
+	data, err := c.getData(agencyWithCoverageEndPoint, "Agencies with Coverage", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	ras := make(map[string]Agency)
-	for _, ag := range retrieved.References.Agencies {
-		ras[ag.ID] = *ag.AgencyFromEntry()
-	}
+	agencies := data.References.Agencies.toAgencies()
+	awcs := data.List.toAgenciesWithCoverage(agencies)
 
-	results := make([]AgencyWithCoverage, 0)
-	for _, awc := range *retrieved.List {
-		if a, ok := ras[awc.AgencyID]; ok {
-			results = append(results, AgencyWithCoverage{
-				Agency:  a,
-				Lat:     awc.Lat,
-				LatSpan: awc.LatSpan,
-				Lon:     awc.Lon,
-				LonSpan: awc.LonSpan,
-			})
-		}
-	}
-	return results, nil
+	return awcs, nil
 }
 
 //Agency - 		get details for a specific agency
@@ -168,22 +154,13 @@ func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
 
 func (c DefaultClient) Agency(id string) (*Agency, error) {
 
-	retrieved, err := c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency")
+	entry, err := c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency", nil)
 	if err != nil {
 		return nil, err
 	}
-	agency := &Agency{
-		Disclaimer:     retrieved.Disclaimer,
-		Email:          retrieved.Email,
-		FareURL:        retrieved.FareURL,
-		ID:             retrieved.ID,
-		Lang:           retrieved.Lang,
-		Name:           retrieved.Name,
-		URL:            retrieved.URL,
-		Phone:          retrieved.Phone,
-		PrivateService: retrieved.PrivateService,
-		TimeZone:       retrieved.TimeZone,
-	}
+
+	agency := entry.AgencyFromEntry()
+
 	return agency, nil
 }
 
@@ -238,44 +215,13 @@ func (c DefaultClient) Agency(id string) (*Agency, error) {
 // The method returns an <arrivalAndDeparture/> element as its content.
 //
 func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]string) (*ArrivalAndDeparture, error) {
-	data, err := c.getData(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
+	entry, err := c.getEntry(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
 	if err != nil {
 		return nil, err
 	}
 
-	//TODO: no examples for what comes back as data.References
-	entry := data.Entry
-	aad := &ArrivalAndDeparture{
-		ArrivalEnabled:               entry.ArrivalEnabled,
-		BlockTripSequence:            entry.BlockTripSequence,
-		DepartureEnabled:             entry.DepartureEnabled,
-		DistanceFromStop:             entry.DistanceFromStop,
-		Frequency:                    entry.Frequency,
-		LastUpdateTime:               entry.LastUpdateTime,
-		NumberOfStopsAway:            entry.NumberOfStopsAway,
-		Predicted:                    entry.Predicted,
-		PredictedArrivalInterval:     entry.PredictedArrivalInterval,
-		PredictedArrivalTime:         entry.PredictedArrivalTime,
-		PredictedDepartureInterval:   entry.PredictedDepartureInterval,
-		PredictedDepartureTime:       entry.PredictedDepartureTime,
-		RouteID:                      entry.RouteID,
-		RouteShortName:               entry.RouteShortName,
-		RouteLongName:                entry.RouteLongName,
-		ScheduledArrivalInterval:     entry.ScheduledArrivalInterval,
-		ScheduledArrivalTime:         entry.ScheduledArrivalTime,
-		ScheduledDepartureInterval:   entry.ScheduledDepartureInterval,
-		ScheduledDepartureTime:       entry.ScheduledDepartureTime,
-		ScheduleDeviationHistogramID: entry.ScheduleDeviationHistogramID,
-		ServiceDate:                  entry.ServiceDate,
-		SituationIDs:                 entry.SituationIDs,
-		Status:                       entry.Status,
-		StopID:                       entry.StopID,
-		StopSequence:                 entry.StopSequence,
-		TripID:                       entry.TripID,
-		TripHeadSign:                 entry.TripHeadSign,
-		TripStatus:                   entry.TripStatusFromEntry(),
-		VehicleID:                    entry.VehicleID,
-	}
+	aad := entry.ArrivalAndDepartureFromEntry()
+
 	return aad, nil
 }
 
@@ -330,21 +276,14 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 // (like across the street) for quick navigation.
 //
 func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (*StopWithArrivalsAndDepartures, error) {
-	data, err := c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
+	entry, err := c.getEntry(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
 	if err != nil {
 		return nil, err
 	}
 
-	entry := data.Entry
-	aads := make([]ArrivalAndDeparture, 0)
-	for _, aad := range entry.ArrivalsAndDepartures {
-		aads = append(aads, *aad.ArrivalAndDepartureFromEntry())
-	}
-	swaad := &StopWithArrivalsAndDepartures{
-		StopID:                entry.StopID,
-		ArrivalsAndDepartures: aads,
-		NearByStopIDs:         entry.NearbyStopIds,
-	}
+	aads := entry.ArrivalsAndDepartures.toArrivalAndDepartures()
+	swaad := entry.StopWithArrivalsAndDeparturesFromEntry(aads)
+
 	return swaad, nil
 }
 
@@ -382,11 +321,12 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 //
 
 func (c DefaultClient) Block(id string) (*Block, error) {
-	entry, err := c.getEntry(fmt.Sprint(blockEndPoint, id), "Block")
+	entry, err := c.getEntry(fmt.Sprint(blockEndPoint, id), "Block", nil)
 	if err != nil {
 		return nil, err
 	}
-	return entry.BlockFromEntry(), nil
+	block := entry.BlockFromEntry()
+	return block, nil
 }
 
 //CancelAlarm -	cancel a registered alarm
@@ -451,11 +391,12 @@ func (c DefaultClient) CancelAlarm(id string) error {
 //
 
 func (c DefaultClient) CurrentTime() (*CurrentTime, error) {
-	entry, err := c.getEntry(currentTimeEndPoint, "CurrentTime")
+	entry, err := c.getEntry(currentTimeEndPoint, "CurrentTime", nil)
 	if err != nil {
 		return nil, err
 	}
-	return entry.CurrentTimeFromEntry(), nil
+	ct := entry.CurrentTimeFromEntry()
+	return ct, nil
 }
 
 //RegisterAlarmForArrivalAndDepartureAtStop -	register an alarm for an
@@ -531,17 +472,20 @@ func (c DefaultClient) CurrentTime() (*CurrentTime, error) {
 //
 
 func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, params map[string]string) (*RegisteredAlarm, error) {
-	entry, err := c.getEntry(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id), "RegisterAlarmForArrivalAndDepartureAtStop")
+	entry, err := c.getEntry(fmt.Sprint(registerAlarmForArrivalAndDepartureAtStopEndPoint, id),
+		"RegisterAlarmForArrivalAndDepartureAtStop",
+		params)
 	if err != nil {
 		return nil, err
 	}
-	return entry.RegisteredAlarmFromEntry(), nil
+	ra := entry.RegisteredAlarmFromEntry()
+	return ra, nil
 }
 
 // ReportProblemWithStop - submit a user-generated problem for a stop
 // This is an assumption
 func (c DefaultClient) ReportProblemWithStop(id string, params map[string]string) error {
-	_, err := c.getResponse(fmt.Sprint(reportPoblemWithStopEndPoint, id), params)
+	_, err := c.getResponse(fmt.Sprint(reportPoblemWithStopEndPoint, id), "ReportProblemWithStop", params)
 	return err
 }
 
@@ -605,7 +549,7 @@ func (c DefaultClient) ReportProblemWithStop(id string, params map[string]string
 // point in the future.
 //
 func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string) error {
-	_, err := c.getResponse(fmt.Sprint(reportPoblemWithTripEndPoint, id), params)
+	_, err := c.getResponse(fmt.Sprint(reportPoblemWithTripEndPoint, id), "ReportProblemWithTrip", params)
 	return err
 }
 
@@ -713,27 +657,9 @@ func (c DefaultClient) Route(id string) (*Route, error) {
 		return nil, err
 	}
 
-	entry := data.Entry
-	agency := func(id string) *Agency {
-		for _, a := range data.References.Agencies {
-			if a.ID == id {
-				return a.AgencyFromEntry()
-			}
-		}
-		return nil
-	}(entry.AgencyID)
+	agencies := data.References.Agencies.toAgencies()
+	route := data.Entry.RouteFromEntry(agencies)
 
-	route := &Route{
-		Agency:      *agency,
-		Color:       entry.Color,
-		Description: entry.Description,
-		ID:          entry.Description,
-		LongName:    entry.LongName,
-		ShortName:   entry.ShortName,
-		TextColor:   entry.TextColor,
-		Type:        entry.Type,
-		URL:         entry.URL,
-	}
 	return route, nil
 }
 
@@ -1003,7 +929,7 @@ func (c DefaultClient) ScheduleForStop(id string) (*StopSchedule, error) {
 //
 
 func (c DefaultClient) Shape(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape")
+	return c.getEntry(fmt.Sprint(shapeEndPoint, id), "Shape", nil)
 }
 
 //StipIDsForAgency - 	get a list of all stops for an agency
@@ -1100,21 +1026,8 @@ func (c DefaultClient) Stop(id string) (*Stop, error) {
 		return nil, err
 	}
 
-	agencies := make(map[string]Agency)
-	for _, a := range data.References.Agencies {
-		agency := *a.AgencyFromEntry()
-		agencies[agency.ID] = agency
-	}
-
-	routes := make([]Route, 0, len(data.References.Routes))
-	for _, r := range data.References.Routes {
-		route := *r.RouteFromEntry()
-		if a, ok := agencies[r.AgencyID]; ok {
-			route.Agency = a
-		}
-		routes = append(routes, route)
-	}
-
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
 	stop := data.Entry.StopFromEntry()
 	stop.Routes = routes
 
@@ -1171,10 +1084,10 @@ func (c DefaultClient) StopsForLocation(params map[string]string) ([]Stop, error
 		return nil, err
 	}
 
-	stops := make([]Stop, 0, len(*data.List))
-	for _, ent := range *data.List {
-		stops = append(stops, *ent.StopFromEntry())
-	}
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	stops := data.List.toStops(routes)
+
 	return stops, nil
 }
 
@@ -1245,7 +1158,7 @@ func (c DefaultClient) StopsForLocation(params map[string]string) ([]Stop, error
 //
 
 func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute")
+	return c.getEntry(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute", nil)
 }
 
 //TripDetails - 	get extended details for a specific trip
@@ -1301,7 +1214,7 @@ func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
 //
 
 func (c DefaultClient) TripDetails(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails")
+	return c.getEntry(fmt.Sprint(tripDetailsEndPoint, id), "TripDetails", nil)
 }
 
 //TripForVehicle - 	get extended trip details for current trip of a specific
@@ -1397,7 +1310,7 @@ func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*Dat
 // See details about the various properties of the <trip/> element.
 
 func (c DefaultClient) Trip(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip")
+	return c.getEntry(fmt.Sprint(tripEndPoint, id), "Trip", nil)
 }
 
 //TripsForLocation - 	get active trips near a location
@@ -1546,24 +1459,22 @@ func (c DefaultClient) VehiclesForAgency(id string) (*Data, error) {
 }
 
 func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (*Data, error) {
-	u := c.buildRequestURL(fmt.Sprint(requestString, jsonPostFix), params)
-	response, err := requestAndHandle(u, fmt.Sprintf("failed to get %s: ", errMessage))
+	response, err := c.getResponse(requestString, errMessage, params)
 	if err != nil {
 		return nil, err
 	}
 	return response.Data, nil
 }
 
-func (c DefaultClient) getEntry(requestString, requestType string) (*Entry, error) {
-	u := c.buildRequestURL(requestString+jsonPostFix, nil)
-	response, err := requestAndHandle(u, fmt.Sprintf("failed to get %s: ", requestType))
+func (c DefaultClient) getEntry(requestString, requestType string, params map[string]string) (*Entry, error) {
+	data, err := c.getData(requestString, requestType, params)
 	if err != nil {
 		return nil, err
 	}
-	return response.Data.Entry, nil
+	return data.Entry, nil
 }
 
-func (c DefaultClient) getResponse(requestString string, params map[string]string) (*Response, error) {
+func (c DefaultClient) getResponse(requestString string, errMessage string, params map[string]string) (*Response, error) {
 	u := c.buildRequestURL(fmt.Sprint(requestString, jsonPostFix), params)
 	response, err := requestAndHandle(u, "")
 	if err != nil {
