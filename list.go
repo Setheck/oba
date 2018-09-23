@@ -50,6 +50,14 @@ func (l List) toBlockStopTimes() []BlockStopTime {
 	return bsts
 }
 
+func (l List) toEncodedPolyLines() []EncodedPolyLine {
+	epls := make([]EncodedPolyLine, 0, len(l))
+	for _, entry := range l {
+		epls = append(epls, *entry.EncodedPolyLineFromEntry())
+	}
+	return epls
+}
+
 func (l List) toRoutes(a []Agency) []Route {
 	routes := make([]Route, 0, len(l))
 	for _, entry := range l {
@@ -128,10 +136,34 @@ func (l List) toScheduleStopTimes() []ScheduleStopTime {
 	return ssts
 }
 
+func (l List) toStopGroupings(ss []Stop) []StopGrouping {
+	sgs := make([]StopGrouping, 0, len(l))
+	for _, entry := range l {
+		sgs = append(sgs, *entry.StopGroupingFromEntry(ss))
+	}
+	return sgs
+}
+
+func (l List) toStopGroups(ss []Stop) []StopGroup {
+	sgs := make([]StopGroup, 0, len(l))
+	for _, entry := range l {
+		sgs = append(sgs, *entry.StopGroupFromEntry(ss))
+	}
+	return sgs
+}
+
 func (l List) toTrips() []Trip {
 	trips := make([]Trip, 0, len(l))
 	for _, entry := range l {
 		trips = append(trips, *entry.TripFromEntry())
 	}
 	return trips
+}
+
+func (l List) toTripDetails(ts []Trip, ss []Situation) []TripDetails {
+	tds := make([]TripDetails, 0, len(l))
+	for _, entry := range l {
+		tds = append(tds, *entry.TripDetailsFromEntry(ts, ss))
+	}
+	return tds
 }

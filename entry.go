@@ -48,20 +48,24 @@ type Entry struct {
 	Lat                          float64          `json:"lat,omitempty"`
 	LatSpan                      float64          `json:"latSpan,omitempty"`
 	Length                       int              `json:"length,omitempty"`
+	Levels                       string           `json:"levels,omitempty"`
 	LocationType                 int              `json:"locationType,omitempty"`
 	Lon                          float64          `json:"lon,omitempty"`
 	LongName                     string           `json:"longName,omitempty"`
 	LonSpan                      float64          `json:"lonSpan,omitempty"`
 	Name                         string           `json:"name,omitempty"`
+	Names                        []string         `json:"names,omitempty"`
 	NearbyStopIds                []string         `json:"nearbyStopIds,omitempty"`
 	NextStop                     string           `json:"nextStop,omitempty"`
 	NextStopTimeOffset           int              `json:"nextStopTimeOffset,omitempty"`
 	NumberOfStopsAway            int              `json:"numberOfStopsAway,omitempty"`
 	Orientation                  float64          `json:"orientation,omitempty"`
+	Ordered                      *bool            `json:"ordered,omitempty"`
 	Phase                        string           `json:"phase,omitempty"`
 	Phone                        string           `json:"phone,omitempty"`
 	PickupType                   int              `json:"pickupType,omitempty"`
 	Points                       string           `json:"points,omitempty"`
+	PolyLines                    List             `json:"polylines,omitempty"`
 	Position                     Location         `json:"position"`
 	Predicted                    *bool            `json:"predicted,omitempty"`
 	PredictedArrivalInterval     int              `json:"predictedArrivalInterval,omitempty"`
@@ -92,7 +96,10 @@ type Entry struct {
 	Status                       string           `json:"status,omitempty"`
 	StopCalendarDays             List             `json:"stopCalendarDays,omitempty"`
 	StopHeadsign                 string           `json:"stopHeadsign,omitempty"`
+	StopGroupings                List             `json:"stopGroupings,omitempty"`
+	StopGroups                   List             `json:"stopGroups,omitempty"`
 	StopID                       string           `json:"stopId,omitempty"`
+	StopIDs                      []string         `json:"stopIds,omitempty"`
 	StopRouteSchedules           List             `json:"stopRouteSchedules,omitempty"`
 	StopRouteDirectionSchedules  List             `json:"stopRouteDirectionSchedules,omitempty"`
 	StopSequence                 int              `json:"stopSequence,omitempty"`
@@ -220,6 +227,14 @@ func (e Entry) CurrentTimeFromEntry() *CurrentTime {
 	}
 }
 
+func (e Entry) EncodedPolyLineFromEntry() *EncodedPolyLine {
+	return &EncodedPolyLine{
+		Length: e.Length,
+		Levels: e.Levels,
+		Points: e.Points,
+	}
+}
+
 func (e Entry) FrequencyFromEntry() *Frequency {
 	return &Frequency{
 		StartTime: e.StartTime,
@@ -331,6 +346,55 @@ func (e Entry) StopRouteDirectionScheduleFromEntry() *StopRouteDirectionSchedule
 
 func (e Entry) ScheduleFrequencyFromEntry() *ScheduleFrequency {
 	return &ScheduleFrequency{}
+}
+
+func (e Entry) StopsForRouteFromEntry(rs []Route, ss []Stop) *StopsForRoute {
+	var route Route
+	for _, r := range rs {
+		if e.RouteID == r.ID {
+			route = r
+		}
+	}
+	stops := make([]Stop, 0, len(ss))
+	for _, s := range ss {
+		for _, sid := range e.StopIDs {
+			if sid == s.ID {
+				stops = append(stops, s)
+			}
+		}
+	}
+	sgs := e.StopGroupings.toStopGroupings(ss)
+	return &StopsForRoute{
+		Route:         route,
+		Stops:         stops,
+		StopGroupings: sgs,
+	}
+}
+
+func (e Entry) StopGroupingFromEntry(ss []Stop) *StopGrouping {
+	return &StopGrouping{
+		Type:       e.Type,
+		Ordered:    e.Ordered,
+		StopGroups: e.StopGroups.toStopGroups(ss),
+	}
+}
+
+func (e Entry) StopGroupFromEntry(ss []Stop) *StopGroup {
+	stops := make([]Stop, 0, len(ss))
+	for _, sid := range e.StopIDs {
+		for _, s := range ss {
+			if sid == s.ID {
+				stops = append(stops, s)
+			}
+		}
+	}
+	return &StopGroup{
+		ID: e.ID,
+		// Names: e.Names,
+		// Type:e.Type, // TODO: This is a string now? what the fuck
+		Stops:     stops,
+		PolyLines: e.PolyLines.toEncodedPolyLines(),
+	}
 }
 
 func (e Entry) StopScheduleFromEntry(ss []Stop) *StopSchedule {

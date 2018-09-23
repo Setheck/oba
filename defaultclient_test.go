@@ -351,7 +351,18 @@ func TestDefaultClient_TripDetails(t *testing.T) {
 }
 
 func TestDefaultClient_TripForVehicle(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	td, e := client.TripForVehicle(TestID, TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyTripDetails(t, td)
 }
 
 func TestDefaultClient_Trip(t *testing.T) {

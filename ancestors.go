@@ -62,6 +62,20 @@ type Data struct {
 	//StopsForRoute *StopsForRoute
 }
 
+func (d Data) toTripDetails() []TripDetails {
+	ss := d.References.Situations.toSituations()
+	ts := d.References.Trips.toTrips()
+	tds := d.List.toTripDetails(ts, ss)
+	return tds
+}
+
+func (d Data) TripDetails() *TripDetails {
+	ss := d.References.Situations.toSituations()
+	ts := d.References.Trips.toTrips()
+	td := d.Entry.TripDetailsFromEntry(ts, ss)
+	return td
+}
+
 func (d Data) String() string {
 	return ""
 	// TODO:

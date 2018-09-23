@@ -235,27 +235,35 @@ type ScheduleFrequency struct {
 }
 
 type StopsForRoute struct {
-	StopIDs        []*string `json:"stopIds,omitempty"`
-	*StopGroupings `json:"stopGroupings>stopGrouping,omitempty"`
+	Route         Route
+	Stops         []Stop
+	StopGroupings []StopGrouping
 }
-type StopGroupings []*StopGrouping
 
 type StopGrouping struct {
-	Type       string      `json:"type,omitempty"`
-	Ordered    string      `json:"ordered,omitempty"`
+	Type       int
+	Ordered    *bool
 	StopGroups []StopGroup `json:"stopGroups>stopGroup,omitempty"`
 }
 
 type StopGroup struct {
-	ID        string             `json:"id,omitempty"`
-	NameType  string             `json:"type,omitempty"`
-	Names     []string           `json:"names,omitempty"`
-	StopIDs   []*string          `json:"stopIds,omitempty"`
-	PolyLines []*EncodedPolyLine `json:"polylines,omitempty"`
+	ID        string
+	Type      int
+	Names     []Name
+	Stops     []Stop
+	PolyLines []EncodedPolyLine
+}
+
+type Name struct {
+	Name  string
+	Names []string
+	Type  string
 }
 
 type EncodedPolyLine struct {
-	*Shape
+	Length int
+	Levels string
+	Points string
 }
 
 type ScheduleStopTime struct {

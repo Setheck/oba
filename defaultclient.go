@@ -1162,8 +1162,16 @@ func (c DefaultClient) StopsForLocation(params map[string]string) ([]Stop, error
 // Response
 //
 
-func (c DefaultClient) StopsForRoute(id string) (*Entry, error) {
-	return c.getEntry(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute", nil)
+func (c DefaultClient) StopsForRoute(id string) (*StopsForRoute, error) {
+	data, err := c.getData(fmt.Sprint(stopsForRouteEndPoint, id), "StopsForRoute", nil)
+	if err != nil {
+		return nil, err
+	}
+	as := data.References.Agencies.toAgencies()
+	rs := data.References.Routes.toRoutes(as)
+	ss := data.References.Stops.toStops(rs)
+	sfr := data.Entry.StopsForRouteFromEntry(rs, ss)
+	return sfr, nil
 }
 
 //TripDetails - 	get extended details for a specific trip
@@ -1223,9 +1231,7 @@ func (c DefaultClient) TripDetails(id string) (*TripDetails, error) {
 	if err != nil {
 		return nil, err
 	}
-	trips := data.References.Trips.toTrips()
-	situations := data.References.Situations.toSituations()
-	td := data.Entry.TripDetailsFromEntry(trips, situations)
+	td := data.TripDetails()
 	return td, nil
 }
 
@@ -1281,8 +1287,13 @@ func (c DefaultClient) TripDetails(id string) (*TripDetails, error) {
 // The response <entry/> element is a <tripDetails/> element that captures
 // extended details about a trip.
 
-func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*Data, error) {
-	return c.getData(fmt.Sprint(tripForVehicleEndPoint, id), "TripDetails for Vehicle", params)
+func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*TripDetails, error) {
+	data, err := c.getData(fmt.Sprint(tripForVehicleEndPoint, id), "TripDetails for Vehicle", params)
+	if err != nil {
+		return nil, err
+	}
+	td := data.TripDetails()
+	return td, nil
 }
 
 //Trip - 	get details for a specific trip
@@ -1378,8 +1389,13 @@ func (c DefaultClient) Trip(id string) (*Trip, error) {
 // arrival data to determine the position of transit vehicles when available,
 // otherwise we determine the location of vehicles from the static schedule.
 //
-func (c DefaultClient) TripsForLocation(params map[string]string) (*Data, error) {
-	return c.getData(tripsForLocationEndPoint, "TripDetails for Location", params)
+func (c DefaultClient) TripsForLocation(params map[string]string) ([]TripDetails, error) {
+	data, err := c.getData(tripsForLocationEndPoint, "TripDetails for Location", params)
+	if err != nil {
+		return nil, err
+	}
+	tds := data.toTripDetails()
+	return tds, nil
 }
 
 //TripsForRoute - 	get active trips for a route
@@ -1428,8 +1444,13 @@ func (c DefaultClient) TripsForLocation(params map[string]string) (*Data, error)
 // details about each active trip. The set of active trips includes any trip
 // that serves that specified route that is currently active.
 //
-func (c DefaultClient) TripsForRoute(id string) (*Data, error) {
-	return c.getData(fmt.Sprint(tripsForRouteEndPoint, id), "TripDetails for Route", nil)
+func (c DefaultClient) TripsForRoute(id string) ([]TripDetails, error) {
+	data, err := c.getData(fmt.Sprint(tripsForRouteEndPoint, id), "TripDetails for Route", nil)
+	if err != nil {
+		return nil, err
+	}
+	tds := data.toTripDetails()
+	return tds, nil
 }
 
 //VehiclesForAgency - 	get active vehicles for an agency
