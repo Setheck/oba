@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Setheck/oba"
+	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
@@ -87,4 +88,31 @@ func VerifyMarshalling(t *testing.T, data []byte) {
 
 func FixJSON(b []byte) []byte {
 	return bytes.Replace(b, []byte("\u0026"), []byte("&"), -1)
+}
+
+func VerifyAgency(t *testing.T, a *oba.Agency) {
+	t.Helper()
+	assert.NotNil(t, a, "Agency")
+	assert.NotEmpty(t, a.ID, "AgencyID")
+	assert.NotEmpty(t, a.Name, "AgencyName")
+	assert.NotEmpty(t, a.URL, "AgencyURL")
+	assert.NotEmpty(t, a.TimeZone, "AgencyTimeZone")
+	assert.NotNil(t, a.PrivateService, "AgencyPrivateService")
+	assert.NotEmpty(t, a.Phone, "AgencyPhone")
+	assert.NotEmpty(t, a.FareURL, "AgencyFareURL")
+	assert.NotEmpty(t, a.Lang, "AgencyLang")
+	assert.NotEmpty(t, a.Email, "AgencyEmail")
+	assert.NotEmpty(t, a.Disclaimer, "AgencyDisclaimer")
+}
+
+func VerifyRoute(t *testing.T, r *oba.Route) {
+	t.Helper()
+	assert.NotNil(t, r, "Route")
+	assert.NotEmpty(t, r.Color, "Color")
+	assert.NotEmpty(t, r.Description, "Description")
+	assert.NotEmpty(t, r.LongName, "LongName")
+	assert.NotEmpty(t, r.ShortName, "ShortName")
+	assert.NotEmpty(t, r.TextColor, "TextColor")
+	assert.NotZero(t, r.Type, "Type")
+	VerifyAgency(t, &r.Agency)
 }

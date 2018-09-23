@@ -64,30 +64,70 @@ func TestDefaultClient_Agency(t *testing.T) {
 }
 
 func TestDefaultClient_ArrivalAndDepartureForStop(t *testing.T) {
-	t.Skip("TODO")
-
 	contents := RetrieveTestJsonFileContent(t)
 	server := FakeServer(t, contents)
 	defer server.Close()
 
 	client := oba.NewDefaultClient(nil, TestApiKey)
 	client.SetBaseURL(server.URL)
-	//aads, e := client.ArrivalsAndDeparturesForStop(TestID, TestParameters)
-	//if e != nil {
-	//	t.Error(e)
-	//}
+	aad, e := client.ArrivalAndDepartureForStop(TestID, TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
 
-	//for aad := range aads {
-	//
-	//}
+	assert.NotZero(t, aad.BlockTripSequence, "BlockTripSequence")
+	assert.NotEmpty(t, aad.RouteID, "RouteID")
+	assert.NotEmpty(t, aad.TripID, "TripID")
+	assert.NotZero(t, aad.ServiceDate, "ServiceDate")
+	assert.NotEmpty(t, aad.StopID, "StopId")
+	assert.NotZero(t, aad.StopSequence, "StopSequence")
+	assert.NotEmpty(t, aad.RouteShortName, "RouteShortName")
+	assert.NotEmpty(t, aad.RouteLongName, "RouteLongName")
+	assert.NotEmpty(t, aad.TripHeadSign, "TripHeadSign")
+	assert.NotNil(t, aad.ArrivalEnabled, "ArrivalEnabled")
+	assert.NotNil(t, aad.DepartureEnabled, "DepartureEnabled")
+	assert.NotZero(t, aad.ScheduledArrivalTime, "ScheduledArrivalTime")
+	assert.NotZero(t, aad.Frequency, "Frequency")
+	assert.NotZero(t, aad.Predicted, "Predicted")
+	assert.NotZero(t, aad.PredictedArrivalTime, "PredictedArrivalTime")
+	assert.NotZero(t, aad.PredictedDepartureTime, "PredictedDepartureTime")
+	assert.NotZero(t, aad.DistanceFromStop, "DistanceFromStop")
+	assert.NotZero(t, aad.NumberOfStopsAway, "NumberOfStopsAway")
+	assert.NotNil(t, aad.TripStatus, "TripStatus")
 }
 
 func TestDefaultClient_ArrivalsAndDeparturesForStop(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	swaad, e := client.ArrivalsAndDeparturesForStop(TestID, TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
+
+	assert.NotEmpty(t, swaad.StopID, "StopID")
+	assert.NotEmpty(t, swaad.ArrivalsAndDepartures, "ArrivalsAndDepartures")
+	assert.NotEmpty(t, swaad.NearByStopIDs, "NearByStopIDs")
 }
 
 func TestDefaultClient_Block(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+
+	b, err := client.Block(TestID)
+	if err != nil {
+		t.Error(err)
+	}
+
+	assert.NotEmpty(t, b.ID, "ID")
+	assert.NotEmpty(t, b.Configurations, "Configurations")
 }
 
 func TestDefaultClient_CancelAlarm(t *testing.T) {
@@ -110,34 +150,102 @@ func TestDefaultClient_CurrentTime(t *testing.T) {
 
 	client := oba.NewDefaultClient(nil, TestApiKey)
 	client.SetBaseURL(server.URL)
-	_, e := client.CurrentTime()
+	time, e := client.CurrentTime()
+	if e != nil {
+		t.Error(e)
+	}
+
+	assert.NotEmpty(t, time.ReadableTime, "ReadableTime")
+	assert.NotZero(t, time.Time, "Time")
+}
+
+func TestDefaultClient_RegisterAlarmForArrivalAndDepartureAtStop(t *testing.T) {
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	alarm, e := client.RegisterAlarmForArrivalAndDepartureAtStop(TestID, TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
+
+	assert.NotEmpty(t, alarm.AlarmID)
+}
+
+func TestDefaultClient_ReportProblemWithStop(t *testing.T) {
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	e := client.ReportProblemWithStop(TestID, TestParameters)
 	if e != nil {
 		t.Error(e)
 	}
 }
 
-func TestDefaultClient_RegisterAlarmForArrivalAndDepartureAtStop(t *testing.T) {
-	t.Skip("TODO")
-}
-
-func TestDefaultClient_ReportProblemWithStop(t *testing.T) {
-	t.Skip("TODO")
-}
-
 func TestDefaultClient_ReportProblemWithTrip(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	e := client.ReportProblemWithTrip(TestID, TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
 }
 
 func TestDefaultClient_RouteIdsForAgency(t *testing.T) {
-	t.Skip("TODO")
+	t.Skip("TODO...")
+	//contents := RetrieveTestJsonFileContent(t)
+	//server := FakeServer(t, contents)
+	//defer server.Close()
+	//
+	//client := oba.NewDefaultClient(nil, TestApiKey)
+	//client.SetBaseURL(server.URL)
+	//routes, e := client.RouteIdsForAgency(TestID)
+	//if e != nil {
+	//	t.Error(e)
+	//}
+	//assert.NotEmpty(t, routes, "RouteIdsForAgency")
 }
 
 func TestDefaultClient_Route(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	r, e := client.Route(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyRoute(t, r)
 }
 
 func TestDefaultClient_RoutesForAgency(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	routes, e := client.RoutesForAgency(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	assert.NotEmpty(t, routes, "Routes")
+	for _, r := range routes {
+		VerifyRoute(t, &r)
+	}
 }
 
 func TestDefaultClient_RoutesForLocation(t *testing.T) {

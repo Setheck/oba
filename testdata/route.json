@@ -4,21 +4,21 @@
   "data": {
     "entry": {
       "agencyId": "1",
-      "color": "",
+      "color": "red",
       "description": "Ballard - Montlake",
       "id": "1_100224",
-      "longName": "",
+      "longName": "testlongname",
       "shortName": "44",
-      "textColor": "",
+      "textColor": "black",
       "type": 3,
       "url": "http://metro.kingcounty.gov/schedules/044/n0.html"
     },
     "references": {
       "agencies": [
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "testdisclaimer",
+          "email": "testemail",
+          "fareUrl": "testfakeurl",
           "id": "1",
           "lang": "EN",
           "name": "Metro Transit",
