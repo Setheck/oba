@@ -783,25 +783,8 @@ func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	agencies := make([]Agency, 0, len(data.References.Agencies))
-	for _, a := range data.References.Agencies {
-		agencies = append(agencies, *a.AgencyFromEntry())
-	}
-
-	routes := make([]Route, 0, len(*data.List))
-	for _, ent := range *data.List {
-		r := *ent.RouteFromEntry()
-		r.Agency = func(id string) Agency {
-			for _, a := range agencies {
-				if a.ID == id {
-					return a
-				}
-			}
-			return Agency{}
-		}(ent.AgencyID)
-		routes = append(routes, r)
-	}
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.List.toRoutes(agencies)
 	return routes, nil
 }
 
@@ -848,8 +831,14 @@ func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
 // documentation on controlling the number of elements returned and interpreting
 // the results. The list contents are <route/> elements.
 //
-func (c DefaultClient) RoutesForLocation(params map[string]string) (*Data, error) {
-	return c.getData(routeForLocationEndPoint, "Routes for Location", params)
+func (c DefaultClient) RoutesForLocation(params map[string]string) ([]Route, error) {
+	data, err := c.getData(routeForLocationEndPoint, "Routes for Location", params)
+	if err != nil {
+		return nil, err
+	}
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	return routes, nil
 }
 
 //ScheduleForStop - 	get the full schedule for a stop on a particular day
@@ -954,8 +943,20 @@ func (c DefaultClient) RoutesForLocation(params map[string]string) (*Data, error
 // 				the <stop/> element in the <references/> section
 // timeZone - 	the time-zone the stop is located in
 //
-func (c DefaultClient) ScheduleForStop(id string) (*Data, error) {
-	return c.getData(fmt.Sprint(scheduleForStopEndPoint, id), "Schedule for Stop", nil)
+func (c DefaultClient) ScheduleForStop(id string) (*StopSchedule, error) {
+	data, err := c.getData(fmt.Sprint(scheduleForStopEndPoint, id), "Schedule for Stop", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	stops := data.References.Stops.toStops(routes)
+
+	ss := data.Entry.StopScheduleFromEntry(stops)
+	ss.StopRouteSchedules = data.Entry.StopRouteSchedules.toStopRouteSchedules(routes)
+
+	return ss, nil
 }
 
 //Shape -	get details for a specific shape (polyline drawn on a map)

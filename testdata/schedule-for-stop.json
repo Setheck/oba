@@ -18,7 +18,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451820000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487344"
                 },
                 {
@@ -27,7 +27,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487346"
                 },
                 {
@@ -36,7 +36,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485933"
                 },
                 {
@@ -45,7 +45,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487239"
                 },
                 {
@@ -54,7 +54,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457760000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487299"
                 },
                 {
@@ -63,7 +63,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537459260000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487226"
                 },
                 {
@@ -72,7 +72,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460820000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487265"
                 },
                 {
@@ -81,7 +81,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537462620000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487419"
                 },
                 {
@@ -90,7 +90,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537464420000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487251"
                 },
                 {
@@ -99,7 +99,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537466220000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487372"
                 },
                 {
@@ -108,7 +108,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537468020000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487241"
                 },
                 {
@@ -117,7 +117,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537469820000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487292"
                 },
                 {
@@ -126,7 +126,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537471620000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487248"
                 },
                 {
@@ -135,7 +135,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537473420000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487268"
                 },
                 {
@@ -144,7 +144,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537475220000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487422"
                 },
                 {
@@ -153,7 +153,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537477020000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487266"
                 },
                 {
@@ -162,7 +162,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537478820000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487374"
                 },
                 {
@@ -171,7 +171,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537480620000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487264"
                 },
                 {
@@ -180,7 +180,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482120000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487296"
                 },
                 {
@@ -189,7 +189,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483740000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487269"
                 },
                 {
@@ -198,7 +198,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484940000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487401"
                 },
                 {
@@ -207,7 +207,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486140000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487485"
                 },
                 {
@@ -216,7 +216,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487340000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487505"
                 },
                 {
@@ -225,7 +225,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488660000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487433"
                 },
                 {
@@ -234,7 +234,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489860000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487293"
                 },
                 {
@@ -243,7 +243,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537491600000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487375"
                 },
                 {
@@ -252,7 +252,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537493400000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487308"
                 },
                 {
@@ -261,7 +261,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537495020000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487479"
                 },
                 {
@@ -270,7 +270,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537496880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39488224"
                 },
                 {
@@ -279,7 +279,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537498680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39488225"
                 }
               ],
@@ -299,7 +299,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537447680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487222"
                 },
                 {
@@ -308,7 +308,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487281"
                 },
                 {
@@ -317,7 +317,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537450680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487220"
                 },
                 {
@@ -326,7 +326,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537452780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487257"
                 },
                 {
@@ -335,7 +335,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487382"
                 },
                 {
@@ -344,7 +344,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487400"
                 },
                 {
@@ -353,7 +353,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487330"
                 },
                 {
@@ -362,7 +362,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458360000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487445"
                 },
                 {
@@ -371,7 +371,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460100000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487403"
                 },
                 {
@@ -380,7 +380,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537461720000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487238"
                 },
                 {
@@ -389,7 +389,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537463520000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487446"
                 },
                 {
@@ -398,7 +398,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537465320000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487354"
                 },
                 {
@@ -407,7 +407,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537467180000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487389"
                 },
                 {
@@ -416,7 +416,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537468920000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487326"
                 },
                 {
@@ -425,7 +425,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537470720000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487447"
                 },
                 {
@@ -434,7 +434,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537472520000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487404"
                 },
                 {
@@ -443,7 +443,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537474320000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487255"
                 },
                 {
@@ -452,7 +452,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537476120000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487448"
                 },
                 {
@@ -461,7 +461,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537477920000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487355"
                 },
                 {
@@ -470,7 +470,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537479780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487388"
                 },
                 {
@@ -479,7 +479,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481520000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487327"
                 },
                 {
@@ -488,7 +488,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482900000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487453"
                 },
                 {
@@ -497,7 +497,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484340000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487482"
                 },
                 {
@@ -506,7 +506,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485540000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487280"
                 },
                 {
@@ -515,7 +515,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486740000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487282"
                 },
                 {
@@ -524,7 +524,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487940000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487425"
                 },
                 {
@@ -533,7 +533,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489260000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487508"
                 },
                 {
@@ -542,7 +542,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537490820000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487356"
                 },
                 {
@@ -551,7 +551,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537492500000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487390"
                 },
                 {
@@ -560,7 +560,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537494240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487329"
                 },
                 {
@@ -569,7 +569,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537495980000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487451"
                 },
                 {
@@ -578,7 +578,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537497900000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487414"
                 },
                 {
@@ -587,7 +587,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537499700000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487491"
                 },
                 {
@@ -596,7 +596,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537500900000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487449"
                 },
                 {
@@ -605,7 +605,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537502700000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487357"
                 },
                 {
@@ -614,7 +614,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537504440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487328"
                 },
                 {
@@ -623,7 +623,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537506240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487342"
                 },
                 {
@@ -632,7 +632,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537508040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487473"
                 },
                 {
@@ -641,7 +641,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537509780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487490"
                 },
                 {
@@ -650,7 +650,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537511580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487452"
                 },
                 {
@@ -659,7 +659,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537513320000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487358"
                 }
               ],
@@ -679,7 +679,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537446960000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485301"
                 },
                 {
@@ -688,7 +688,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537448760000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485379"
                 },
                 {
@@ -697,7 +697,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449360000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485230"
                 },
                 {
@@ -706,7 +706,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449960000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485465"
                 },
                 {
@@ -715,7 +715,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537450560000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485577"
                 },
                 {
@@ -724,7 +724,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451160000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485318"
                 },
                 {
@@ -733,7 +733,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451760000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485615"
                 },
                 {
@@ -742,7 +742,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537452360000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485667"
                 },
                 {
@@ -751,7 +751,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485462"
                 },
                 {
@@ -760,7 +760,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485468"
                 },
                 {
@@ -769,7 +769,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485767"
                 },
                 {
@@ -778,7 +778,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485537"
                 },
                 {
@@ -787,7 +787,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485619"
                 },
                 {
@@ -796,7 +796,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485304"
                 },
                 {
@@ -805,7 +805,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485672"
                 },
                 {
@@ -814,7 +814,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485714"
                 },
                 {
@@ -823,7 +823,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485380"
                 },
                 {
@@ -832,7 +832,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485244"
                 },
                 {
@@ -841,7 +841,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537459080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485237"
                 },
                 {
@@ -850,7 +850,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537459680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485466"
                 },
                 {
@@ -859,7 +859,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460100000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485805"
                 },
                 {
@@ -868,7 +868,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485571"
                 },
                 {
@@ -877,7 +877,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537461240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485300"
                 },
                 {
@@ -886,7 +886,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537461840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485637"
                 },
                 {
@@ -895,7 +895,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537462440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485670"
                 },
                 {
@@ -904,7 +904,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537463040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485414"
                 },
                 {
@@ -913,7 +913,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537463640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485490"
                 },
                 {
@@ -922,7 +922,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537464240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485798"
                 },
                 {
@@ -931,7 +931,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537464840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485515"
                 },
                 {
@@ -940,7 +940,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537465440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485639"
                 },
                 {
@@ -949,7 +949,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537466040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485303"
                 },
                 {
@@ -958,7 +958,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537466640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485669"
                 },
                 {
@@ -967,7 +967,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537467240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485736"
                 },
                 {
@@ -976,7 +976,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537467840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485381"
                 },
                 {
@@ -985,7 +985,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537468500000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485242"
                 },
                 {
@@ -994,7 +994,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537469100000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485252"
                 },
                 {
@@ -1003,7 +1003,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537469700000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485464"
                 },
                 {
@@ -1012,7 +1012,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537470300000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485769"
                 },
                 {
@@ -1021,7 +1021,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537470900000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485640"
                 },
                 {
@@ -1030,7 +1030,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537471500000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485305"
                 },
                 {
@@ -1039,7 +1039,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537472100000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485578"
                 },
                 {
@@ -1048,7 +1048,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537472700000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485737"
                 },
                 {
@@ -1057,7 +1057,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537473300000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485467"
                 },
                 {
@@ -1066,7 +1066,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537473840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485418"
                 },
                 {
@@ -1075,7 +1075,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537474440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485816"
                 },
                 {
@@ -1084,7 +1084,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537475040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485536"
                 },
                 {
@@ -1093,7 +1093,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537475640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485573"
                 },
                 {
@@ -1102,7 +1102,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537476240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485321"
                 },
                 {
@@ -1111,7 +1111,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537476840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485715"
                 },
                 {
@@ -1120,7 +1120,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537477440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485671"
                 },
                 {
@@ -1129,7 +1129,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537478040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485392"
                 },
                 {
@@ -1138,7 +1138,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537478640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485302"
                 },
                 {
@@ -1147,7 +1147,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537479240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485270"
                 },
                 {
@@ -1156,7 +1156,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537479840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485317"
                 },
                 {
@@ -1165,7 +1165,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537480440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485463"
                 },
                 {
@@ -1174,7 +1174,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537480980000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485818"
                 },
                 {
@@ -1183,7 +1183,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485575"
                 },
                 {
@@ -1192,7 +1192,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482180000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485307"
                 },
                 {
@@ -1201,7 +1201,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485625"
                 },
                 {
@@ -1210,7 +1210,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485675"
                 },
                 {
@@ -1219,7 +1219,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485415"
                 },
                 {
@@ -1228,7 +1228,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485802"
                 },
                 {
@@ -1237,7 +1237,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485539"
                 },
                 {
@@ -1246,7 +1246,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485850"
                 },
                 {
@@ -1255,7 +1255,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485626"
                 },
                 {
@@ -1264,7 +1264,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485286"
                 },
                 {
@@ -1273,7 +1273,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485673"
                 },
                 {
@@ -1282,7 +1282,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485721"
                 },
                 {
@@ -1291,7 +1291,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485358"
                 },
                 {
@@ -1300,7 +1300,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485835"
                 },
                 {
@@ -1309,7 +1309,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537490040000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485309"
                 },
                 {
@@ -1318,7 +1318,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537490640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485306"
                 },
                 {
@@ -1327,7 +1327,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537491240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485285"
                 },
                 {
@@ -1336,7 +1336,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537491840000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485419"
                 },
                 {
@@ -1345,7 +1345,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537492320000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485806"
                 },
                 {
@@ -1354,7 +1354,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537492920000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485617"
                 },
                 {
@@ -1363,7 +1363,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537493580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485391"
                 },
                 {
@@ -1372,7 +1372,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537494240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485576"
                 },
                 {
@@ -1381,7 +1381,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537494900000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485716"
                 },
                 {
@@ -1390,7 +1390,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537495560000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485492"
                 },
                 {
@@ -1399,7 +1399,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537496160000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485518"
                 },
                 {
@@ -1408,7 +1408,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537496820000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485540"
                 },
                 {
@@ -1417,7 +1417,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537497480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485579"
                 },
                 {
@@ -1426,7 +1426,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537498380000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485712"
                 },
                 {
@@ -1435,7 +1435,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537499280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485382"
                 },
                 {
@@ -1444,7 +1444,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537500180000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485347"
                 },
                 {
@@ -1453,7 +1453,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537501080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485383"
                 },
                 {
@@ -1462,7 +1462,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537501980000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485417"
                 },
                 {
@@ -1471,7 +1471,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537502880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485624"
                 },
                 {
@@ -1480,7 +1480,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537503780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485674"
                 },
                 {
@@ -1489,7 +1489,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537504680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485477"
                 },
                 {
@@ -1498,7 +1498,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537505580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485520"
                 },
                 {
@@ -1507,7 +1507,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537507200000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485620"
                 },
                 {
@@ -1516,7 +1516,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537509000000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485470"
                 },
                 {
@@ -1525,7 +1525,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537510740000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485469"
                 },
                 {
@@ -1534,7 +1534,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537512540000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485717"
                 },
                 {
@@ -1543,7 +1543,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537514340000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485538"
                 },
                 {
@@ -1552,7 +1552,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537516800000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485471"
                 },
                 {
@@ -1561,7 +1561,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537521480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485550"
                 },
                 {
@@ -1570,7 +1570,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537525080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485545"
                 }
               ],
@@ -1590,7 +1590,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487232"
                 },
                 {
@@ -1599,7 +1599,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537515000000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487359"
                 }
               ],
@@ -1619,7 +1619,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449420000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487542"
                 },
                 {
@@ -1628,7 +1628,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451220000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487544"
                 },
                 {
@@ -1637,7 +1637,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453440000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487546"
                 },
                 {
@@ -1646,7 +1646,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455600000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487548"
                 },
                 {
@@ -1655,7 +1655,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458000000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487550"
                 },
                 {
@@ -1664,7 +1664,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460100000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487552"
                 },
                 {
@@ -1673,7 +1673,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537462800000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487554"
                 },
                 {
@@ -1682,7 +1682,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537464900000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487556"
                 },
                 {
@@ -1691,7 +1691,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537467300000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487558"
                 },
                 {
@@ -1700,7 +1700,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537469400000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487560"
                 },
                 {
@@ -1709,7 +1709,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537472100000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487562"
                 },
                 {
@@ -1718,7 +1718,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537474200000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487564"
                 },
                 {
@@ -1727,7 +1727,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537476600000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487565"
                 },
                 {
@@ -1736,7 +1736,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537478700000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487568"
                 },
                 {
@@ -1745,7 +1745,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481400000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487570"
                 },
                 {
@@ -1754,7 +1754,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483920000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487571"
                 },
                 {
@@ -1763,7 +1763,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486320000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487574"
                 },
                 {
@@ -1772,7 +1772,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488720000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487576"
                 },
                 {
@@ -1781,7 +1781,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537491720000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487578"
                 },
                 {
@@ -1790,7 +1790,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537493940000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487580"
                 }
               ],
@@ -1810,7 +1810,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483020000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494237"
                 },
                 {
@@ -1819,7 +1819,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485420000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494240"
                 },
                 {
@@ -1828,7 +1828,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487340000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494233"
                 },
                 {
@@ -1837,7 +1837,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489140000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494238"
                 }
               ],
@@ -1852,7 +1852,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537450260000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494235"
                 },
                 {
@@ -1861,7 +1861,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537452120000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494239"
                 },
                 {
@@ -1870,7 +1870,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454340000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494234"
                 },
                 {
@@ -1879,7 +1879,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456560000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39494236"
                 }
               ],
@@ -1899,7 +1899,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537447740000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486923"
                 },
                 {
@@ -1908,7 +1908,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449540000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486927"
                 },
                 {
@@ -1917,7 +1917,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537450680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486943"
                 },
                 {
@@ -1926,7 +1926,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486946"
                 },
                 {
@@ -1935,7 +1935,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537452480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486950"
                 },
                 {
@@ -1944,7 +1944,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453560000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486959"
                 },
                 {
@@ -1953,7 +1953,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454400000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486965"
                 },
                 {
@@ -1962,7 +1962,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454820000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39485888"
                 },
                 {
@@ -1971,7 +1971,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455180000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486976"
                 },
                 {
@@ -1980,7 +1980,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455960000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486924"
                 },
                 {
@@ -1989,7 +1989,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456500000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486704"
                 },
                 {
@@ -1998,7 +1998,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456800000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486934"
                 },
                 {
@@ -2007,7 +2007,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486926"
                 },
                 {
@@ -2016,7 +2016,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458120000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487019"
                 },
                 {
@@ -2025,7 +2025,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458660000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487010"
                 },
                 {
@@ -2034,7 +2034,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537459380000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487024"
                 },
                 {
@@ -2043,7 +2043,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460100000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487038"
                 },
                 {
@@ -2052,7 +2052,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460640000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486299"
                 },
                 {
@@ -2061,7 +2061,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537461000000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486951"
                 },
                 {
@@ -2070,7 +2070,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537461900000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486960"
                 },
                 {
@@ -2079,7 +2079,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537462380000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486992"
                 },
                 {
@@ -2088,7 +2088,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537463220000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486964"
                 },
                 {
@@ -2097,7 +2097,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537464060000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486982"
                 },
                 {
@@ -2106,7 +2106,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537464780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486981"
                 },
                 {
@@ -2115,7 +2115,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537465680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486936"
                 },
                 {
@@ -2124,7 +2124,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537466580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487002"
                 },
                 {
@@ -2133,7 +2133,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537467480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487013"
                 },
                 {
@@ -2142,7 +2142,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537468380000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487025"
                 },
                 {
@@ -2151,7 +2151,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537469280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486953"
                 },
                 {
@@ -2160,7 +2160,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537470120000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487039"
                 },
                 {
@@ -2169,7 +2169,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537471020000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486993"
                 },
                 {
@@ -2178,7 +2178,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537471980000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486967"
                 },
                 {
@@ -2187,7 +2187,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537472880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486978"
                 },
                 {
@@ -2196,7 +2196,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537473780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486979"
                 },
                 {
@@ -2205,7 +2205,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537474680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486935"
                 },
                 {
@@ -2214,7 +2214,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537475580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487003"
                 },
                 {
@@ -2223,7 +2223,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537476480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487011"
                 },
                 {
@@ -2232,7 +2232,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537477380000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487026"
                 },
                 {
@@ -2241,7 +2241,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537478280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486952"
                 },
                 {
@@ -2250,7 +2250,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537479180000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487040"
                 },
                 {
@@ -2259,7 +2259,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537480080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486994"
                 },
                 {
@@ -2268,7 +2268,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537480980000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486966"
                 },
                 {
@@ -2277,7 +2277,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486980"
                 },
                 {
@@ -2286,7 +2286,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486977"
                 },
                 {
@@ -2295,7 +2295,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486937"
                 },
                 {
@@ -2304,7 +2304,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487004"
                 },
                 {
@@ -2313,7 +2313,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487012"
                 },
                 {
@@ -2322,7 +2322,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486380000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487051"
                 },
                 {
@@ -2331,7 +2331,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487029"
                 },
                 {
@@ -2340,7 +2340,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488180000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486954"
                 },
                 {
@@ -2349,7 +2349,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487042"
                 },
                 {
@@ -2358,7 +2358,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489980000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486995"
                 },
                 {
@@ -2367,7 +2367,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537490880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487058"
                 },
                 {
@@ -2376,7 +2376,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537491780000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486983"
                 },
                 {
@@ -2385,7 +2385,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537492680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487063"
                 },
                 {
@@ -2394,7 +2394,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537493580000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486938"
                 },
                 {
@@ -2403,7 +2403,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537494480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487069"
                 },
                 {
@@ -2412,7 +2412,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537495380000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487017"
                 },
                 {
@@ -2421,7 +2421,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537496280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487027"
                 },
                 {
@@ -2430,7 +2430,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537497240000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486971"
                 },
                 {
@@ -2439,7 +2439,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537498140000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487041"
                 },
                 {
@@ -2448,7 +2448,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537499880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487057"
                 },
                 {
@@ -2457,7 +2457,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537501680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486939"
                 },
                 {
@@ -2466,7 +2466,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537503480000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487070"
                 },
                 {
@@ -2475,7 +2475,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537505280000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487028"
                 },
                 {
@@ -2484,7 +2484,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537507080000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487044"
                 },
                 {
@@ -2493,7 +2493,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537508880000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487059"
                 },
                 {
@@ -2502,7 +2502,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537510680000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39486941"
                 },
                 {
@@ -2511,7 +2511,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537512300000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487071"
                 },
                 {
@@ -2520,7 +2520,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537515000000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "1_39487043"
                 }
               ],
@@ -2540,7 +2540,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537450166000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497232"
                 },
                 {
@@ -2549,7 +2549,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537452206000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497239"
                 },
                 {
@@ -2558,7 +2558,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453526000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497244"
                 },
                 {
@@ -2567,7 +2567,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455324000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497234"
                 },
                 {
@@ -2576,7 +2576,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456644000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497229"
                 },
                 {
@@ -2585,7 +2585,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457964000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497236"
                 },
                 {
@@ -2594,7 +2594,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537459284000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497242"
                 },
                 {
@@ -2603,7 +2603,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537479055000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497248"
                 },
                 {
@@ -2612,7 +2612,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537480855000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497253"
                 },
                 {
@@ -2621,7 +2621,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482655000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497257"
                 },
                 {
@@ -2630,7 +2630,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483975000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497247"
                 },
                 {
@@ -2639,7 +2639,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485324000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497259"
                 },
                 {
@@ -2648,7 +2648,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486644000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497252"
                 },
                 {
@@ -2657,7 +2657,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487904000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497256"
                 },
                 {
@@ -2666,7 +2666,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489284000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497251"
                 },
                 {
@@ -2675,7 +2675,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537491204000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497261"
                 },
                 {
@@ -2684,7 +2684,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537492764000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497262"
                 },
                 {
@@ -2693,7 +2693,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537494504000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497263"
                 }
               ],
@@ -2708,7 +2708,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460844000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497235"
                 },
                 {
@@ -2717,7 +2717,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537462104000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497230"
                 },
                 {
@@ -2726,7 +2726,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537463455000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497237"
                 },
                 {
@@ -2735,7 +2735,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537464715000,
                   "serviceId": "1_28099",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "40_39497241"
                 }
               ],
@@ -2755,7 +2755,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537491780000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639730__MCOB-DO:121:0:Weekday:4:18MAR:61061:12345"
                 },
                 {
@@ -2764,7 +2764,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537492980000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638323__MCOB-DO:121:0:Weekday:4:18MAR:61072:12345"
                 },
                 {
@@ -2773,7 +2773,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537494420000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638322__MCOB-DO:121:0:Weekday:4:18MAR:61073:12345"
                 },
                 {
@@ -2782,7 +2782,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537496220000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639215__MCOB-DO:121:0:Weekday:4:18MAR:61089:12345"
                 },
                 {
@@ -2791,7 +2791,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537499820000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639750__MCOB-DO:121:0:Weekday:4:18MAR:61093:12345"
                 }
               ],
@@ -2806,7 +2806,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537462020000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639213__MCOB-DO:121:0:Weekday:4:18MAR:61003:12345"
                 },
                 {
@@ -2815,7 +2815,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537463880000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638324__MCOB-DO:121:0:Weekday:4:18MAR:61011:12345"
                 },
                 {
@@ -2824,7 +2824,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537465620000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639214__MCOB-DO:121:0:Weekday:4:18MAR:61031:12345"
                 },
                 {
@@ -2833,7 +2833,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537467000000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638325__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
                 },
                 {
@@ -2842,7 +2842,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537468800000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639749__MCOB-DO:121:0:Weekday:4:18MAR:61045:12345"
                 }
               ],
@@ -2862,7 +2862,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483380000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638520__MCOB-DO:121:0:Weekday:4:18MAR:61063:12345"
                 },
                 {
@@ -2871,7 +2871,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486980000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638524__MCOB-DO:121:0:Weekday:4:18MAR:61079:12345"
                 },
                 {
@@ -2880,7 +2880,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488780000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638525__MCOB-DO:121:0:Weekday:4:18MAR:61090:12345"
                 }
               ],
@@ -2895,7 +2895,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449480000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638519__MCOB-DO:121:0:Weekday:4:18MAR:61006:12345"
                 },
                 {
@@ -2904,7 +2904,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454100000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638521__MCOB-DO:121:0:Weekday:4:18MAR:61025:12345"
                 },
                 {
@@ -2913,7 +2913,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455360000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638522__MCOB-DO:121:0:Weekday:4:18MAR:61032:12345"
                 },
                 {
@@ -2922,7 +2922,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456920000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638523__MCOB-DO:121:0:Weekday:4:18MAR:61037:12345"
                 }
               ],
@@ -2942,7 +2942,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537472040000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638335__MCOB-DO:121:0:Weekday:4:18MAR:61046:12345"
                 },
                 {
@@ -2951,7 +2951,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537475580000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638336__MCOB-DO:121:0:Weekday:4:18MAR:61049:12345"
                 },
                 {
@@ -2960,7 +2960,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537478880000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638337__MCOB-DO:121:0:Weekday:4:18MAR:61047:12345"
                 },
                 {
@@ -2969,7 +2969,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481280000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639217__MCOB-DO:121:0:Weekday:4:18MAR:61049:12345"
                 },
                 {
@@ -2978,7 +2978,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482660000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638338__MCOB-DO:121:0:Weekday:4:18MAR:61046:12345"
                 },
                 {
@@ -2987,7 +2987,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484280000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638532__MCOB-DO:121:0:Weekday:4:18MAR:61066:12345"
                 },
                 {
@@ -2996,7 +2996,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486080000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638339__MCOB-DO:121:0:Weekday:4:18MAR:61072:12345"
                 },
                 {
@@ -3005,7 +3005,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487580000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639218__MCOB-DO:121:0:Weekday:4:18MAR:61081:12345"
                 },
                 {
@@ -3014,7 +3014,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537489980000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638441__MCOB-DO:121:0:Weekday:4:18MAR:61066:12345"
                 }
               ],
@@ -3029,7 +3029,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537447740000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639751__MCOB-DO:121:0:Weekday:4:18MAR:61008:12345"
                 },
                 {
@@ -3038,7 +3038,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449420000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639216__MCOB-DO:121:0:Weekday:4:18MAR:61017:12345"
                 },
                 {
@@ -3047,7 +3047,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451160000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638341__MCOB-DO:121:0:Weekday:4:18MAR:61002:12345"
                 },
                 {
@@ -3056,7 +3056,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537452420000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638342__MCOB-DO:121:0:Weekday:4:18MAR:61031:12345"
                 },
                 {
@@ -3065,7 +3065,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454220000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638340__MCOB-DO:121:0:Weekday:4:18MAR:61003:12345"
                 },
                 {
@@ -3074,7 +3074,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455660000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638343__MCOB-DO:121:0:Weekday:4:18MAR:61006:12345"
                 },
                 {
@@ -3083,7 +3083,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457100000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638344__MCOB-DO:121:0:Weekday:4:18MAR:61011:12345"
                 },
                 {
@@ -3092,7 +3092,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458720000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638345__MCOB-DO:121:0:Weekday:4:18MAR:61031:12345"
                 },
                 {
@@ -3101,7 +3101,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460340000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638346__MCOB-DO:121:0:Weekday:4:18MAR:61006:12345"
                 }
               ],
@@ -3121,7 +3121,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537471980000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638347__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
                 },
                 {
@@ -3130,7 +3130,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537475880000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638348__MCOB-DO:121:0:Weekday:4:18MAR:61046:12345"
                 },
                 {
@@ -3139,7 +3139,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537479180000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638349__MCOB-DO:121:0:Weekday:4:18MAR:61050:12345"
                 },
                 {
@@ -3148,7 +3148,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481160000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639326__MCOB-DO:121:0:Weekday:4:18MAR:61053:12345"
                 },
                 {
@@ -3157,7 +3157,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483080000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639220__MCOB-DO:121:0:Weekday:4:18MAR:61061:12345"
                 },
                 {
@@ -3166,7 +3166,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483980000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638350__MCOB-DO:121:0:Weekday:4:18MAR:61047:12345"
                 },
                 {
@@ -3175,7 +3175,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485180000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638529__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
                 },
                 {
@@ -3184,7 +3184,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486140000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638530__MCOB-DO:121:0:Weekday:4:18MAR:61073:12345"
                 },
                 {
@@ -3193,7 +3193,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487160000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638351__MCOB-DO:121:0:Weekday:4:18MAR:61049:12345"
                 },
                 {
@@ -3202,7 +3202,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488540000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638352__MCOB-DO:121:0:Weekday:4:18MAR:61089:12345"
                 },
                 {
@@ -3211,7 +3211,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537490460000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638353__MCOB-DO:121:0:Weekday:4:18MAR:61052:12345"
                 }
               ],
@@ -3226,7 +3226,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537450380000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639490__MCOB-DO:121:0:Weekday:4:18MAR:61016:12345"
                 },
                 {
@@ -3235,7 +3235,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451640000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638354__MCOB-DO:121:0:Weekday:4:18MAR:61022:12345"
                 },
                 {
@@ -3244,7 +3244,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453260000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638526__MCOB-DO:121:0:Weekday:4:18MAR:61030:12345"
                 },
                 {
@@ -3253,7 +3253,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454400000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638355__MCOB-DO:121:0:Weekday:4:18MAR:61036:12345"
                 },
                 {
@@ -3262,7 +3262,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455540000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638527__MCOB-DO:121:0:Weekday:4:18MAR:61040:12345"
                 },
                 {
@@ -3271,7 +3271,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456560000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638528__MCOB-DO:121:0:Weekday:4:18MAR:61013:12345"
                 },
                 {
@@ -3280,7 +3280,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457700000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639219__MCOB-DO:121:0:Weekday:4:18MAR:61007:12345"
                 },
                 {
@@ -3289,7 +3289,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458660000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639059__MCOB-DO:121:0:Weekday:4:18MAR:61019:12345"
                 },
                 {
@@ -3298,7 +3298,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460340000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638356__MCOB-DO:121:0:Weekday:4:18MAR:61030:12345"
                 }
               ],
@@ -3318,7 +3318,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537472100000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638326__MCOB-DO:121:0:Weekday:4:18MAR:61047:12345"
                 },
                 {
@@ -3327,7 +3327,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537475580000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638327__MCOB-DO:121:0:Weekday:4:18MAR:61048:12345"
                 },
                 {
@@ -3336,7 +3336,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537479060000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638328__MCOB-DO:121:0:Weekday:4:18MAR:61044:12345"
                 },
                 {
@@ -3345,7 +3345,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481460000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639754__MCOB-DO:121:0:Weekday:4:18MAR:61055:12345"
                 },
                 {
@@ -3354,7 +3354,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537483260000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638329__MCOB-DO:121:0:Weekday:4:18MAR:61062:12345"
                 },
                 {
@@ -3363,7 +3363,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484580000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638531__MCOB-DO:121:0:Weekday:4:18MAR:61067:12345"
                 },
                 {
@@ -3372,7 +3372,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537485780000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638357__MCOB-DO:121:0:Weekday:4:18MAR:61071:12345"
                 },
                 {
@@ -3381,7 +3381,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486860000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638330__MCOB-DO:121:0:Weekday:4:18MAR:61078:12345"
                 },
                 {
@@ -3390,7 +3390,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487880000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638358__MCOB-DO:121:0:Weekday:4:18MAR:61086:12345"
                 },
                 {
@@ -3399,7 +3399,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488780000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638445__MCOB-DO:121:0:Weekday:4:18MAR:61091:12345"
                 },
                 {
@@ -3408,7 +3408,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537490160000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638533__MCOB-DO:121:0:Weekday:4:18MAR:61062:12345"
                 }
               ],
@@ -3423,7 +3423,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449420000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639752__MCOB-DO:121:0:Weekday:4:18MAR:61014:12345"
                 },
                 {
@@ -3432,7 +3432,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537450980000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638332__MCOB-DO:121:0:Weekday:4:18MAR:61021:12345"
                 },
                 {
@@ -3441,7 +3441,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537452360000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639491__MCOB-DO:121:0:Weekday:4:18MAR:61026:12345"
                 },
                 {
@@ -3450,7 +3450,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453620000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638387__MCOB-DO:121:0:Weekday:4:18MAR:61008:12345"
                 },
                 {
@@ -3459,7 +3459,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454820000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638384__MCOB-DO:121:0:Weekday:4:18MAR:61004:12345"
                 },
                 {
@@ -3468,7 +3468,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537455720000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638331__MCOB-DO:121:0:Weekday:4:18MAR:61041:12345"
                 },
                 {
@@ -3477,7 +3477,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456740000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638385__MCOB-DO:121:0:Weekday:4:18MAR:61012:12345"
                 },
                 {
@@ -3486,7 +3486,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537458000000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638333__MCOB-DO:121:0:Weekday:4:18MAR:61022:12345"
                 },
                 {
@@ -3495,7 +3495,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537459200000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638386__MCOB-DO:121:0:Weekday:4:18MAR:61023:12345"
                 },
                 {
@@ -3504,7 +3504,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460160000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638334__MCOB-DO:121:0:Weekday:4:18MAR:61001:12345"
                 },
                 {
@@ -3513,7 +3513,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537463460000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638388__MCOB-DO:121:0:Weekday:4:18MAR:61042:12345"
                 }
               ],
@@ -3533,7 +3533,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537481280000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638534__MCOB-DO:121:0:Weekday:4:18MAR:61054:12345"
                 },
                 {
@@ -3542,7 +3542,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537482780000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638359__MCOB-DO:121:0:Weekday:4:18MAR:61048:12345"
                 },
                 {
@@ -3551,7 +3551,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537484880000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638360__MCOB-DO:121:0:Weekday:4:18MAR:61069:12345"
                 },
                 {
@@ -3560,7 +3560,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537486680000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638361__MCOB-DO:121:0:Weekday:4:18MAR:61077:12345"
                 },
                 {
@@ -3569,7 +3569,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537487580000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638538__MCOB-DO:121:0:Weekday:4:18MAR:61083:12345"
                 },
                 {
@@ -3578,7 +3578,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537488420000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638362__MCOB-DO:121:0:Weekday:4:18MAR:61053:12345"
                 },
                 {
@@ -3587,7 +3587,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537490280000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638696__MCOB-DO:121:0:Weekday:4:18MAR:61054:12345"
                 }
               ],
@@ -3602,7 +3602,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537448160000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7639753__MCOB-DO:121:0:Weekday:4:18MAR:61003:12345"
                 },
                 {
@@ -3611,7 +3611,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537449660000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638542__MCOB-DO:121:0:Weekday:4:18MAR:61010:12345"
                 },
                 {
@@ -3620,7 +3620,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537451640000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638363__MCOB-DO:121:0:Weekday:4:18MAR:61019:12345"
                 },
                 {
@@ -3629,7 +3629,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537453680000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638364__MCOB-DO:121:0:Weekday:4:18MAR:61001:12345"
                 },
                 {
@@ -3638,7 +3638,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537454880000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638536__MCOB-DO:121:0:Weekday:4:18MAR:61034:12345"
                 },
                 {
@@ -3647,7 +3647,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537456260000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638365__MCOB-DO:121:0:Weekday:4:18MAR:61038:12345"
                 },
                 {
@@ -3656,7 +3656,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457100000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638537__MCOB-DO:121:0:Weekday:4:18MAR:61042:12345"
                 },
                 {
@@ -3665,7 +3665,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537457940000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638366__MCOB-DO:121:0:Weekday:4:18MAR:61009:12345"
                 },
                 {
@@ -3674,7 +3674,7 @@
                   "departureEnabled": true,
                   "departureTime": 1537460160000,
                   "serviceId": "29_MCOB-DO:121:0:Weekday:4:18MAR:12345",
-                  "stopHeadsign": "",
+                  "stopHeadsign": "somevalue",
                   "tripId": "29_7638539__MCOB-DO:121:0:Weekday:4:18MAR:61021:12345"
                 }
               ],
@@ -3687,9 +3687,9 @@
     "references": {
       "agencies": [
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "1",
           "lang": "EN",
           "name": "Metro Transit",
@@ -3699,9 +3699,9 @@
           "url": "http://metro.kingcounty.gov"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "40",
           "lang": "EN",
           "name": "Sound Transit",
@@ -3711,9 +3711,9 @@
           "url": "http://www.soundtransit.org"
         },
         {
-          "disclaimer": "",
+          "disclaimer": "somevalue",
           "email": "riders@commtrans.org",
-          "fareUrl": "",
+          "fareUrl": "somevalue",
           "id": "29",
           "lang": "en",
           "name": "Community Transit",
@@ -3726,157 +3726,157 @@
       "routes": [
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Univ District - Fremont - Central Magnolia",
           "id": "1_100184",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "31",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/031/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Univ District-Fremont-Interbay-Seattle Center West",
           "id": "1_100193",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "32",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/032/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Northgate - Roosevelt - University District",
           "id": "1_100259",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "67",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/067/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Northgate - Lake City - Sand Point - Univ District",
           "id": "1_100269",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "75",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/075/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Laurelhurst - University District",
           "id": "1_100273",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "78",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/078/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "Juanita - University District",
           "id": "1_100168",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "277",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/277/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "somevalue",
           "description": "UW/Cascadia College - University District",
           "id": "1_100214",
-          "longName": "",
+          "longName": "somevalue",
           "shortName": "372",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/372/n0.html"
         },
         {
           "agencyId": "40",
-          "color": "",
+          "color": "somevalue",
           "description": "Kirkland - University District",
           "id": "40_100235",
           "longName": "Kirkland - University District",
           "shortName": "540",
-          "textColor": "",
+          "textColor": "somevalue",
           "type": 3,
           "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/540"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_810",
           "longName": "McCollum Park - University District",
           "shortName": "810",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_821",
           "longName": "Marysville - University District",
           "shortName": "821",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_855",
           "longName": "Lynnwood - University District",
           "shortName": "855",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_860",
           "longName": "McCollum Park - University District",
           "shortName": "860",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_871",
           "longName": "Edmonds P\u0026R - University District",
           "shortName": "871",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         },
         {
           "agencyId": "29",
           "color": "0070c0",
-          "description": "",
+          "description": "somevalue",
           "id": "29_880",
           "longName": "Mukilteo - University District",
           "shortName": "880",
           "textColor": "ffffff",
           "type": 3,
-          "url": ""
+          "url": "somevalue"
         }
       ],
       "situations": [],

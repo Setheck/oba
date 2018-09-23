@@ -133,3 +133,45 @@ func VerifyStop(t *testing.T, s *oba.Stop) {
 		VerifyRoute(t, &r)
 	}
 }
+
+func VerifyStopSchedule(t *testing.T, s *oba.StopSchedule) {
+	t.Helper()
+	assert.NotNil(t, s, "StopSchedule")
+	assert.NotEmpty(t, s.Date, "Date")
+	assert.NotEmpty(t, s.StopRouteSchedules, "StopSchedule")
+	for _, srs := range s.StopRouteSchedules {
+		VerifyStopRouteSchedule(t, &srs)
+	}
+
+}
+
+func VerifyStopRouteSchedule(t *testing.T, s *oba.StopRouteSchedule) {
+	t.Helper()
+	assert.NotNil(t, s, "StopRouteSchedule")
+	assert.NotEmpty(t, s.StopRouteDirectionSchedules)
+	VerifyRoute(t, &s.Route)
+	for _, srds := range s.StopRouteDirectionSchedules {
+		VerifyStopRouteDirectionSchedule(t, &srds)
+	}
+}
+
+func VerifyStopRouteDirectionSchedule(t *testing.T, s *oba.StopRouteDirectionSchedule) {
+	t.Helper()
+	assert.NotNil(t, s, "StopRouteDirectionSchedule")
+	assert.NotEmpty(t, s.TripHeadsign, "TripHeadSign")
+	for _, sst := range s.ScheduleStopTimes {
+		VerifyScheduleStopTime(t, &sst)
+	}
+}
+
+func VerifyScheduleStopTime(t *testing.T, s *oba.ScheduleStopTime) {
+	t.Helper()
+	assert.NotNil(t, s, "ScheduleStopTime")
+	assert.NotNil(t, s.ArrivalEnabled, "ArrivalEnabled")
+	assert.NotZero(t, s.ArrivalTime, "ArrivalTime")
+	assert.NotNil(t, s.DepartureEnabled, "DepartureEnabled")
+	assert.NotZero(t, s.DepartureTime, "DepartureTime")
+	assert.NotEmpty(t, s.StopHeadsign, "StopHeadsign")
+	assert.NotEmpty(t, s.ServiceID, "ServiceID")
+	assert.NotEmpty(t, s.TripID, "TripID")
+}

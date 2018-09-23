@@ -201,7 +201,7 @@ func TestDefaultClient_ReportProblemWithTrip(t *testing.T) {
 }
 
 func TestDefaultClient_RouteIdsForAgency(t *testing.T) {
-	t.Skip("TODO...")
+	t.Skip("TODO...Last!")
 	//contents := RetrieveTestJsonFileContent(t)
 	//server := FakeServer(t, contents)
 	//defer server.Close()
@@ -249,11 +249,36 @@ func TestDefaultClient_RoutesForAgency(t *testing.T) {
 }
 
 func TestDefaultClient_RoutesForLocation(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	routes, e := client.RoutesForLocation(TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
+
+	for _, r := range routes {
+		VerifyRoute(t, &r)
+	}
 }
 
 func TestDefaultClient_ScheduleForStop(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClient(nil, TestApiKey)
+	client.SetBaseURL(server.URL)
+	ss, e := client.ScheduleForStop(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyStopSchedule(t, ss)
+
 }
 
 func TestDefaultClient_Shape(t *testing.T) {

@@ -6,111 +6,111 @@
     "list": [
       {
         "agencyId": "1",
-        "color": "",
+        "color": "somevalue",
         "description": "Ballard - Montlake",
         "id": "1_100224",
-        "longName": "",
+        "longName": "somevalue",
         "shortName": "44",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 3,
         "url": "http://metro.kingcounty.gov/schedules/044/n0.html"
       },
       {
         "agencyId": "1",
-        "color": "",
+        "color": "somevalue",
         "description": "Jackson Park - Univ District - Downtown Seattle",
         "id": "1_100267",
-        "longName": "",
+        "longName": "somevalue",
         "shortName": "73",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 3,
         "url": "http://metro.kingcounty.gov/schedules/073/n0.html"
       },
       {
         "agencyId": "1",
-        "color": "",
+        "color": "somevalue",
         "description": "Bear Creek P\u0026R - Lakeside School",
         "id": "1_100341",
-        "longName": "",
+        "longName": "somevalue",
         "shortName": "982",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 3,
         "url": "http://metro.kingcounty.gov/schedules/982/n0.html"
       },
       {
         "agencyId": "29",
         "color": "0070c0",
-        "description": "",
+        "description": "somevalue",
         "id": "29_821",
         "longName": "Marysville - University District",
         "shortName": "821",
         "textColor": "ffffff",
         "type": 3,
-        "url": ""
+        "url": "somevalue"
       },
       {
         "agencyId": "29",
         "color": "0070c0",
-        "description": "",
+        "description": "somevalue",
         "id": "29_855",
         "longName": "Lynnwood - University District",
         "shortName": "855",
         "textColor": "ffffff",
         "type": 3,
-        "url": ""
+        "url": "somevalue"
       },
       {
         "agencyId": "40",
-        "color": "",
+        "color": "somevalue",
         "description": "Kirkland - University District",
         "id": "40_100235",
         "longName": "Kirkland - University District",
         "shortName": "540",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 3,
         "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/540"
       },
       {
         "agencyId": "40",
-        "color": "",
+        "color": "somevalue",
         "description": "Issaquah - University District - Northgate",
         "id": "40_100451",
         "longName": "Issaquah - Northgate",
         "shortName": "556",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 3,
         "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/556"
       },
       {
         "agencyId": "40",
-        "color": "",
+        "color": "somevalue",
         "description": "LINK: SeaTac - Downtown Seattle - UW/Husky Stadium",
         "id": "40_100479",
-        "longName": "",
+        "longName": "somevalue",
         "shortName": "Link light rail",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 0,
         "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/599"
       },
       {
         "agencyId": "40",
-        "color": "",
+        "color": "somevalue",
         "description": "Redmond - University District",
         "id": "40_100511",
         "longName": "Redmond - University District",
         "shortName": "542",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 3,
         "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/542"
       },
       {
         "agencyId": "40",
-        "color": "",
+        "color": "somevalue",
         "description": "Overlake P\u0026R - University District",
         "id": "40_102640",
-        "longName": "",
+        "longName": "somevalue",
         "shortName": "541",
-        "textColor": "",
+        "textColor": "somevalue",
         "type": 3,
         "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/541"
       }
@@ -119,9 +119,9 @@
     "references": {
       "agencies": [
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "1",
           "lang": "EN",
           "name": "Metro Transit",
@@ -131,9 +131,9 @@
           "url": "http://metro.kingcounty.gov"
         },
         {
-          "disclaimer": "",
+          "disclaimer": "somevalue",
           "email": "riders@commtrans.org",
-          "fareUrl": "",
+          "fareUrl": "somevalue",
           "id": "29",
           "lang": "en",
           "name": "Community Transit",
@@ -143,9 +143,9 @@
           "url": "http://www.communitytransit.org/"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "somevalue",
+          "email": "somevalue",
+          "fareUrl": "somevalue",
           "id": "40",
           "lang": "EN",
           "name": "Sound Transit",

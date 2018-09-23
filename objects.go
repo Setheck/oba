@@ -157,19 +157,19 @@ func (r Route) String() string {
 }
 
 type Situation struct {
-	ID                string           `json:"id"`
-	CreationTime      string           `json:"creationTime"`
-	EnvironmentReason string           `json:"environmentReason"`
-	Summary           []string         `json:"summary>value"`
-	Description       []string         `json:"description>value"`
-	Affects           []VehicleJourney `json:"vehicleJourneys>vehicleJourney"`
-	Consequences      []Consequence    `json:"consequences>consequence"`
+	ID                string
+	CreationTime      string
+	EnvironmentReason string
+	Summary           []string
+	Description       []string
+	Affects           []VehicleJourney
+	Consequences      []Consequence
 }
 
 type Consequence struct {
-	Condition                          string   `json:"condition"`
-	ConditionDetailDiversionPathPoints []string `json:"conditionDetails>diversionPath>points"`
-	ConditionDetailDiversionStopIDs    []string `json:"conditionDetails>diversionStopIds>string"`
+	Condition                          string
+	ConditionDetailDiversionPathPoints []string
+	ConditionDetailDiversionStopIDs    []string
 }
 
 type VehicleJourney struct {
@@ -196,11 +196,11 @@ type Stop struct {
 }
 
 type StopSchedule struct {
-	Date               *int                 `json:"date,omitempty"`
-	StopID             *string              `json:"stopId,omitempty"`
-	StopRouteSchedules []*StopRouteSchedule `json:"stopRouteSchedules,omitempty"`
-	TimeZone           *string              `json:"timeZone,omitempty"`
-	StopCalendarDays   []*StopCalendarDay   `json:"stopCalendarDays,omitempty"`
+	Date               int
+	Stop               Stop
+	StopRouteSchedules []StopRouteSchedule
+	TimeZone           string
+	StopCalendarDays   []StopCalendarDay
 }
 
 type StopCalendarDay struct {
@@ -209,14 +209,21 @@ type StopCalendarDay struct {
 }
 
 type StopRouteSchedule struct {
-	RouteID                     string                        `json:"routeId,omitempty"`
-	StopRouteDirectionSchedules []*StopRouteDirectionSchedule `json:"stopRouteDirectionSchedules,omitempty"`
+	Route                       Route
+	StopRouteDirectionSchedules []StopRouteDirectionSchedule
 }
 
 type StopRouteDirectionSchedule struct {
-	ScheduleFrequencies []*ScheduleFrequency `json:"scheduleFrequencies"`
-	ScheduleStopTimes   []*ScheduleStopTime  `json:"scheduleStopTimes,omitempty"`
-	TripHeadsign        *string              `json:"tripHeadsign,omitempty"`
+	ScheduleFrequencies []ScheduleFrequency `json:"scheduleFrequencies"`
+	ScheduleStopTimes   []ScheduleStopTime  `json:"scheduleStopTimes,omitempty"`
+	TripHeadsign        string              `json:"tripHeadsign,omitempty"`
+}
+
+func NewStopRouteSchedulesFromEntry(r Route, srds []StopRouteDirectionSchedule) *StopRouteSchedule {
+	return &StopRouteSchedule{
+		Route: r,
+		StopRouteDirectionSchedules: srds,
+	}
 }
 
 type ScheduleFrequency struct {
@@ -248,13 +255,13 @@ type EncodedPolyLine struct {
 }
 
 type ScheduleStopTime struct {
-	ArrivalEnabled   *bool   `json:"arrivalEnabled,omitempty"`
-	ArrivalTime      *int    `json:"arrivalTime,omitempty"`
-	DepartureEnabled *bool   `json:"departureEnabled,omitempty"`
-	DepartureTime    *int    `json:"departureTime,omitempty"`
-	ServiceID        *string `json:"serviceId,omitempty"`
-	StopHeadsign     *string `json:"stopHeadsign,omitempty"`
-	TripID           *string `json:"tripId,omitempty"`
+	ArrivalEnabled   *bool
+	ArrivalTime      int
+	DepartureEnabled *bool
+	DepartureTime    int
+	ServiceID        string
+	StopHeadsign     string
+	TripID           string
 }
 
 type Trip struct {
