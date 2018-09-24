@@ -1,6 +1,9 @@
 package oba
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type ArrivalsAndDepartures []ArrivalAndDeparture
 
@@ -9,7 +12,7 @@ type ArrivalAndDeparture struct {
 	BlockTripSequence            int
 	DepartureEnabled             *bool
 	DistanceFromStop             float64
-	Frequency                    string
+	Frequency                    *string
 	LastUpdateTime               int
 	NumberOfStopsAway            int
 	Predicted                    *bool
@@ -38,16 +41,16 @@ type ArrivalAndDeparture struct {
 }
 
 type Histogram struct {
-	Counts   []int     `json:"counts"`
-	Labels   []string  `json:"labels"`
-	MaxCount int       `json:"maxCount"`
-	Values   []float64 `json:"values"`
+	Counts   []int
+	Labels   []string
+	MaxCount int
+	Values   []float64
 }
 
 type BlockConfiguration struct {
-	ActiveServiceIDs   []string    `json:"activeServiceIds>string"`
-	InactiveServiceIDs []string    `json:"inactiveServiceIds>string"`
-	Trips              []BlockTrip `json:"trips"`
+	ActiveServiceIDs   []string
+	InactiveServiceIDs []string
+	Trips              []BlockTrip
 }
 
 type BlockStopTime struct {
@@ -58,10 +61,10 @@ type BlockStopTime struct {
 }
 
 type BlockTrip struct {
-	TripID               string          `json:"tripId"`
-	BlockStopTimes       []BlockStopTime `json:"blockStopTimes"`
-	AccumulatedSlackTime float64         `json:"accumulatedSlackTime"`
-	DistanceAlongBlock   float64         `json:"distanceAlongBlock"`
+	TripID               string
+	BlockStopTimes       []BlockStopTime
+	AccumulatedSlackTime float64
+	DistanceAlongBlock   float64
 }
 
 type StopTime struct {
@@ -79,13 +82,12 @@ type Frequency struct {
 }
 
 type VehicleStatus struct {
-	VehicleID              string      `json:"vehicleId"`
-	LastUpdateTime         string      `json:"lastUpdateTime"`
-	LastLocationUpdateTime string      `json:"lastLocationUpdateTime"`
-	LocationLat            string      `json:"location>lat"`
-	LocationLon            string      `json:"location>lon"`
-	TripID                 string      `json:"tripId"`
-	TripStatus             *TripStatus `json:"tripStatus,omitempty"`
+	VehicleID              string
+	LastUpdateTime         int
+	LastLocationUpdateTime int
+	Location               Location
+	Trip                   Trip
+	TripStatus             TripStatus
 }
 
 // Agency container object
@@ -152,8 +154,12 @@ type Route struct {
 }
 
 func (r Route) String() string {
-	return fmt.Sprintf("AgencyID: %s\nColor: %s\nDescription: %s\nID: %s\nLongName: %s\nShortName: %s\nTextColor: %s\nType: %d\nURL: %s",
+	return fmt.Sprintf(`{"agencyId"": "%s","color": "%s","description": "%s","id": "%s": "longName": "%s","shortName": "%s","textColor": "%s","type": %d,"url": "%s"}`,
 		r.Agency.String(), r.Color, r.Description, r.ID, r.LongName, r.ShortName, r.TextColor, r.Type, r.URL)
+}
+
+type RegisteredAlarm struct {
+	AlarmID string
 }
 
 type Situation struct {
@@ -173,14 +179,14 @@ type Consequence struct {
 }
 
 type VehicleJourney struct {
-	LineID      string   `json:"lineId"`
-	Direction   string   `json:"direction"`
-	CallStopIDs []string `json:"calls>call>stopId"`
+	LineID      string
+	Direction   string
+	CallStopIDs []string
 }
 
 type Shape struct {
-	Points string `json:"points,omitempty"`
-	Length string `json:"length,omitempty"`
+	Points string
+	Length int
 }
 
 type Stop struct {
@@ -195,6 +201,18 @@ type Stop struct {
 	WheelChairBoarding string
 }
 
+func (s Stop) String() string {
+	rs := make([]string, 0, len(s.Routes))
+	for _, r := range s.Routes {
+		rs = append(rs, r.String())
+	}
+	routes := strings.Join(rs, ",")
+
+	return fmt.Sprintf(
+		`{ "code": "%s", "direction": "%s", "id": "%s", "lat": %f, "locationType": %d, "lon": %f, "name": "%s", "routes": [%s], "wheelChairBoarding": "%s"}`,
+		s.Code, s.Direction, s.ID, s.Lat, s.LocationType, s.Lon, s.Name, routes, s.WheelChairBoarding)
+}
+
 type StopSchedule struct {
 	Date               int
 	Stop               Stop
@@ -204,8 +222,8 @@ type StopSchedule struct {
 }
 
 type StopCalendarDay struct {
-	Date  string `json:"date"`
-	Group string `json:"group"`
+	Date  string
+	Group string
 }
 
 type StopRouteSchedule struct {
@@ -214,16 +232,9 @@ type StopRouteSchedule struct {
 }
 
 type StopRouteDirectionSchedule struct {
-	ScheduleFrequencies []ScheduleFrequency `json:"scheduleFrequencies"`
-	ScheduleStopTimes   []ScheduleStopTime  `json:"scheduleStopTimes,omitempty"`
-	TripHeadsign        string              `json:"tripHeadsign,omitempty"`
-}
-
-func NewStopRouteSchedulesFromEntry(r Route, srds []StopRouteDirectionSchedule) *StopRouteSchedule {
-	return &StopRouteSchedule{
-		Route: r,
-		StopRouteDirectionSchedules: srds,
-	}
+	ScheduleFrequencies []ScheduleFrequency
+	ScheduleStopTimes   []ScheduleStopTime
+	TripHeadsign        string
 }
 
 type ScheduleFrequency struct {
@@ -231,27 +242,34 @@ type ScheduleFrequency struct {
 }
 
 type StopsForRoute struct {
-	StopIDs        []*string `json:"stopIds,omitempty"`
-	*StopGroupings `json:"stopGroupings>stopGrouping,omitempty"`
+	Route         Route
+	Stops         []Stop
+	StopGroupings []StopGrouping
 }
-type StopGroupings []*StopGrouping
 
 type StopGrouping struct {
-	Type       string      `json:"type,omitempty"`
-	Ordered    string      `json:"ordered,omitempty"`
-	StopGroups []StopGroup `json:"stopGroups>stopGroup,omitempty"`
+	Type       string
+	Ordered    *bool
+	StopGroups []StopGroup
 }
 
 type StopGroup struct {
-	ID        string             `json:"id,omitempty"`
-	NameType  string             `json:"type,omitempty"`
-	Names     []string           `json:"names,omitempty"`
-	StopIDs   []*string          `json:"stopIds,omitempty"`
-	PolyLines []*EncodedPolyLine `json:"polylines,omitempty"`
+	ID        string
+	Name      Name
+	Stops     []Stop
+	PolyLines []EncodedPolyLine
+}
+
+type Name struct {
+	Name  string
+	Names []string
+	Type  string
 }
 
 type EncodedPolyLine struct {
-	*Shape
+	Length int
+	Levels string
+	Points string
 }
 
 type ScheduleStopTime struct {
@@ -278,14 +296,39 @@ type Trip struct {
 }
 
 type TripDetails struct {
-	TripID       string   `json:"tripId,omitempty"`
-	ServiceDate  string   `json:"serviceDate,omitempty"`
-	Frequency    string   `json:"frequency,omitempty"`
-	Status       string   `json:"status,omitempty"`
-	SituationIDs []string `json:"situationIds,omitempty"`
+	Trip        Trip
+	ServiceDate int
+	Frequency   *string
+	Status      string
+	Situations  []Situation
 }
 
-type TripStatus Entry
+type TripStatus struct {
+	ActiveTrip                 Trip
+	BlockTripSequence          int
+	ClosestStop                Stop
+	ClosestStopTimeOffset      int
+	DistanceAlongTrip          float64
+	Frequency                  *string
+	LastKnownDistanceAlongTrip float64
+	LastKnownLocation          Location
+	LastKnownOrientation       int
+	LastLocationUpdateTime     int
+	LastUpdateTime             int
+	NextStop                   Stop
+	NextStopTimeOffset         int
+	Orientation                float64
+	Phase                      string
+	Position                   Location
+	Predicted                  *bool
+	ScheduleDeviation          int
+	ScheduledDistanceAlongTrip float64
+	ServiceDate                int
+	Situations                 []Situation
+	Status                     string
+	TotalDistanceAlongTrip     float64
+	VehicleID                  string
+}
 
 type Location struct {
 	Lat float64

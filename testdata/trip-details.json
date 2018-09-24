@@ -3,18 +3,31 @@
   "currentTime": 1537415952440,
   "data": {
     "entry": {
-      "tripId": "",
-      "serviceDate": 0,
-      "frequency": "",
-      "status": "",
-      "schedule": ""
+      "tripId": "1_12540399",
+      "serviceDate": 12356,
+      "frequency": "testvalue",
+      "status": "testvalue",
+      "schedule": "testvalue"
     },
     "references": {
       "agencies": [],
       "routes": [],
       "situations": [],
       "stops": [],
-      "trips": []
+      "trips": [
+        {
+          "directionId": "1",
+          "id": "1_12540399",
+          "routeId": "1_44",
+          "serviceId": "1_114-115-WEEK",
+          "shapeId": "1_20044006",
+          "tripHeadsign": "Downtown via University District",
+          "tripShortName": "LOCAL",
+          "blockId": "testid",
+          "routeShortName": "somevalue",
+          "timeZone": "sometimezone"
+        }
+      ]
     }
   },
   "text": "OK",

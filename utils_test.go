@@ -4,14 +4,15 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/Setheck/oba"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"regexp"
 	"strings"
 	"testing"
+
+	"github.com/Setheck/oba"
+	"github.com/stretchr/testify/assert"
 )
 
 const (
@@ -62,6 +63,15 @@ func ConvertToFilename(s string) string {
 	return strings.ToLower(s) + ".json"
 }
 
+func VerifyAltUnMarshalling(t *testing.T, data []byte) {
+	t.Helper()
+
+	var resp oba.AltResponse
+	if err := json.Unmarshal(data, &resp); err != nil {
+		t.Error(err)
+	}
+}
+
 func VerifyUnMarshalling(t *testing.T, data []byte) {
 	t.Helper()
 
@@ -69,21 +79,6 @@ func VerifyUnMarshalling(t *testing.T, data []byte) {
 	if err := json.Unmarshal(data, &resp); err != nil {
 		t.Error(err)
 	}
-
-	//m, err := json.MarshalIndent(resp, "", "  ")
-	//if err != nil {
-	//	t.Error(err)
-	//}
-	//
-	//m = FixJSON(m) // TODO SetEscapeHTML(false) see https://golang.org/pkg/encoding/json/
-	//
-	//m = bytes.TrimSpace(m)
-	//o := bytes.TrimSpace(data)
-	//
-	//if bytes.Compare(o, m) != 0 {
-	//	t.Error("VerifyMarshalling Failed")
-	//	fmt.Println(string(m))
-	//}
 }
 
 func FixJSON(b []byte) []byte {
@@ -103,6 +98,13 @@ func VerifyAgency(t *testing.T, a *oba.Agency) {
 	assert.NotEmpty(t, a.Lang, "AgencyLang")
 	assert.NotEmpty(t, a.Email, "AgencyEmail")
 	assert.NotEmpty(t, a.Disclaimer, "AgencyDisclaimer")
+}
+
+func VerifyConsequences(t *testing.T, c *oba.Consequence) {
+	assert.NotNil(t, c, "Consequences")
+	assert.NotEmpty(t, c.Condition, "Condition")
+	assert.NotEmpty(t, c.ConditionDetailDiversionPathPoints, "ConditionDetailDiversionPathPoints")
+	assert.NotEmpty(t, c.ConditionDetailDiversionStopIDs, "ConditionDetailDiversionStopIDs")
 }
 
 func VerifyRoute(t *testing.T, r *oba.Route) {
@@ -131,6 +133,15 @@ func VerifyStop(t *testing.T, s *oba.Stop) {
 
 	for _, r := range s.Routes {
 		VerifyRoute(t, &r)
+	}
+}
+
+func VerifyStopsForRoute(t *testing.T, s *oba.StopsForRoute) {
+	t.Helper()
+	assert.NotNil(t, s, "StopsForRoute")
+	VerifyRoute(t, &s.Route)
+	for _, stop := range s.Stops {
+		VerifyStop(t, &stop)
 	}
 }
 
@@ -164,6 +175,29 @@ func VerifyStopRouteDirectionSchedule(t *testing.T, s *oba.StopRouteDirectionSch
 	}
 }
 
+func VerifyShape(t *testing.T, s *oba.Shape) {
+	t.Helper()
+	assert.NotNil(t, s, "Shape")
+	assert.NotEmpty(t, s.Length, "Length")
+	assert.NotEmpty(t, s.Points, "Points")
+}
+
+func VerifySituation(t *testing.T, s *oba.Situation) {
+	t.Helper()
+	assert.NotNil(t, s, "Situation")
+	assert.NotEmpty(t, s.ID, "ID")
+	assert.NotEmpty(t, s.CreationTime, "CreationTime")
+	assert.NotEmpty(t, s.Description, "Description")
+	assert.NotEmpty(t, s.EnvironmentReason, "EnvironmentReason")
+	assert.NotEmpty(t, s.Summary, "Summary")
+	for _, vj := range s.Affects {
+		VerifyVehicleJourney(t, &vj)
+	}
+	for _, c := range s.Consequences {
+		VerifyConsequences(t, &c)
+	}
+}
+
 func VerifyScheduleStopTime(t *testing.T, s *oba.ScheduleStopTime) {
 	t.Helper()
 	assert.NotNil(t, s, "ScheduleStopTime")
@@ -174,4 +208,62 @@ func VerifyScheduleStopTime(t *testing.T, s *oba.ScheduleStopTime) {
 	assert.NotEmpty(t, s.StopHeadsign, "StopHeadsign")
 	assert.NotEmpty(t, s.ServiceID, "ServiceID")
 	assert.NotEmpty(t, s.TripID, "TripID")
+}
+
+func VerifyTripDetails(t *testing.T, td *oba.TripDetails) {
+	t.Helper()
+	assert.NotNil(t, td, "TripDetails")
+	assert.NotEmpty(t, td.Frequency, "Frequency")
+	assert.NotZero(t, td.ServiceDate, "ServiceDate")
+	assert.NotEmpty(t, td.Status, "Status")
+	VerifyTrip(t, &td.Trip)
+	for _, s := range td.Situations {
+		VerifySituation(t, &s)
+	}
+}
+
+func VerifyTrip(t *testing.T, tr *oba.Trip) {
+	t.Helper()
+	assert.NotNil(t, tr, "Trip")
+	assert.NotEmpty(t, tr.ID, "ID")
+	assert.NotEmpty(t, tr.BlockID, "BlockID")
+	assert.NotEmpty(t, tr.DirectionID, "DirectionID")
+	assert.NotEmpty(t, tr.RouteID, "RouteID")
+	assert.NotEmpty(t, tr.RouteShortName, "RouteShortName")
+	assert.NotEmpty(t, tr.ServiceID, "ServiceID")
+	assert.NotEmpty(t, tr.ShapeID, "ShapeID")
+	assert.NotEmpty(t, tr.TimeZone, "TimeZone")
+	assert.NotEmpty(t, tr.TripHeadsign, "TripHeadsign")
+	assert.NotEmpty(t, tr.TripShortName, "TripShortName")
+}
+
+func VerifyVehicleJourney(t *testing.T, vj *oba.VehicleJourney) {
+	t.Helper()
+	assert.NotNil(t, vj, "VehicleJourney")
+	assert.NotEmpty(t, vj.CallStopIDs, "CallStopIDs")
+	assert.NotEmpty(t, vj.Direction, "Direction")
+	assert.NotEmpty(t, vj.LineID, "LineID")
+}
+
+func VerifyVehicleStatus(t *testing.T, vs *oba.VehicleStatus) {
+	t.Helper()
+	assert.NotNil(t, vs, "VehicleStatus")
+	assert.NotZero(t, vs.LastLocationUpdateTime, "LastLocationUpdateTime")
+	assert.NotZero(t, vs.LastUpdateTime, "LastUpdateTime")
+	VerifyLocation(t, &vs.Location)
+	VerifyTrip(t, &vs.Trip)
+	VerifyTripStatus(t, &vs.TripStatus)
+}
+
+func VerifyLocation(t *testing.T, l *oba.Location) {
+	t.Helper()
+	assert.NotNil(t, l, "Location")
+	assert.NotZero(t, l.Lon, "Lon")
+	assert.NotZero(t, l.Lat, "Lat")
+}
+
+func VerifyTripStatus(t *testing.T, ts *oba.TripStatus) {
+	t.Helper()
+	assert.NotNil(t, ts, "TripStatus")
+	//assert.NotNil()
 }

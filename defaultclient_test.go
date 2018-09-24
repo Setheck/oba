@@ -3,9 +3,10 @@
 package oba_test
 
 import (
+	"testing"
+
 	"github.com/Setheck/oba"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 const (
@@ -22,8 +23,7 @@ func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
 	awcs, e := client.AgenciesWithCoverage()
 	if e != nil {
 		t.Error(e)
@@ -43,9 +43,8 @@ func TestDefaultClient_Agency(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
-	a, e := client.Agency("1")
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+	a, e := client.Agency(TestID)
 	if e != nil {
 		t.Error(e)
 	}
@@ -68,8 +67,7 @@ func TestDefaultClient_ArrivalAndDepartureForStop(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
 	aad, e := client.ArrivalAndDepartureForStop(TestID, TestParameters)
 	if e != nil {
 		t.Error(e)
@@ -101,8 +99,7 @@ func TestDefaultClient_ArrivalsAndDeparturesForStop(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
 	swaad, e := client.ArrivalsAndDeparturesForStop(TestID, TestParameters)
 	if e != nil {
 		t.Error(e)
@@ -118,8 +115,7 @@ func TestDefaultClient_Block(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
 
 	b, err := client.Block(TestID)
 	if err != nil {
@@ -135,8 +131,7 @@ func TestDefaultClient_CancelAlarm(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
 	e := client.CancelAlarm(TestID)
 	if e != nil {
 		t.Error(e)
@@ -148,8 +143,7 @@ func TestDefaultClient_CurrentTime(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
 	time, e := client.CurrentTime()
 	if e != nil {
 		t.Error(e)
@@ -164,8 +158,7 @@ func TestDefaultClient_RegisterAlarmForArrivalAndDepartureAtStop(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
 	alarm, e := client.RegisterAlarmForArrivalAndDepartureAtStop(TestID, TestParameters)
 	if e != nil {
 		t.Error(e)
@@ -179,8 +172,8 @@ func TestDefaultClient_ReportProblemWithStop(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	e := client.ReportProblemWithStop(TestID, TestParameters)
 	if e != nil {
 		t.Error(e)
@@ -192,8 +185,8 @@ func TestDefaultClient_ReportProblemWithTrip(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	e := client.ReportProblemWithTrip(TestID, TestParameters)
 	if e != nil {
 		t.Error(e)
@@ -201,18 +194,17 @@ func TestDefaultClient_ReportProblemWithTrip(t *testing.T) {
 }
 
 func TestDefaultClient_RouteIdsForAgency(t *testing.T) {
-	t.Skip("TODO...Last!")
-	//contents := RetrieveTestJsonFileContent(t)
-	//server := FakeServer(t, contents)
-	//defer server.Close()
-	//
-	//client := oba.NewDefaultClient(nil, TestApiKey)
-	//client.SetBaseURL(server.URL)
-	//routes, e := client.RouteIdsForAgency(TestID)
-	//if e != nil {
-	//	t.Error(e)
-	//}
-	//assert.NotEmpty(t, routes, "RouteIdsForAgency")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
+	routes, e := client.RouteIdsForAgency(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+	assert.NotEmpty(t, routes, "RouteIdsForAgency")
 }
 
 func TestDefaultClient_Route(t *testing.T) {
@@ -220,8 +212,8 @@ func TestDefaultClient_Route(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	r, e := client.Route(TestID)
 	if e != nil {
 		t.Error(e)
@@ -235,8 +227,8 @@ func TestDefaultClient_RoutesForAgency(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	routes, e := client.RoutesForAgency(TestID)
 	if e != nil {
 		t.Error(e)
@@ -253,8 +245,8 @@ func TestDefaultClient_RoutesForLocation(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	routes, e := client.RoutesForLocation(TestParameters)
 	if e != nil {
 		t.Error(e)
@@ -270,8 +262,8 @@ func TestDefaultClient_ScheduleForStop(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	ss, e := client.ScheduleForStop(TestID)
 	if e != nil {
 		t.Error(e)
@@ -282,11 +274,33 @@ func TestDefaultClient_ScheduleForStop(t *testing.T) {
 }
 
 func TestDefaultClient_Shape(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
+	shape, e := client.Shape(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyShape(t, shape)
 }
 
 func TestDefaultClient_StopIdsForAgency(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
+	stops, e := client.StopIDsForAgency(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	assert.NotEmpty(t, stops)
 }
 
 func TestDefaultClient_Stop(t *testing.T) {
@@ -294,8 +308,8 @@ func TestDefaultClient_Stop(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	stop, e := client.Stop(TestID)
 	if e != nil {
 		t.Error(e)
@@ -309,8 +323,8 @@ func TestDefaultClient_StopsForLocation(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, TestApiKey)
-	client.SetBaseURL(server.URL)
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
 	stops, e := client.StopsForLocation(TestParameters)
 	if e != nil {
 		t.Error(e)
@@ -320,15 +334,47 @@ func TestDefaultClient_StopsForLocation(t *testing.T) {
 }
 
 func TestDefaultClient_StopsForRoute(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
+	sfr, e := client.StopsForRoute(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+	VerifyStopsForRoute(t, sfr)
 }
 
 func TestDefaultClient_TripDetails(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
+	td, e := client.TripDetails(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyTripDetails(t, td)
 }
 
 func TestDefaultClient_TripForVehicle(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, TestApiKey)
+
+	td, e := client.TripForVehicle(TestID, TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
+
+	VerifyTripDetails(t, td)
 }
 
 func TestDefaultClient_Trip(t *testing.T) {
@@ -336,16 +382,31 @@ func TestDefaultClient_Trip(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, "key")
-	client.SetBaseURL(server.URL)
-	_, e := client.Trip("1")
+	client := oba.NewDefaultClientS(server.URL, "key")
+
+	trip, e := client.Trip("1")
 	if e != nil {
 		t.Error(e)
 	}
+
+	VerifyTrip(t, trip)
 }
 
 func TestDefaultClient_TripsForLocation(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, "key")
+
+	tds, e := client.TripsForLocation(TestParameters)
+	if e != nil {
+		t.Error(e)
+	}
+
+	for _, td := range tds {
+		VerifyTripDetails(t, &td)
+	}
 }
 
 func TestDefaultClient_TripsForRoute(t *testing.T) {
@@ -353,14 +414,30 @@ func TestDefaultClient_TripsForRoute(t *testing.T) {
 	server := FakeServer(t, contents)
 	defer server.Close()
 
-	client := oba.NewDefaultClient(nil, "key")
-	client.SetBaseURL(server.URL)
-	_, e := client.TripsForRoute("1")
+	client := oba.NewDefaultClientS(server.URL, "key")
+
+	tds, e := client.TripsForRoute(TestID)
 	if e != nil {
 		t.Error(e)
+	}
+
+	for _, td := range tds {
+		VerifyTripDetails(t, &td)
 	}
 }
 
 func TestDefaultClient_VehiclesForAgency(t *testing.T) {
-	t.Skip("TODO")
+	contents := RetrieveTestJsonFileContent(t)
+	server := FakeServer(t, contents)
+	defer server.Close()
+
+	client := oba.NewDefaultClientS(server.URL, "key")
+	vss, e := client.VehiclesForAgency(TestID)
+	if e != nil {
+		t.Error(e)
+	}
+
+	for _, vs := range vss {
+		VerifyVehicleStatus(t, &vs)
+	}
 }

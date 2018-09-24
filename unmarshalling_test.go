@@ -62,9 +62,8 @@ func TestRoute(t *testing.T) {
 }
 
 func TestRouteIdsForAgency(t *testing.T) {
-	t.Skip("TODO...")
 	contents := RetrieveTestJsonFileContent(t)
-	VerifyUnMarshalling(t, contents)
+	VerifyAltUnMarshalling(t, contents)
 }
 
 func TestRoutesForLocation(t *testing.T) {
@@ -88,9 +87,8 @@ func TestStop(t *testing.T) {
 }
 
 func TestStopIdsForAgency(t *testing.T) {
-	t.Skip("Come back here last...")
 	contents := RetrieveTestJsonFileContent(t)
-	VerifyUnMarshalling(t, contents)
+	VerifyAltUnMarshalling(t, contents)
 }
 
 func TestStopsForLocation(t *testing.T) {
