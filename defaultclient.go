@@ -4,7 +4,6 @@ package oba
 
 import (
 	"fmt"
-	"log"
 	"net/url"
 	"path"
 )
@@ -58,7 +57,7 @@ func NewDefaultClientS(s string, apiKey string) *DefaultClient {
 func (c *DefaultClient) setBaseURL(b string) {
 	u, e := url.Parse(b)
 	if e != nil {
-		log.Fatal(e)
+		panic(e)
 	}
 	c.baseURL = u
 }
