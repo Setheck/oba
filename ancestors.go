@@ -32,7 +32,7 @@ type AltResponse struct {
 }
 
 func (r Response) String() string {
-	return fmt.Sprintf("Code: %d\nCurrentTime: %d\nData: %s\nText: %s\nVersion: %d\n",
+	return fmt.Sprintf(`{"code": %d,"currentTime": %d,"data": "%s","text": "%s","version": %d}`,
 		r.Code, r.CurrentTime, r.Data.String(), r.Text, r.Version)
 }
 
@@ -67,7 +67,68 @@ type Data struct {
 	OutOfRange    *bool       `json:"outOfRange,omitempty"`
 	References    *References `json:"references"`
 	Time          *Time       `json:",omitempty"`
-	//StopsForRoute *StopsForRoute
+}
+
+func (d Data) Agencies() []Agency {
+	var agencies []Agency
+	if d.References != nil {
+		ref := d.References
+		if ref.Agencies != nil {
+			agencies = ref.Agencies.toAgencies()
+		}
+	}
+	return agencies
+}
+
+func (d Data) Routes(ags []Agency) []Route {
+	var routes []Route
+	if d.References != nil {
+		ref := d.References
+		if ref.Routes != nil {
+			routes = ref.Routes.toRoutes(ags)
+		}
+	}
+	return routes
+}
+
+func (d Data) Situations() []Situation {
+	var situations []Situation
+	if d.References != nil {
+		ref := d.References
+		if ref.Situations != nil {
+			situations = ref.Situations.toSituations()
+		}
+	}
+	return situations
+}
+
+func (d Data) Stops(rs []Route) []Stop {
+	var stops []Stop
+	if d.References != nil {
+		ref := d.References
+		if ref.Stops != nil {
+			stops = ref.Stops.toStops(rs)
+		}
+	}
+	return stops
+}
+
+func (d Data) String() string {
+	return ""
+	// TODO:
+	//return fmt.Sprintf("LimitExceeded: %b\nList: %s\nEntry: %s\nOutOfRange: %b\nReference: %s\nTime: %s",
+	//	d.LimitExceeded, d.List.String(), d.Entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
+}
+
+func (d Data) Trips() []Trip {
+	var trips []Trip
+	if d.References != nil {
+		ref := d.References
+		if ref.Trips != nil {
+			trips = ref.Trips.toTrips()
+		}
+	}
+	return trips
 }
 
 type AltData struct {
@@ -88,18 +149,12 @@ func (d Data) TripDetails() *TripDetails {
 	return td
 }
 
-func (d Data) String() string {
-	return ""
-	// TODO:
-	//return fmt.Sprintf("LimitExceeded: %b\nList: %s\nEntry: %s\nOutOfRange: %b\nReference: %s\nTime: %s",
-	//	d.LimitExceeded, d.List.String(), d.Entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
-}
-
 type Time struct {
 	ReadableTime *string `json:"readableTime,omitempty"`
 	Time         *int    `json:"time,omitempty"`
 }
 
 func (t Time) String() string {
-	return fmt.Sprintf("ReadableTime: %s\nTime: %d", *t.ReadableTime, t.Time)
+	return fmt.Sprintf(`{"readableTime": "%s","time"": %d"}`,
+		*t.ReadableTime, t.Time)
 }
