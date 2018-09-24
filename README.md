@@ -15,7 +15,7 @@ $ go get -u github.com/Setheck/oba
 # Import
 ``` go
 import (
-    "fmt"
+    "log"
     "github.com/Setheck/oba"
 )
 ```
@@ -28,22 +28,21 @@ func main() {
     client := oba.NewDefaultClientS(server.URL, TestApiKey)
     agency, e := client.Agency("1")
     if e != nil {
-        t.Error(e)
+        log.Fatal(e)
     }
 }
 ```
-```
-## AgenciesWithCoverage
+### AgenciesWithCoverage
 ```go
 func main() {
     client := oba.NewDefaultClientS(server.URL, TestApiKey)
     awcs, e := client.AgenciesWithCoverage()
     if e != nil {
-        t.Error(e)
+        log.Fatal(e)
     }
 }
 ```
-## Route
+### Route
 ```go
 func main() {
     client := oba.NewDefaultClientS("http://api.pugetsound.onebusaway.org/api/where/", "TEST")
@@ -51,6 +50,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Print(route.ID)
+    log.Print(route.ID)
 }
 ```
