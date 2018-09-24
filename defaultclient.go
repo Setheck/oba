@@ -49,16 +49,18 @@ func NewDefaultClient(u *url.URL, apiKey string) *DefaultClient {
 	return &DefaultClient{baseURL: u, apiKey: apiKey}
 }
 
-func (c *DefaultClient) SetBaseURL(b string) {
+func NewDefaultClientS(s string, apiKey string) *DefaultClient {
+	dc := &DefaultClient{apiKey: apiKey}
+	dc.setBaseURL(s)
+	return dc
+}
+
+func (c *DefaultClient) setBaseURL(b string) {
 	u, e := url.Parse(b)
 	if e != nil {
 		log.Fatal(e)
 	}
 	c.baseURL = u
-}
-
-func (c *DefaultClient) SetApiKey(a string) {
-	c.apiKey = a
 }
 
 //AgenciesWithCoverage - 	list all supported agencies along with the center of
@@ -107,10 +109,8 @@ func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	agencies := data.References.Agencies.toAgencies()
 	awcs := data.List.toAgenciesWithCoverage(agencies)
-
 	return awcs, nil
 }
 
@@ -153,14 +153,11 @@ func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
 //
 
 func (c DefaultClient) Agency(id string) (*Agency, error) {
-
 	entry, err := c.getEntry(fmt.Sprint(agencyEndPoint, id), "Agency", nil)
 	if err != nil {
 		return nil, err
 	}
-
 	agency := entry.AgencyFromEntry()
-
 	return agency, nil
 }
 
@@ -219,14 +216,12 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 	if err != nil {
 		return nil, err
 	}
-
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
 	stops := data.References.Stops.toStops(routes)
 	trips := data.References.Trips.toTrips()
 	situations := data.References.Situations.toSituations()
 	aad := data.Entry.ArrivalAndDepartureFromEntry(situations, stops, trips)
-
 	return aad, nil
 }
 
@@ -285,7 +280,6 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 	if err != nil {
 		return nil, err
 	}
-
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
 	stops := data.References.Stops.toStops(routes)
@@ -293,7 +287,6 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 	situations := data.References.Situations.toSituations()
 	aads := data.Entry.ArrivalsAndDepartures.toArrivalAndDepartures(situations, stops, trips)
 	swaad := data.Entry.StopWithArrivalsAndDeparturesFromEntry(aads)
-
 	return swaad, nil
 }
 
@@ -663,10 +656,8 @@ func (c DefaultClient) Route(id string) (*Route, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	agencies := data.References.Agencies.toAgencies()
 	route := data.Entry.RouteFromEntry(agencies)
-
 	return route, nil
 }
 
@@ -881,14 +872,11 @@ func (c DefaultClient) ScheduleForStop(id string) (*StopSchedule, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
 	stops := data.References.Stops.toStops(routes)
-
 	ss := data.Entry.StopScheduleFromEntry(stops)
 	ss.StopRouteSchedules = data.Entry.StopRouteSchedules.toStopRouteSchedules(routes)
-
 	return ss, nil
 }
 
@@ -1038,12 +1026,10 @@ func (c DefaultClient) Stop(id string) (*Stop, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
 	stop := data.Entry.StopFromEntry()
 	stop.Routes = routes
-
 	return stop, nil
 }
 
@@ -1096,11 +1082,9 @@ func (c DefaultClient) StopsForLocation(params map[string]string) ([]Stop, error
 	if err != nil {
 		return nil, err
 	}
-
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
 	stops := data.List.toStops(routes)
-
 	return stops, nil
 }
 
