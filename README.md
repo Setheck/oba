@@ -23,7 +23,6 @@ import (
 # Use
 ### Agency
 ```go
-```go
 func main() {
     client := oba.NewDefaultClientS(server.URL, TestApiKey)
     agency, e := client.Agency("1")
