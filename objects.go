@@ -1,6 +1,9 @@
 package oba
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type ArrivalsAndDepartures []ArrivalAndDeparture
 
@@ -38,16 +41,16 @@ type ArrivalAndDeparture struct {
 }
 
 type Histogram struct {
-	Counts   []int     `json:"counts"`
-	Labels   []string  `json:"labels"`
-	MaxCount int       `json:"maxCount"`
-	Values   []float64 `json:"values"`
+	Counts   []int
+	Labels   []string
+	MaxCount int
+	Values   []float64
 }
 
 type BlockConfiguration struct {
-	ActiveServiceIDs   []string    `json:"activeServiceIds>string"`
-	InactiveServiceIDs []string    `json:"inactiveServiceIds>string"`
-	Trips              []BlockTrip `json:"trips"`
+	ActiveServiceIDs   []string
+	InactiveServiceIDs []string
+	Trips              []BlockTrip
 }
 
 type BlockStopTime struct {
@@ -58,10 +61,10 @@ type BlockStopTime struct {
 }
 
 type BlockTrip struct {
-	TripID               string          `json:"tripId"`
-	BlockStopTimes       []BlockStopTime `json:"blockStopTimes"`
-	AccumulatedSlackTime float64         `json:"accumulatedSlackTime"`
-	DistanceAlongBlock   float64         `json:"distanceAlongBlock"`
+	TripID               string
+	BlockStopTimes       []BlockStopTime
+	AccumulatedSlackTime float64
+	DistanceAlongBlock   float64
 }
 
 type StopTime struct {
@@ -84,7 +87,7 @@ type VehicleStatus struct {
 	LastLocationUpdateTime int
 	Location               Location
 	Trip                   Trip
-	TripStatus             *TripStatus
+	TripStatus             TripStatus
 }
 
 // Agency container object
@@ -151,7 +154,7 @@ type Route struct {
 }
 
 func (r Route) String() string {
-	return fmt.Sprintf("AgencyID: %s\nColor: %s\nDescription: %s\nID: %s\nLongName: %s\nShortName: %s\nTextColor: %s\nType: %d\nURL: %s",
+	return fmt.Sprintf(`{"agencyId"": "%s","color": "%s","description": "%s","id": "%s": "longName": "%s","shortName": "%s","textColor": "%s","type": %d,"url": "%s"}`,
 		r.Agency.String(), r.Color, r.Description, r.ID, r.LongName, r.ShortName, r.TextColor, r.Type, r.URL)
 }
 
@@ -176,9 +179,9 @@ type Consequence struct {
 }
 
 type VehicleJourney struct {
-	LineID      string   `json:"lineId"`
-	Direction   string   `json:"direction"`
-	CallStopIDs []string `json:"calls>call>stopId"`
+	LineID      string
+	Direction   string
+	CallStopIDs []string
 }
 
 type Shape struct {
@@ -198,6 +201,18 @@ type Stop struct {
 	WheelChairBoarding string
 }
 
+func (s Stop) String() string {
+	rs := make([]string, 0, len(s.Routes))
+	for _, r := range s.Routes {
+		rs = append(rs, r.String())
+	}
+	routes := strings.Join(rs, ",")
+
+	return fmt.Sprintf(
+		`{ "code": "%s", "direction": "%s", "id": "%s", "lat": %f, "locationType": %d, "lon": %f, "name": "%s", "routes": [%s], "wheelChairBoarding": "%s"}`,
+		s.Code, s.Direction, s.ID, s.Lat, s.LocationType, s.Lon, s.Name, routes, s.WheelChairBoarding)
+}
+
 type StopSchedule struct {
 	Date               int
 	Stop               Stop
@@ -207,8 +222,8 @@ type StopSchedule struct {
 }
 
 type StopCalendarDay struct {
-	Date  string `json:"date"`
-	Group string `json:"group"`
+	Date  string
+	Group string
 }
 
 type StopRouteSchedule struct {
@@ -217,16 +232,9 @@ type StopRouteSchedule struct {
 }
 
 type StopRouteDirectionSchedule struct {
-	ScheduleFrequencies []ScheduleFrequency `json:"scheduleFrequencies"`
-	ScheduleStopTimes   []ScheduleStopTime  `json:"scheduleStopTimes,omitempty"`
-	TripHeadsign        string              `json:"tripHeadsign,omitempty"`
-}
-
-func NewStopRouteSchedulesFromEntry(r Route, srds []StopRouteDirectionSchedule) *StopRouteSchedule {
-	return &StopRouteSchedule{
-		Route: r,
-		StopRouteDirectionSchedules: srds,
-	}
+	ScheduleFrequencies []ScheduleFrequency
+	ScheduleStopTimes   []ScheduleStopTime
+	TripHeadsign        string
 }
 
 type ScheduleFrequency struct {
@@ -242,7 +250,7 @@ type StopsForRoute struct {
 type StopGrouping struct {
 	Type       string
 	Ordered    *bool
-	StopGroups []StopGroup `json:"stopGroups>stopGroup,omitempty"`
+	StopGroups []StopGroup
 }
 
 type StopGroup struct {

@@ -252,7 +252,7 @@ func VerifyVehicleStatus(t *testing.T, vs *oba.VehicleStatus) {
 	assert.NotZero(t, vs.LastUpdateTime, "LastUpdateTime")
 	VerifyLocation(t, &vs.Location)
 	VerifyTrip(t, &vs.Trip)
-	VerifyTripStatus(t, vs.TripStatus)
+	VerifyTripStatus(t, &vs.TripStatus)
 }
 
 func VerifyLocation(t *testing.T, l *oba.Location) {

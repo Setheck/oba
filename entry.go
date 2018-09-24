@@ -124,18 +124,18 @@ type Entry struct {
 }
 
 type AltEntry struct {
-	ID         string    `json:"id,omitempty"`
-	Name       NameEntry `json:"name,omitempty"`
-	Names      []string  `json:"names,omitempty"`
-	PolyLines  AltList   `json:"polylines,omitempty"`
-	StopIDs    []string  `json:"stopIds,omitempty"`
-	SubGroups  AltList   `json:"subGroups,omitempty"`
-	Length     int       `json:"length,omitempty"`
-	Levels     string    `json:"levels,omitempty"`
-	Points     string    `json:"points,omitempty"`
-	Type       string    `json:"type,omitempty"`
-	Ordered    *bool     `json:"ordered,omitempty"`
-	StopGroups AltList   `json:"stopGroups,omitempty"`
+	ID         string     `json:"id,omitempty"`
+	Name       *NameEntry `json:"name,omitempty"`
+	Names      []string   `json:"names,omitempty"`
+	PolyLines  AltList    `json:"polylines,omitempty"`
+	StopIDs    []string   `json:"stopIds,omitempty"`
+	SubGroups  AltList    `json:"subGroups,omitempty"`
+	Length     int        `json:"length,omitempty"`
+	Levels     string     `json:"levels,omitempty"`
+	Points     string     `json:"points,omitempty"`
+	Type       string     `json:"type,omitempty"`
+	Ordered    *bool      `json:"ordered,omitempty"`
+	StopGroups AltList    `json:"stopGroups,omitempty"`
 }
 
 type NameEntry struct {
@@ -162,10 +162,14 @@ func (e AltEntry) StopGroupFromEntry(stops []Stop) *StopGroup {
 		}
 	}
 
+	var name Name
+	if e.Name != nil {
+		name = *e.Name.NameFromEntry()
+	}
 	return &StopGroup{
 		ID:        e.ID,
 		Stops:     ss,
-		Name:      *e.Name.NameFromEntry(),
+		Name:      name,
 		PolyLines: e.PolyLines.toEncodedPolyLines(),
 	}
 }
@@ -242,11 +246,15 @@ func (e Entry) BlockConfigurationFromEntry() *BlockConfiguration {
 }
 
 func (e Entry) BlockStopTimeFromEntry() *BlockStopTime {
+	var st StopTime
+	if e.StopTime != nil {
+		st = *e.StopTime.StopTimeFromEntry()
+	}
 	return &BlockStopTime{
 		BlockSequence:        e.BlockSequence,
 		DistanceAlongBlock:   e.DistanceAlongBlock,
 		AccumulatedSlackTime: e.AccumulatedSlackTime,
-		StopTime:             *e.StopTime.StopTimeFromEntry(),
+		StopTime:             st,
 	}
 }
 
@@ -541,12 +549,6 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 }
 
 func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (ret *VehicleStatus) {
-	defer func() {
-		if r := recover(); r != nil {
-			ret = nil
-		}
-	}()
-
 	var trip Trip
 	for _, t := range ts {
 		if t.ID == e.TripID {
@@ -554,16 +556,20 @@ func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (re
 		}
 	}
 
-	var tripstat *TripStatus
+	var tstatus TripStatus
 	if e.TripStatus != nil {
-		tripstat = e.TripStatus.TripStatusFromEntry(sis, ss, ts)
+		tstatus = *e.TripStatus.TripStatusFromEntry(sis, ss, ts)
+	}
+	var loc Location
+	if e.Location != nil {
+		loc = *e.Location.LocationFromEntry()
 	}
 	return &VehicleStatus{
-		Location:               *e.Location.LocationFromEntry(),
+		Location:               loc,
 		VehicleID:              e.VehicleID,
 		LastUpdateTime:         e.LastUpdateTime,
 		LastLocationUpdateTime: e.LastLocationUpdateTime,
-		TripStatus:             tripstat,
+		TripStatus:             tstatus,
 		Trip:                   trip,
 	}
 }
