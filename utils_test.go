@@ -63,6 +63,15 @@ func ConvertToFilename(s string) string {
 	return strings.ToLower(s) + ".json"
 }
 
+func VerifyAltUnMarshalling(t *testing.T, data []byte) {
+	t.Helper()
+
+	var resp oba.AltResponse
+	if err := json.Unmarshal(data, &resp); err != nil {
+		t.Error(err)
+	}
+}
+
 func VerifyUnMarshalling(t *testing.T, data []byte) {
 	t.Helper()
 
@@ -70,21 +79,6 @@ func VerifyUnMarshalling(t *testing.T, data []byte) {
 	if err := json.Unmarshal(data, &resp); err != nil {
 		t.Error(err)
 	}
-
-	//m, err := json.MarshalIndent(resp, "", "  ")
-	//if err != nil {
-	//	t.Error(err)
-	//}
-	//
-	//m = FixJSON(m) // TODO SetEscapeHTML(false) see https://golang.org/pkg/encoding/json/
-	//
-	//m = bytes.TrimSpace(m)
-	//o := bytes.TrimSpace(data)
-	//
-	//if bytes.Compare(o, m) != 0 {
-	//	t.Error("VerifyMarshalling Failed")
-	//	fmt.Println(string(m))
-	//}
 }
 
 func FixJSON(b []byte) []byte {
@@ -139,6 +133,15 @@ func VerifyStop(t *testing.T, s *oba.Stop) {
 
 	for _, r := range s.Routes {
 		VerifyRoute(t, &r)
+	}
+}
+
+func VerifyStopsForRoute(t *testing.T, s *oba.StopsForRoute) {
+	t.Helper()
+	assert.NotNil(t, s, "StopsForRoute")
+	VerifyRoute(t, &s.Route)
+	for _, stop := range s.Stops {
+		VerifyStop(t, &stop)
 	}
 }
 
@@ -240,4 +243,27 @@ func VerifyVehicleJourney(t *testing.T, vj *oba.VehicleJourney) {
 	assert.NotEmpty(t, vj.CallStopIDs, "CallStopIDs")
 	assert.NotEmpty(t, vj.Direction, "Direction")
 	assert.NotEmpty(t, vj.LineID, "LineID")
+}
+
+func VerifyVehicleStatus(t *testing.T, vs *oba.VehicleStatus) {
+	t.Helper()
+	assert.NotNil(t, vs, "VehicleStatus")
+	assert.NotZero(t, vs.LastLocationUpdateTime, "LastLocationUpdateTime")
+	assert.NotZero(t, vs.LastUpdateTime, "LastUpdateTime")
+	VerifyLocation(t, &vs.Location)
+	VerifyTrip(t, &vs.Trip)
+	VerifyTripStatus(t, vs.TripStatus)
+}
+
+func VerifyLocation(t *testing.T, l *oba.Location) {
+	t.Helper()
+	assert.NotNil(t, l, "Location")
+	assert.NotZero(t, l.Lon, "Lon")
+	assert.NotZero(t, l.Lat, "Lat")
+}
+
+func VerifyTripStatus(t *testing.T, ts *oba.TripStatus) {
+	t.Helper()
+	assert.NotNil(t, ts, "TripStatus")
+	//assert.NotNil()
 }

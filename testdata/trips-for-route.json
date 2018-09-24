@@ -6,44 +6,60 @@
     "list": [
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39477624"
+        "tripId": "1_39477624",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39477690"
+        "tripId": "1_39477690",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39485365"
+        "tripId": "1_39485365",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39477668"
+        "tripId": "1_39477668",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39477762"
+        "tripId": "1_39477762",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39477724"
+        "tripId": "1_39477724",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39477699"
+        "tripId": "1_39477699",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39513032"
+        "tripId": "1_39513032",
+        "frequency": "testvalue",
+        "status": "testvalue"
       }
     ],
     "outOfRange": false,
     "references": {
       "agencies": [
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "testvalue",
+          "email": "testvalue",
+          "fareUrl": "testvalue",
           "id": "1",
           "lang": "EN",
           "name": "Metro Transit",
@@ -56,34 +72,34 @@
       "routes": [
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Ballard - Montlake",
           "id": "1_100224",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "44",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/044/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Jackson Park - Univ District - Downtown Seattle",
           "id": "1_100267",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "73",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/073/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Wedgwood - University District - Downtown Seattle",
           "id": "1_100265",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "71",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/071/n0.html"
         }
@@ -96,10 +112,10 @@
           "directionId": "1",
           "id": "1_39477624",
           "routeId": "1_100224",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_20044004",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "University Of Washington Medical Center Wallingford",
           "tripShortName": "LOCAL"
         },
@@ -108,10 +124,10 @@
           "directionId": "0",
           "id": "1_39477690",
           "routeId": "1_100224",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_11044012",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Ballard Wallingford",
           "tripShortName": "LOCAL"
         },
@@ -120,10 +136,10 @@
           "directionId": "0",
           "id": "1_39485365",
           "routeId": "1_100267",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_11073344",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Jackson Park Maple Leaf",
           "tripShortName": "LOCAL"
         },
@@ -132,10 +148,10 @@
           "directionId": "0",
           "id": "1_39477668",
           "routeId": "1_100224",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_11044012",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Ballard Wallingford",
           "tripShortName": "LOCAL"
         },
@@ -144,10 +160,10 @@
           "directionId": "1",
           "id": "1_39477762",
           "routeId": "1_100224",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_20044004",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "University Of Washington Medical Center Wallingford",
           "tripShortName": "LOCAL"
         },
@@ -156,10 +172,10 @@
           "directionId": "1",
           "id": "1_39477724",
           "routeId": "1_100224",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_20044004",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "University Of Washington Medical Center Wallingford",
           "tripShortName": "LOCAL"
         },
@@ -168,10 +184,10 @@
           "directionId": "0",
           "id": "1_39477699",
           "routeId": "1_100224",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_11044012",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Ballard Wallingford",
           "tripShortName": "LOCAL"
         },
@@ -180,10 +196,10 @@
           "directionId": "0",
           "id": "1_39513032",
           "routeId": "1_100265",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_11071651",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Wedgwood Ravenna",
           "tripShortName": "LOCAL"
         }

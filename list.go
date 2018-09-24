@@ -1,6 +1,7 @@
 package oba
 
 type List []Entry
+type AltList []AltEntry
 
 func (l List) toAgencies() []Agency {
 	agencies := make([]Agency, 0, len(l))
@@ -26,10 +27,10 @@ func (l List) toAgenciesWithCoverage(agencies []Agency) []AgencyWithCoverage {
 	return awcs
 }
 
-func (l List) toArrivalAndDepartures() []ArrivalAndDeparture {
+func (l List) toArrivalAndDepartures(sits []Situation, st []Stop, ts []Trip) []ArrivalAndDeparture {
 	aads := make([]ArrivalAndDeparture, 0)
 	for _, entry := range l {
-		aads = append(aads, *entry.ArrivalAndDepartureFromEntry())
+		aads = append(aads, *entry.ArrivalAndDepartureFromEntry(sits, st, ts))
 	}
 	return aads
 }
@@ -50,7 +51,7 @@ func (l List) toBlockStopTimes() []BlockStopTime {
 	return bsts
 }
 
-func (l List) toEncodedPolyLines() []EncodedPolyLine {
+func (l AltList) toEncodedPolyLines() []EncodedPolyLine {
 	epls := make([]EncodedPolyLine, 0, len(l))
 	for _, entry := range l {
 		epls = append(epls, *entry.EncodedPolyLineFromEntry())
@@ -136,7 +137,7 @@ func (l List) toScheduleStopTimes() []ScheduleStopTime {
 	return ssts
 }
 
-func (l List) toStopGroupings(ss []Stop) []StopGrouping {
+func (l AltList) toStopGroupings(ss []Stop) []StopGrouping {
 	sgs := make([]StopGrouping, 0, len(l))
 	for _, entry := range l {
 		sgs = append(sgs, *entry.StopGroupingFromEntry(ss))
@@ -144,7 +145,7 @@ func (l List) toStopGroupings(ss []Stop) []StopGrouping {
 	return sgs
 }
 
-func (l List) toStopGroups(ss []Stop) []StopGroup {
+func (l AltList) toStopGroups(ss []Stop) []StopGroup {
 	sgs := make([]StopGroup, 0, len(l))
 	for _, entry := range l {
 		sgs = append(sgs, *entry.StopGroupFromEntry(ss))
@@ -166,4 +167,13 @@ func (l List) toTripDetails(ts []Trip, ss []Situation) []TripDetails {
 		tds = append(tds, *entry.TripDetailsFromEntry(ts, ss))
 	}
 	return tds
+}
+
+func (l List) toVehicleStatuses(sits []Situation, st []Stop, ts []Trip) []VehicleStatus {
+	vss := make([]VehicleStatus, 0, len(l))
+	for _, entry := range l {
+		vhs := *entry.VehicleStatusFromEntry(sits, st, ts)
+		vss = append(vss, vhs)
+	}
+	return vss
 }

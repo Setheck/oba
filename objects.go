@@ -9,7 +9,7 @@ type ArrivalAndDeparture struct {
 	BlockTripSequence            int
 	DepartureEnabled             *bool
 	DistanceFromStop             float64
-	Frequency                    string
+	Frequency                    *string
 	LastUpdateTime               int
 	NumberOfStopsAway            int
 	Predicted                    *bool
@@ -79,13 +79,12 @@ type Frequency struct {
 }
 
 type VehicleStatus struct {
-	VehicleID              string      `json:"vehicleId"`
-	LastUpdateTime         string      `json:"lastUpdateTime"`
-	LastLocationUpdateTime string      `json:"lastLocationUpdateTime"`
-	LocationLat            string      `json:"location>lat"`
-	LocationLon            string      `json:"location>lon"`
-	TripID                 string      `json:"tripId"`
-	TripStatus             *TripStatus `json:"tripStatus,omitempty"`
+	VehicleID              string
+	LastUpdateTime         int
+	LastLocationUpdateTime int
+	Location               Location
+	Trip                   Trip
+	TripStatus             *TripStatus
 }
 
 // Agency container object
@@ -241,15 +240,14 @@ type StopsForRoute struct {
 }
 
 type StopGrouping struct {
-	Type       int
+	Type       string
 	Ordered    *bool
 	StopGroups []StopGroup `json:"stopGroups>stopGroup,omitempty"`
 }
 
 type StopGroup struct {
 	ID        string
-	Type      int
-	Names     []Name
+	Name      Name
 	Stops     []Stop
 	PolyLines []EncodedPolyLine
 }
@@ -292,12 +290,37 @@ type Trip struct {
 type TripDetails struct {
 	Trip        Trip
 	ServiceDate int
-	Frequency   string
+	Frequency   *string
 	Status      string
 	Situations  []Situation
 }
 
-type TripStatus Entry
+type TripStatus struct {
+	ActiveTrip                 Trip
+	BlockTripSequence          int
+	ClosestStop                Stop
+	ClosestStopTimeOffset      int
+	DistanceAlongTrip          float64
+	Frequency                  *string
+	LastKnownDistanceAlongTrip float64
+	LastKnownLocation          Location
+	LastKnownOrientation       int
+	LastLocationUpdateTime     int
+	LastUpdateTime             int
+	NextStop                   Stop
+	NextStopTimeOffset         int
+	Orientation                float64
+	Phase                      string
+	Position                   Location
+	Predicted                  *bool
+	ScheduleDeviation          int
+	ScheduledDistanceAlongTrip float64
+	ServiceDate                int
+	Situations                 []Situation
+	Status                     string
+	TotalDistanceAlongTrip     float64
+	VehicleID                  string
+}
 
 type Location struct {
 	Lat float64

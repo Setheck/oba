@@ -6,40 +6,54 @@
     "list": [
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39485674"
+        "tripId": "1_39485674",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39430446"
+        "tripId": "1_39430446",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39430531"
+        "tripId": "1_39430531",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39493916"
+        "tripId": "1_39493916",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39487328"
+        "tripId": "1_39487328",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "1_39485355"
+        "tripId": "1_39485355",
+        "frequency": "testvalue",
+        "status": "testvalue"
       },
       {
         "serviceDate": 1537426800000,
-        "tripId": "40_39472364"
+        "tripId": "40_39472364",
+        "frequency": "testvalue",
+        "status": "testvalue"
       }
     ],
     "outOfRange": false,
     "references": {
       "agencies": [
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "testvalue",
+          "email": "testvalue",
+          "fareUrl": "testvalue",
           "id": "1",
           "lang": "EN",
           "name": "Metro Transit",
@@ -49,9 +63,9 @@
           "url": "http://metro.kingcounty.gov"
         },
         {
-          "disclaimer": "",
-          "email": "",
-          "fareUrl": "",
+          "disclaimer": "testvalue",
+          "email": "testvalue",
+          "fareUrl": "testvalue",
           "id": "40",
           "lang": "EN",
           "name": "Sound Transit",
@@ -64,67 +78,67 @@
       "routes": [
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Northgate - Roosevelt - University District",
           "id": "1_100259",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "67",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/067/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Loyal Heights - University District",
           "id": "1_100225",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "45",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/045/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Issaquah - University District",
           "id": "1_100162",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "271",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/271/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Univ District-Fremont-Interbay-Seattle Center West",
           "id": "1_100193",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "32",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/032/n0.html"
         },
         {
           "agencyId": "1",
-          "color": "",
+          "color": "testvalue",
           "description": "Lake City  - University District",
           "id": "1_100254",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "65",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 3,
           "url": "http://metro.kingcounty.gov/schedules/065/n0.html"
         },
         {
           "agencyId": "40",
-          "color": "",
+          "color": "testvalue",
           "description": "LINK: SeaTac - Downtown Seattle - UW/Husky Stadium",
           "id": "40_100479",
-          "longName": "",
+          "longName": "testvalue",
           "shortName": "Link light rail",
-          "textColor": "",
+          "textColor": "testvalue",
           "type": 0,
           "url": "http://www.soundtransit.org/Schedules/ST-Express-Bus/599"
         }
@@ -137,10 +151,10 @@
           "directionId": "0",
           "id": "1_39485674",
           "routeId": "1_100259",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_11067077",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Northgate Roosevelt",
           "tripShortName": "LOCAL"
         },
@@ -149,10 +163,10 @@
           "directionId": "0",
           "id": "1_39430446",
           "routeId": "1_100225",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_31045010",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Loyal Heights Greenwood",
           "tripShortName": "LOCAL"
         },
@@ -161,10 +175,10 @@
           "directionId": "0",
           "id": "1_39430531",
           "routeId": "1_100225",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_31045010",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Loyal Heights Greenwood",
           "tripShortName": "LOCAL"
         },
@@ -173,10 +187,10 @@
           "directionId": "1",
           "id": "1_39493916",
           "routeId": "1_100162",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_30271171",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "University District Bellevue",
           "tripShortName": "LOCAL"
         },
@@ -185,10 +199,10 @@
           "directionId": "0",
           "id": "1_39487328",
           "routeId": "1_100193",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_31032125",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Seattle Center Fremont",
           "tripShortName": "LOCAL"
         },
@@ -197,10 +211,10 @@
           "directionId": "0",
           "id": "1_39485355",
           "routeId": "1_100254",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_11065088",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Jackson Park Wedgwood",
           "tripShortName": "LOCAL"
         },
@@ -209,10 +223,10 @@
           "directionId": "0",
           "id": "40_39472364",
           "routeId": "40_100479",
-          "routeShortName": "",
+          "routeShortName": "testvalue",
           "serviceId": "1_28099",
           "shapeId": "1_21599015",
-          "timeZone": "",
+          "timeZone": "testvalue",
           "tripHeadsign": "Angle Lake Station",
           "tripShortName": "LOCAL"
         }

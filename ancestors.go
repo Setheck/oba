@@ -23,6 +23,14 @@ type Response struct {
 	Version     int    `json:"version"`
 }
 
+type AltResponse struct {
+	Code        int      `json:"code"`
+	CurrentTime int      `json:"currentTime"`
+	Data        *AltData `json:"data,omitempty"`
+	Text        string   `json:"text"`
+	Version     int      `json:"version"`
+}
+
 func (r Response) String() string {
 	return fmt.Sprintf("Code: %d\nCurrentTime: %d\nData: %s\nText: %s\nVersion: %d\n",
 		r.Code, r.CurrentTime, r.Data.String(), r.Text, r.Version)
@@ -60,6 +68,10 @@ type Data struct {
 	References    *References `json:"references"`
 	Time          *Time       `json:",omitempty"`
 	//StopsForRoute *StopsForRoute
+}
+
+type AltData struct {
+	List []string `json:"list,omitempty"`
 }
 
 func (d Data) toTripDetails() []TripDetails {

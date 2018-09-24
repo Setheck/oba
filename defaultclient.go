@@ -215,12 +215,17 @@ func (c DefaultClient) Agency(id string) (*Agency, error) {
 // The method returns an <arrivalAndDeparture/> element as its content.
 //
 func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]string) (*ArrivalAndDeparture, error) {
-	entry, err := c.getEntry(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
+	data, err := c.getData(fmt.Sprint(arrivalAndDepartureForStopEndPoint, id), "Arrival and Departure for Stop", params)
 	if err != nil {
 		return nil, err
 	}
 
-	aad := entry.ArrivalAndDepartureFromEntry()
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	stops := data.References.Stops.toStops(routes)
+	trips := data.References.Trips.toTrips()
+	situations := data.References.Situations.toSituations()
+	aad := data.Entry.ArrivalAndDepartureFromEntry(situations, stops, trips)
 
 	return aad, nil
 }
@@ -276,13 +281,18 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 // (like across the street) for quick navigation.
 //
 func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string]string) (*StopWithArrivalsAndDepartures, error) {
-	entry, err := c.getEntry(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
+	data, err := c.getData(fmt.Sprint(arrivalsAndDeparturesForStopEndPoint, id), "Arrivals and Departures for Stop", params)
 	if err != nil {
 		return nil, err
 	}
 
-	aads := entry.ArrivalsAndDepartures.toArrivalAndDepartures()
-	swaad := entry.StopWithArrivalsAndDeparturesFromEntry(aads)
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	stops := data.References.Stops.toStops(routes)
+	trips := data.References.Trips.toTrips()
+	situations := data.References.Situations.toSituations()
+	aads := data.Entry.ArrivalsAndDepartures.toArrivalAndDepartures(situations, stops, trips)
+	swaad := data.Entry.StopWithArrivalsAndDeparturesFromEntry(aads)
 
 	return swaad, nil
 }
@@ -590,18 +600,15 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 // in the <references/> section, since there are potentially a large number of
 // routes for an agency.
 //
-// TODO: this is broken because some asshat went against the existing data.list format
-//func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
-//	data, err := c.getData(fmt.Sprint(routeIdsForAgencyEndPoint, id), "RouteIdsForAgency", nil)
-//	if err != nil {
-//		return nil, err
-//	}
-//	routes := make([]string, 0)
-//	for _, ent := range *data.List {
-//		routes = append(routes, ent)
-//	}
-//	return routes, nil
-//}
+func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
+	u := c.buildRequestURL(fmt.Sprint(routeIdsForAgencyEndPoint, id), nil)
+	response, err := requestAndHandleAlt(u, "RouteIdsForAgency")
+	if err != nil {
+		return nil, err
+	}
+	rs := response.Data.List
+	return rs, nil
+}
 
 //Route - 	get details for a specific route
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/route.html
@@ -974,15 +981,16 @@ func (c DefaultClient) Shape(id string) (*Shape, error) {
 // the <references/> section, since there are potentially a large number of
 // stops for an agency.
 //
-// TODO
-//func (c DefaultClient) StopIDsForAgency(id string) ([]*string, error) {
-//	u := c.buildRequestURL(fmt.Sprint(stopIDsForAgencyEndPoint, id), nil)
-//	response, err := requestAndHandle(u, "Failed to get Stop IDs for Agency: ")
-//	if err != nil {
-//		return nil, err
-//	}
-//	return response.Data.List.Strings, nil
-//}
+
+func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
+	u := c.buildRequestURL(fmt.Sprint(stopIDsForAgencyEndPoint, id), nil)
+	response, err := requestAndHandleAlt(u, "Failed to get Stop IDs for Agency: ")
+	if err != nil {
+		return nil, err
+	}
+	ss := response.Data.List
+	return ss, nil
+}
 
 //Stop - 	get details for a specific stop
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stop.html
@@ -1492,8 +1500,18 @@ func (c DefaultClient) TripsForRoute(id string) ([]TripDetails, error) {
 // Response
 // The response is a list of <vehicleStatus/> elements that captures extended details about each active vehicle associated with the specified agency.
 //
-func (c DefaultClient) VehiclesForAgency(id string) (*Data, error) {
-	return c.getData(fmt.Sprint(vehiclesForAgencyEndPoint, id), "Vehicles for Agency", nil)
+func (c DefaultClient) VehiclesForAgency(id string) ([]VehicleStatus, error) {
+	data, err := c.getData(fmt.Sprint(vehiclesForAgencyEndPoint, id), "Vehicles for Agency", nil)
+	if err != nil {
+		return nil, err
+	}
+	agencies := data.References.Agencies.toAgencies()
+	routes := data.References.Routes.toRoutes(agencies)
+	stops := data.References.Stops.toStops(routes)
+	trips := data.References.Trips.toTrips()
+	situations := data.References.Situations.toSituations()
+	vhs := data.List.toVehicleStatuses(situations, stops, trips)
+	return vhs, nil
 }
 
 func (c DefaultClient) getData(requestString, errMessage string, params map[string]string) (*Data, error) {
