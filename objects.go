@@ -106,7 +106,7 @@ type Agency struct {
 
 func (a Agency) String() string {
 	return fmt.Sprintf("Disclaimer: %s\nEmail: %s\nFareURL: %s\nID: %s\nLang: %s\nName: %s\nPhone: %s\nPrivateService: %v\nTimeZone: %s\nURL: %s\n",
-		a.Disclaimer, a.Email, a.FareURL, a.ID, a.Lang, a.Name, a.Phone, a.PrivateService, a.TimeZone, a.URL)
+		a.Disclaimer, a.Email, a.FareURL, a.ID, a.Lang, a.Name, a.Phone, *a.PrivateService, a.TimeZone, a.URL)
 }
 
 type Block struct {
@@ -209,7 +209,7 @@ func (s Stop) String() string {
 	routes := strings.Join(rs, ",")
 
 	return fmt.Sprintf(
-		`{ "code": "%s", "direction": "%s", "id": "%s", "lat": %f, "locationType": %d, "lon": %f, "name": "%s", "routes": [%s], "wheelChairBoarding": "%s"}`,
+		`{"code": "%s","direction": "%s","id": "%s","lat": %f,"locationType": %d,"lon": %f,"name": "%s","routes": [%s],"wheelChairBoarding": "%s"}`,
 		s.Code, s.Direction, s.ID, s.Lat, s.LocationType, s.Lon, s.Name, routes, s.WheelChairBoarding)
 }
 
