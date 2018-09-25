@@ -2,12 +2,26 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
+
+	"github.com/spf13/viper"
+
+	"github.com/spf13/cobra"
 )
 
+var baseUrl string
+var apiKey string
+
 func init() {
-	rootCmd.AddCommand(routeCmd)
+	rootCmd.AddCommand(
+		agencyCmd, blockCmd, reportCmd, routeCmd, stopCmd, tripCmd)
+
+	if v := viper.Get("baseUrl"); v != nil {
+		baseUrl = v.(string)
+	}
+	if v := viper.Get("apiKey"); v != nil {
+		apiKey = v.(string)
+	}
 }
 
 var rootCmd = &cobra.Command{

@@ -4,7 +4,7 @@ package oba
 
 //Client - Interface for a One Bus Away Client
 type Client interface {
-	AgenciesWithCoverage() (Data, error)
+	AgenciesWithCoverage() (AgencyWithCoverage, error)
 	Agency(id string) (Entry, error)
 	ArrivalAndDepartureForStop(id string, params map[string]string) (Data, error)
 	ArrivalsAndDeparturesForStop(id string) (Data, error)

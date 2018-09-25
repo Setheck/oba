@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/Setheck/oba/cli/cmd"
 	"github.com/spf13/viper"
 )
@@ -12,7 +13,7 @@ func init() {
 	viper.AddConfigPath(".")
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(fmt.Errorf("Fatal error config file: %s \n", err))
+		fmt.Errorf("Fatal error config file: %s \n", err)
 	}
 }
 
