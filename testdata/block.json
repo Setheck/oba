@@ -15,15 +15,15 @@
               "tripId": "1_15415757",
               "blockStopTimes": [
                 {
-                  "blockSequence": 0,
+                  "blockSequence": 1,
                   "distanceAlongBlock": 45.79241448571604,
-                  "accumulatedSlackTime": 0.0,
+                  "accumulatedSlackTime": 1.0,
                   "stopTime" :{
                     "stopId": "1_75995",
                     "arrivalTime": 21607,
                     "departureTime": 21607,
-                    "pickupType": 0,
-                    "dropOffType": 0
+                    "pickupType": 21654,
+                    "dropOffType": 21621
                   }
                 }
               ]
