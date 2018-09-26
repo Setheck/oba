@@ -100,6 +100,34 @@ func VerifyAgency(t *testing.T, a *oba.Agency) {
 	assert.NotEmpty(t, a.Disclaimer, "AgencyDisclaimer")
 }
 
+func VerifyBlock(t *testing.T, b *oba.Block) {
+	t.Helper()
+	assert.NotNil(t, b, "Block")
+	for _, c := range b.Configurations {
+		VerifyBlockConfiguration(t, &c)
+	}
+}
+
+func VerifyBlockConfiguration(t *testing.T, c *oba.BlockConfiguration) {
+	t.Helper()
+	assert.NotNil(t, c, "BlockConfiguration")
+	assert.NotEmpty(t, c.ActiveServiceIDs, "ActiveServiceIds")
+	assert.NotEmpty(t, c.InactiveServiceIDs, "InActiveServiceIds")
+	for _, tr := range c.Trips {
+		VerifyBlockTrip(t, &tr)
+	}
+}
+
+func VerifyBlockTrip(t *testing.T, b *oba.BlockTrip) {
+	t.Helper()
+	assert.NotNil(t, b, "BlockTrip")
+	// TODO
+	// b.TripID
+	// b.BlockStopTimes
+	assert.NotZero(t, b.AccumulatedSlackTime, "AccumulatedSlackTime")
+	assert.NotZero(t, b.DistanceAlongBlock, "DistanceAlongBlock")
+}
+
 func VerifyConsequences(t *testing.T, c *oba.Consequence) {
 	assert.NotNil(t, c, "Consequences")
 	assert.NotEmpty(t, c.Condition, "Condition")
