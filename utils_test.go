@@ -312,20 +312,25 @@ func VerifyLocation(t *testing.T, l *oba.Location) {
 func VerifyTripStatus(t *testing.T, ts *oba.TripStatus) {
 	t.Helper()
 	assert.NotNil(t, ts, "TripStatus")
-	assert.NotEmpty(t, *ts.Frequency, "TripStatus - Frequency")
+	VerifyTrip(t, &ts.ActiveTrip)
+	assert.NotZero(t, ts.BlockTripSequence, "TripStatus - BlockTripSequence")
+	VerifyStop(t, &ts.ClosestStop)
+	assert.NotZero(t, ts.ClosestStopTimeOffset, "TripStatus - ClosestStopTimeOffset")
+	assert.NotZero(t, ts.DistanceAlongTrip, "TripStatus - DistanceAlongTrip")
+	assert.NotEmpty(t, ts.Frequency, "TripStatus - Frequency")
+	assert.NotZero(t, ts.LastKnownDistanceAlongTrip, "TripStatus - LastKnownDistanceAlongTrip")
+	assert.NotZero(t, ts.LastKnownOrientation, "TripStatus - LastKnownOrientation")
+	VerifyLocation(t, &ts.LastKnownLocation)
+	assert.NotZero(t, ts.LastLocationUpdateTime, "TripStatus - LastLocationUpdateTime")
+	assert.NotZero(t, ts.LastUpdateTime, "TripStatus - LastUpdateTime")
+	VerifyStop(t, &ts.NextStop)
+	assert.NotZero(t, ts.NextStopTimeOffset, "TripStatus - NextStopTimeOffset")
+	assert.NotEmpty(t, ts.Phase, "TripStatus - Phase")
+	assert.NotNil(t, ts.Predicted, "TripStatus - Predicted")
+	assert.NotZero(t, ts.ScheduleDeviation, "TripStatus - ScheduleDeviation")
 	assert.NotZero(t, ts.ServiceDate, "TripStatus - ServiceDate")
-	// ts.Status
-	// ts.BlockTripSequence
-	// ts.ClosestStopTimeOffset
-	// ts.DistanceAlongTrip
-	// ts.LastKnownDistanceAlongTrip
-	// ts.LastKnownOrientation
-	// ts.LastLocationUpdateTime
-	// ts.LastUpdateTime
-	// ts.LastKnownLocation
-	// ts.ClosestStop
-	// ts.ActiveTrip
-	// ts.NextStop
+	assert.NotEmpty(t, ts.Status, "TripStatus  - Status")
+	assert.NotEmpty(t, ts.VehicleID, "TripStatus - VehicleID")
 
 	for _, s := range ts.Situations {
 		VerifySituation(t, &s)

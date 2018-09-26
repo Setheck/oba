@@ -3,6 +3,7 @@ package oba
 //Entry container object
 type Entry struct {
 	AccumulatedSlackTime         float64          `json:"accumulatedSlackTime,omitempty"`
+	ActiveServiceID              []string         `json:"activeServiceIds,omitempty"`
 	ActiveTripID                 string           `json:"activeTripId"`
 	Affects                      []VehicleJourney `json:"vehicleJourneys>vehicleJourney"`
 	AgencyID                     string           `json:"agencyId,omitempty"`
@@ -14,6 +15,7 @@ type Entry struct {
 	BlockSequence                int              `json:"blockSequence,omitempty"`
 	BlockStopTimes               List             `json:"blockStopTimes,omitempty"`
 	BlockTripSequence            int              `json:"blockTripSequence,omitempty"`
+	Trips                        List             `json:"trips,omitempty"`
 	ClosestStop                  string           `json:"closestStop"`
 	ClosestStopTimeOffset        int              `json:"closestStopTimeOffset"`
 	Code                         string           `json:"code,omitempty"`
@@ -39,6 +41,7 @@ type Entry struct {
 	Frequency                    *string          `json:"frequency,omitempty"`
 	Headway                      int              `json:"headway,omitempty"`
 	ID                           string           `json:"id,omitempty"`
+	InactiveServiceID            []string         `json:"inactiveServiceIds,omitempty"`
 	Lang                         string           `json:"lang,omitempty"`
 	LastKnownDistanceAlongTrip   float64          `json:"lastKnownDistanceAlongTrip,omitempty"`
 	LastKnownLocation            Location         `json:"lastKnownLocation,omitempty"`
@@ -241,8 +244,12 @@ func (e Entry) BlockFromEntry() *Block {
 	}
 }
 
-func (e Entry) BlockConfigurationFromEntry() *BlockConfiguration {
-	return &BlockConfiguration{}
+func (e Entry) BlockConfigurationFromEntry(asds, isds []string, tps []BlockTrip) *BlockConfiguration {
+	return &BlockConfiguration{
+		ActiveServiceIDs:   asds,
+		InactiveServiceIDs: isds,
+		Trips:              tps,
+	}
 }
 
 func (e Entry) BlockStopTimeFromEntry() *BlockStopTime {
