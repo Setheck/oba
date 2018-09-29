@@ -28,7 +28,7 @@ func (l List) toAgenciesWithCoverage(agencies []Agency) []AgencyWithCoverage {
 }
 
 func (l List) toArrivalAndDepartures(sits []Situation, st []Stop, ts []Trip) []ArrivalAndDeparture {
-	aads := make([]ArrivalAndDeparture, 0)
+	aads := make([]ArrivalAndDeparture, 0, len(l))
 	for _, entry := range l {
 		aads = append(aads, *entry.ArrivalAndDepartureFromEntry(sits, st, ts))
 	}
@@ -38,9 +38,17 @@ func (l List) toArrivalAndDepartures(sits []Situation, st []Stop, ts []Trip) []A
 func (l List) toBlockConfigurations() []BlockConfiguration {
 	bcs := make([]BlockConfiguration, 0, len(l))
 	for _, c := range l {
-		bcs = append(bcs, *c.BlockConfigurationFromEntry())
+		bcs = append(bcs, *c.BlockConfigurationFromEntry(c.ActiveServiceID, c.InactiveServiceID, c.Trips.toBlockTrips()))
 	}
 	return bcs
+}
+
+func (l List) toBlockTrips() []BlockTrip {
+	bts := make([]BlockTrip, 0, len(l))
+	for _, entry := range l {
+		bts = append(bts, *entry.BlockTripFromEntry())
+	}
+	return bts
 }
 
 func (l List) toBlockStopTimes() []BlockStopTime {

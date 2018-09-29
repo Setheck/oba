@@ -61,10 +61,8 @@ type BlockStopTime struct {
 }
 
 type BlockTrip struct {
-	TripID               string
-	BlockStopTimes       []BlockStopTime
-	AccumulatedSlackTime float64
-	DistanceAlongBlock   float64
+	TripID         string
+	BlockStopTimes []BlockStopTime
 }
 
 type StopTime struct {
@@ -86,6 +84,8 @@ type VehicleStatus struct {
 	LastUpdateTime         int
 	LastLocationUpdateTime int
 	Location               Location
+	Phase                  string
+	Status                 string
 	Trip                   Trip
 	TripStatus             TripStatus
 }
@@ -106,7 +106,7 @@ type Agency struct {
 
 func (a Agency) String() string {
 	return fmt.Sprintf("Disclaimer: %s\nEmail: %s\nFareURL: %s\nID: %s\nLang: %s\nName: %s\nPhone: %s\nPrivateService: %v\nTimeZone: %s\nURL: %s\n",
-		a.Disclaimer, a.Email, a.FareURL, a.ID, a.Lang, a.Name, a.Phone, a.PrivateService, a.TimeZone, a.URL)
+		a.Disclaimer, a.Email, a.FareURL, a.ID, a.Lang, a.Name, a.Phone, *a.PrivateService, a.TimeZone, a.URL)
 }
 
 type Block struct {
@@ -209,7 +209,7 @@ func (s Stop) String() string {
 	routes := strings.Join(rs, ",")
 
 	return fmt.Sprintf(
-		`{ "code": "%s", "direction": "%s", "id": "%s", "lat": %f, "locationType": %d, "lon": %f, "name": "%s", "routes": [%s], "wheelChairBoarding": "%s"}`,
+		`{"code": "%s","direction": "%s","id": "%s","lat": %f,"locationType": %d,"lon": %f,"name": "%s","routes": [%s],"wheelChairBoarding": "%s"}`,
 		s.Code, s.Direction, s.ID, s.Lat, s.LocationType, s.Lon, s.Name, routes, s.WheelChairBoarding)
 }
 
@@ -304,7 +304,7 @@ type TripDetails struct {
 }
 
 type TripStatus struct {
-	ActiveTrip                 Trip
+	ActiveTripID               string
 	BlockTripSequence          int
 	ClosestStop                Stop
 	ClosestStopTimeOffset      int
@@ -324,7 +324,7 @@ type TripStatus struct {
 	ScheduleDeviation          int
 	ScheduledDistanceAlongTrip float64
 	ServiceDate                int
-	Situations                 []Situation
+	SituationIDs               []string
 	Status                     string
 	TotalDistanceAlongTrip     float64
 	VehicleID                  string

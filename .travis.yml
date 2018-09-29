@@ -3,5 +3,8 @@ go:
 - "1.x"
 - "1.10.x"
 - "1.10.3"
-install: go get -u github.com/stretchr/testify
+install:
+  - go get -u github.com/stretchr/testify
+  - go get -u github.com/spf13/viper
+  - go get -u github.com/spf13/cobra
 script: go test -cover ./...

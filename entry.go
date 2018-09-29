@@ -3,6 +3,7 @@ package oba
 //Entry container object
 type Entry struct {
 	AccumulatedSlackTime         float64          `json:"accumulatedSlackTime,omitempty"`
+	ActiveServiceID              []string         `json:"activeServiceIds,omitempty"`
 	ActiveTripID                 string           `json:"activeTripId"`
 	Affects                      []VehicleJourney `json:"vehicleJourneys>vehicleJourney"`
 	AgencyID                     string           `json:"agencyId,omitempty"`
@@ -14,6 +15,7 @@ type Entry struct {
 	BlockSequence                int              `json:"blockSequence,omitempty"`
 	BlockStopTimes               List             `json:"blockStopTimes,omitempty"`
 	BlockTripSequence            int              `json:"blockTripSequence,omitempty"`
+	Trips                        List             `json:"trips,omitempty"`
 	ClosestStop                  string           `json:"closestStop"`
 	ClosestStopTimeOffset        int              `json:"closestStopTimeOffset"`
 	Code                         string           `json:"code,omitempty"`
@@ -31,7 +33,7 @@ type Entry struct {
 	DistanceAlongBlock           float64          `json:"distanceAlongBlock,omitempty"`
 	DistanceAlongTrip            float64          `json:"distanceAlongTrip,omitempty"`
 	DistanceFromStop             float64          `json:"distanceFromStop,omitempty"`
-	DropOffTime                  int              `json:"dropOffTime,omitempty"`
+	DropOffType                  int              `json:"dropOffType,omitempty"`
 	Email                        string           `json:"email,omitempty"`
 	EndTime                      int              `json:"entTime,omitempty"`
 	EnvironmentReason            string           `json:"environmentReason"`
@@ -39,6 +41,7 @@ type Entry struct {
 	Frequency                    *string          `json:"frequency,omitempty"`
 	Headway                      int              `json:"headway,omitempty"`
 	ID                           string           `json:"id,omitempty"`
+	InactiveServiceID            []string         `json:"inactiveServiceIds,omitempty"`
 	Lang                         string           `json:"lang,omitempty"`
 	LastKnownDistanceAlongTrip   float64          `json:"lastKnownDistanceAlongTrip,omitempty"`
 	LastKnownLocation            Location         `json:"lastKnownLocation,omitempty"`
@@ -241,8 +244,12 @@ func (e Entry) BlockFromEntry() *Block {
 	}
 }
 
-func (e Entry) BlockConfigurationFromEntry() *BlockConfiguration {
-	return &BlockConfiguration{}
+func (e Entry) BlockConfigurationFromEntry(asds, isds []string, tps []BlockTrip) *BlockConfiguration {
+	return &BlockConfiguration{
+		ActiveServiceIDs:   asds,
+		InactiveServiceIDs: isds,
+		Trips:              tps,
+	}
 }
 
 func (e Entry) BlockStopTimeFromEntry() *BlockStopTime {
@@ -261,10 +268,8 @@ func (e Entry) BlockStopTimeFromEntry() *BlockStopTime {
 func (e Entry) BlockTripFromEntry() *BlockTrip {
 	bsts := e.BlockStopTimes.toBlockStopTimes()
 	return &BlockTrip{
-		AccumulatedSlackTime: e.AccumulatedSlackTime,
-		BlockStopTimes:       bsts,
-		DistanceAlongBlock:   e.DistanceAlongBlock,
-		TripID:               e.TripID,
+		BlockStopTimes: bsts,
+		TripID:         e.TripID,
 	}
 }
 
@@ -455,7 +460,7 @@ func (e Entry) StopTimeFromEntry() *StopTime {
 	return &StopTime{
 		ArrivalTime:   e.ArrivalTime,
 		DepartureTime: e.DepartureTime,
-		DropOffType:   e.DropOffTime,
+		DropOffType:   e.DropOffType,
 		PickupType:    e.PickupType,
 		StopID:        e.StopID,
 	}
@@ -503,14 +508,6 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 			cstop = s
 		}
 	}
-
-	var trip Trip
-	for _, t := range ts {
-		if e.ActiveTripID == e.ID {
-			trip = t
-		}
-	}
-
 	situations := make([]Situation, 0, len(sis))
 	for _, si := range sis {
 		for _, sid := range e.SituationIDs {
@@ -521,7 +518,7 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 	}
 
 	return &TripStatus{
-		ActiveTrip:                 trip,
+		ActiveTripID:               e.ActiveTripID,
 		BlockTripSequence:          e.BlockTripSequence,
 		ClosestStop:                cstop,
 		ClosestStopTimeOffset:      e.ClosestStopTimeOffset,
@@ -541,7 +538,7 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 		ScheduleDeviation:          e.ScheduleDeviation,
 		ScheduledDistanceAlongTrip: e.ScheduledDistanceAlongTrip,
 		ServiceDate:                e.ServiceDate,
-		Situations:                 situations,
+		SituationIDs:               e.SituationIDs,
 		Status:                     e.Status,
 		TotalDistanceAlongTrip:     e.TotalDistanceAlongTrip,
 		VehicleID:                  e.VehicleID,
@@ -553,6 +550,7 @@ func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (re
 	for _, t := range ts {
 		if t.ID == e.TripID {
 			trip = t
+			break
 		}
 	}
 
@@ -566,10 +564,12 @@ func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (re
 	}
 	return &VehicleStatus{
 		Location:               loc,
-		VehicleID:              e.VehicleID,
 		LastUpdateTime:         e.LastUpdateTime,
 		LastLocationUpdateTime: e.LastLocationUpdateTime,
-		TripStatus:             tstatus,
-		Trip:                   trip,
+		Phase:      e.Phase,
+		Status:     e.Status,
+		TripStatus: tstatus,
+		Trip:       trip,
+		VehicleID:  e.VehicleID,
 	}
 }

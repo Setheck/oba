@@ -14,3 +14,6 @@
 # idea project files
 .idea/*
 
+# project config files
+config.yaml
+config.yml

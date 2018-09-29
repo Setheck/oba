@@ -30,7 +30,7 @@ func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
 	}
 
 	for _, awc := range awcs {
-		assert.NotEmpty(t, awc.Agency.ID)
+		VerifyAgency(t, &awc.Agency)
 		assert.NotZero(t, awc.Lat)
 		assert.NotZero(t, awc.LatSpan)
 		assert.NotZero(t, awc.Lon)
@@ -122,6 +122,7 @@ func TestDefaultClient_Block(t *testing.T) {
 		t.Error(err)
 	}
 
+	VerifyBlock(t, b)
 	assert.NotEmpty(t, b.ID, "ID")
 	assert.NotEmpty(t, b.Configurations, "Configurations")
 }
