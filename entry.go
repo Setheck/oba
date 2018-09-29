@@ -508,14 +508,6 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 			cstop = s
 		}
 	}
-
-	var trip Trip
-	for _, t := range ts {
-		if e.ActiveTripID == e.ID {
-			trip = t
-		}
-	}
-
 	situations := make([]Situation, 0, len(sis))
 	for _, si := range sis {
 		for _, sid := range e.SituationIDs {
@@ -526,7 +518,7 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 	}
 
 	return &TripStatus{
-		ActiveTrip:                 trip,
+		ActiveTripID:               e.ActiveTripID,
 		BlockTripSequence:          e.BlockTripSequence,
 		ClosestStop:                cstop,
 		ClosestStopTimeOffset:      e.ClosestStopTimeOffset,
@@ -546,7 +538,7 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 		ScheduleDeviation:          e.ScheduleDeviation,
 		ScheduledDistanceAlongTrip: e.ScheduledDistanceAlongTrip,
 		ServiceDate:                e.ServiceDate,
-		Situations:                 situations,
+		SituationIDs:               e.SituationIDs,
 		Status:                     e.Status,
 		TotalDistanceAlongTrip:     e.TotalDistanceAlongTrip,
 		VehicleID:                  e.VehicleID,
@@ -558,6 +550,7 @@ func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (re
 	for _, t := range ts {
 		if t.ID == e.TripID {
 			trip = t
+			break
 		}
 	}
 
@@ -571,10 +564,12 @@ func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (re
 	}
 	return &VehicleStatus{
 		Location:               loc,
-		VehicleID:              e.VehicleID,
 		LastUpdateTime:         e.LastUpdateTime,
 		LastLocationUpdateTime: e.LastLocationUpdateTime,
-		TripStatus:             tstatus,
-		Trip:                   trip,
+		Phase:      e.Phase,
+		Status:     e.Status,
+		TripStatus: tstatus,
+		Trip:       trip,
+		VehicleID:  e.VehicleID,
 	}
 }

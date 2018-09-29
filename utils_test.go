@@ -319,7 +319,7 @@ func VerifyLocation(t *testing.T, l *oba.Location) {
 func VerifyTripStatus(t *testing.T, ts *oba.TripStatus) {
 	t.Helper()
 	assert.NotNil(t, ts, "TripStatus")
-	VerifyTrip(t, &ts.ActiveTrip)
+	assert.NotEmpty(t, ts.ActiveTripID, "TripStatus - ActiveTripID")
 	assert.NotZero(t, ts.BlockTripSequence, "TripStatus - BlockTripSequence")
 	VerifyStop(t, &ts.ClosestStop)
 	assert.NotZero(t, ts.ClosestStopTimeOffset, "TripStatus - ClosestStopTimeOffset")
@@ -338,8 +338,5 @@ func VerifyTripStatus(t *testing.T, ts *oba.TripStatus) {
 	assert.NotZero(t, ts.ServiceDate, "TripStatus - ServiceDate")
 	assert.NotEmpty(t, ts.Status, "TripStatus  - Status")
 	assert.NotEmpty(t, ts.VehicleID, "TripStatus - VehicleID")
-
-	for _, s := range ts.Situations {
-		VerifySituation(t, &s)
-	}
+	assert.NotEmpty(t, ts.SituationIDs, "TripStatus - SituationIDs")
 }

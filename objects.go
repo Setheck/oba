@@ -84,6 +84,8 @@ type VehicleStatus struct {
 	LastUpdateTime         int
 	LastLocationUpdateTime int
 	Location               Location
+	Phase                  string
+	Status                 string
 	Trip                   Trip
 	TripStatus             TripStatus
 }
@@ -302,7 +304,7 @@ type TripDetails struct {
 }
 
 type TripStatus struct {
-	ActiveTrip                 Trip
+	ActiveTripID               string
 	BlockTripSequence          int
 	ClosestStop                Stop
 	ClosestStopTimeOffset      int
@@ -322,7 +324,7 @@ type TripStatus struct {
 	ScheduleDeviation          int
 	ScheduledDistanceAlongTrip float64
 	ServiceDate                int
-	Situations                 []Situation
+	SituationIDs               []string
 	Status                     string
 	TotalDistanceAlongTrip     float64
 	VehicleID                  string
