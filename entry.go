@@ -33,7 +33,7 @@ type Entry struct {
 	DistanceAlongBlock           float64          `json:"distanceAlongBlock,omitempty"`
 	DistanceAlongTrip            float64          `json:"distanceAlongTrip,omitempty"`
 	DistanceFromStop             float64          `json:"distanceFromStop,omitempty"`
-	DropOffTime                  int              `json:"dropOffTime,omitempty"`
+	DropOffType                  int              `json:"dropOffType,omitempty"`
 	Email                        string           `json:"email,omitempty"`
 	EndTime                      int              `json:"entTime,omitempty"`
 	EnvironmentReason            string           `json:"environmentReason"`
@@ -268,10 +268,8 @@ func (e Entry) BlockStopTimeFromEntry() *BlockStopTime {
 func (e Entry) BlockTripFromEntry() *BlockTrip {
 	bsts := e.BlockStopTimes.toBlockStopTimes()
 	return &BlockTrip{
-		AccumulatedSlackTime: e.AccumulatedSlackTime,
-		BlockStopTimes:       bsts,
-		DistanceAlongBlock:   e.DistanceAlongBlock,
-		TripID:               e.TripID,
+		BlockStopTimes: bsts,
+		TripID:         e.TripID,
 	}
 }
 
@@ -462,7 +460,7 @@ func (e Entry) StopTimeFromEntry() *StopTime {
 	return &StopTime{
 		ArrivalTime:   e.ArrivalTime,
 		DepartureTime: e.DepartureTime,
-		DropOffType:   e.DropOffTime,
+		DropOffType:   e.DropOffType,
 		PickupType:    e.PickupType,
 		StopID:        e.StopID,
 	}

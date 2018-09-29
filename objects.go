@@ -61,10 +61,8 @@ type BlockStopTime struct {
 }
 
 type BlockTrip struct {
-	TripID               string
-	BlockStopTimes       []BlockStopTime
-	AccumulatedSlackTime float64
-	DistanceAlongBlock   float64
+	TripID         string
+	BlockStopTimes []BlockStopTime
 }
 
 type StopTime struct {

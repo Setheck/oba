@@ -141,8 +141,6 @@ func VerifyBlockTrip(t *testing.T, b *oba.BlockTrip) {
 	t.Helper()
 	assert.NotNil(t, b, "BlockTrip")
 	assert.NotEmpty(t, b.TripID, "BlockTrip - TripID")
-	assert.NotZero(t, b.AccumulatedSlackTime, "BlockTrip - AccumulatedSlackTime")
-	assert.NotZero(t, b.DistanceAlongBlock, "BlockTrip - DistanceAlongBlock")
 	for _, bs := range b.BlockStopTimes {
 		VerifyBlockStopTime(t, &bs)
 	}
@@ -197,10 +195,19 @@ func VerifyStopSchedule(t *testing.T, s *oba.StopSchedule) {
 	t.Helper()
 	assert.NotNil(t, s, "StopSchedule")
 	assert.NotEmpty(t, s.Date, "StopSchedule - Date")
-	// assert.NotEmpty(t, s.StopRouteSchedules, "StopSchedule")
+	for _, scd := range s.StopCalendarDays {
+		VerifyStopCalendarDay(t, &scd)
+	}
 	for _, srs := range s.StopRouteSchedules {
 		VerifyStopRouteSchedule(t, &srs)
 	}
+}
+
+func VerifyStopCalendarDay(t *testing.T, scd *oba.StopCalendarDay) {
+	t.Helper()
+	assert.NotNil(t, scd, "StopCalendarDay")
+	assert.NotEmpty(t, scd.Date, "StopCalendarDay - Date")
+	assert.NotEmpty(t, scd.Group, "StopCalendarDay - Group")
 }
 
 func VerifyStopRouteSchedule(t *testing.T, s *oba.StopRouteSchedule) {

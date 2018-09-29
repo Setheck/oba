@@ -38,7 +38,6 @@ func (l List) toArrivalAndDepartures(sits []Situation, st []Stop, ts []Trip) []A
 func (l List) toBlockConfigurations() []BlockConfiguration {
 	bcs := make([]BlockConfiguration, 0, len(l))
 	for _, c := range l {
-
 		bcs = append(bcs, *c.BlockConfigurationFromEntry(c.ActiveServiceID, c.InactiveServiceID, c.Trips.toBlockTrips()))
 	}
 	return bcs
