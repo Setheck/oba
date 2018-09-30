@@ -1,7 +1,7 @@
 package oba
 
-//Entry container object
-type Entry struct {
+//entry container object
+type entry struct {
 	AccumulatedSlackTime         float64          `json:"accumulatedSlackTime,omitempty"`
 	ActiveServiceID              []string         `json:"activeServiceIds,omitempty"`
 	ActiveTripID                 string           `json:"activeTripId"`
@@ -52,7 +52,7 @@ type Entry struct {
 	LatSpan                      float64          `json:"latSpan,omitempty"`
 	Length                       int              `json:"length,omitempty"`
 	Levels                       string           `json:"levels,omitempty"`
-	Location                     *Entry           `json:"location,omitempty"`
+	Location                     *entry           `json:"location,omitempty"`
 	LocationType                 int              `json:"locationType,omitempty"`
 	Lon                          float64          `json:"lon,omitempty"`
 	LongName                     string           `json:"longName,omitempty"`
@@ -108,7 +108,7 @@ type Entry struct {
 	StopRouteSchedules           List             `json:"stopRouteSchedules,omitempty"`
 	StopRouteDirectionSchedules  List             `json:"stopRouteDirectionSchedules,omitempty"`
 	StopSequence                 int              `json:"stopSequence,omitempty"`
-	StopTime                     *Entry           `json:"stopTime,omitempty"`
+	StopTime                     *entry           `json:"stopTime,omitempty"`
 	Summary                      []string         `json:"summary,omitempty"`
 	TextColor                    string           `json:"textColor,omitempty"`
 	Time                         int              `json:"time,omitempty"`
@@ -118,7 +118,7 @@ type Entry struct {
 	TripHeadSign                 string           `json:"tripHeadsign,omitempty"`
 	TripID                       string           `json:"tripId,omitempty"`
 	TripShortName                string           `json:"tripShortName,omitempty"`
-	TripStatus                   *Entry           `json:"tripStatus,omitempty"`
+	TripStatus                   *entry           `json:"tripStatus,omitempty"`
 	Type                         int              `json:"type,omitempty"`
 	URL                          string           `json:"url,omitempty"`
 	VehicleID                    string           `json:"vehicleId,omitempty"`
@@ -126,9 +126,9 @@ type Entry struct {
 	//Description       []string         `json:"description>value"` what the fuck
 }
 
-type AltEntry struct {
+type altEntry struct {
 	ID         string     `json:"id,omitempty"`
-	Name       *NameEntry `json:"name,omitempty"`
+	Name       *nameEntry `json:"name,omitempty"`
 	Names      []string   `json:"names,omitempty"`
 	PolyLines  AltList    `json:"polylines,omitempty"`
 	StopIDs    []string   `json:"stopIds,omitempty"`
@@ -141,13 +141,13 @@ type AltEntry struct {
 	StopGroups AltList    `json:"stopGroups,omitempty"`
 }
 
-type NameEntry struct {
+type nameEntry struct {
 	Name  string   `json:"name,omitempty"`
 	Names []string `json:"names,omitempty"`
 	Type  string   `json:"type,omitempty"`
 }
 
-func (e NameEntry) NameFromEntry() *Name {
+func (e nameEntry) nameFromEntry() *Name {
 	return &Name{
 		Names: e.Names,
 		Type:  e.Type,
@@ -155,7 +155,7 @@ func (e NameEntry) NameFromEntry() *Name {
 	}
 }
 
-func (e AltEntry) StopGroupFromEntry(stops []Stop) *StopGroup {
+func (e altEntry) stopGroupFromEntry(stops []Stop) *StopGroup {
 	ss := make([]Stop, 0, len(stops))
 	for _, sid := range e.StopIDs {
 		for _, s := range stops {
@@ -167,7 +167,7 @@ func (e AltEntry) StopGroupFromEntry(stops []Stop) *StopGroup {
 
 	var name Name
 	if e.Name != nil {
-		name = *e.Name.NameFromEntry()
+		name = *e.Name.nameFromEntry()
 	}
 	return &StopGroup{
 		ID:        e.ID,
@@ -177,7 +177,7 @@ func (e AltEntry) StopGroupFromEntry(stops []Stop) *StopGroup {
 	}
 }
 
-func (e Entry) AgencyFromEntry() *Agency {
+func (e entry) agencyFromEntry() *Agency {
 	return &Agency{
 		ID:             e.ID,
 		Disclaimer:     e.Disclaimer,
@@ -192,7 +192,7 @@ func (e Entry) AgencyFromEntry() *Agency {
 	}
 }
 
-func (e Entry) AgencyWithCoverageFromEntry(a Agency) *AgencyWithCoverage {
+func (e entry) agencyWithCoverageFromEntry(a Agency) *AgencyWithCoverage {
 	return &AgencyWithCoverage{
 		Agency:  a,
 		Lat:     e.Lat,
@@ -202,7 +202,7 @@ func (e Entry) AgencyWithCoverageFromEntry(a Agency) *AgencyWithCoverage {
 	}
 }
 
-func (e Entry) ArrivalAndDepartureFromEntry(sis []Situation, st []Stop, ts []Trip) *ArrivalAndDeparture {
+func (e entry) arrivalAndDepartureFromEntry(sis []Situation, st []Stop, ts []Trip) *ArrivalAndDeparture {
 	return &ArrivalAndDeparture{
 		ArrivalEnabled:               e.ArrivalEnabled,
 		BlockTripSequence:            e.BlockTripSequence,
@@ -231,12 +231,12 @@ func (e Entry) ArrivalAndDepartureFromEntry(sis []Situation, st []Stop, ts []Tri
 		StopSequence:                 e.StopSequence,
 		TripID:                       e.TripID,
 		TripHeadSign:                 e.TripHeadSign,
-		TripStatus:                   e.TripStatusFromEntry(sis, st, ts),
+		TripStatus:                   e.tripStatusFromEntry(sis, st, ts),
 		VehicleID:                    e.VehicleID,
 	}
 }
 
-func (e Entry) BlockFromEntry() *Block {
+func (e entry) blockFromEntry() *Block {
 	bcs := e.Configurations.toBlockConfigurations()
 	return &Block{
 		ID:             e.ID,
@@ -244,7 +244,7 @@ func (e Entry) BlockFromEntry() *Block {
 	}
 }
 
-func (e Entry) BlockConfigurationFromEntry(asds, isds []string, tps []BlockTrip) *BlockConfiguration {
+func (e entry) blockConfigurationFromEntry(asds, isds []string, tps []BlockTrip) *BlockConfiguration {
 	return &BlockConfiguration{
 		ActiveServiceIDs:   asds,
 		InactiveServiceIDs: isds,
@@ -252,10 +252,10 @@ func (e Entry) BlockConfigurationFromEntry(asds, isds []string, tps []BlockTrip)
 	}
 }
 
-func (e Entry) BlockStopTimeFromEntry() *BlockStopTime {
+func (e entry) blockStopTimeFromEntry() *BlockStopTime {
 	var st StopTime
 	if e.StopTime != nil {
-		st = *e.StopTime.StopTimeFromEntry()
+		st = *e.StopTime.stopTimeFromEntry()
 	}
 	return &BlockStopTime{
 		BlockSequence:        e.BlockSequence,
@@ -265,7 +265,7 @@ func (e Entry) BlockStopTimeFromEntry() *BlockStopTime {
 	}
 }
 
-func (e Entry) BlockTripFromEntry() *BlockTrip {
+func (e entry) blockTripFromEntry() *BlockTrip {
 	bsts := e.BlockStopTimes.toBlockStopTimes()
 	return &BlockTrip{
 		BlockStopTimes: bsts,
@@ -273,7 +273,7 @@ func (e Entry) BlockTripFromEntry() *BlockTrip {
 	}
 }
 
-func (e Entry) CoverageFromEntry() Coverage {
+func (e entry) coverageFromEntry() Coverage {
 	return Coverage{
 		Lat:     e.Lat,
 		Lon:     e.Lon,
@@ -282,14 +282,14 @@ func (e Entry) CoverageFromEntry() Coverage {
 	}
 }
 
-func (e Entry) CurrentTimeFromEntry() *CurrentTime {
+func (e entry) currentTimeFromEntry() *CurrentTime {
 	return &CurrentTime{
 		ReadableTime: e.ReadableTime,
 		Time:         e.Time,
 	}
 }
 
-func (e AltEntry) EncodedPolyLineFromEntry() *EncodedPolyLine {
+func (e altEntry) encodedPolyLineFromEntry() *EncodedPolyLine {
 	return &EncodedPolyLine{
 		Length: e.Length,
 		Levels: e.Levels,
@@ -297,7 +297,7 @@ func (e AltEntry) EncodedPolyLineFromEntry() *EncodedPolyLine {
 	}
 }
 
-func (e Entry) FrequencyFromEntry() *Frequency {
+func (e entry) frequencyFromEntry() *Frequency {
 	return &Frequency{
 		StartTime: e.StartTime,
 		EndTime:   e.EndTime,
@@ -305,20 +305,20 @@ func (e Entry) FrequencyFromEntry() *Frequency {
 	}
 }
 
-func (e Entry) LocationFromEntry() *Location {
+func (e entry) locationFromEntry() *Location {
 	return &Location{
 		Lat: e.Lat,
 		Lon: e.Lon,
 	}
 }
 
-func (e Entry) RegisteredAlarmFromEntry() *RegisteredAlarm {
+func (e entry) registeredAlarmFromEntry() *RegisteredAlarm {
 	return &RegisteredAlarm{
 		AlarmID: e.AlarmID,
 	}
 }
 
-func (e Entry) RouteFromEntry(agencies []Agency) *Route {
+func (e entry) routeFromEntry(agencies []Agency) *Route {
 	var agency Agency
 	for _, a := range agencies {
 		if e.AgencyID == a.ID {
@@ -339,7 +339,7 @@ func (e Entry) RouteFromEntry(agencies []Agency) *Route {
 	}
 }
 
-func (e Entry) ScheduleStopTimeFromEntry() *ScheduleStopTime {
+func (e entry) scheduleStopTimeFromEntry() *ScheduleStopTime {
 	return &ScheduleStopTime{
 		ArrivalEnabled:   e.ArrivalEnabled,
 		ArrivalTime:      e.ArrivalTime,
@@ -351,14 +351,14 @@ func (e Entry) ScheduleStopTimeFromEntry() *ScheduleStopTime {
 	}
 }
 
-func (e Entry) ShapeFromEntry() *Shape {
+func (e entry) shapeFromEntry() *Shape {
 	return &Shape{
 		Points: e.Points,
 		Length: e.Length,
 	}
 }
 
-func (e Entry) SituationFromEntry() *Situation {
+func (e entry) situationFromEntry() *Situation {
 	return &Situation{
 		//TODO: []horseshit -> Description:       e.Description,
 		Affects:           e.Affects,
@@ -370,7 +370,7 @@ func (e Entry) SituationFromEntry() *Situation {
 	}
 }
 
-func (e Entry) StopFromEntry() *Stop {
+func (e entry) stopFromEntry() *Stop {
 	return &Stop{
 		Code:               e.Code,
 		Direction:          e.Direction,
@@ -383,7 +383,7 @@ func (e Entry) StopFromEntry() *Stop {
 	}
 }
 
-func (e Entry) StopWithArrivalsAndDeparturesFromEntry(a ArrivalsAndDepartures) *StopWithArrivalsAndDepartures {
+func (e entry) stopWithArrivalsAndDeparturesFromEntry(a ArrivalsAndDepartures) *StopWithArrivalsAndDepartures {
 	return &StopWithArrivalsAndDepartures{
 		StopID:                e.StopID,
 		ArrivalsAndDepartures: a,
@@ -391,14 +391,14 @@ func (e Entry) StopWithArrivalsAndDeparturesFromEntry(a ArrivalsAndDepartures) *
 	}
 }
 
-func (e Entry) StopRouteScheduleFromEntry(r Route) *StopRouteSchedule {
+func (e entry) stopRouteScheduleFromEntry(r Route) *StopRouteSchedule {
 	return &StopRouteSchedule{
 		StopRouteDirectionSchedules: e.StopRouteDirectionSchedules.toStopRouteDirectionSchedules(),
 		Route: r,
 	}
 }
 
-func (e Entry) StopRouteDirectionScheduleFromEntry() *StopRouteDirectionSchedule {
+func (e entry) stopRouteDirectionScheduleFromEntry() *StopRouteDirectionSchedule {
 	return &StopRouteDirectionSchedule{
 		ScheduleFrequencies: e.ScheduleFrequencies.toScheduleFrequencies(),
 		TripHeadsign:        e.TripHeadSign,
@@ -406,11 +406,11 @@ func (e Entry) StopRouteDirectionScheduleFromEntry() *StopRouteDirectionSchedule
 	}
 }
 
-func (e Entry) ScheduleFrequencyFromEntry() *ScheduleFrequency {
+func (e entry) scheduleFrequencyFromEntry() *ScheduleFrequency {
 	return &ScheduleFrequency{}
 }
 
-func (e Entry) StopsForRouteFromEntry(rs []Route, ss []Stop) *StopsForRoute {
+func (e entry) stopsForRouteFromEntry(rs []Route, ss []Stop) *StopsForRoute {
 	var route Route
 	for _, r := range rs {
 		if e.RouteID == r.ID {
@@ -433,7 +433,7 @@ func (e Entry) StopsForRouteFromEntry(rs []Route, ss []Stop) *StopsForRoute {
 	}
 }
 
-func (e AltEntry) StopGroupingFromEntry(ss []Stop) *StopGrouping {
+func (e altEntry) stopGroupingFromEntry(ss []Stop) *StopGrouping {
 	return &StopGrouping{
 		Type:       e.Type,
 		Ordered:    e.Ordered,
@@ -441,7 +441,7 @@ func (e AltEntry) StopGroupingFromEntry(ss []Stop) *StopGrouping {
 	}
 }
 
-func (e Entry) StopScheduleFromEntry(ss []Stop) *StopSchedule {
+func (e entry) stopScheduleFromEntry(ss []Stop) *StopSchedule {
 	var stop Stop
 	for _, s := range ss {
 		if s.ID == e.StopID {
@@ -456,7 +456,7 @@ func (e Entry) StopScheduleFromEntry(ss []Stop) *StopSchedule {
 	}
 }
 
-func (e Entry) StopTimeFromEntry() *StopTime {
+func (e entry) stopTimeFromEntry() *StopTime {
 	return &StopTime{
 		ArrivalTime:   e.ArrivalTime,
 		DepartureTime: e.DepartureTime,
@@ -466,7 +466,7 @@ func (e Entry) StopTimeFromEntry() *StopTime {
 	}
 }
 
-func (e Entry) TripFromEntry() *Trip {
+func (e entry) tripFromEntry() *Trip {
 	return &Trip{
 		BlockID:        e.BlockID,
 		DirectionID:    e.DirectionID,
@@ -481,7 +481,7 @@ func (e Entry) TripFromEntry() *Trip {
 	}
 }
 
-func (e Entry) TripDetailsFromEntry(ts []Trip, ss []Situation) *TripDetails {
+func (e entry) tripDetailsFromEntry(ts []Trip, ss []Situation) *TripDetails {
 	var trip Trip
 	for _, t := range ts {
 		if t.ID == e.TripID {
@@ -497,7 +497,7 @@ func (e Entry) TripDetailsFromEntry(ts []Trip, ss []Situation) *TripDetails {
 	}
 }
 
-func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripStatus {
+func (e entry) tripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripStatus {
 	var cstop Stop
 	var nstop Stop
 	for _, s := range ss {
@@ -545,7 +545,7 @@ func (e Entry) TripStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) *TripS
 	}
 }
 
-func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (ret *VehicleStatus) {
+func (e entry) vehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (ret *VehicleStatus) {
 	var trip Trip
 	for _, t := range ts {
 		if t.ID == e.TripID {
@@ -556,11 +556,11 @@ func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (re
 
 	var tstatus TripStatus
 	if e.TripStatus != nil {
-		tstatus = *e.TripStatus.TripStatusFromEntry(sis, ss, ts)
+		tstatus = *e.TripStatus.tripStatusFromEntry(sis, ss, ts)
 	}
 	var loc Location
 	if e.Location != nil {
-		loc = *e.Location.LocationFromEntry()
+		loc = *e.Location.locationFromEntry()
 	}
 	return &VehicleStatus{
 		Location:               loc,
