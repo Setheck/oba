@@ -177,10 +177,10 @@ func (l List) toTripDetails(ts []Trip, ss []Situation) []TripDetails {
 	return tds
 }
 
-func (l List) toVehicleStatuses(sits []Situation, st []Stop, ts []Trip) []VehicleStatus {
+func (l List) toVehicleStatuses(st []Stop, ts []Trip) []VehicleStatus {
 	vss := make([]VehicleStatus, 0, len(l))
 	for _, entry := range l {
-		vhs := *entry.vehicleStatusFromEntry(sits, st, ts)
+		vhs := *entry.vehicleStatusFromEntry(st, ts)
 		vss = append(vss, vhs)
 	}
 	return vss
