@@ -60,6 +60,10 @@ type BlockStopTime struct {
 	StopTime             StopTime
 }
 
+//func (b BlockStopTime) String() string {
+//	return fmt.Sprintf(`{"accumulatedSlackTime":"%f"}`)
+//}
+
 type BlockTrip struct {
 	TripID         string
 	BlockStopTimes []BlockStopTime
@@ -154,12 +158,16 @@ type Route struct {
 }
 
 func (r Route) String() string {
-	return fmt.Sprintf(`{"agencyId"": "%s","color": "%s","description": "%s","id": "%s": "longName": "%s","shortName": "%s","textColor": "%s","type": %d,"url": "%s"}`,
+	return fmt.Sprintf(`{"agencyId": "%s","color": "%s","description": "%s","id": "%s": "longName": "%s","shortName": "%s","textColor": "%s","type": %d,"url": "%s"}`,
 		r.Agency.String(), r.Color, r.Description, r.ID, r.LongName, r.ShortName, r.TextColor, r.Type, r.URL)
 }
 
 type RegisteredAlarm struct {
 	AlarmID string
+}
+
+func (r RegisteredAlarm) String() string {
+	return fmt.Sprintf(`{"registeredAlarm":"%s"}`, r.AlarmID)
 }
 
 type Situation struct {
@@ -170,6 +178,11 @@ type Situation struct {
 	Description       []string
 	Affects           []VehicleJourney
 	Consequences      []Consequence
+}
+
+func (s Situation) String() string {
+	return fmt.Sprintf(`{"id":"%s", "creationTime":"%s", "environmentReason": "%s", "summary": [%s], "description": [%s], "affects": [%s}, "consequences": [%s]}`,
+		s.ID, s.CreationTime, s.EnvironmentReason, s.Summary, s.Description, s.Affects, s.Consequences)
 }
 
 type Consequence struct {
