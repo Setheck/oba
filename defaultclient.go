@@ -1526,7 +1526,7 @@ func (c DefaultClient) getEntry(requestString, requestType string, params map[st
 
 func (c DefaultClient) getResponse(requestString string, errMessage string, params map[string]string) (*Response, error) {
 	u := c.buildRequestURL(fmt.Sprint(requestString, jsonPostFix), params)
-	response, err := requestAndHandle(u, "")
+	response, err := requestAndHandle(u, errMessage)
 	if err != nil {
 		return nil, err
 	}
