@@ -15,10 +15,6 @@ var reportCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		err = client.ReportProblemWithStop(id, nil)
-		if err != nil {
-			return err
-		}
-		return nil
+		return client.ReportProblemWithStop(id, nil)
 	},
 }

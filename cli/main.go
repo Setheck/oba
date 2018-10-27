@@ -13,7 +13,7 @@ func init() {
 	viper.AddConfigPath(".")
 	err := viper.ReadInConfig()
 	if err != nil {
-		fmt.Errorf("Fatal error config file: %s \n", err)
+		fmt.Printf("Fatal error config file: %s \n", err)
 	}
 }
 

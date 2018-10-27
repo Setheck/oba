@@ -21,7 +21,7 @@ var rootCmd = &cobra.Command{
 	Short: "OneBusAway Cli tool",
 	Long:  "OBA Cli tool!",
 	Run: func(cmd *cobra.Command, args []string) {
-		// Do Stuff Here
+		fmt.Println("what do you want? How about try -h?")
 	},
 }
 

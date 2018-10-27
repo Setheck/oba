@@ -23,24 +23,32 @@ var agencyCmd = &cobra.Command{
 			return err
 		}
 		if coverage {
-			awc, err := client.AgenciesWithCoverage()
-			if err != nil {
-				return err
-			}
-			for _, a := range awc {
-				fmt.Println(a)
-				return nil
-			}
+			return AgenciesWithCoverage(client)
 		}
 		id, err := cmd.Flags().GetString("id")
 		if err != nil {
 			return err
 		}
-		agency, err := client.Agency(id)
-		if err != nil {
-			return err
-		}
-		fmt.Println(agency.String())
-		return nil
+		return Agency(client, id)
 	},
+}
+
+func Agency(client oba.Client, id string) error {
+	agency, err := client.Agency(id)
+	if err != nil {
+		return err
+	}
+	fmt.Println(agency.String())
+	return nil
+}
+
+func AgenciesWithCoverage(client oba.Client) error {
+	awc, err := client.AgenciesWithCoverage()
+	if err != nil {
+		return err
+	}
+	for _, a := range awc {
+		fmt.Println(a)
+	}
+	return nil
 }
