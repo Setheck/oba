@@ -1,8 +1,7 @@
 package oba
 
 import (
-	"fmt"
-	"strings"
+	"encoding/json"
 )
 
 type ArrivalsAndDepartures []ArrivalAndDeparture
@@ -40,6 +39,10 @@ type ArrivalAndDeparture struct {
 	VehicleID                    string
 }
 
+func (a ArrivalAndDeparture) String() string {
+	return jsonStringer(a)
+}
+
 type Histogram struct {
 	Counts   []int
 	Labels   []string
@@ -47,10 +50,18 @@ type Histogram struct {
 	Values   []float64
 }
 
+func (h Histogram) String() string {
+	return jsonStringer(h)
+}
+
 type BlockConfiguration struct {
 	ActiveServiceIDs   []string
 	InactiveServiceIDs []string
 	Trips              []BlockTrip
+}
+
+func (b BlockConfiguration) String() string {
+	return jsonStringer(b)
 }
 
 type BlockStopTime struct {
@@ -60,9 +71,17 @@ type BlockStopTime struct {
 	StopTime             StopTime
 }
 
+func (b BlockStopTime) String() string {
+	return jsonStringer(b)
+}
+
 type BlockTrip struct {
 	TripID         string
 	BlockStopTimes []BlockStopTime
+}
+
+func (b BlockTrip) String() string {
+	return jsonStringer(b)
 }
 
 type StopTime struct {
@@ -73,10 +92,18 @@ type StopTime struct {
 	DropOffType   int
 }
 
+func (s StopTime) String() string {
+	return jsonStringer(s)
+}
+
 type Frequency struct {
 	StartTime int
 	EndTime   int
 	Headway   int
+}
+
+func (f Frequency) String() string {
+	return jsonStringer(f)
 }
 
 type VehicleStatus struct {
@@ -88,6 +115,10 @@ type VehicleStatus struct {
 	Status                 string
 	Trip                   Trip
 	TripStatus             TripStatus
+}
+
+func (v VehicleStatus) String() string {
+	return jsonStringer(v)
 }
 
 // Agency container object
@@ -105,13 +136,16 @@ type Agency struct {
 }
 
 func (a Agency) String() string {
-	return fmt.Sprintf("Disclaimer: %s\nEmail: %s\nFareURL: %s\nID: %s\nLang: %s\nName: %s\nPhone: %s\nPrivateService: %v\nTimeZone: %s\nURL: %s\n",
-		a.Disclaimer, a.Email, a.FareURL, a.ID, a.Lang, a.Name, a.Phone, *a.PrivateService, a.TimeZone, a.URL)
+	return jsonStringer(a)
 }
 
 type Block struct {
 	ID             string
 	Configurations []BlockConfiguration
+}
+
+func (b Block) String() string {
+	return jsonStringer(b)
 }
 
 type AgencyWithCoverage struct {
@@ -123,8 +157,7 @@ type AgencyWithCoverage struct {
 }
 
 func (a AgencyWithCoverage) String() string {
-	return fmt.Sprintf("Agency: %s\nLat: %f\nLatSpan: %f\nLon: %f\nLonSpan: %f\n",
-		a.Agency.String(), a.Lat, a.LatSpan, a.Lon, a.LonSpan)
+	return jsonStringer(a)
 }
 
 type Coverage struct {
@@ -135,9 +168,17 @@ type Coverage struct {
 	LonSpan  float64
 }
 
+func (c Coverage) String() string {
+	return jsonStringer(c)
+}
+
 type CurrentTime struct {
 	ReadableTime string
 	Time         int
+}
+
+func (c CurrentTime) String() string {
+	return jsonStringer(c)
 }
 
 //Route object
@@ -154,12 +195,15 @@ type Route struct {
 }
 
 func (r Route) String() string {
-	return fmt.Sprintf(`{"agencyId"": "%s","color": "%s","description": "%s","id": "%s": "longName": "%s","shortName": "%s","textColor": "%s","type": %d,"url": "%s"}`,
-		r.Agency.String(), r.Color, r.Description, r.ID, r.LongName, r.ShortName, r.TextColor, r.Type, r.URL)
+	return jsonStringer(r)
 }
 
 type RegisteredAlarm struct {
 	AlarmID string
+}
+
+func (r RegisteredAlarm) String() string {
+	return jsonStringer(r)
 }
 
 type Situation struct {
@@ -172,10 +216,18 @@ type Situation struct {
 	Consequences      []Consequence
 }
 
+func (s Situation) String() string {
+	return jsonStringer(s)
+}
+
 type Consequence struct {
 	Condition                          string
 	ConditionDetailDiversionPathPoints []string
 	ConditionDetailDiversionStopIDs    []string
+}
+
+func (c Consequence) String() string {
+	return jsonStringer(c)
 }
 
 type VehicleJourney struct {
@@ -184,9 +236,17 @@ type VehicleJourney struct {
 	CallStopIDs []string
 }
 
+func (v VehicleJourney) String() string {
+	return jsonStringer(v)
+}
+
 type Shape struct {
 	Points string
 	Length int
+}
+
+func (s Shape) String() string {
+	return jsonStringer(s)
 }
 
 type Stop struct {
@@ -202,15 +262,7 @@ type Stop struct {
 }
 
 func (s Stop) String() string {
-	rs := make([]string, 0, len(s.Routes))
-	for _, r := range s.Routes {
-		rs = append(rs, r.String())
-	}
-	routes := strings.Join(rs, ",")
-
-	return fmt.Sprintf(
-		`{"code": "%s","direction": "%s","id": "%s","lat": %f,"locationType": %d,"lon": %f,"name": "%s","routes": [%s],"wheelChairBoarding": "%s"}`,
-		s.Code, s.Direction, s.ID, s.Lat, s.LocationType, s.Lon, s.Name, routes, s.WheelChairBoarding)
+	return jsonStringer(s)
 }
 
 type StopSchedule struct {
@@ -221,14 +273,26 @@ type StopSchedule struct {
 	StopCalendarDays   []StopCalendarDay
 }
 
+func (s StopSchedule) String() string {
+	return jsonStringer(s)
+}
+
 type StopCalendarDay struct {
 	Date  string
 	Group string
 }
 
+func (s StopCalendarDay) String() string {
+	return jsonStringer(s)
+}
+
 type StopRouteSchedule struct {
 	Route                       Route
 	StopRouteDirectionSchedules []StopRouteDirectionSchedule
+}
+
+func (s StopRouteSchedule) String() string {
+	return jsonStringer(s)
 }
 
 type StopRouteDirectionSchedule struct {
@@ -237,8 +301,16 @@ type StopRouteDirectionSchedule struct {
 	TripHeadsign        string
 }
 
+func (s StopRouteDirectionSchedule) String() string {
+	return jsonStringer(s)
+}
+
 type ScheduleFrequency struct {
 	*Frequency
+}
+
+func (s ScheduleFrequency) String() string {
+	return jsonStringer(s)
 }
 
 type StopsForRoute struct {
@@ -247,10 +319,18 @@ type StopsForRoute struct {
 	StopGroupings []StopGrouping
 }
 
+func (s StopsForRoute) String() string {
+	return jsonStringer(s)
+}
+
 type StopGrouping struct {
 	Type       string
 	Ordered    *bool
 	StopGroups []StopGroup
+}
+
+func (s StopGrouping) String() string {
+	return jsonStringer(s)
 }
 
 type StopGroup struct {
@@ -260,16 +340,28 @@ type StopGroup struct {
 	PolyLines []EncodedPolyLine
 }
 
+func (s StopGroup) String() string {
+	return jsonStringer(s)
+}
+
 type Name struct {
 	Name  string
 	Names []string
 	Type  string
 }
 
+func (n Name) String() string {
+	return jsonStringer(n)
+}
+
 type EncodedPolyLine struct {
 	Length int
 	Levels string
 	Points string
+}
+
+func (e EncodedPolyLine) String() string {
+	return jsonStringer(e)
 }
 
 type ScheduleStopTime struct {
@@ -280,6 +372,10 @@ type ScheduleStopTime struct {
 	ServiceID        string
 	StopHeadsign     string
 	TripID           string
+}
+
+func (s ScheduleStopTime) String() string {
+	return jsonStringer(s)
 }
 
 type Trip struct {
@@ -295,12 +391,20 @@ type Trip struct {
 	TripShortName  string
 }
 
+func (t Trip) String() string {
+	return jsonStringer(t)
+}
+
 type TripDetails struct {
 	Trip        Trip
 	ServiceDate int
 	Frequency   *string
 	Status      string
 	Situations  []Situation
+}
+
+func (t TripDetails) String() string {
+	return jsonStringer(t)
 }
 
 type TripStatus struct {
@@ -330,13 +434,33 @@ type TripStatus struct {
 	VehicleID                  string
 }
 
+func (t TripStatus) String() string {
+	return jsonStringer(t)
+}
+
 type Location struct {
 	Lat float64
 	Lon float64
+}
+
+func (l Location) String() string {
+	return jsonStringer(l)
 }
 
 type StopWithArrivalsAndDepartures struct {
 	StopID                string
 	ArrivalsAndDepartures ArrivalsAndDepartures
 	NearByStopIDs         []string
+}
+
+func (s StopWithArrivalsAndDepartures) String() string {
+	return jsonStringer(s)
+}
+
+func jsonStringer(i interface{}) string {
+	s, err := json.Marshal(i)
+	if err != nil {
+		panic(err)
+	}
+	return string(s)
 }
