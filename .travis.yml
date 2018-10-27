@@ -1,10 +1,16 @@
 language: go
-go:
-- "1.x"
-- "1.10.x"
-- "1.10.3"
-install:
-  - go get -u github.com/stretchr/testify
-  - go get -u github.com/spf13/viper
-  - go get -u github.com/spf13/cobra
-script: go test -cover ./...
+env:
+  - GO111MODULE=on
+install: true
+matrix:
+  include:
+  - go: "1.10.x"
+    script:
+    - go get -u github.com/stretchr/testify
+    - go get -u github.com/spf13/viper
+    - go get -u github.com/spf13/cobra
+    - go test -cover ./...
+  - go: "1.11.x"
+    script:
+    - go build ./...
+    - go test -cover ./...
