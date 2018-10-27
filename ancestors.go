@@ -63,7 +63,7 @@ type References struct {
 type Data struct {
 	LimitExceeded *bool       `json:"limitExceeded,omitempty"`
 	List          *List       `json:"list,omitempty"`
-	Entry         *Entry      `json:"entry,omitempty"`
+	Entry         *entry      `json:"entry,omitempty"`
 	OutOfRange    *bool       `json:"outOfRange,omitempty"`
 	References    *References `json:"references"`
 	Time          *Time       `json:",omitempty"`
@@ -117,7 +117,7 @@ func (d Data) String() string {
 	return ""
 	// TODO:
 	//return fmt.Sprintf("LimitExceeded: %b\nList: %s\nEntry: %s\nOutOfRange: %b\nReference: %s\nTime: %s",
-	//	d.LimitExceeded, d.List.String(), d.Entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
+	//	d.LimitExceeded, d.List.String(), d.entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
 }
 
 func (d Data) Trips() []Trip {
@@ -145,7 +145,7 @@ func (d Data) toTripDetails() []TripDetails {
 func (d Data) TripDetails() *TripDetails {
 	ss := d.References.Situations.toSituations()
 	ts := d.References.Trips.toTrips()
-	td := d.Entry.TripDetailsFromEntry(ts, ss)
+	td := d.Entry.tripDetailsFromEntry(ts, ss)
 	return td
 }
 

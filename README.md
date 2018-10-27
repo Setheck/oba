@@ -1,5 +1,5 @@
 # oba - Golang Api for One Bus Away
-[![Build Status](https://travis-ci.org/Setheck/oba.svg?branch=master)](https://travis-ci.org/Setheck/oba) [![Go Report Card](https://goreportcard.com/badge/github.com/setheck/oba)](https://goreportcard.com/report/github.com/setheck/oba)
+[![Build Status](https://travis-ci.org/Setheck/oba.svg?branch=master)](https://travis-ci.org/Setheck/oba) [![Go Report Card](https://goreportcard.com/badge/github.com/setheck/oba)](https://goreportcard.com/report/github.com/setheck/oba) [![Coverage Status](https://coveralls.io/repos/github/Setheck/oba/badge.svg?branch=master)](https://coveralls.io/github/Setheck/oba?branch=master)
 
 [OneBusAway](https://onebusaway.org/)
 # Summary
