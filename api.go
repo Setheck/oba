@@ -1,8 +1,8 @@
-//Package oba - One Bus Away Go Api https://onebusaway.org/
+// Package oba - One Bus Away Go Api https://onebusaway.org/
 // Author: Seth T <setheck@gmail.com>
 package oba
 
-//Client - Interface for a One Bus Away Client
+// Client - Interface for a One Bus Away Client
 type Client interface {
 	AgenciesWithCoverage() ([]AgencyWithCoverage, error)
 	Agency(id string) (*Agency, error)

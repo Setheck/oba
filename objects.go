@@ -181,7 +181,7 @@ func (c CurrentTime) String() string {
 	return jsonStringer(c)
 }
 
-//Route object
+// Route object
 type Route struct {
 	Agency      Agency
 	Color       string

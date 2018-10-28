@@ -1,4 +1,4 @@
-//Package oba - One Bus Away Go Api https://onebusaway.org/
+// Package oba - One Bus Away Go Api https://onebusaway.org/
 // Author: Seth T <setheck@gmail.com>
 package oba
 
@@ -58,7 +58,7 @@ func unmarshalAltResponse(data []byte) *AltResponse {
 
 func requestAndHandle(u, errmsg string) (*Response, error) {
 	body, err := makeGetRequest(u)
-	//log.Printf(string(body))
+	// log.Printf(string(body))
 	if err != nil {
 		return nil, errors.New(errmsg + err.Error())
 	}
@@ -71,7 +71,7 @@ func requestAndHandle(u, errmsg string) (*Response, error) {
 
 func requestAndHandleAlt(u, errmsg string) (*AltResponse, error) {
 	body, err := makeGetRequest(u)
-	//log.Printf(string(body))
+	// log.Printf(string(body))
 	if err != nil {
 		return nil, errors.New(errmsg + err.Error())
 	}

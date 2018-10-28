@@ -1,6 +1,6 @@
 package oba
 
-//Entry container object
+// Entry container object
 type Entry struct {
 	AccumulatedSlackTime         float64          `json:"accumulatedSlackTime,omitempty"`
 	ActiveServiceID              []string         `json:"activeServiceIds,omitempty"`
@@ -123,7 +123,7 @@ type Entry struct {
 	URL                          string           `json:"url,omitempty"`
 	VehicleID                    string           `json:"vehicleId,omitempty"`
 	WheelChairBoarding           string           `json:"wheelchairBoarding,omitempty"`
-	//Description       []string         `json:"description>value"` what the fuck
+	// Description       []string         `json:"description>value"` what the fuck
 }
 
 type AltEntry struct {
@@ -360,7 +360,7 @@ func (e Entry) ShapeFromEntry() *Shape {
 
 func (e Entry) SituationFromEntry() *Situation {
 	return &Situation{
-		//TODO: []horseshit -> Description:       e.Description,
+		// TODO: []horseshit -> Description:       e.Description,
 		Affects:           e.Affects,
 		Consequences:      e.Consequences,
 		CreationTime:      e.CreationTime,
@@ -394,7 +394,7 @@ func (e Entry) StopWithArrivalsAndDeparturesFromEntry(a ArrivalsAndDepartures) *
 func (e Entry) StopRouteScheduleFromEntry(r Route) *StopRouteSchedule {
 	return &StopRouteSchedule{
 		StopRouteDirectionSchedules: e.StopRouteDirectionSchedules.toStopRouteDirectionSchedules(),
-		Route: r,
+		Route:                       r,
 	}
 }
 
@@ -566,10 +566,10 @@ func (e Entry) VehicleStatusFromEntry(sis []Situation, ss []Stop, ts []Trip) (re
 		Location:               loc,
 		LastUpdateTime:         e.LastUpdateTime,
 		LastLocationUpdateTime: e.LastLocationUpdateTime,
-		Phase:      e.Phase,
-		Status:     e.Status,
-		TripStatus: tstatus,
-		Trip:       trip,
-		VehicleID:  e.VehicleID,
+		Phase:                  e.Phase,
+		Status:                 e.Status,
+		TripStatus:             tstatus,
+		Trip:                   trip,
+		VehicleID:              e.VehicleID,
 	}
 }

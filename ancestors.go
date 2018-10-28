@@ -1,7 +1,7 @@
 package oba
 
-//Response Element - All responses are wrapped in a response element.
-//The response element carries the following fields:
+// Response Element - All responses are wrapped in a response element.
+// The response element carries the following fields:
 // version - response version information
 // code - a machine-readable response code with the following semantics:
 // 200 - Success
@@ -37,7 +37,7 @@ func (r AltResponse) String() string {
 	return jsonStringer(r)
 }
 
-//References - The <references/> element contains a dictionary of objects
+// References - The <references/> element contains a dictionary of objects
 // referenced by the main result payload. For elements that are
 // often repeated in the result payload, the elements are instead
 // included in the <references/> section and the payload will refer
@@ -64,7 +64,7 @@ func (r References) String() string {
 	return jsonStringer(r)
 }
 
-//Data container object
+// Data container object
 type Data struct {
 	LimitExceeded *bool       `json:"limitExceeded,omitempty"`
 	List          *List       `json:"list,omitempty"`
