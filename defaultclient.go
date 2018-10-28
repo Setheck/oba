@@ -156,7 +156,7 @@ func (c DefaultClient) Agency(id string) (*Agency, error) {
 	if err != nil {
 		return nil, err
 	}
-	agency := entry.AgencyFromEntry()
+	agency := entry.ToAgency()
 	return agency, nil
 }
 
@@ -220,7 +220,7 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 	stops := data.Stops(routes)
 	trips := data.Trips()
 	situations := data.Situations()
-	aad := data.Entry.ArrivalAndDepartureFromEntry(situations, stops, trips)
+	aad := data.Entry.ToArrivalAndDeparture(situations, stops, trips)
 	return aad, nil
 }
 
@@ -292,7 +292,7 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 		if entry.ArrivalsAndDepartures != nil {
 			aads = data.Entry.ArrivalsAndDepartures.toArrivalAndDepartures(situations, stops, trips)
 		}
-		swaad = data.Entry.StopWithArrivalsAndDeparturesFromEntry(aads)
+		swaad = data.Entry.ToStopWithArrivalsAndDepartures(aads)
 	}
 	return swaad, nil
 }
@@ -335,7 +335,7 @@ func (c DefaultClient) Block(id string) (*Block, error) {
 	if err != nil {
 		return nil, err
 	}
-	block := entry.BlockFromEntry()
+	block := entry.ToBlock()
 	return block, nil
 }
 
@@ -405,7 +405,7 @@ func (c DefaultClient) CurrentTime() (*CurrentTime, error) {
 	if err != nil {
 		return nil, err
 	}
-	ct := entry.CurrentTimeFromEntry()
+	ct := entry.ToCurrentTime()
 	return ct, nil
 }
 
@@ -488,7 +488,7 @@ func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, para
 	if err != nil {
 		return nil, err
 	}
-	ra := entry.RegisteredAlarmFromEntry()
+	ra := entry.ToRegisteredAlarm()
 	return ra, nil
 }
 
@@ -664,7 +664,7 @@ func (c DefaultClient) Route(id string) (*Route, error) {
 		return nil, err
 	}
 	agencies := data.References.Agencies.toAgencies()
-	route := data.Entry.RouteFromEntry(agencies)
+	route := data.Entry.ToRoute(agencies)
 	return route, nil
 }
 
@@ -882,7 +882,7 @@ func (c DefaultClient) ScheduleForStop(id string) (*StopSchedule, error) {
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
 	stops := data.References.Stops.toStops(routes)
-	ss := data.Entry.StopScheduleFromEntry(stops)
+	ss := data.Entry.ToStopSchedule(stops)
 	ss.StopRouteSchedules = data.Entry.StopRouteSchedules.toStopRouteSchedules(routes)
 	return ss, nil
 }
@@ -935,7 +935,7 @@ func (c DefaultClient) Shape(id string) (*Shape, error) {
 	if err != nil {
 		return nil, err
 	}
-	shape := entry.ShapeFromEntry()
+	shape := entry.ToShape()
 	return shape, nil
 }
 
@@ -1035,7 +1035,7 @@ func (c DefaultClient) Stop(id string) (*Stop, error) {
 	}
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
-	stop := data.Entry.StopFromEntry()
+	stop := data.Entry.ToStop()
 	stop.Routes = routes
 	return stop, nil
 }
@@ -1171,7 +1171,7 @@ func (c DefaultClient) StopsForRoute(id string) (*StopsForRoute, error) {
 	ss := data.Stops(rs)
 	var sfr *StopsForRoute
 	if data.Entry != nil {
-		sfr = data.Entry.StopsForRouteFromEntry(rs, ss)
+		sfr = data.Entry.ToStopsForRoute(rs, ss)
 	}
 	return sfr, nil
 }
@@ -1339,7 +1339,7 @@ func (c DefaultClient) Trip(id string) (*Trip, error) {
 	if err != nil {
 		return nil, err
 	}
-	trip := entry.TripFromEntry()
+	trip := entry.ToTrip()
 	return trip, nil
 }
 

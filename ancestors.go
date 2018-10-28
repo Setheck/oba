@@ -151,7 +151,7 @@ func (d Data) toTripDetails() []TripDetails {
 func (d Data) TripDetails() *TripDetails {
 	ss := d.References.Situations.toSituations()
 	ts := d.References.Trips.toTrips()
-	td := d.Entry.TripDetailsFromEntry(ts, ss)
+	td := d.Entry.ToTripDetails(ts, ss)
 	return td
 }
 
