@@ -7,7 +7,6 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
@@ -42,7 +41,7 @@ func unmarshalResponse(data []byte) *Response {
 	response := &Response{}
 	err := json.Unmarshal(data, response)
 	if err != nil {
-		log.Fatal("error unmarshaling ", err)
+		panic(err)
 	}
 	return response
 }
@@ -51,14 +50,13 @@ func unmarshalAltResponse(data []byte) *AltResponse {
 	response := &AltResponse{}
 	err := json.Unmarshal(data, response)
 	if err != nil {
-		log.Fatal("error unmarshaling ", err)
+		panic(err)
 	}
 	return response
 }
 
 func requestAndHandle(u, errmsg string) (*Response, error) {
 	body, err := makeGetRequest(u)
-	// log.Printf(string(body))
 	if err != nil {
 		return nil, errors.New(errmsg + err.Error())
 	}
@@ -71,7 +69,6 @@ func requestAndHandle(u, errmsg string) (*Response, error) {
 
 func requestAndHandleAlt(u, errmsg string) (*AltResponse, error) {
 	body, err := makeGetRequest(u)
-	// log.Printf(string(body))
 	if err != nil {
 		return nil, errors.New(errmsg + err.Error())
 	}
