@@ -189,8 +189,7 @@ func (c DefaultClient) Agency(id string) (*Agency, error) {
 // tripId - 		the trip id of the arriving transit vehicle
 // serviceDate -	the service date of the arriving transit vehicle
 // vehicleId - 		the vehicle id of the arriving transit vehicle (optional)
-// stopSequence - 	the stop sequence index of the stop in the transit vehicle’s
-// 					trip
+// stopSequence - 	the stop sequence index of the stop in the transit vehicle’s trip
 // time -			by default, the method returns the status of the system
 // 					right now. However, the system can also be queried at a
 // 					specific time. This can be useful for testing. See
