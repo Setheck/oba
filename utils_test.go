@@ -1,7 +1,6 @@
 package oba_test
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -22,7 +21,10 @@ const (
 func FakeServer(t *testing.T, body []byte) *httptest.Server {
 	t.Helper()
 	handler := http.HandlerFunc(func(r http.ResponseWriter, req *http.Request) {
-		r.Write(body)
+		_, err := r.Write(body)
+		if err != nil {
+			t.Error(err)
+		}
 	})
 	return httptest.NewServer(handler)
 }
@@ -81,9 +83,9 @@ func VerifyUnMarshalling(t *testing.T, data []byte) {
 	}
 }
 
-func FixJSON(b []byte) []byte {
-	return bytes.Replace(b, []byte("\u0026"), []byte("&"), -1)
-}
+// func FixJSON(b []byte) []byte {
+// 	return bytes.Replace(b, []byte("\u0026"), []byte("&"), -1)
+// }
 
 func VerifyAgency(t *testing.T, a *oba.Agency) {
 	t.Helper()
