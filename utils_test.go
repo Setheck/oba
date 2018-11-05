@@ -306,6 +306,8 @@ func VerifyVehicleStatus(t *testing.T, vs *oba.VehicleStatus) {
 	assert.NotNil(t, vs, "VehicleStatus")
 	assert.NotZero(t, vs.LastLocationUpdateTime, "VehicleStatus - LastLocationUpdateTime")
 	assert.NotZero(t, vs.LastUpdateTime, "VehicleStatus - LastUpdateTime")
+	assert.NotEmpty(t, vs.Phase, "VehicleStatus - Phase")
+	assert.NotEmpty(t, vs.Status, "VehicleStatus - Status")
 	VerifyLocation(t, &vs.Location)
 	VerifyTrip(t, &vs.Trip)
 	VerifyTripStatus(t, &vs.TripStatus)

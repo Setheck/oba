@@ -9,7 +9,7 @@ import (
 
 func init() {
 	viper.SetConfigName("config")
-	viper.AddConfigPath("$HOME/.appname")
+	viper.AddConfigPath("$HOME/.obacli")
 	viper.AddConfigPath(".")
 	err := viper.ReadInConfig()
 	if err != nil {
