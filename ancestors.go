@@ -1,9 +1,7 @@
 package oba
 
-import "fmt"
-
-//Response Element - All responses are wrapped in a response element.
-//The response element carries the following fields:
+// Response Element - All responses are wrapped in a response element.
+// The response element carries the following fields:
 // version - response version information
 // code - a machine-readable response code with the following semantics:
 // 200 - Success
@@ -23,6 +21,10 @@ type Response struct {
 	Version     int    `json:"version"`
 }
 
+func (r Response) String() string {
+	return jsonStringer(r)
+}
+
 type AltResponse struct {
 	Code        int      `json:"code"`
 	CurrentTime int      `json:"currentTime"`
@@ -31,12 +33,11 @@ type AltResponse struct {
 	Version     int      `json:"version"`
 }
 
-func (r Response) String() string {
-	return fmt.Sprintf(`{"code": %d,"currentTime": %d,"data": "%s","text": "%s","version": %d}`,
-		r.Code, r.CurrentTime, r.Data.String(), r.Text, r.Version)
+func (r AltResponse) String() string {
+	return jsonStringer(r)
 }
 
-//References - The <references/> element contains a dictionary of objects
+// References - The <references/> element contains a dictionary of objects
 // referenced by the main result payload. For elements that are
 // often repeated in the result payload, the elements are instead
 // included in the <references/> section and the payload will refer
@@ -59,14 +60,22 @@ type References struct {
 	Trips      List `json:"trips"`
 }
 
-//Data container object
+func (r References) String() string {
+	return jsonStringer(r)
+}
+
+// Data container object
 type Data struct {
 	LimitExceeded *bool       `json:"limitExceeded,omitempty"`
 	List          *List       `json:"list,omitempty"`
-	Entry         *entry      `json:"entry,omitempty"`
+	Entry         *Entry      `json:"entry,omitempty"`
 	OutOfRange    *bool       `json:"outOfRange,omitempty"`
 	References    *References `json:"references"`
 	Time          *Time       `json:",omitempty"`
+}
+
+func (d Data) String() string {
+	return jsonStringer(d)
 }
 
 func (d Data) Agencies() []Agency {
@@ -113,13 +122,6 @@ func (d Data) Stops(rs []Route) []Stop {
 	return stops
 }
 
-func (d Data) String() string {
-	return ""
-	// TODO:
-	//return fmt.Sprintf("LimitExceeded: %b\nList: %s\nEntry: %s\nOutOfRange: %b\nReference: %s\nTime: %s",
-	//	d.LimitExceeded, d.List.String(), d.entry.String(), d.OutOfRange.String(), d.References.String(), d.Time.String())
-}
-
 func (d Data) Trips() []Trip {
 	var trips []Trip
 	if d.References != nil {
@@ -135,6 +137,10 @@ type AltData struct {
 	List []string `json:"list,omitempty"`
 }
 
+func (d AltData) String() string {
+	return jsonStringer(d)
+}
+
 func (d Data) toTripDetails() []TripDetails {
 	ss := d.References.Situations.toSituations()
 	ts := d.References.Trips.toTrips()
@@ -145,7 +151,7 @@ func (d Data) toTripDetails() []TripDetails {
 func (d Data) TripDetails() *TripDetails {
 	ss := d.References.Situations.toSituations()
 	ts := d.References.Trips.toTrips()
-	td := d.Entry.tripDetailsFromEntry(ts, ss)
+	td := d.Entry.ToTripDetails(ts, ss)
 	return td
 }
 
@@ -155,6 +161,5 @@ type Time struct {
 }
 
 func (t Time) String() string {
-	return fmt.Sprintf(`{"readableTime": "%s","time"": %d"}`,
-		*t.ReadableTime, t.Time)
+	return jsonStringer(t)
 }

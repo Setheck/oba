@@ -1,12 +1,12 @@
 package oba
 
-type List []entry
-type AltList []altEntry
+type List []Entry
+type AltList []AltEntry
 
 func (l List) toAgencies() []Agency {
 	agencies := make([]Agency, 0, len(l))
 	for _, entry := range l {
-		agencies = append(agencies, *entry.agencyFromEntry())
+		agencies = append(agencies, *entry.ToAgency())
 	}
 	return agencies
 }
@@ -20,7 +20,7 @@ func (l List) toAgenciesWithCoverage(agencies []Agency) []AgencyWithCoverage {
 	awcs := make([]AgencyWithCoverage, 0, len(l))
 	for _, entry := range l {
 		if v, ok := agmap[entry.AgencyID]; ok {
-			awc := *entry.agencyWithCoverageFromEntry(v)
+			awc := *entry.ToAgencyWithCoverage(v)
 			awcs = append(awcs, awc)
 		}
 	}
@@ -30,7 +30,7 @@ func (l List) toAgenciesWithCoverage(agencies []Agency) []AgencyWithCoverage {
 func (l List) toArrivalAndDepartures(sits []Situation, st []Stop, ts []Trip) []ArrivalAndDeparture {
 	aads := make([]ArrivalAndDeparture, 0, len(l))
 	for _, entry := range l {
-		aads = append(aads, *entry.arrivalAndDepartureFromEntry(sits, st, ts))
+		aads = append(aads, *entry.ToArrivalAndDeparture(sits, st, ts))
 	}
 	return aads
 }
@@ -38,7 +38,7 @@ func (l List) toArrivalAndDepartures(sits []Situation, st []Stop, ts []Trip) []A
 func (l List) toBlockConfigurations() []BlockConfiguration {
 	bcs := make([]BlockConfiguration, 0, len(l))
 	for _, c := range l {
-		bcs = append(bcs, *c.blockConfigurationFromEntry(c.ActiveServiceID, c.InactiveServiceID, c.Trips.toBlockTrips()))
+		bcs = append(bcs, *c.ToBlockConfiguration(c.ActiveServiceID, c.InactiveServiceID, c.Trips.toBlockTrips()))
 	}
 	return bcs
 }
@@ -46,7 +46,7 @@ func (l List) toBlockConfigurations() []BlockConfiguration {
 func (l List) toBlockTrips() []BlockTrip {
 	bts := make([]BlockTrip, 0, len(l))
 	for _, entry := range l {
-		bts = append(bts, *entry.blockTripFromEntry())
+		bts = append(bts, *entry.ToBlockTrip())
 	}
 	return bts
 }
@@ -54,7 +54,7 @@ func (l List) toBlockTrips() []BlockTrip {
 func (l List) toBlockStopTimes() []BlockStopTime {
 	bsts := make([]BlockStopTime, 0, len(l))
 	for _, entry := range l {
-		bsts = append(bsts, *entry.blockStopTimeFromEntry())
+		bsts = append(bsts, *entry.ToBlockStopTime())
 	}
 	return bsts
 }
@@ -62,7 +62,7 @@ func (l List) toBlockStopTimes() []BlockStopTime {
 func (l AltList) toEncodedPolyLines() []EncodedPolyLine {
 	epls := make([]EncodedPolyLine, 0, len(l))
 	for _, entry := range l {
-		epls = append(epls, *entry.encodedPolyLineFromEntry())
+		epls = append(epls, *entry.ToEncodedPolyLine())
 	}
 	return epls
 }
@@ -70,7 +70,7 @@ func (l AltList) toEncodedPolyLines() []EncodedPolyLine {
 func (l List) toRoutes(a []Agency) []Route {
 	routes := make([]Route, 0, len(l))
 	for _, entry := range l {
-		route := *entry.routeFromEntry(a)
+		route := *entry.ToRoute(a)
 		routes = append(routes, route)
 	}
 	return routes
@@ -79,7 +79,7 @@ func (l List) toRoutes(a []Agency) []Route {
 func (l List) toSituations() []Situation {
 	sits := make([]Situation, 0, len(l))
 	for _, entry := range l {
-		sits = append(sits, *entry.situationFromEntry())
+		sits = append(sits, *entry.ToSituation())
 	}
 	return sits
 }
@@ -94,7 +94,7 @@ func (l List) toStops(r []Route) []Stop {
 		}
 	}
 	for _, entry := range l {
-		stop := *entry.stopFromEntry()
+		stop := *entry.ToStop()
 		stopRoutes := make([]Route, 0, len(routes))
 		for _, rid := range entry.RouteIDs {
 			if route, ok := routes[rid]; ok {
@@ -110,7 +110,7 @@ func (l List) toStops(r []Route) []Stop {
 func (l List) toStopRouteDirectionSchedules() []StopRouteDirectionSchedule {
 	srds := make([]StopRouteDirectionSchedule, 0, len(l))
 	for _, entry := range l {
-		srds = append(srds, *entry.stopRouteDirectionScheduleFromEntry())
+		srds = append(srds, *entry.ToStopRouteDirectionSchedule())
 	}
 	return srds
 }
@@ -118,7 +118,7 @@ func (l List) toStopRouteDirectionSchedules() []StopRouteDirectionSchedule {
 func (l List) toScheduleFrequencies() []ScheduleFrequency {
 	sf := make([]ScheduleFrequency, 0, len(l))
 	for _, entry := range l {
-		sf = append(sf, *entry.scheduleFrequencyFromEntry())
+		sf = append(sf, *entry.ToScheduleFrequency())
 	}
 	return sf
 }
@@ -131,7 +131,7 @@ func (l List) toStopRouteSchedules(rs []Route) []StopRouteSchedule {
 	}
 	for _, entry := range l {
 		if v, ok := routes[entry.RouteID]; ok {
-			srs = append(srs, *entry.stopRouteScheduleFromEntry(v))
+			srs = append(srs, *entry.ToStopRouteSchedule(v))
 		}
 	}
 	return srs
@@ -140,7 +140,7 @@ func (l List) toStopRouteSchedules(rs []Route) []StopRouteSchedule {
 func (l List) toScheduleStopTimes() []ScheduleStopTime {
 	ssts := make([]ScheduleStopTime, 0, len(l))
 	for _, sst := range l {
-		ssts = append(ssts, *sst.scheduleStopTimeFromEntry())
+		ssts = append(ssts, *sst.ToScheduleStopTime())
 	}
 	return ssts
 }
@@ -148,7 +148,7 @@ func (l List) toScheduleStopTimes() []ScheduleStopTime {
 func (l AltList) toStopGroupings(ss []Stop) []StopGrouping {
 	sgs := make([]StopGrouping, 0, len(l))
 	for _, entry := range l {
-		sgs = append(sgs, *entry.stopGroupingFromEntry(ss))
+		sgs = append(sgs, *entry.ToStopGrouping(ss))
 	}
 	return sgs
 }
@@ -156,7 +156,7 @@ func (l AltList) toStopGroupings(ss []Stop) []StopGrouping {
 func (l AltList) toStopGroups(ss []Stop) []StopGroup {
 	sgs := make([]StopGroup, 0, len(l))
 	for _, entry := range l {
-		sgs = append(sgs, *entry.stopGroupFromEntry(ss))
+		sgs = append(sgs, *entry.ToStopGroups(ss))
 	}
 	return sgs
 }
@@ -164,7 +164,7 @@ func (l AltList) toStopGroups(ss []Stop) []StopGroup {
 func (l List) toTrips() []Trip {
 	trips := make([]Trip, 0, len(l))
 	for _, entry := range l {
-		trips = append(trips, *entry.tripFromEntry())
+		trips = append(trips, *entry.ToTrip())
 	}
 	return trips
 }
@@ -172,15 +172,15 @@ func (l List) toTrips() []Trip {
 func (l List) toTripDetails(ts []Trip, ss []Situation) []TripDetails {
 	tds := make([]TripDetails, 0, len(l))
 	for _, entry := range l {
-		tds = append(tds, *entry.tripDetailsFromEntry(ts, ss))
+		tds = append(tds, *entry.ToTripDetails(ts, ss))
 	}
 	return tds
 }
 
-func (l List) toVehicleStatuses(st []Stop, ts []Trip) []VehicleStatus {
+func (l List) toVehicleStatuses(sits []Situation, st []Stop, ts []Trip) []VehicleStatus {
 	vss := make([]VehicleStatus, 0, len(l))
 	for _, entry := range l {
-		vhs := *entry.vehicleStatusFromEntry(st, ts)
+		vhs := *entry.ToVehicleStatus(sits, st, ts)
 		vss = append(vss, vhs)
 	}
 	return vss

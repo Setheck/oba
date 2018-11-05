@@ -1,7 +1,9 @@
 language: go
 env:
   - GO111MODULE=on
-install: true
+install:
+  - go get golang.org/x/tools/cmd/cover
+  - go get github.com/mattn/goveralls
 matrix:
   include:
   - go: "1.10.x"
@@ -9,8 +11,10 @@ matrix:
     - go get -u github.com/stretchr/testify
     - go get -u github.com/spf13/viper
     - go get -u github.com/spf13/cobra
-    - go test -cover ./...
+    - go test -v -covermode=count -coverprofile=coverage.out ./...
+    - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
   - go: "1.11.x"
     script:
     - go build ./...
-    - go test -cover ./...
+    - go test -v -covermode=count -coverprofile=coverage.out ./...
+    - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN

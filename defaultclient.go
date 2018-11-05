@@ -1,4 +1,4 @@
-//Package oba - One Bus Away Go Api https://onebusaway.org/
+// Package oba - One Bus Away Go Api https://onebusaway.org/
 // Author: Seth T <setheck@gmail.com>
 package oba
 
@@ -43,7 +43,7 @@ type DefaultClient struct {
 	apiKey  string
 }
 
-//NewDefaultClient - instantiate a new instance of a Client
+// NewDefaultClient - instantiate a new instance of a Client
 func NewDefaultClient(u *url.URL, apiKey string) *DefaultClient {
 	return &DefaultClient{baseURL: u, apiKey: apiKey}
 }
@@ -62,7 +62,7 @@ func (c *DefaultClient) setBaseURL(b string) {
 	c.baseURL = u
 }
 
-//AgenciesWithCoverage - 	list all supported agencies along with the center of
+// AgenciesWithCoverage - 	list all supported agencies along with the center of
 // 						 	their coverage area
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/agencies-with-coverage.html
 //
@@ -113,7 +113,7 @@ func (c DefaultClient) AgenciesWithCoverage() ([]AgencyWithCoverage, error) {
 	return awcs, nil
 }
 
-//Agency - 		get details for a specific agency
+// Agency - 		get details for a specific agency
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/agency.html
 //
 // Method: agency
@@ -156,11 +156,11 @@ func (c DefaultClient) Agency(id string) (*Agency, error) {
 	if err != nil {
 		return nil, err
 	}
-	agency := entry.agencyFromEntry()
+	agency := entry.ToAgency()
 	return agency, nil
 }
 
-//ArrivalAndDepartureForStop - 	details about a specific arrival/departure at a
+// ArrivalAndDepartureForStop - 	details about a specific arrival/departure at a
 // 								stop
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/arrival-and-departure-for-stop.html
 //
@@ -189,8 +189,7 @@ func (c DefaultClient) Agency(id string) (*Agency, error) {
 // tripId - 		the trip id of the arriving transit vehicle
 // serviceDate -	the service date of the arriving transit vehicle
 // vehicleId - 		the vehicle id of the arriving transit vehicle (optional)
-// stopSequence - 	the stop sequence index of the stop in the transit vehicle’s
-// 					trip
+// stopSequence - 	the stop sequence index of the stop in the transit vehicle’s trip
 // time -			by default, the method returns the status of the system
 // 					right now. However, the system can also be queried at a
 // 					specific time. This can be useful for testing. See
@@ -220,11 +219,11 @@ func (c DefaultClient) ArrivalAndDepartureForStop(id string, params map[string]s
 	stops := data.Stops(routes)
 	trips := data.Trips()
 	situations := data.Situations()
-	aad := data.Entry.arrivalAndDepartureFromEntry(situations, stops, trips)
+	aad := data.Entry.ToArrivalAndDeparture(situations, stops, trips)
 	return aad, nil
 }
 
-//ArrivalsAndDeparturesForStop - 	get current arrivals and departures for a stop
+// ArrivalsAndDeparturesForStop - 	get current arrivals and departures for a stop
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/arrivals-and-departures-for-stop.html
 //
 // Method: arrivals-and-departures-for-stop
@@ -292,12 +291,12 @@ func (c DefaultClient) ArrivalsAndDeparturesForStop(id string, params map[string
 		if entry.ArrivalsAndDepartures != nil {
 			aads = data.Entry.ArrivalsAndDepartures.toArrivalAndDepartures(situations, stops, trips)
 		}
-		swaad = data.Entry.stopWithArrivalsAndDeparturesFromEntry(aads)
+		swaad = data.Entry.ToStopWithArrivalsAndDepartures(aads)
 	}
 	return swaad, nil
 }
 
-//Block - 	get block configuration for a specific block
+// Block - 	get block configuration for a specific block
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/block.html
 //
 // Method: block
@@ -335,11 +334,11 @@ func (c DefaultClient) Block(id string) (*Block, error) {
 	if err != nil {
 		return nil, err
 	}
-	block := entry.blockFromEntry()
+	block := entry.ToBlock()
 	return block, nil
 }
 
-//CancelAlarm -	cancel a registered alarm
+// CancelAlarm -	cancel a registered alarm
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/cancel-alarm.html
 //
 // Method: cancel-alarm
@@ -371,7 +370,7 @@ func (c DefaultClient) CancelAlarm(id string) error {
 	return err
 }
 
-//CurrentTime -	retrieve the current system time
+// CurrentTime -	retrieve the current system time
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/current-time.html
 //
 // Method: current-time
@@ -405,11 +404,11 @@ func (c DefaultClient) CurrentTime() (*CurrentTime, error) {
 	if err != nil {
 		return nil, err
 	}
-	ct := entry.currentTimeFromEntry()
+	ct := entry.ToCurrentTime()
 	return ct, nil
 }
 
-//RegisterAlarmForArrivalAndDepartureAtStop -	register an alarm for an
+// RegisterAlarmForArrivalAndDepartureAtStop -	register an alarm for an
 // 												arrival-departure event
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/register-alarm-for-arrival-and-departure-at-stop.html
 //
@@ -488,7 +487,7 @@ func (c DefaultClient) RegisterAlarmForArrivalAndDepartureAtStop(id string, para
 	if err != nil {
 		return nil, err
 	}
-	ra := entry.registeredAlarmFromEntry()
+	ra := entry.ToRegisteredAlarm()
 	return ra, nil
 }
 
@@ -499,7 +498,7 @@ func (c DefaultClient) ReportProblemWithStop(id string, params map[string]string
 	return err
 }
 
-//ReportProblemWithTrip -	submit a user-generated problem for a trip
+// ReportProblemWithTrip -	submit a user-generated problem for a trip
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/report-problem-with-trip.html
 //
 // Method: report-problem-with-trip
@@ -563,7 +562,7 @@ func (c DefaultClient) ReportProblemWithTrip(id string, params map[string]string
 	return err
 }
 
-//RouteIdsForAgency - 	get a list of all route ids for an agency
+// RouteIdsForAgency - 	get a list of all route ids for an agency
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/route-ids-for-agency.html
 //
 // Method: route-ids-for-agency
@@ -610,7 +609,7 @@ func (c DefaultClient) RouteIdsForAgency(id string) ([]string, error) {
 	return rs, nil
 }
 
-//Route - 	get details for a specific route
+// Route - 	get details for a specific route
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/route.html
 //
 // Method: route
@@ -664,11 +663,11 @@ func (c DefaultClient) Route(id string) (*Route, error) {
 		return nil, err
 	}
 	agencies := data.References.Agencies.toAgencies()
-	route := data.Entry.routeFromEntry(agencies)
+	route := data.Entry.ToRoute(agencies)
 	return route, nil
 }
 
-//RoutesForAgency - 	get a list of all routes for an agency
+// RoutesForAgency - 	get a list of all routes for an agency
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/routes-for-agency.html
 //
 // Method: routes-for-agency
@@ -702,7 +701,7 @@ func (c DefaultClient) Route(id string) (*Route, error) {
 //
 // Request Parameters
 // id - 	the id of the agency, encoded directly in the URL:
-//			http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/[ID GOES HERE].xml
+// 			http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/[ID GOES HERE].xml
 //
 // Response
 // Returns a list of all route ids for routes served by the specified agency.
@@ -719,7 +718,7 @@ func (c DefaultClient) RoutesForAgency(id string) ([]Route, error) {
 	return routes, nil
 }
 
-//RoutesForLocation -	search for routes near a location, optionally by route name
+// RoutesForLocation -	search for routes near a location, optionally by route name
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/routes-for-location.html
 //
 // Method: routes-for-location
@@ -772,7 +771,7 @@ func (c DefaultClient) RoutesForLocation(params map[string]string) ([]Route, err
 	return routes, nil
 }
 
-//ScheduleForStop - 	get the full schedule for a stop on a particular day
+// ScheduleForStop - 	get the full schedule for a stop on a particular day
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/schedule-for-stop.html
 //
 // Method: schedule-for-stop
@@ -882,12 +881,12 @@ func (c DefaultClient) ScheduleForStop(id string) (*StopSchedule, error) {
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
 	stops := data.References.Stops.toStops(routes)
-	ss := data.Entry.stopScheduleFromEntry(stops)
+	ss := data.Entry.ToStopSchedule(stops)
 	ss.StopRouteSchedules = data.Entry.StopRouteSchedules.toStopRouteSchedules(routes)
 	return ss, nil
 }
 
-//Shape -	get details for a specific shape (polyline drawn on a map)
+// Shape -	get details for a specific shape (polyline drawn on a map)
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/shape.html
 //
 // Method: shape
@@ -935,11 +934,11 @@ func (c DefaultClient) Shape(id string) (*Shape, error) {
 	if err != nil {
 		return nil, err
 	}
-	shape := entry.shapeFromEntry()
+	shape := entry.ToShape()
 	return shape, nil
 }
 
-//StipIDsForAgency - 	get a list of all stops for an agency
+// StipIDsForAgency - 	get a list of all stops for an agency
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stop-ids-for-agency.html
 //
 // Method: stops-ids-for-agency
@@ -987,7 +986,7 @@ func (c DefaultClient) StopIDsForAgency(id string) ([]string, error) {
 	return ss, nil
 }
 
-//Stop - 	get details for a specific stop
+// Stop - 	get details for a specific stop
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stop.html
 //
 // Method: stop
@@ -1035,12 +1034,12 @@ func (c DefaultClient) Stop(id string) (*Stop, error) {
 	}
 	agencies := data.References.Agencies.toAgencies()
 	routes := data.References.Routes.toRoutes(agencies)
-	stop := data.Entry.stopFromEntry()
+	stop := data.Entry.ToStop()
 	stop.Routes = routes
 	return stop, nil
 }
 
-//StopsForLocation - 	search for stops near a location, optionally by stop code
+// StopsForLocation - 	search for stops near a location, optionally by stop code
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stops-for-location.html
 //
 // Method: stops-for-location
@@ -1095,7 +1094,7 @@ func (c DefaultClient) StopsForLocation(params map[string]string) ([]Stop, error
 	return stops, nil
 }
 
-//StopsForRoute - 	get the set of stops and paths of travel for a particular route
+// StopsForRoute - 	get the set of stops and paths of travel for a particular route
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stops-for-route.html
 //
 // Method: stops-for-route
@@ -1171,12 +1170,12 @@ func (c DefaultClient) StopsForRoute(id string) (*StopsForRoute, error) {
 	ss := data.Stops(rs)
 	var sfr *StopsForRoute
 	if data.Entry != nil {
-		sfr = data.Entry.stopsForRouteFromEntry(rs, ss)
+		sfr = data.Entry.ToStopsForRoute(rs, ss)
 	}
 	return sfr, nil
 }
 
-//TripDetails - 	get extended details for a specific trip
+// TripDetails - 	get extended details for a specific trip
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trip-details.html
 //
 // Method: trip-details
@@ -1237,7 +1236,7 @@ func (c DefaultClient) TripDetails(id string) (*TripDetails, error) {
 	return td, nil
 }
 
-//TripForVehicle - 	get extended trip details for current trip of a specific
+// TripForVehicle - 	get extended trip details for current trip of a specific
 // 					transit vehicle
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trip-for-vehicle.html
 //
@@ -1298,7 +1297,7 @@ func (c DefaultClient) TripForVehicle(id string, params map[string]string) (*Tri
 	return td, nil
 }
 
-//Trip - 	get details for a specific trip
+// Trip - 	get details for a specific trip
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trip.html
 //
 // Method: trip
@@ -1339,11 +1338,11 @@ func (c DefaultClient) Trip(id string) (*Trip, error) {
 	if err != nil {
 		return nil, err
 	}
-	trip := entry.tripFromEntry()
+	trip := entry.ToTrip()
 	return trip, nil
 }
 
-//TripsForLocation - 	get active trips near a location
+// TripsForLocation - 	get active trips near a location
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trips-for-location.html
 //
 // Method: trips-for-location
@@ -1400,7 +1399,7 @@ func (c DefaultClient) TripsForLocation(params map[string]string) ([]TripDetails
 	return tds, nil
 }
 
-//TripsForRoute - 	get active trips for a route
+// TripsForRoute - 	get active trips for a route
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/trips-for-route.html
 //
 // Method: trips-for-route
@@ -1455,7 +1454,7 @@ func (c DefaultClient) TripsForRoute(id string) ([]TripDetails, error) {
 	return tds, nil
 }
 
-//VehiclesForAgency - 	get active vehicles for an agency
+// VehiclesForAgency - 	get active vehicles for an agency
 // http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/vehicles-for-agency.html
 //
 // Method: vehicles-for-agency
@@ -1503,7 +1502,8 @@ func (c DefaultClient) VehiclesForAgency(id string) ([]VehicleStatus, error) {
 	routes := data.Routes(agencies)
 	stops := data.Stops(routes)
 	trips := data.Trips()
-	vhs := data.List.toVehicleStatuses(stops, trips)
+	situations := data.Situations()
+	vhs := data.List.toVehicleStatuses(situations, stops, trips)
 	return vhs, nil
 }
 
@@ -1515,7 +1515,7 @@ func (c DefaultClient) getData(requestString, errMessage string, params map[stri
 	return response.Data, nil
 }
 
-func (c DefaultClient) getEntry(requestString, requestType string, params map[string]string) (*entry, error) {
+func (c DefaultClient) getEntry(requestString, requestType string, params map[string]string) (*Entry, error) {
 	data, err := c.getData(requestString, requestType, params)
 	if err != nil {
 		return nil, err
@@ -1525,7 +1525,7 @@ func (c DefaultClient) getEntry(requestString, requestType string, params map[st
 
 func (c DefaultClient) getResponse(requestString string, errMessage string, params map[string]string) (*Response, error) {
 	u := c.buildRequestURL(fmt.Sprint(requestString, jsonPostFix), params)
-	response, err := requestAndHandle(u, "")
+	response, err := requestAndHandle(u, errMessage)
 	if err != nil {
 		return nil, err
 	}

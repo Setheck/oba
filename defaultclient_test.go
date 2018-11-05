@@ -1,8 +1,9 @@
-//Package oba - One Bus Away Go Api https://onebusaway.org/
+// Package oba - One Bus Away Go Api https://onebusaway.org/
 // Author: Seth T <setheck@gmail.com>
 package oba_test
 
 import (
+	"net/url"
 	"testing"
 
 	"github.com/Setheck/oba"
@@ -16,6 +17,12 @@ const (
 
 var TestParameters = map[string]string{
 	"one": "two",
+}
+
+func TestNewDefaultClient(t *testing.T) {
+	u := &url.URL{}
+	client := oba.NewDefaultClient(u, TestApiKey)
+	assert.NotNil(t, client, "NewDefaultClient does not return a valid client")
 }
 
 func TestDefaultClient_AgenciesWithCoverage(t *testing.T) {
