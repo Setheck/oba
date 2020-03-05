@@ -1502,8 +1502,7 @@ func (c DefaultClient) VehiclesForAgency(id string) ([]VehicleStatus, error) {
 	routes := data.Routes(agencies)
 	stops := data.Stops(routes)
 	trips := data.Trips()
-	situations := data.Situations()
-	vhs := data.List.toVehicleStatuses(situations, stops, trips)
+	vhs := data.List.toVehicleStatuses(stops, trips)
 	return vhs, nil
 }
 

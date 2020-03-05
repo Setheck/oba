@@ -231,7 +231,7 @@ func (e Entry) ToArrivalAndDeparture(sis []Situation, st []Stop, ts []Trip) *Arr
 		StopSequence:                 e.StopSequence,
 		TripID:                       e.TripID,
 		TripHeadSign:                 e.TripHeadSign,
-		TripStatus:                   e.ToTripStatus(sis, st, ts),
+		TripStatus:                   e.ToTripStatus(st),
 		VehicleID:                    e.VehicleID,
 	}
 }
@@ -497,7 +497,7 @@ func (e Entry) ToTripDetails(ts []Trip, ss []Situation) *TripDetails {
 	}
 }
 
-func (e Entry) ToTripStatus(sis []Situation, ss []Stop, ts []Trip) *TripStatus {
+func (e Entry) ToTripStatus(ss []Stop) *TripStatus {
 	var cstop Stop
 	var nstop Stop
 	for _, s := range ss {
@@ -506,14 +506,6 @@ func (e Entry) ToTripStatus(sis []Situation, ss []Stop, ts []Trip) *TripStatus {
 		}
 		if e.ClosestStop == s.ID {
 			cstop = s
-		}
-	}
-	situations := make([]Situation, 0, len(sis))
-	for _, si := range sis {
-		for _, sid := range e.SituationIDs {
-			if sid == si.ID {
-				situations = append(situations, si)
-			}
 		}
 	}
 
@@ -545,7 +537,7 @@ func (e Entry) ToTripStatus(sis []Situation, ss []Stop, ts []Trip) *TripStatus {
 	}
 }
 
-func (e Entry) ToVehicleStatus(sis []Situation, ss []Stop, ts []Trip) (ret *VehicleStatus) {
+func (e Entry) ToVehicleStatus(ss []Stop, ts []Trip) (ret *VehicleStatus) {
 	var trip Trip
 	for _, t := range ts {
 		if t.ID == e.TripID {
@@ -556,7 +548,7 @@ func (e Entry) ToVehicleStatus(sis []Situation, ss []Stop, ts []Trip) (ret *Vehi
 
 	var tstatus TripStatus
 	if e.TripStatus != nil {
-		tstatus = *e.TripStatus.ToTripStatus(sis, ss, ts)
+		tstatus = *e.TripStatus.ToTripStatus(ss)
 	}
 	var loc Location
 	if e.Location != nil {
