@@ -23,14 +23,14 @@ func makeGetRequest(url string) ([]byte, error) {
 	return body, nil
 }
 
-func handleResponse(r Response) error {
+func handleResponse(r *Response) error {
 	if r.Code != http.StatusOK {
 		return fmt.Errorf("code: %d %v", r.Code, r.Text)
 	}
 	return nil
 }
 
-func handleAltResponse(r AltResponse) error {
+func handleAltResponse(r *AltResponse) error {
 	if r.Code != http.StatusOK {
 		return fmt.Errorf("code: %d %v", r.Code, r.Text)
 	}
@@ -41,7 +41,7 @@ func unmarshalResponse(data []byte) *Response {
 	response := &Response{}
 	err := json.Unmarshal(data, response)
 	if err != nil {
-		panic(err)
+		fmt.Println("error un-marshaling response", err)
 	}
 	return response
 }
@@ -50,7 +50,7 @@ func unmarshalAltResponse(data []byte) *AltResponse {
 	response := &AltResponse{}
 	err := json.Unmarshal(data, response)
 	if err != nil {
-		panic(err)
+		fmt.Println("error un-marshaling response", err)
 	}
 	return response
 }
@@ -61,7 +61,7 @@ func requestAndHandle(u, errmsg string) (*Response, error) {
 		return nil, errors.New(errmsg + err.Error())
 	}
 	response := unmarshalResponse(body)
-	if err := handleResponse(*response); err != nil {
+	if err := handleResponse(response); err != nil {
 		return nil, errors.New(errmsg + err.Error())
 	}
 	return response, nil
@@ -73,7 +73,7 @@ func requestAndHandleAlt(u, errmsg string) (*AltResponse, error) {
 		return nil, errors.New(errmsg + err.Error())
 	}
 	response := unmarshalAltResponse(body)
-	if err := handleAltResponse(*response); err != nil {
+	if err := handleAltResponse(response); err != nil {
 		return nil, errors.New(errmsg + err.Error())
 	}
 	return response, nil
