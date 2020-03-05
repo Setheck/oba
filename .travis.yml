@@ -2,6 +2,7 @@ language: go
 env:
   - GO111MODULE=on
 install:
+  - go version
   - go get golang.org/x/tools/cmd/cover
   - go get github.com/mattn/goveralls
 matrix:
